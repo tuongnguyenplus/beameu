@@ -1,0 +1,931 @@
+/* =========================================================
+   CES cart drawer — mockup polish
+   Scoped to #CartDrawer / .cart-drawer so the cart page is
+   untouched. Reuses Dawn colour tokens; adds a soft green for
+   sale/discount badges.
+   ========================================================= */
+#CartDrawer {
+  --ces-cd-green: #1f8a54;
+  --ces-cd-green-bg: #e7f4ec;
+  --ces-cd-rule: rgba(var(--color-foreground), 0.09);
+  --ces-cd-muted: rgba(var(--color-foreground), 0.55);
+  --ces-cd-card: rgba(var(--color-foreground), 0.04);
+}
+
+/* ---------- Header count ---------- */
+#CartDrawer .drawer__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+#CartDrawer .cart-drawer__count {
+  font-weight: 500;
+  color: var(--ces-cd-muted);
+}
+
+/* ---------- Line item ---------- */
+/* The per-unit price is redundant next to the line total in the drawer. */
+#CartDrawer .cart-item__unit-price {
+  display: none;
+}
+
+/* Sale badge under the product title (from line-level discounts). */
+#CartDrawer .discounts--badges {
+  margin: 0.4rem 0 0;
+}
+#CartDrawer .discounts__discount--badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.4rem;
+  background: var(--ces-cd-green-bg);
+  color: var(--ces-cd-green);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+#CartDrawer .discounts__discount--badge .icon,
+#CartDrawer .discounts__discount--badge svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: currentColor;
+}
+
+/* Right column price stack: struck compare above, bold price below. */
+#CartDrawer .cart-item__totals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+#CartDrawer .cart-item__totals .cart-item__discounted-prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  line-height: 1.2;
+}
+#CartDrawer .cart-item__totals .cart-item__old-price {
+  color: var(--ces-cd-muted);
+  font-size: 1.3rem;
+}
+#CartDrawer .cart-item__totals .price--end {
+  font-weight: 700;
+}
+/* The actual (paid) price uses the store's primary/brand colour. */
+#CartDrawer .cart-item__totals .price--end:not(.cart-item__old-price):not(.cart-item__free) {
+  color: rgb(var(--color-button));
+}
+#CartDrawer .cart-item__save-badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.4rem;
+  background: var(--ces-cd-green-bg);
+  color: var(--ces-cd-green);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ---------- Special offers (upsell) ---------- */
+.cart-drawer__offers {
+  display: block;
+  padding: 1.6rem 0 0.4rem;
+  margin: 0.4rem 0 0;
+  border-top: 0.1rem solid var(--ces-cd-rule);
+}
+.cart-drawer__offers-title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01rem;
+}
+.cart-drawer__offers-viewport {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.cart-drawer__offers-track {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex: 1 1 auto;
+  padding: 0.2rem;
+}
+.cart-drawer__offers-track::-webkit-scrollbar {
+  display: none;
+}
+.cart-drawer__offer {
+  scroll-snap-align: start;
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  background: var(--ces-cd-card);
+  box-sizing: border-box;
+}
+.cart-drawer__offer-img {
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 0.6rem;
+  object-fit: cover;
+  background: rgb(var(--color-background));
+  flex: 0 0 auto;
+}
+.cart-drawer__offer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.cart-drawer__offer-name {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.cart-drawer__offer-price {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  line-height: 1;
+}
+.cart-drawer__offer-now {
+  font-weight: 700;
+}
+.cart-drawer__offer-was {
+  color: var(--ces-cd-muted);
+  font-size: 1.3rem;
+}
+.cart-drawer__offer-save {
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.4rem;
+  background: var(--ces-cd-green-bg);
+  color: var(--ces-cd-green);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.cart-drawer__offer-add {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 0.6rem;
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.cart-drawer__offer-add:hover {
+  opacity: 0.88;
+}
+.cart-drawer__offer-add[aria-disabled='true'],
+.cart-drawer__offer-add.loading {
+  opacity: 0.6;
+  cursor: default;
+}
+.cart-drawer__offer-add:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.cart-drawer__offers-nav {
+  flex: 0 0 auto;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid var(--ces-cd-rule);
+  border-radius: 50%;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  cursor: pointer;
+  padding: 0;
+}
+.cart-drawer__offers-nav[hidden] {
+  display: none;
+}
+.cart-drawer__offers-nav svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.cart-drawer__offers-nav--prev svg {
+  transform: rotate(90deg);
+}
+.cart-drawer__offers-nav--next svg {
+  transform: rotate(-90deg);
+}
+
+/* ---------- Discount + subtotal ---------- */
+#CartDrawer .cart-drawer__discount-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0 1rem;
+  font-size: 1.4rem;
+}
+#CartDrawer .cart-drawer__discount-label {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  color: rgb(var(--color-foreground));
+}
+#CartDrawer .cart-drawer__discount-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.4rem;
+  background: var(--ces-cd-green-bg);
+  color: var(--ces-cd-green);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02rem;
+  line-height: 1;
+}
+#CartDrawer .cart-drawer__discount-tag .icon,
+#CartDrawer .cart-drawer__discount-tag svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+#CartDrawer .cart-drawer__discount-amount {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#CartDrawer .totals__total {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+#CartDrawer .totals__total-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* ---------- Checkout button total ---------- */
+#CartDrawer .cart__checkout-total {
+  margin-left: 0.4rem;
+  font-weight: 700;
+}
+
+/* ---------- Payment icons ---------- */
+.cart-drawer__payment-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+.cart-drawer__payment-icon {
+  display: inline-flex;
+}
+.cart-drawer__payment-icon svg {
+  width: 3.8rem;
+  height: 2.4rem;
+  border-radius: 0.3rem;
+}
+
+/* Maintenance Plan opt-in (subscription upsell in the cart drawer) */
+.cart-drawer__maint {
+  display: block;
+  margin: 1.2rem 0;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.18);
+  border-radius: 1rem;
+  background: rgba(var(--color-foreground), 0.03);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.cart-drawer__maint:has(.cart-drawer__maint-check:checked) {
+  border-color: rgb(var(--color-button));
+  background: rgba(var(--color-button), 0.06);
+}
+.cart-drawer__maint.is-busy {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.cart-drawer__maint-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  cursor: pointer;
+}
+.cart-drawer__maint-check {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.cart-drawer__maint-mark {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.2rem;
+  border: 0.2rem solid rgba(var(--color-foreground), 0.35);
+  border-radius: 0.5rem;
+  position: relative;
+}
+.cart-drawer__maint-check:checked + .cart-drawer__maint-mark {
+  background: rgb(var(--color-button));
+  border-color: rgb(var(--color-button));
+}
+.cart-drawer__maint-check:checked + .cart-drawer__maint-mark::after {
+  content: '';
+  position: absolute;
+  left: 0.55rem;
+  top: 0.2rem;
+  width: 0.55rem;
+  height: 1rem;
+  border: solid rgb(var(--color-button-text));
+  border-width: 0 0.25rem 0.25rem 0;
+  transform: rotate(45deg);
+}
+.cart-drawer__maint-check:focus-visible + .cart-drawer__maint-mark {
+  outline: 0.2rem solid rgb(var(--color-button));
+  outline-offset: 0.2rem;
+}
+.cart-drawer__maint-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.cart-drawer__maint-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.cart-drawer__maint-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.cart-drawer__maint-now {
+  color: rgb(var(--color-button));
+  font-weight: 700;
+}
+.cart-drawer__maint-was {
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.5);
+}
+.cart-drawer__maint-desc {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+.cart-drawer__maint-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.4rem;
+}
+.cart-drawer__maint-benefit {
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.7);
+  padding-left: 1.6rem;
+  position: relative;
+}
+.cart-drawer__maint-benefit::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: rgb(var(--color-button));
+  font-weight: 700;
+}
+
+/* ============================================================
+   Botanique-style cart drawer touches
+   ============================================================ */
+
+/* Line-item prices: struck compare (grey), sale price in red. */
+.cart-item__sale-price {
+  color: #e11900;
+  font-weight: 700;
+}
+/* FREE in the store's brand colour (scoped high enough to win). */
+#CartDrawer .cart-item__totals .cart-item__free,
+.cart-item__free {
+  color: rgb(var(--color-button));
+  font-weight: 700;
+}
+.cart-item__old-price {
+  color: rgba(var(--color-foreground), 0.5);
+}
+
+/* "N people are checking out now" social-proof pill. */
+.cart-drawer__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: fit-content;
+  margin: 1.6rem auto 0;
+  padding: 0.7rem 1.6rem;
+  border-radius: 100px;
+  background: rgb(var(--color-background));
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.08);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.cart-drawer__social-dot {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: #ff4d6d;
+  box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.6);
+  animation: ces-cart-pulse 1.8s infinite;
+}
+@keyframes ces-cart-pulse {
+  70% { box-shadow: 0 0 0 0.8rem rgba(255, 77, 109, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 77, 109, 0); }
+}
+
+/* "Special Offer" heading + subheading, centered with accent. */
+.cart-drawer__offers-title {
+  text-align: center;
+  color: rgb(var(--color-button));
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin: 1.6rem 0 0.2rem;
+}
+.cart-drawer__offers-sub {
+  text-align: center;
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.75);
+  margin: 0 0 1.2rem;
+}
+
+/* Add-on / Maintenance toggle rendered as a green iOS switch on the right. */
+.cart-drawer__maint-row {
+  align-items: center;
+}
+.cart-drawer__maint-body {
+  order: 1;
+}
+.cart-drawer__maint-mark {
+  order: 2;
+  flex: 0 0 auto;
+  width: 4.4rem;
+  height: 2.6rem;
+  margin-top: 0;
+  border: none;
+  border-radius: 100px;
+  background: rgba(var(--color-foreground), 0.25);
+  transition: background 0.15s ease;
+}
+.cart-drawer__maint-mark::before {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: 0.3rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+}
+.cart-drawer__maint-check:checked + .cart-drawer__maint-mark {
+  background: #34c759;
+}
+.cart-drawer__maint-check:checked + .cart-drawer__maint-mark::before {
+  transform: translateX(1.8rem);
+}
+/* Neutralise the old square-checkbox tick from the base styles. */
+.cart-drawer__maint-check:checked + .cart-drawer__maint-mark::after {
+  content: none;
+}
+
+/* ============================================================
+   Compact pass — tighten the drawer's vertical rhythm so more
+   of the cart is visible without scrolling.
+   ============================================================ */
+
+/* Line items: smaller thumbnail, tighter rows and title. */
+#CartDrawer .cart-item {
+  padding: 1.2rem 0;
+}
+#CartDrawer .cart-item:first-child {
+  padding-top: 0.4rem;
+}
+#CartDrawer .cart-item__media {
+  width: 6.4rem;
+}
+#CartDrawer .cart-item__image {
+  max-width: 6.4rem;
+}
+#CartDrawer .cart-item__name {
+  font-size: 1.4rem;
+  line-height: 1.25;
+}
+#CartDrawer .cart-item__details > * + * {
+  margin-top: 0.3rem;
+}
+#CartDrawer .cart-item__totals {
+  gap: 0.2rem;
+}
+#CartDrawer .cart-items thead {
+  display: none;
+}
+
+/* Social pill: closer to the items, a touch smaller. */
+.cart-drawer__social {
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.3rem;
+}
+
+/* Special offers: trimmer heading and card. */
+.cart-drawer__offers {
+  padding-top: 1.2rem;
+}
+.cart-drawer__offers-title {
+  margin: 1.2rem 0 0.2rem;
+  font-size: 1.6rem;
+}
+.cart-drawer__offers-sub {
+  margin: 0 0 0.9rem;
+  font-size: 1.3rem;
+}
+.cart-drawer__offer {
+  padding: 1rem;
+  gap: 1rem;
+}
+.cart-drawer__offer-img {
+  width: 6rem;
+  height: 6rem;
+}
+.cart-drawer__offer-name {
+  font-size: 1.4rem;
+}
+.cart-drawer__offer-add {
+  margin-top: 0.2rem;
+  padding: 0.7rem 1.5rem;
+}
+
+/* Maintenance opt-in: tighter card. */
+.cart-drawer__maint {
+  margin: 0.8rem 0;
+}
+.cart-drawer__maint-row {
+  padding: 1rem 1.2rem;
+  gap: 0.9rem;
+}
+
+/* Footer: pull the totals, tax note and CTAs together. Drop Dawn's own top
+   border so only the divider above Subtotal remains (no double line). */
+#CartDrawer .drawer__footer {
+  padding-top: 1.2rem;
+  border-top: 0;
+}
+#CartDrawer .tax-note {
+  margin: 0.4rem 0 0;
+}
+.cart-drawer__payment-icons {
+  margin-top: 1rem;
+}
+
+/* Drawer CTAs must always stack: full-width checkout button, payment icons
+   centred beneath it. Dawn flips .cart__ctas to display:flex at >=750px (for
+   the main cart page's update+checkout row), which on the drawer wrongly puts
+   the checkout button and payment icons side by side on desktop. */
+#CartDrawer .cart__ctas {
+  display: block;
+}
+#CartDrawer .cart__checkout-button {
+  max-width: none;
+  width: 100%;
+}
+
+/* ============================================================
+   Botanique reference — "Your bag" layout
+   ============================================================ */
+
+/* Bundle / free-gift lines are locked: no qty stepper or remove control. */
+.cart-item--locked .cart-item__quantity-wrapper {
+  display: none;
+}
+
+/* Offer card: sale price in the accent colour, struck compare in grey, and a
+   round accent "add" button on the right. */
+.cart-drawer__offer-now {
+  color: rgb(var(--color-button));
+  font-weight: 700;
+}
+.cart-drawer__offer-was {
+  color: var(--ces-cd-muted);
+  font-size: 1.3rem;
+}
+.cart-drawer__offer-add {
+  flex: 0 0 auto;
+  align-self: center;
+  margin-top: 0;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.cart-drawer__offer-add svg {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+/* Totals: Subtotal / Discounts (red) / Total, divider above the group. */
+#CartDrawer .cart-drawer__totals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 0.1rem solid var(--ces-cd-rule);
+  padding-top: 1.2rem;
+}
+#CartDrawer .cart-drawer__total-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+#CartDrawer .cart-drawer__total-row--discount,
+#CartDrawer .cart-drawer__total-row--discount .cart-drawer__total-num {
+  color: #e11900;
+}
+#CartDrawer .cart-drawer__total-row--grand {
+  border: 0;
+  margin: 0;
+  padding: 0.2rem 0 0;
+}
+#CartDrawer .cart-drawer__total-row--grand .totals__total,
+#CartDrawer .cart-drawer__total-row--grand .totals__total-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+/* Grand total value in the store's brand colour. */
+#CartDrawer .cart-drawer__total-row--grand .totals__total-value {
+  color: rgb(var(--color-button));
+}
+
+/* Money-back guarantee line under the total. */
+.cart-drawer__guarantee {
+  margin: 0.6rem 0 0;
+  font-size: 1.3rem;
+  color: var(--ces-cd-muted);
+}
+
+/* ============================================================
+   Line-item layout v2 — full-width title, compact qty, tight rows
+   ============================================================ */
+
+#CartDrawer .cart-items,
+#CartDrawer .cart-items tbody {
+  display: block;
+}
+#CartDrawer .cart-item {
+  display: grid;
+  grid-template-columns: 6.4rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    'media details details'
+    'media qty     price';
+  column-gap: 1.2rem;
+  row-gap: 0.6rem;
+  align-items: start;
+  padding: 0.9rem 0;
+  border-bottom: 0.1rem solid var(--ces-cd-rule);
+}
+#CartDrawer .cart-item:last-child {
+  border-bottom: 0;
+}
+#CartDrawer .cart-item__media {
+  grid-area: media;
+}
+#CartDrawer .cart-item__details {
+  grid-area: details;
+}
+#CartDrawer .cart-item__quantity {
+  grid-area: qty;
+  align-self: center;
+}
+#CartDrawer .cart-item__totals {
+  grid-area: price;
+  align-self: center;
+}
+/* Title now spans the full row width. */
+#CartDrawer .cart-item__name {
+  display: block;
+}
+
+/* On editable lines, float the struck compare price ABOVE the actual price so
+   the bold price lines up with the quantity stepper. */
+#CartDrawer .cart-item:not(.cart-item--locked) .cart-item__price-wrapper {
+  position: relative;
+}
+#CartDrawer .cart-item:not(.cart-item--locked) .cart-item__price-wrapper .cart-item__old-price {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 0.2rem;
+}
+
+/* Locked lines (free gifts): single row, price beside the title, no qty cell. */
+#CartDrawer .cart-item--locked {
+  grid-template-areas: 'media details price';
+}
+#CartDrawer .cart-item--locked .cart-item__quantity {
+  display: none;
+}
+#CartDrawer .cart-item--locked .cart-item__totals {
+  align-self: start;
+}
+
+/* Keep the qty cell exactly the stepper's height (float the hidden line-error
+   out of flow) so the row centres the price against the stepper. */
+#CartDrawer .cart-item__quantity quantity-popover {
+  position: relative;
+  display: block;
+}
+#CartDrawer .cart-item__quantity .cart-item__error {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.4rem;
+}
+
+/* Compact quantity stepper. */
+#CartDrawer .cart-item__quantity-wrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#CartDrawer .cart-item__quantity .quantity {
+  width: auto;
+  min-width: 0;
+}
+#CartDrawer .cart-item__quantity .quantity__button {
+  width: 3.2rem;
+  height: 3.2rem;
+  min-width: 3.2rem;
+}
+#CartDrawer .cart-item__quantity .quantity__input {
+  width: 3.4rem;
+  padding: 0;
+}
+#CartDrawer .cart-item__quantity .quantity__button svg,
+#CartDrawer .cart-item__quantity .quantity__button .svg-wrapper {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+#CartDrawer .cart-remove-button {
+  padding: 0.4rem;
+}
+
+/* Upsell: tighten the "Special Offer / Add Now…" block above the card. */
+.cart-drawer__offers {
+  padding-top: 1rem;
+}
+.cart-drawer__offers-title {
+  margin: 1rem 0 0.1rem;
+  font-size: 1.6rem;
+}
+.cart-drawer__offers-sub {
+  margin: 0 0 0.8rem;
+  font-size: 1.3rem;
+}
+
+/* Remove the "Taxes, discounts and shipping…" note. */
+#CartDrawer .tax-note {
+  display: none;
+}
+
+/* ============================================================
+   Fine-tune pass
+   ============================================================ */
+
+/* Totals: tighter line spacing between Subtotal / Discounts / Total. */
+#CartDrawer .cart-drawer__totals {
+  gap: 0.2rem;
+  padding-top: 0.9rem;
+}
+#CartDrawer .cart-drawer__total-row--grand {
+  padding-top: 0;
+}
+
+/* Special Offer + "Add Now for 50% OFF" on one line; tighter divider above. */
+.cart-drawer__offers {
+  padding-top: 0.6rem;
+  text-align: center;
+}
+.cart-drawer__offers-title,
+.cart-drawer__offers-sub {
+  display: inline;
+  font-size: 1.5rem;
+  margin: 0;
+}
+.cart-drawer__offers-sub {
+  margin-left: 0.6rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+.cart-drawer__offers-viewport {
+  margin-top: 0.8rem;
+}
+
+/* Subtotal: struck compare-at total (grey) + green "(Save $xx)" note. */
+#CartDrawer .cart-drawer__total-num {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+#CartDrawer .cart-drawer__total-was {
+  color: var(--ces-cd-muted);
+  font-weight: 400;
+  font-size: 1.35rem;
+}
+#CartDrawer .cart-drawer__total-save {
+  color: var(--ces-cd-green);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+/* ============================================================
+   Quantity stepper — clean, balanced pill
+   ============================================================ */
+#CartDrawer .cart-item__quantity .quantity {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  min-width: 0;
+  height: 3rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.22);
+  border-radius: 0.9rem;
+  background: rgb(var(--color-background));
+  overflow: hidden;
+}
+#CartDrawer .cart-item__quantity .quantity::after {
+  display: none;
+}
+#CartDrawer .cart-item__quantity .quantity__button {
+  width: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+  padding: 0;
+  border: 0;
+  color: rgb(var(--color-foreground));
+}
+#CartDrawer .cart-item__quantity .quantity__input {
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  text-align: center;
+  border: 0;
+  background: transparent;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+#CartDrawer .cart-item__quantity .quantity__button svg,
+#CartDrawer .cart-item__quantity .quantity__button .svg-wrapper {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* ============================================================
+   Full-width drawer on mobile (remove the left gap)
+   ============================================================ */
+@media screen and (max-width: 749px) {
+  #CartDrawer .drawer__inner {
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
+
+/* ============================================================
+   Layout: items + social + offer flow from the top; only the
+   totals/checkout footer pins to the bottom (no big mid gap).
+   ============================================================ */
+#CartDrawer cart-drawer-items {
+  flex: 0 1 auto;
+}
+#CartDrawer .drawer__footer {
+  margin-top: auto;
+}

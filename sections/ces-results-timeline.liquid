@@ -1,0 +1,342 @@
+{{ 'ces-base.css' | asset_url | stylesheet_tag }}
+{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign rtl_stages = section.blocks | where: 'type', 'stage'
+  assign rtl_cols = rtl_stages.size | at_least: 1
+  assign rtl_has_media = false
+  if section.settings.image != blank
+    assign rtl_has_media = true
+  endif
+-%}
+
+{%- style -%}
+  .ces-rtl{color:rgb(var(--color-foreground));background:var(--gradient-background)}
+  .ces-rtl__media{display:grid;gap:1.6rem;grid-template-columns:1fr}
+  .ces-rtl__media--above{margin:0 0 2.4rem}
+  .ces-rtl__media--sub{margin:2.4rem 0 0}
+  /* Image sits directly above the pills: tighten that gap to 3/5 of the usual 2.8rem. */
+  .ces-rtl__media--sub + .ces-rtl__tabs{margin-top:1.68rem}
+  .ces-rtl__media--below{margin:3.2rem 0 0}
+  .ces-rtl__fig{margin:0}
+  .ces-rtl__fig img{width:100%;height:auto;display:block;border-radius:var(--ces-radius);border:.1rem solid var(--ces-border-color)}
+  .ces-rtl__cap{margin:.8rem 0 0;font-size:1.35rem;line-height:1.45;color:var(--ces-muted);text-align:center}
+  .ces-rtl__eyebrow{text-align:center;margin:0 0 .6rem;font-size:1.3rem;font-weight:600;color:var(--ces-muted)}
+
+  /* ---- Day pills ---- */
+  .ces-rtl__tabs{position:relative;display:flex;gap:.8rem;margin:2.8rem 0 0;flex-wrap:wrap}
+  .ces-rtl__pill{position:relative;z-index:1;display:inline-block;border:0;cursor:pointer;
+    background:var(--ces-accent);color:rgb(var(--color-background));
+    font-weight:800;font-size:1.4rem;letter-spacing:.06em;text-transform:uppercase;
+    padding:.8rem 1.6rem;border-radius:.6rem;font-family:inherit;line-height:1.2}
+  .ces-rtl__pill[aria-selected="true"]{background:rgb(var(--color-foreground))}
+
+  /* ---- Stage panels ---- */
+  .ces-rtl__panels{margin-top:2.4rem}
+  .ces-rtl__title{display:flex;align-items:center;gap:.9rem;margin:0 0 1.4rem;font-size:1.7rem;font-weight:800}
+  .ces-rtl__ring{flex:0 0 auto;width:1.4rem;height:1.4rem;border-radius:50%;
+    border:.35rem solid var(--ces-accent);background:rgb(var(--color-background))}
+  .ces-rtl__points{position:relative;margin:0;padding:0 0 0 2.4rem;list-style:none;display:grid;gap:1rem}
+  /* vertical rail running down beside the cards */
+  .ces-rtl__points::before{content:"";position:absolute;left:.6rem;top:0;bottom:1.6rem;width:.2rem;background:var(--ces-accent);opacity:.45}
+  .ces-rtl__point{position:relative;padding:.9rem 1.2rem;border:.1rem solid var(--ces-border-color);
+    border-radius:.8rem;background:rgb(var(--color-background));font-size:1.45rem;line-height:1.45}
+  .ces-rtl__point::before{content:"";position:absolute;left:-2.15rem;top:1.35rem;width:.9rem;height:.9rem;border-radius:50%;background:var(--ces-accent)}
+  .ces-rtl__point::after{content:"";position:absolute;left:-1.6rem;top:1.72rem;width:1.6rem;height:.16rem;background:var(--ces-accent);opacity:.45}
+
+  /* ---- Quote card ---- */
+  .ces-rtl__quote{margin:1.8rem 0 0;border:.15rem solid var(--ces-accent);border-radius:var(--ces-radius);padding:1.6rem;background:rgb(var(--color-background))}
+  .ces-rtl__who{display:flex;align-items:center;gap:.9rem;margin:0 0 .8rem}
+  .ces-rtl__avatar{width:3.6rem;height:3.6rem;border-radius:50%;overflow:hidden;background:var(--ces-surface);flex:0 0 auto}
+  .ces-rtl__avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .ces-rtl__stars{display:block;color:#d99b2b;font-size:1.3rem;letter-spacing:.12em;line-height:1.2}
+  .ces-rtl__name{display:block;font-size:1.35rem;color:var(--ces-muted)}
+  .ces-rtl__qtitle{margin:0 0 .6rem;font-weight:800;font-size:1.5rem;color:var(--ces-accent)}
+  .ces-rtl__qtext{margin:0;font-size:1.4rem;line-height:1.55}
+
+  /* ---- Mobile: the pills are tabs, one stage at a time ---- */
+  @media screen and (max-width:749px){
+    .ces-rtl__pill{background:var(--ces-accent);opacity:.85;flex:1 1 auto;text-align:center;padding:.8rem .9rem;font-size:1.25rem}
+    .ces-rtl__pill[aria-selected="true"]{opacity:1}
+    .ces-rtl__panel{display:none}
+    .ces-rtl__panel.is-active{display:block}
+  }
+
+  /* ---- Desktop: every stage side by side, rail through the pills ---- */
+  @media screen and (min-width:750px){
+    .ces-rtl__tabs{display:grid;grid-template-columns:repeat({{ rtl_cols }},1fr);gap:0;justify-items:start}
+    .ces-rtl__tabs::before{content:"";position:absolute;left:0;right:0;top:50%;height:.2rem;background:var(--ces-accent);opacity:.45;transform:translateY(-50%);z-index:0}
+    .ces-rtl__pill{cursor:default}
+    .ces-rtl__pill[aria-selected="true"]{background:var(--ces-accent)}
+    .ces-rtl__panels{display:grid;grid-template-columns:repeat({{ rtl_cols }},1fr);gap:2.4rem;align-items:start}
+    .ces-rtl__panel{display:block}
+  }
+{%- endstyle -%}
+
+{% render 'ces-section-padding' %}
+
+<div class="ces-section ces-rtl ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient" data-ces-rtl>
+  <div class="ces-section__inner">
+    {%- capture rtl_media -%}
+      <figure class="ces-rtl__fig">
+        <img src="{{ section.settings.image | image_url: width: 1600 }}" alt="{{ section.settings.image_caption | default: section.settings.heading | escape }}" loading="lazy">
+        {%- if section.settings.image_caption != blank -%}<figcaption class="ces-rtl__cap">{{ section.settings.image_caption }}</figcaption>{%- endif -%}
+      </figure>
+    {%- endcapture -%}
+
+    {%- if rtl_has_media and section.settings.image_position == 'above_heading' -%}
+      <div class="ces-rtl__media ces-rtl__media--above">{{ rtl_media }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.eyebrow != blank -%}<p class="ces-rtl__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="ces-section__header">
+        {%- if section.settings.heading != blank -%}<h2 class="ces-heading">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.subheading != blank -%}<p class="ces-subheading">{{ section.settings.subheading }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if rtl_has_media and section.settings.image_position == 'below_subheading' -%}
+      <div class="ces-rtl__media ces-rtl__media--sub">{{ rtl_media }}</div>
+    {%- endif -%}
+
+    {%- if rtl_stages.size > 0 -%}
+      <div class="ces-rtl__tabs" role="tablist">
+        {%- for block in rtl_stages -%}
+          <button type="button" class="ces-rtl__pill" role="tab"
+            id="rtl-tab-{{ section.id }}-{{ forloop.index0 }}"
+            aria-controls="rtl-panel-{{ section.id }}-{{ forloop.index0 }}"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            data-ces-rtl-tab="{{ forloop.index0 }}">{{ block.settings.time_label }}</button>
+        {%- endfor -%}
+      </div>
+
+      <div class="ces-rtl__panels">
+        {%- for block in rtl_stages -%}
+          <div class="ces-rtl__panel{% if forloop.first %} is-active{% endif %}" role="tabpanel"
+            id="rtl-panel-{{ section.id }}-{{ forloop.index0 }}"
+            aria-labelledby="rtl-tab-{{ section.id }}-{{ forloop.index0 }}"
+            data-ces-rtl-panel="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.title != blank -%}
+              <p class="ces-rtl__title"><span class="ces-rtl__ring" aria-hidden="true"></span>{{ block.settings.title }}</p>
+            {%- endif -%}
+            {%- if block.settings.points != blank -%}
+              <ul class="ces-rtl__points">
+                {%- assign pts = block.settings.points | newline_to_br | split: '<br />' -%}
+                {%- for line in pts -%}{%- assign l = line | strip -%}{%- if l != blank -%}
+                  <li class="ces-rtl__point">{{ l }}</li>
+                {%- endif -%}{%- endfor -%}
+              </ul>
+            {%- endif -%}
+            {%- if section.settings.show_quotes and block.settings.quote_text != blank -%}
+              <div class="ces-rtl__quote">
+                <div class="ces-rtl__who">
+                  {%- if block.settings.quote_image != blank -%}
+                    <span class="ces-rtl__avatar"><img src="{{ block.settings.quote_image | image_url: width: 120 }}" alt="{{ block.settings.quote_name | escape }}" loading="lazy"></span>
+                  {%- endif -%}
+                  <span>
+                    <span class="ces-rtl__stars">★★★★★</span>
+                    {%- if block.settings.quote_name != blank -%}<span class="ces-rtl__name">{{ block.settings.quote_name }}</span>{%- endif -%}
+                  </span>
+                </div>
+                {%- if block.settings.quote_title != blank -%}<p class="ces-rtl__qtitle">{{ block.settings.quote_title }}</p>{%- endif -%}
+                <p class="ces-rtl__qtext">{{ block.settings.quote_text }}</p>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if rtl_has_media and section.settings.image_position == 'below_timeline' -%}
+      <div class="ces-rtl__media ces-rtl__media--below">{{ rtl_media }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  /* Pills switch stages on mobile. On desktop every panel is shown by CSS, so
+     this only keeps the pill states in sync and is harmless there. */
+  (function () {
+    var root = document.currentScript.previousElementSibling;
+    if (!root || !root.hasAttribute('data-ces-rtl')) return;
+    var tabs = root.querySelectorAll('[data-ces-rtl-tab]');
+    var panels = root.querySelectorAll('[data-ces-rtl-panel]');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var i = tab.getAttribute('data-ces-rtl-tab');
+        tabs.forEach(function (t) { t.setAttribute('aria-selected', t === tab ? 'true' : 'false'); });
+        panels.forEach(function (p) {
+          p.classList.toggle('is-active', p.getAttribute('data-ces-rtl-panel') === i);
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "CES Results timeline",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Stages side by side on desktop with a connecting rail; on mobile the day pills become tabs and show one stage at a time."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Results Timeline"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What to expect — week by week"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_caption",
+      "label": "Image caption"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "info": "Where the image above sits.",
+      "options": [
+        {
+          "value": "above_heading",
+          "label": "Above the heading"
+        },
+        {
+          "value": "below_subheading",
+          "label": "Below the subheading"
+        },
+        {
+          "value": "below_timeline",
+          "label": "Below the timeline"
+        }
+      ],
+      "default": "below_timeline"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quotes",
+      "label": "Show customer quotes",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Stage",
+      "settings": [
+        {
+          "type": "text",
+          "id": "time_label",
+          "label": "Day / week label",
+          "default": "Days 1-7"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Stage title"
+        },
+        {
+          "type": "textarea",
+          "id": "points",
+          "label": "Points (one per line)"
+        },
+        {
+          "type": "header",
+          "content": "Customer quote"
+        },
+        {
+          "type": "image_picker",
+          "id": "quote_image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "quote_name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "quote_title",
+          "label": "Quote headline"
+        },
+        {
+          "type": "textarea",
+          "id": "quote_text",
+          "label": "Quote"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "CES Results timeline",
+      "blocks": [
+        {
+          "type": "stage"
+        },
+        {
+          "type": "stage"
+        },
+        {
+          "type": "stage"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

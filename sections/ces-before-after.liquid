@@ -1,0 +1,206 @@
+{{ 'ces-base.css' | asset_url | stylesheet_tag }}
+{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
+{{ 'ces-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ces-slider.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign baft_pairs = ''
+  for block in section.blocks
+    if block.settings.before_image != blank or block.settings.after_image != blank
+      assign baft_pairs = baft_pairs | append: block.id | append: ','
+    endif
+  endfor
+  assign baft_ids = baft_pairs | split: ','
+-%}
+
+{%- style -%}
+  .ces-baft{color:rgb(var(--color-foreground));background:var(--gradient-background)}
+  .ces-baft__track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:1.6rem;margin-top:2.8rem;
+    overflow-x:auto;overflow-anchor:none;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-x:contain}
+  .ces-baft__track::-webkit-scrollbar{display:none}
+  .ces-baft__slide{scroll-snap-align:start;display:flex}
+  .ces-baft__card{width:100%;border:.1rem solid var(--ces-border-color);border-radius:var(--ces-radius);overflow:hidden;background:var(--ces-surface)}
+  .ces-baft__pair{display:grid;grid-template-columns:1fr 1fr}
+  .ces-baft__cell{position:relative;aspect-ratio:1/1;background:var(--ces-surface-strong)}
+  .ces-baft__cell img{width:100%;height:100%;object-fit:cover;display:block}
+  .ces-baft__ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--ces-muted);font-size:1.2rem}
+  .ces-baft__tag{position:absolute;top:1rem;left:1rem;background:rgba(0,0,0,.62);color:#fff;font-size:1.1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .9rem;border-radius:99rem}
+  .ces-baft__cell--after .ces-baft__tag{background:var(--ces-accent)}
+  .ces-baft__cap{padding:1.4rem 1.8rem}
+  /* Both layers lay out identically as inline runs. A flex fill would shrink
+     its stars to the clipped width instead of cutting one in half. */
+  .ces-baft__stars{position:relative;display:inline-block;line-height:0;white-space:nowrap;margin:0 0 .8rem}
+  .ces-baft__stars-track{display:block;color:rgba(var(--color-foreground),.2)}
+  .ces-baft__stars-fill{position:absolute;top:0;left:0;width:var(--ces-rating-pct,100%);overflow:hidden;color:#f5b301}
+  .ces-baft__stars svg{display:inline-block;vertical-align:top}
+  /* Trustpilot style: the star is knocked out of a solid tile, so the tile
+     carries the colour and the glyph stays white in both layers. */
+  .ces-baft__stars--trustpilot svg{padding:.3rem;border-radius:.2rem;box-sizing:content-box}
+  .ces-baft__stars--trustpilot .ces-baft__stars-track{color:#fff}
+  .ces-baft__stars--trustpilot .ces-baft__stars-fill{color:#fff}
+  .ces-baft__stars--trustpilot .ces-baft__stars-track svg{background:#dcdce6}
+  .ces-baft__stars--trustpilot .ces-baft__stars-fill svg{background:#00b67a}
+  .ces-baft__stars--trustpilot svg + svg{margin-left:.3rem}
+  .ces-baft__quote{margin:0 0 1rem;padding:0;border:0;font-size:1.6rem;line-height:1.5;font-style:italic}
+  .ces-baft__name{margin:0;font-weight:700;font-size:1.6rem;line-height:1.35}
+  .ces-baft__meta{margin:.6rem 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;font-size:1.35rem;line-height:1.4;color:var(--ces-muted)}
+  .ces-baft__verified{display:inline-flex;align-items:center;gap:.4rem;color:var(--ces-accent);font-weight:700}
+  .ces-baft__verified svg{width:1.4rem;height:1.4rem;display:block}
+  .ces-baft__dot{opacity:.45}
+  .ces-baft__disclaimer{margin:2rem 0 0;font-size:1.35rem;line-height:1.5;color:var(--ces-muted);font-style:italic}
+  @media screen and (max-width:749px){
+    .ces-baft__meta{flex-direction:column;align-items:flex-start;gap:.3rem}
+    .ces-baft__dot{display:none}
+  }
+  @media screen and (min-width:750px){
+    .ces-baft__track{grid-auto-columns:calc((100% - (var(--ces-baft-columns,2) - 1) * 1.6rem) / var(--ces-baft-columns,2))}
+  }
+{%- endstyle -%}
+
+{% render 'ces-section-padding' %}
+
+<div class="ces-section ces-baft ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient"
+  style="--ces-baft-columns: {{ section.settings.columns }};">
+  <div class="ces-section__inner">
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="ces-section__header">
+        {%- if section.settings.heading != blank -%}<h2 class="ces-heading">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.subheading != blank -%}<p class="ces-subheading">{{ section.settings.subheading }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if baft_ids.size > 0 -%}
+      <ces-slider class="ces-baft__slider" data-dot-label="Go to pair">
+        <div class="ces-baft__track" data-ces-slider-track>
+          {%- for block in section.blocks -%}
+            {%- if block.settings.before_image != blank or block.settings.after_image != blank -%}
+              <div class="ces-baft__slide" data-ces-slider-slide {{ block.shopify_attributes }}>
+                <div class="ces-baft__card">
+                  <div class="ces-baft__pair">
+                    <div class="ces-baft__cell ces-baft__cell--before">
+                      <span class="ces-baft__tag">{{ section.settings.before_label }}</span>
+                      {%- if block.settings.before_image != blank -%}
+                        <img src="{{ block.settings.before_image | image_url: width: 800 }}" alt="{{ block.settings.name | default: 'Before' | escape }} — before" loading="lazy">
+                      {%- else -%}<span class="ces-baft__ph">{{ section.settings.before_label }}</span>{%- endif -%}
+                    </div>
+                    <div class="ces-baft__cell ces-baft__cell--after">
+                      <span class="ces-baft__tag">{{ section.settings.after_label }}</span>
+                      {%- if block.settings.after_image != blank -%}
+                        <img src="{{ block.settings.after_image | image_url: width: 800 }}" alt="{{ block.settings.name | default: 'After' | escape }} — after" loading="lazy">
+                      {%- else -%}<span class="ces-baft__ph">{{ section.settings.after_label }}</span>{%- endif -%}
+                    </div>
+                  </div>
+                  {%- liquid
+                    assign baft_rating = block.settings.rating_tenths | default: 0
+                    assign baft_pct = baft_rating | times: 2
+                    assign baft_stars = baft_rating | divided_by: 10.0
+                  -%}
+                  {%- if block.settings.name != blank or block.settings.progress != blank or block.settings.verified or block.settings.quote != blank or baft_rating > 0 -%}
+                    <div class="ces-baft__cap">
+                      {%- if baft_rating > 0 -%}
+                        <span
+                          class="ces-baft__stars ces-baft__stars--{{ section.settings.star_style | default: 'classic' }}"
+                          style="--ces-rating-pct: {{ baft_pct }}%;"
+                          role="img"
+                          aria-label="{{ baft_stars }} out of 5 stars"
+                        >
+                          <span class="ces-baft__stars-track" aria-hidden="true">
+                            {%- for i in (1..5) -%}{% render 'ces-icon', icon: 'star-filled', size: '1.6rem' %}{%- endfor -%}
+                          </span>
+                          <span class="ces-baft__stars-fill" aria-hidden="true">
+                            {%- for i in (1..5) -%}{% render 'ces-icon', icon: 'star-filled', size: '1.6rem' %}{%- endfor -%}
+                          </span>
+                        </span>
+                      {%- endif -%}
+                      {%- if block.settings.quote != blank -%}
+                        <blockquote class="ces-baft__quote">&ldquo;{{ block.settings.quote }}&rdquo;</blockquote>
+                      {%- endif -%}
+                      {%- if block.settings.name != blank -%}<p class="ces-baft__name">{{ block.settings.name }}</p>{%- endif -%}
+                      {%- if block.settings.verified or block.settings.progress != blank -%}
+                        <p class="ces-baft__meta">
+                          {%- if block.settings.verified -%}
+                            <span class="ces-baft__verified">
+                              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="8" cy="8" r="7" fill="currentColor"/>
+                                <path d="M4.8 8.2 7 10.4l4.2-4.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                              {{ section.settings.verified_label }}
+                            </span>
+                          {%- endif -%}
+                          {%- if block.settings.verified and block.settings.progress != blank -%}<span class="ces-baft__dot">&middot;</span>{%- endif -%}
+                          {%- if block.settings.progress != blank -%}<span>{{ block.settings.progress }}</span>{%- endif -%}
+                        </p>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="ces-slider__controls">
+          <button class="ces-slider__arrow" type="button" data-ces-slider-prev>
+            <span class="ces-visually-hidden">Previous pair</span>
+            {% render 'ces-icon', icon: 'chevron-left', size: '1.8rem' %}
+          </button>
+          <div class="ces-slider__dots" data-ces-slider-dots></div>
+          <button class="ces-slider__arrow" type="button" data-ces-slider-next>
+            <span class="ces-visually-hidden">Next pair</span>
+            {% render 'ces-icon', icon: 'chevron-right', size: '1.8rem' %}
+          </button>
+        </div>
+      </ces-slider>
+    {%- endif -%}
+
+    {%- if section.settings.disclaimer != blank -%}<p class="ces-baft__disclaimer">{{ section.settings.disclaimer }}</p>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CES Before After",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Same person. Same lighting. Weeks apart." },
+    { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
+    { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
+    { "type": "text", "id": "verified_label", "label": "Verified badge text", "default": "Verified customer" },
+    {
+      "type": "select",
+      "id": "star_style",
+      "label": "Star style",
+      "options": [
+        { "value": "classic", "label": "Gold stars" },
+        { "value": "trustpilot", "label": "Green tiles (Trustpilot style)" }
+      ],
+      "default": "classic"
+    },
+    { "type": "range", "id": "columns", "min": 1, "max": 3, "step": 1, "label": "Cards per view (desktop)", "info": "Mobile always shows one card and swipes sideways.", "default": 2 },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "Real customers, unretouched, shared with permission. Individual results vary." },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "pair",
+      "name": "Before / after pair",
+      "settings": [
+        { "type": "image_picker", "id": "before_image", "label": "Before image" },
+        { "type": "image_picker", "id": "after_image", "label": "After image" },
+        { "type": "range", "id": "rating_tenths", "min": 0, "max": 50, "step": 1, "label": "Rating (tenths)", "info": "In tenths of a star: 50 = 5.0, 45 = 4.5. Set to 0 to hide the stars.", "default": 50 },
+        { "type": "textarea", "id": "quote", "label": "What she said", "info": "A short line in her own words. Quote marks are added for you." },
+        { "type": "text", "id": "name", "label": "Name and age", "info": "e.g. Anna, 58", "default": "Anna, 58" },
+        { "type": "checkbox", "id": "verified", "label": "Show verified customer", "default": true },
+        { "type": "text", "id": "progress", "label": "Usage progress", "info": "e.g. Day 18 of the protocol, or After 3 weeks of use", "default": "After 3 weeks of use" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [ { "name": "CES Before After", "blocks": [ { "type": "pair" }, { "type": "pair" } ] } ]
+}
+{% endschema %}

@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "We're here to help.",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 24
+      }
+    },
+    "skip": {
+      "type": "ces-icon-feature-grid",
+      "blocks": {
+        "c1": { "type": "icon_item", "settings": { "icon": "question-mark", "heading": "Read the FAQ", "text": "Dosage, shipping, returns and ingredient details all in one place." } },
+        "c2": { "type": "icon_item", "settings": { "icon": "truck", "heading": "Where is my order?", "text": "Track your shipment in real time with your order number." } },
+        "c3": { "type": "icon_item", "settings": { "icon": "info", "heading": "Email directly", "text": "Prefer email? Reach our care team at info@tryrovina.com." } }
+      },
+      "block_order": ["c1", "c2", "c3"],
+      "settings": {
+        "heading": "Or skip the form.",
+        "subheading": "A lot of answers live one click away.",
+        "icon_frame": "disc",
+        "icon_color": "#1d5c5c",
+        "columns_mobile": 1,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 40
+      }
+    },
+    "newsletter": {
+      "type": "ces-newsletter-signup",
+      "settings": { "color_scheme": "scheme-1", "padding_top": 24, "padding_bottom": 40 }
+    }
+  },
+  "order": ["form", "skip", "newsletter"]
+}

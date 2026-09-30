@@ -1,0 +1,408 @@
+{%- comment -%}
+  ces-bundle-v2 — subscribe-and-save style tier selector.
+
+  Same contract as ces-bundle (it reuses <ces-bundle> and ces-bundle.js, so the
+  radios, free-item variants, add-to-cart and cart drawer all behave the same).
+  What differs is presentation: only the selected tier expands to show its
+  benefit checklist, free-gift strip and fine print.
+
+  Accepts: block (the ces_bundle_v2 block).
+{%- endcomment -%}
+
+{%- liquid
+  assign ces_accent = block.settings.accent_color | default: '#1D5C5C'
+  assign ces_accent_r = ces_accent | color_extract: 'red'
+  assign ces_accent_g = ces_accent | color_extract: 'green'
+  assign ces_accent_b = ces_accent | color_extract: 'blue'
+  assign ces_tier_count = block.settings.tier_count | default: 3
+  assign ces_default_tier = block.settings.default_tier | default: 1
+-%}
+
+<ces-bundle
+  id="ces-bundle"
+  class="ces-b2 quick-add-hidden"
+  style="--ces-b2-accent: {{ ces_accent }}; --ces-b2-accent-rgb: {{ ces_accent_r }}, {{ ces_accent_g }}, {{ ces_accent_b }}; --ces-bundle-accent: {{ ces_accent }}; --ces-b2-tint: {{ ces_accent }}12; scroll-margin-top: 9rem;"
+  data-open-drawer="{{ block.settings.open_cart_drawer | default: true }}"
+  data-after-add="{{ block.settings.after_add | default: 'drawer' }}"
+  {{ block.shopify_attributes }}
+>
+  {%- if block.settings.label != blank -%}
+    <p class="ces-b2__label">{{ block.settings.label }}</p>
+  {%- endif -%}
+  {%- if block.settings.heading != blank -%}
+    <p class="ces-b2__heading">{{ block.settings.heading }}</p>
+  {%- endif -%}
+  {%- if block.settings.intro != blank -%}
+    <p class="ces-b2__intro">{{ block.settings.intro }}</p>
+  {%- endif -%}
+
+  <div class="ces-b2__tiers" role="radiogroup" aria-label="{{ block.settings.label | default: 'Choose your plan' | escape }}">
+    {%- for ces_i in (1..ces_tier_count) -%}
+      {%- liquid
+        assign vkey = 'tier_' | append: ces_i | append: '_variant'
+        assign ces_key = block.settings[vkey] | strip
+        assign ces_key_dc = ces_key | downcase
+        assign ces_v = null
+
+        comment
+          Resolve the tier's variant: exact title, then contains, then
+          position (1, 2, 3...), then variant id.
+        endcomment
+        for v in product.variants
+          assign vt = v.title | downcase
+          if vt == ces_key_dc and ces_v == null
+            assign ces_v = v
+          endif
+        endfor
+        if ces_v == null
+          for v in product.variants
+            assign vt = v.title | downcase
+            if vt contains ces_key_dc and ces_v == null
+              assign ces_v = v
+            endif
+          endfor
+        endif
+        if ces_v == null
+          assign ces_pos = ces_key | times: 1
+          if ces_pos > 0 and ces_pos <= product.variants.size
+            assign ces_idx = ces_pos | minus: 1
+            assign ces_v = product.variants[ces_idx]
+          endif
+        endif
+        if ces_v == null
+          assign ces_vid_num = ces_key | times: 1
+          for v in product.variants
+            if v.id == ces_vid_num and ces_v == null
+              assign ces_v = v
+            endif
+          endfor
+        endif
+      -%}
+
+      {%- if ces_v != null -%}
+        {%- liquid
+          assign nkey  = 'tier_' | append: ces_i | append: '_name'
+          assign bkey  = 'tier_' | append: ces_i | append: '_badge'
+          assign stkey = 'tier_' | append: ces_i | append: '_subtitle'
+          assign mtkey = 'tier_' | append: ces_i | append: '_meta'
+          assign tnkey = 'tier_' | append: ces_i | append: '_treatments'
+          assign qtkey = 'tier_' | append: ces_i | append: '_quote'
+          assign rlkey = 'tier_' | append: ces_i | append: '_role'
+          assign pkey  = 'tier_' | append: ces_i | append: '_price'
+          assign ukey  = 'tier_' | append: ces_i | append: '_unit'
+          assign ckey  = 'tier_' | append: ces_i | append: '_compare'
+          assign okey  = 'tier_' | append: ces_i | append: '_off'
+          assign srkey = 'tier_' | append: ces_i | append: '_serving'
+          assign fkey  = 'tier_' | append: ces_i | append: '_fine'
+          assign nbkey = 'tier_' | append: ces_i | append: '_benefits'
+          assign gtkey = 'tier_' | append: ces_i | append: '_gift_title'
+          assign gskey = 'tier_' | append: ces_i | append: '_gift_sub'
+          assign glkey = 'tier_' | append: ces_i | append: '_gift_label'
+          assign ftkey = 'tier_' | append: ces_i | append: '_foot'
+          assign ctakey = 'tier_' | append: ces_i | append: '_cta'
+          assign frkey = 'tier_' | append: ces_i | append: '_free_products'
+
+          if block.settings[pkey] != blank
+            assign ces_price = block.settings[pkey]
+          else
+            assign ces_price = ces_v.price | money
+          endif
+          assign ces_checked = false
+          if ces_i == ces_default_tier
+            assign ces_checked = true
+          endif
+
+          assign ces_free_ids = ''
+          assign ces_free_list = block.settings[frkey]
+          for fp in ces_free_list
+            if fp.first_available_variant
+              assign ces_free_ids = ces_free_ids | append: fp.first_available_variant.id | append: ','
+            endif
+          endfor
+
+          comment
+            The per-treatment figure is divided out of the variant's own price,
+            so it follows Shopify's presentment currency for each market and
+            cannot drift from what the customer is actually charged.
+          endcomment
+          assign ces_meta = block.settings[mtkey]
+          assign ces_treatments = block.settings[tnkey] | default: 0
+          if ces_treatments > 0
+            assign ces_unit_cents = ces_v.price | times: 1.0 | divided_by: ces_treatments | round
+            assign ces_unit = ces_unit_cents | money
+            assign ces_meta = block.settings.meta_template | default: '[count] treatments &middot; [unit]/treatment'
+            assign ces_meta = ces_meta | replace: '[count]', ces_treatments | replace: '[unit]', ces_unit | replace: '[total]', ces_price
+          endif
+
+          comment
+            Perks that are not products — express shipping, a warranty — cannot
+            come from the product picker, since that also drives what the cart
+            receives. They are listed separately and are display only.
+            One per line: icon | name | value in the store's currency.
+          endcomment
+          assign ces_extra_rows = ''
+          assign ces_extra_cents = 0
+          assign xkey = 'tier_' | append: ces_i | append: '_extra_gifts'
+          if block.settings[xkey] != blank
+            assign ces_extra_rows = block.settings[xkey] | newline_to_br | split: '<br />'
+            for xrow in ces_extra_rows
+              assign xparts = xrow | split: '|'
+              assign xamount = xparts[2] | strip | times: 100 | round
+              assign ces_extra_cents = ces_extra_cents | plus: xamount
+            endfor
+          endif
+
+          comment
+            The gift value line is either typed in, or added up from the gift
+            products and rounded to the nearest whole unit ($79.90 reads $80).
+          endcomment
+          assign ces_gift_sub = block.settings[gskey]
+          if block.settings.gift_sub_mode == 'auto'
+            assign ces_gift_cents = ces_extra_cents
+            for fp in ces_free_list limit: 3
+              assign ces_gift_cents = ces_gift_cents | plus: fp.price
+            endfor
+            assign ces_gift_cents = ces_gift_cents | plus: 50 | divided_by: 100 | times: 100
+            if ces_gift_cents > 0
+              assign ces_gift_value = ces_gift_cents | money_without_trailing_zeros
+              assign ces_gift_count = ces_free_list.size | at_most: 3 | plus: ces_extra_rows.size
+              assign ces_gift_word = 'items'
+              if ces_gift_count == 1
+                assign ces_gift_word = 'item'
+              endif
+              assign ces_gift_sub = block.settings.gift_sub_template | default: '[value] value &middot; [count] [items]'
+              assign ces_gift_sub = ces_gift_sub | replace: '[value]', ces_gift_value | replace: '[count]', ces_gift_count | replace: '[items]', ces_gift_word
+            endif
+          endif
+        -%}
+
+        <label class="ces-b2__tier ces-bundle__tier{% if block.settings[bkey] != blank %} ces-b2__tier--badged{% endif %}{% if ces_checked %} is-selected{% endif %}{% unless ces_v.available %} is-unavailable{% endunless %}">
+          {%- if block.settings[bkey] != blank -%}
+            <span class="ces-b2__ribbon">{{ block.settings[bkey] }}</span>
+          {%- endif -%}
+
+          <span class="ces-b2__head">
+            <input
+              type="radio"
+              name="ces-bundle-{{ block.id }}"
+              class="ces-bundle__radio visually-hidden"
+              value="{{ ces_v.id }}"
+              data-variant-id="{{ ces_v.id }}"
+              data-quantity="1"
+              data-free-ids="{{ ces_free_ids | strip }}"
+              data-price-label="{{ ces_v.price | money_with_currency | strip }}"
+              data-add-label="{{ block.settings[ctakey] | escape }}"
+              {% unless ces_v.available %}data-unavailable="true"{% endunless %}
+              {% if ces_checked %}checked{% endif %}
+            >
+            <span class="ces-b2__dot" aria-hidden="true"></span>
+            <span class="ces-b2__titles">
+              <span class="ces-b2__name">{{ block.settings[nkey] | default: ces_v.title }}</span>
+              {%- if block.settings[stkey] != blank -%}
+                <span class="ces-b2__subtitle">{{ block.settings[stkey] }}</span>
+              {%- endif -%}
+            </span>
+          </span>
+
+          <span class="ces-b2__pricing">
+            <span class="ces-b2__price">{{ ces_price }}</span>
+            {%- if block.settings[ckey] != blank -%}<span class="ces-b2__compare">{{ block.settings[ckey] }}</span>{%- endif -%}
+            {%- if block.settings[ukey] != blank -%}<span class="ces-b2__unit">{{ block.settings[ukey] }}</span>{%- endif -%}
+            {%- if block.settings[okey] != blank -%}<span class="ces-b2__off">{{ block.settings[okey] }}</span>{%- endif -%}
+          </span>
+
+          {%- comment -%}
+            qtkey is historically named "quote"; it now carries the "Best for"
+            line. The id is kept so existing theme settings are not orphaned.
+          {%- endcomment -%}
+          {%- if ces_meta != blank or block.settings[qtkey] != blank or block.settings[rlkey] != blank -%}
+            <span class="ces-b2__ident">
+              {%- if ces_meta != blank -%}
+                <span class="ces-b2__meta">{{ ces_meta }}</span>
+              {%- endif -%}
+              {%- if block.settings[qtkey] != blank -%}
+                <span class="ces-b2__bestfor">{{ block.settings[qtkey] }}</span>
+              {%- endif -%}
+              {%- if block.settings[rlkey] != blank -%}
+                <span class="ces-b2__role">{{ block.settings[rlkey] }}</span>
+              {%- endif -%}
+            </span>
+          {%- endif -%}
+
+          <span class="ces-b2__detail">
+            {%- if block.settings[srkey] != blank -%}<span class="ces-b2__serving">{{ block.settings[srkey] }}</span>{%- endif -%}
+            {%- if block.settings[fkey] != blank -%}<span class="ces-b2__fine">{{ block.settings[fkey] }}</span>{%- endif -%}
+
+            {%- if block.settings[nbkey] != blank -%}
+              <span class="ces-b2__benefits">
+                {%- assign ces_bens = block.settings[nbkey] | newline_to_br | split: '<br />' -%}
+                {%- for line in ces_bens -%}{%- assign l = line | strip -%}{%- if l != blank -%}
+                  <span class="ces-b2__benefit">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M4 10.4 8 14.4l8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{{ l }}</span>
+                  </span>
+                {%- endif -%}{%- endfor -%}
+              </span>
+            {%- endif -%}
+
+            {%- if block.settings[gtkey] != blank and ces_free_list.size > 0 or block.settings[gtkey] != blank and ces_extra_rows.size > 0 -%}
+              <span class="ces-b2__gift is-open" data-ces-gift>
+                <button type="button" class="ces-b2__gift-bar" aria-expanded="true" data-ces-gift-toggle>
+                  <span class="ces-b2__gift-thumbs" aria-hidden="true">
+                    {%- for fp in ces_free_list limit: 3 -%}
+                      <span class="ces-b2__thumb">
+                        {%- if fp.featured_image -%}
+                          <img src="{{ fp.featured_image | image_url: width: 160 }}" alt="" loading="lazy">
+                        {%- endif -%}
+                        <span class="ces-b2__thumb-price">{{ fp.price | money }}</span>
+                      </span>
+                    {%- endfor -%}
+                    {%- for xrow in ces_extra_rows -%}
+                      {%- assign xparts = xrow | split: '|' -%}
+                      {%- assign xicon = xparts[0] | strip | downcase -%}
+                      {%- if xparts[1] != blank -%}
+                        <span class="ces-b2__thumb">
+                          <span class="ces-b2__thumb-icon">{% render 'ces-bundle-icon', name: xicon %}</span>
+                          {%- assign xcents = xparts[2] | strip | times: 100 | round -%}
+                          {%- if xcents > 0 -%}
+                            <span class="ces-b2__thumb-price">{{ xcents | money_without_trailing_zeros }}</span>
+                          {%- endif -%}
+                        </span>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </span>
+                  <span class="ces-b2__gift-text">
+                    <span class="ces-b2__gift-title">{{ block.settings[gtkey] }}</span>
+                    {%- if ces_gift_sub != blank -%}<span class="ces-b2__gift-sub">{{ ces_gift_sub }}</span>{%- endif -%}
+                  </span>
+                  <svg class="ces-b2__gift-chev" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="m5 12.5 5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {%- comment -%}
+                    Always rendered: with no label the chevron alone still shows
+                    the bar opens, and without it the block looks inert.
+                  {%- endcomment -%}
+                  <span class="ces-b2__gift-more">
+                    {%- if block.settings.gift_more_label != blank -%}
+                      <span>{{ block.settings.gift_more_label }}</span>
+                    {%- endif -%}
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="m5 7.5 5 5 5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+
+                <span class="ces-b2__gift-panel" data-ces-gift-panel>
+                  {%- if block.settings[glkey] != blank -%}
+                    <span class="ces-b2__gift-label">{{ block.settings[glkey] }}</span>
+                  {%- endif -%}
+                  <span class="ces-b2__gift-grid">
+                    {%- for fp in ces_free_list limit: 3 -%}
+                      <span class="ces-b2__gift-item">
+                        {%- if fp.featured_image -%}
+                          <img src="{{ fp.featured_image | image_url: width: 300 }}" alt="{{ fp.title | escape }}" loading="lazy">
+                        {%- endif -%}
+                        <span class="ces-b2__thumb-price">{{ fp.price | money }}</span>
+                        <span class="ces-b2__gift-name">{{ fp.title }}</span>
+                      </span>
+                    {%- endfor -%}
+                    {%- for xrow in ces_extra_rows -%}
+                      {%- assign xparts = xrow | split: '|' -%}
+                      {%- assign xicon = xparts[0] | strip | downcase -%}
+                      {%- if xparts[1] != blank -%}
+                        <span class="ces-b2__gift-item">
+                          <span class="ces-b2__gift-icon">{% render 'ces-bundle-icon', name: xicon %}</span>
+                          {%- assign xcents = xparts[2] | strip | times: 100 | round -%}
+                          {%- if xcents > 0 -%}
+                            <span class="ces-b2__thumb-price">{{ xcents | money_without_trailing_zeros }}</span>
+                          {%- endif -%}
+                          <span class="ces-b2__gift-name">{{ xparts[1] | strip }}</span>
+                        </span>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </span>
+                </span>
+              </span>
+            {%- endif -%}
+
+            {%- if block.settings[ftkey] != blank -%}<span class="ces-b2__foot">{{ block.settings[ftkey] }}</span>{%- endif -%}
+          </span>
+        </label>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if block.settings.trust_line != blank -%}
+    <p class="ces-b2__trust">{{ block.settings.trust_line }}</p>
+  {%- endif -%}
+
+  {%- if block.settings.onetime_label != blank -%}
+    <a class="ces-b2__onetime" href="{{ block.settings.onetime_url | default: '#' }}">{{ block.settings.onetime_label }}</a>
+  {%- endif -%}
+
+  <p class="ces-b2__error" data-ces-bundle-error hidden></p>
+
+  {%- comment -%}
+    Shipping-estimate row, same markup and classes as the V1 selector so the
+    two pages read identically.
+  {%- endcomment -%}
+  {%- capture ces_ship_row -%}
+    {%- if block.settings.show_shipping -%}
+      {%- assign ces_lead_seconds = block.settings.delivery_days | times: 86400 -%}
+      {%- assign ces_ship_date = 'now' | date: '%s' | plus: ces_lead_seconds | date: block.settings.date_format -%}
+      <div class="ces-main-product__estimate ces-bundle__estimate ces-bundle__estimate--{{ block.settings.ship_position | default: 'above' }}">
+        {%- if block.settings.delivery_text != blank -%}
+          <span class="ces-main-product__estimate-item">
+            {%- if block.settings.delivery_icon != blank -%}
+              <span class="ces-main-product__estimate-glyph" aria-hidden="true">{{- block.settings.delivery_icon -}}</span>
+            {%- endif -%}
+            <span>{{ block.settings.delivery_text }} <strong>{{ ces_ship_date }}</strong></span>
+          </span>
+        {%- endif -%}
+        {%- if block.settings.origin_text != blank -%}
+          <span class="ces-main-product__estimate-item ces-main-product__estimate-item--end">
+            {%- if block.settings.origin_icon != blank -%}
+              <span class="ces-main-product__estimate-glyph" aria-hidden="true">{{- block.settings.origin_icon -}}</span>
+            {%- endif -%}
+            <span>{{ block.settings.origin_text }}</span>
+          </span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endcapture -%}
+
+  {%- if block.settings.ship_position == 'above' -%}{{ ces_ship_row }}{%- endif -%}
+
+  <button type="button" class="ces-b2__add ces-bundle__add button button--full-width button--primary" data-ces-bundle-add>
+    <span class="ces-bundle__add-label" data-ces-bundle-label>{{ block.settings.add_label | default: 'Add to Cart' }}</span>
+    <span class="ces-bundle__add-total" data-ces-bundle-total></span>
+    <span class="ces-bundle__spinner" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.5" stroke-opacity="0.3"/><path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+  </button>
+
+  {%- unless block.settings.ship_position == 'above' -%}{{ ces_ship_row }}{%- endunless -%}
+
+  {%- if block.settings.sub_note != blank -%}
+    <p class="ces-bundle__note">{{ block.settings.sub_note }}</p>
+  {%- endif -%}
+</ces-bundle>
+
+<script>
+  // Free-gift accordion. The bar lives inside the tier's <label>, so the click
+  // must not bubble out and re-trigger the radio.
+  (function () {
+    var root = document.getElementById('ces-bundle');
+    if (!root || root.dataset.cesGiftReady) return;
+    root.dataset.cesGiftReady = '1';
+    root.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-ces-gift-toggle]');
+      if (!btn || !root.contains(btn)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.closest('[data-ces-gift]').classList.toggle('is-open', open);
+    });
+  })();
+</script>

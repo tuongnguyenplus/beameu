@@ -1,0 +1,166 @@
+{{ 'ces-base.css' | asset_url | stylesheet_tag }}
+{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ces-scroll.js' | asset_url }}" defer="defer"></script>
+{{ 'ces-bullet-cta.css' | asset_url | stylesheet_tag }}
+
+{% render 'ces-section-padding' %}
+
+<div class="ces-section ces-bullet-cta ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="ces-section__inner ces-section__inner--narrow">
+    <div class="ces-bullet-cta__panel{% if section.settings.show_frame %} ces-bullet-cta__panel--framed{% endif %}{% if section.settings.image != blank %} ces-bullet-cta__panel--with-image ces-bullet-cta__panel--image-{{ section.settings.image_position }}{% endif %}">
+      {%- if section.settings.image != blank -%}
+        <div class="ces-bullet-cta__media">
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              width: section.settings.image.width,
+              height: section.settings.image.height,
+              widths: '300, 450, 600, 900, 1200',
+              sizes: '(min-width: 750px) 40vw, calc(100vw - 6rem)',
+              class: 'ces-bullet-cta__image',
+              alt: section.settings.image.alt | escape
+          }}
+        </div>
+      {%- endif -%}
+
+      <div class="ces-bullet-cta__body">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ces-heading ces-bullet-cta__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.bullets != blank -%}
+        <div class="ces-bullet-cta__bullets rte ces-rte">{{ section.settings.bullets }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a
+          class="ces-button ces-bullet-cta__button"
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            href="#"
+            aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.button_footnote != blank -%}
+        <p class="ces-bullet-cta__footnote">{{ section.settings.button_footnote }}</p>
+      {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CES Bullet CTA",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "A short bullet list with a call to action."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "info": "On desktop. The image always sits above the copy on mobile.",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What sets Rovina apart"
+    },
+    {
+      "type": "richtext",
+      "id": "bullets",
+      "label": "Bullets",
+      "default": "<ul><li>12mg of natural astaxanthin — the dose used in published trials</li><li>Grown from microalgae, never synthesised</li><li>Carried in cold-pressed oil so your body can actually absorb it</li><li>Third-party tested for potency and purity, every batch</li></ul>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Get Rovina Sunglow"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "A full URL, or an anchor such as #ces-app-price-slot to scroll back up to the buy box.",
+      "default": "#ces-app-price-slot"
+    },
+    {
+      "type": "text",
+      "id": "button_footnote",
+      "label": "Text below the button",
+      "default": "90-day money back guarantee"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_frame",
+      "label": "Show outline around the panel",
+      "info": "Turn off on a coloured scheme so the section reads as a full-width band.",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "CES Bullet CTA"
+    }
+  ]
+}
+{% endschema %}

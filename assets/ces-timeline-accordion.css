@@ -1,0 +1,323 @@
+/*
+ * Section styles for sections/ces-timeline-accordion.liquid.
+ *
+ * Two displays share the section. The collapsible one reuses ces-accordion.css;
+ * the default one below is a static progress timeline where every step is
+ * readable without a click and each is either highlighted or muted, so the
+ * sequence reads as a journey rather than a flat list.
+ */
+
+.ces-timeline-accordion {
+  color: rgb(var(--color-foreground));
+  background: var(--gradient-background);
+}
+
+.ces-timeline-accordion__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.4rem;
+}
+
+.ces-timeline-accordion__hero {
+  align-self: start;
+}
+
+.ces-timeline-accordion__hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--ces-radius-lg);
+}
+
+/* A fixed frame so a landscape or portrait source both render as the same clean
+   card the reference uses, rather than whatever aspect the file happens to be. */
+.ces-timeline-accordion__hero:not([style*='auto']) img {
+  aspect-ratio: var(--ces-hero-ratio, 3 / 4);
+  height: auto;
+  object-fit: cover;
+}
+
+/* Progress timeline ------------------------------------------------------- */
+
+.ces-timeline {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ces-timeline__step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 1.6rem;
+  padding-bottom: 2.8rem;
+}
+
+.ces-timeline__step:last-child {
+  padding-bottom: 0;
+}
+
+/* Marker and connector ---------------------------------------------------- */
+
+.ces-timeline__marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+}
+
+/*
+ * The rail runs from just under this step's dot to the top of the next one, and
+ * the last step has no successor to reach.
+ *
+ * It is two layers: ::after is the grey track, ::before the accent that grows
+ * over it. Scaling the accent from the top down draws the line rather than
+ * recolouring it in place, which is what makes the fill read as travelling with
+ * the reader instead of blinking on.
+ */
+.ces-timeline__step .ces-timeline__marker::after,
+.ces-timeline__step .ces-timeline__marker::before {
+  content: '';
+  position: absolute;
+  top: 4.4rem;
+  bottom: -2.8rem;
+  left: 50%;
+  width: 0.3rem;
+  margin-left: -0.15rem;
+}
+
+.ces-timeline__step .ces-timeline__marker::after {
+  background-color: rgba(var(--color-foreground), 0.18);
+}
+
+/* The final segment has no successor to reach, so it runs only as far as its
+   own content and then stops rather than trailing into the next section. */
+.ces-timeline__step:last-child .ces-timeline__marker::after,
+.ces-timeline__step:last-child .ces-timeline__marker::before {
+  bottom: 0.4rem;
+}
+
+.ces-timeline__step .ces-timeline__marker::before {
+  z-index: 1;
+  background-color: var(--ces-accent);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform var(--ces-timeline-fill, 0.7s) ease-out;
+}
+
+/*
+ * :not(:last-child) on the base rule above carries the weight of :last-child,
+ * so this has to match it. Without the :not() here the base scaleY(0) outweighs
+ * this rule and the rail never fills.
+ */
+.ces-timeline__step--active .ces-timeline__marker::before {
+  transform: scaleY(1);
+}
+
+/*
+ * A filled disc holding a ringed tick, as the reference draws it. The ring is
+ * part of the icon, so the disc itself carries no border — one would read as a
+ * second, heavier ring around the first.
+ */
+.ces-timeline__dot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--ces-timeline-dot-bg);
+  color: var(--ces-timeline-dot-fg);
+}
+
+/* Body -------------------------------------------------------------------- */
+
+.ces-timeline__body {
+  padding-top: 0.2rem;
+}
+
+.ces-timeline__meta {
+  margin: 0 0 0.2rem;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--ces-timeline-meta);
+}
+
+.ces-timeline__heading {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: var(--ces-timeline-heading);
+}
+
+/* Button below the timeline ----------------------------------------------- */
+
+.ces-timeline-accordion__cta {
+  margin-top: 3.2rem;
+  text-align: center;
+}
+
+.ces-timeline-accordion__cta-button {
+  min-width: 24rem;
+}
+
+/* Filled-bar heading variant --------------------------------------------- */
+
+/*
+ * With the "bar" style each step's heading becomes a full-width coloured pill,
+ * like the reference. The bar colours follow the step state (active vs muted)
+ * through the --ces-timeline-bar-* variables set in the States block below.
+ */
+.ces-timeline-accordion--head-bar .ces-timeline__head {
+  padding: 1rem 1.6rem;
+  border-radius: var(--ces-radius, 0.8rem);
+  background-color: var(--ces-timeline-bar-bg, rgba(var(--color-foreground), 0.06));
+  transition: background-color var(--ces-timeline-fill, 0.7s) ease-out;
+}
+
+.ces-timeline-accordion--head-bar .ces-timeline__head .ces-timeline__meta,
+.ces-timeline-accordion--head-bar .ces-timeline__head .ces-timeline__heading {
+  color: var(--ces-timeline-bar-fg, rgb(var(--color-foreground)));
+}
+
+.ces-timeline-accordion--head-bar .ces-timeline__heading {
+  font-size: 1.9rem;
+}
+
+.ces-timeline__list {
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.ces-timeline__list-item {
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: var(--ces-timeline-body);
+}
+
+/* A heavy tick set into the text flow, so wrapped lines keep the left edge. */
+.ces-timeline__list-item::before {
+  content: '✔';
+  margin-right: 0.6rem;
+  font-weight: 700;
+  color: var(--ces-timeline-tick);
+}
+
+.ces-timeline__text {
+  margin-top: 1.2rem;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--ces-timeline-body);
+}
+
+/* States ------------------------------------------------------------------ */
+
+/*
+ * Highlighted steps carry the scheme's accent and full-strength text. Muted
+ * ones drop back to a wash of the foreground, which keeps them legible while
+ * making clear they are still ahead.
+ */
+.ces-timeline__step--active {
+  --ces-timeline-rail: var(--ces-accent);
+
+  --ces-timeline-dot-bg: var(--ces-accent);
+  --ces-timeline-dot-fg: var(--ces-accent-contrast);
+  /* The milestone label carries the timeline's own accent colour; its strength
+     is a merchant setting via --ces-meta-opacity. */
+  --ces-timeline-meta: rgba(var(--color-button), var(--ces-meta-opacity, 1));
+  --ces-timeline-heading: rgb(var(--color-foreground));
+  --ces-timeline-body: rgba(var(--color-foreground), 0.85);
+  --ces-timeline-tick: rgb(var(--color-foreground));
+  --ces-timeline-bar-bg: var(--ces-accent);
+  --ces-timeline-bar-fg: var(--ces-accent-contrast);
+}
+
+.ces-timeline__step--muted {
+  --ces-timeline-rail: rgba(var(--color-foreground), 0.18);
+  --ces-timeline-dot-bg: rgba(var(--color-foreground), 0.08);
+  --ces-timeline-dot-fg: rgba(var(--color-foreground), 0.38);
+  --ces-timeline-meta: rgba(var(--color-foreground), 0.45);
+  --ces-timeline-heading: rgba(var(--color-foreground), 0.45);
+  --ces-timeline-body: rgba(var(--color-foreground), 0.45);
+  --ces-timeline-tick: rgba(var(--color-foreground), 0.4);
+  --ces-timeline-bar-bg: rgba(var(--color-foreground), 0.06);
+  --ces-timeline-bar-fg: rgba(var(--color-foreground), 0.55);
+}
+
+@media screen and (min-width: 750px) {
+  .ces-timeline__step {
+    column-gap: 2rem;
+    padding-bottom: 3.6rem;
+  }
+
+  .ces-timeline__step .ces-timeline__marker::after,
+  .ces-timeline__step .ces-timeline__marker::before {
+    bottom: -3.6rem;
+  }
+
+  .ces-timeline__step:last-child .ces-timeline__marker::after,
+  .ces-timeline__step:last-child .ces-timeline__marker::before {
+    bottom: 0.4rem;
+  }
+
+  .ces-timeline__heading {
+    font-size: 2.6rem;
+  }
+
+  .ces-timeline-accordion__layout:not(.ces-timeline-accordion__layout--above):has(.ces-timeline-accordion__hero) {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* Image on the right means the steps lead, so the columns swap. */
+  .ces-timeline-accordion__layout--end .ces-timeline-accordion__hero {
+    order: 2;
+  }
+
+  /* Sticks while the steps scroll past, which is what makes the two columns
+     feel like one unit rather than two lists of different lengths. */
+  .ces-timeline-accordion__hero {
+    position: sticky;
+    top: 8rem;
+  }
+}
+
+/*
+ * Text and dot ease between states over the same duration as the rail, so the
+ * step lights up as one movement rather than in two stages.
+ */
+.ces-timeline__step,
+.ces-timeline__meta,
+.ces-timeline__heading,
+.ces-timeline__list-item,
+.ces-timeline__tick,
+.ces-timeline__text,
+.ces-timeline__dot {
+  transition: color var(--ces-timeline-fill, 0.7s) ease-out,
+    background-color var(--ces-timeline-fill, 0.7s) ease-out,
+    border-color var(--ces-timeline-fill, 0.7s) ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ces-timeline__step,
+  .ces-timeline__meta,
+  .ces-timeline__heading,
+  .ces-timeline__list-item,
+  .ces-timeline__tick,
+  .ces-timeline__text,
+  .ces-timeline__dot,
+  .ces-timeline__marker::before {
+    transition: none;
+  }
+}

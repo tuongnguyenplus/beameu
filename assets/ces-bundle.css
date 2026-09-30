@@ -1,0 +1,292 @@
+/*
+ * ces-bundle — tiered bundle selector (SPNutrition-style), themed with the
+ * brand accent (--ces-bundle-accent, default #1D5C5C).
+ */
+.ces-bundle {
+  display: block;
+  --ces-bundle-accent: #1d5c5c;
+  --ces-bundle-tint: rgba(29, 92, 92, 0.1);
+  font-family: var(--font-body-family), system-ui, sans-serif;
+  color: rgb(var(--color-foreground));
+}
+
+/* Stat / social-proof bar */
+.ces-bundle__stat {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding: 0.9rem 1.4rem;
+  margin-bottom: 1.2rem;
+  border-radius: 1rem;
+  background: rgba(var(--color-foreground), 0.06);
+}
+
+.ces-bundle__tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ---- Tier card ---- */
+.ces-bundle__tier {
+  position: relative;
+  display: block;
+  border: 0.15rem solid rgba(var(--color-foreground), 0.16);
+  border-radius: 1.2rem;
+  background: rgb(var(--color-background));
+  cursor: pointer;
+  /* No overflow clipping here: the ribbon sits above the card's top edge and
+     `overflow: hidden` removed it entirely. The one thing that needed
+     clipping — the tinted last row — is rounded explicitly below. */
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.ces-bundle__tier:hover {
+  border-color: rgba(var(--color-foreground), 0.4);
+}
+.ces-bundle__tier.is-selected {
+  border-color: var(--ces-bundle-accent);
+  box-shadow: 0 0 0 0.1rem var(--ces-bundle-accent);
+}
+.ces-bundle__tier.is-unavailable {
+  opacity: 0.55;
+}
+
+/* "Most Popular" ribbon */
+.ces-bundle__ribbon {
+  position: absolute;
+  top: 0;
+  right: 1.4rem;
+  transform: translateY(-100%);
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--ces-bundle-accent);
+  border-radius: 0.6rem 0.6rem 0 0;
+  z-index: 1;
+}
+.ces-bundle__tier--best {
+  margin-top: 2.4rem;
+}
+
+/* Card head row: radio · thumb · info · price */
+.ces-bundle__head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+}
+.ces-bundle__radio-dot {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 0.2rem solid rgba(var(--color-foreground), 0.35);
+  position: relative;
+}
+.ces-bundle__tier.is-selected .ces-bundle__radio-dot {
+  border-color: var(--ces-bundle-accent);
+}
+.ces-bundle__tier.is-selected .ces-bundle__radio-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0.35rem;
+  border-radius: 50%;
+  background: var(--ces-bundle-accent);
+}
+.ces-bundle__radio:focus-visible + .ces-bundle__radio-dot {
+  outline: 0.2rem solid var(--ces-bundle-accent);
+  outline-offset: 0.2rem;
+}
+.ces-bundle__thumb {
+  flex: 0 0 auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background: rgba(var(--color-foreground), 0.05);
+}
+.ces-bundle__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ces-bundle__info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.ces-bundle__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.ces-bundle__supply {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.6);
+}
+.ces-bundle__price {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.15;
+}
+.ces-bundle__price-now {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.ces-bundle__price-was {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.5);
+}
+
+/* Inclusion / value-stack rows */
+.ces-bundle__rows {
+  display: block;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
+}
+.ces-bundle__row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background: rgba(var(--color-foreground), 0.05);
+  border-top: 0.1rem solid rgb(var(--color-background));
+}
+.ces-bundle__row:first-child {
+  border-top: none;
+}
+.ces-bundle__row:last-child {
+  border-bottom-left-radius: 1.05rem;
+  border-bottom-right-radius: 1.05rem;
+}
+/* On the selected tier, tint the rows with the brand accent. */
+.ces-bundle__tier.is-selected .ces-bundle__row {
+  background: var(--ces-bundle-tint);
+}
+.ces-bundle__row-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  color: var(--ces-bundle-accent);
+}
+.ces-bundle__row-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.ces-bundle__row-text {
+  flex: 1 1 auto;
+}
+.ces-bundle__row-value {
+  flex: 0 0 auto;
+  font-weight: 600;
+  color: rgba(var(--color-foreground), 0.5);
+}
+
+/* Add to cart */
+.ces-bundle__add {
+  position: relative;
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 1.3rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  color: #fff;
+  background: var(--ces-bundle-accent);
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  min-height: 5rem;
+}
+.ces-bundle__add:hover {
+  filter: brightness(1.08);
+}
+.ces-bundle__add[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.ces-bundle__add-total {
+  font-weight: 700;
+}
+.ces-bundle__add-total:not(:empty)::before {
+  content: '•';
+  margin-right: 0.6rem;
+  opacity: 0.7;
+}
+.ces-bundle__spinner {
+  display: none;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.ces-bundle__spinner svg {
+  width: 100%;
+  height: 100%;
+  animation: ces-bundle-spin 0.7s linear infinite;
+}
+.ces-bundle__add.is-loading .ces-bundle__add-label,
+.ces-bundle__add.is-loading .ces-bundle__add-total {
+  visibility: hidden;
+}
+.ces-bundle__add.is-loading .ces-bundle__spinner {
+  display: inline-flex;
+  position: absolute;
+}
+@keyframes ces-bundle-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ces-bundle__error {
+  margin: 1rem 0 0;
+  color: #c0392b;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.ces-bundle__note {
+  margin: 1rem 0 0;
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.6);
+  text-align: center;
+}
+
+/* Shipping estimate row placed inside the bundle (reuses the section estimate
+   styles; spacing depends on which side of the button it sits). */
+/* Above the button: separate from the tiers above, hug the button below. */
+.ces-bundle__estimate--above {
+  margin-top: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+/* Cancel the button's own top margin so it sits right under the estimate. */
+.ces-bundle__estimate--above + .ces-bundle__add {
+  margin-top: 0.4rem;
+}
+/* Below the button: hug the button above. */
+.ces-bundle__estimate--below {
+  margin-top: 0.9rem;
+}
+
+.ces-bundle__heading {
+  margin: 0 0 0.6rem;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.ces-bundle__intro {
+  margin: 0 0 1.6rem;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.7);
+}

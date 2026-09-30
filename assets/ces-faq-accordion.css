@@ -1,0 +1,32 @@
+/* Section styles for sections/ces-faq-accordion.liquid.
+   The row mechanics live in ces-accordion.css. */
+
+.ces-faq-accordion {
+  color: rgb(var(--color-foreground));
+  background: var(--gradient-background);
+}
+
+.ces-faq-group {
+  margin: 2.8rem 0 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ces-accent);
+}
+
+.ces-faq-group:first-child {
+  margin-top: 0;
+}
+
+.ces-faq-accordion__footer {
+  margin-top: 2.4rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--ces-muted);
+}
+
+.ces-faq-accordion__footer a {
+  color: rgb(var(--color-link));
+}

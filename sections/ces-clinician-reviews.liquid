@@ -1,0 +1,630 @@
+{{ 'ces-base.css' | asset_url | stylesheet_tag }}
+{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
+{{ 'ces-clinician-reviews.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ces-clinician-reviews.js' | asset_url }}" defer="defer"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&display=swap">
+
+{% render 'ces-section-padding' %}
+
+{%- liquid
+  assign reviews = section.blocks | where: 'type', 'review'
+-%}
+
+{%- capture ces_shield -%}<svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" viewBox="0 0 13 16" fill="none"><path d="M6.5 1L1 3.1V8C1 10.8 2.83333 13.1333 6.5 15C10.1667 13.1333 12 10.8 12 8V3.1L6.5 1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>{%- endcapture -%}
+{%- capture ces_book -%}<svg xmlns="http://www.w3.org/2000/svg" width="9" height="11" viewBox="0 0 9 11" fill="none"><path d="M1.5 10.5C1.08333 10.5 0.729167 10.3542 0.4375 10.0625C0.145833 9.77083 0 9.41667 0 9V2C0 1.58333 0.145833 1.22917 0.4375 0.9375C0.729167 0.645833 1.08333 0.5 1.5 0.5H7V8.5H1.5C1.35833 8.5 1.23958 8.54792 1.14375 8.64375C1.04792 8.73958 1 8.85833 1 9C1 9.14167 1.04792 9.26042 1.14375 9.35625C1.23958 9.45208 1.35833 9.5 1.5 9.5H7V10.5H1.5Z" fill="currentColor"></path></svg>{%- endcapture -%}
+{%- capture ces_verified -%}<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="m23 12-2.44-2.79.34-3.69-3.61-.82L15.4 1.5 12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"/></svg>{%- endcapture -%}
+
+<clinician-reviews
+  class="ces-section ces-clinreviews{% if section.settings.show_reviews_on_page %} ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient{% endif %}"
+  id="ClinReviews-{{ section.id }}"
+>
+  {%- if section.settings.show_reviews_on_page -%}
+  <div class="ces-clinreviews__inner">
+    <div class="ces-clinreviews__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="ces-clinreviews__cc-row">
+          <span class="ces-clinreviews__divider"></span>
+          <span class="ces-clinreviews__laurel" aria-hidden="true">
+            {{- 'ces-clin-laurel-left.svg' | inline_asset_content -}}
+          </span>
+          <span class="ces-clinreviews__caduceus" aria-hidden="true">
+            {{- 'ces-clin-caduceus.svg' | inline_asset_content -}}
+          </span>
+          <p class="ces-clinreviews__eyebrow">{{ section.settings.eyebrow }}</p>
+          <span class="ces-clinreviews__laurel ces-clinreviews__laurel--right" aria-hidden="true">
+            {{- 'ces-clin-laurel-right.svg' | inline_asset_content -}}
+          </span>
+          <span class="ces-clinreviews__divider"></span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank -%}
+        <h2 class="ces-clinreviews__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subtitle != blank -%}
+        <div class="ces-clinreviews__subtitle">
+          {{ section.settings.subtitle }}
+          {%- if section.settings.learn_more_label != blank -%}
+            <button type="button" class="ces-clinreviews__learn-more" data-ces-clin-modal>{{ section.settings.learn_more_label }}</button>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if reviews.size > 0 -%}
+      <div class="ces-clinreviews__list">
+        {%- for block in reviews -%}
+          <article class="ces-clinreviews__note" {{ block.shopify_attributes }}>
+            <div class="ces-clinreviews__provider-col">
+              <div class="ces-clinreviews__provider-summary">
+                {%- if block.settings.image != blank -%}
+                  {%- assign ces_prov_img = block.settings.image | image_url: width: 120 -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 120
+                    | image_tag: loading: 'lazy', widths: '48, 96, 120', sizes: '48px', class: 'ces-clinreviews__avatar', alt: block.settings.name
+                  }}
+                {%- else -%}
+                  {%- assign ces_prov_img = '' -%}
+                  <span class="ces-clinreviews__avatar ces-clinreviews__avatar--placeholder" aria-hidden="true"></span>
+                {%- endif -%}
+                <div class="ces-clinreviews__provider">
+                  {%- if block.settings.name != blank -%}
+                    <button
+                      type="button"
+                      class="ces-clinreviews__name"
+                      data-ces-clin-open
+                      data-target="ClinProf-{{ section.id }}-{{ block.id }}"
+                    >{{ block.settings.name }}</button>
+                  {%- endif -%}
+                  {%- if block.settings.verified -%}
+                    <span class="ces-clinreviews__verified">
+                      {{ block.settings.verified_label | default: 'Verified clinician' }}
+                      <span class="ces-clinreviews__verified-icon" aria-hidden="true">{{ ces_verified }}</span>
+                    </span>
+                  {%- endif -%}
+                </div>
+              </div>
+
+              {%- if block.settings.specialty != blank or block.settings.years != blank -%}
+                <div class="ces-clinreviews__extra">
+                  {%- if block.settings.specialty != blank -%}
+                    <div class="ces-clinreviews__dd">Specialty</div>
+                    <div class="ces-clinreviews__dt">{{ block.settings.specialty }}</div>
+                  {%- endif -%}
+                  {%- if block.settings.specialty != blank and block.settings.years != blank -%}
+                    <hr class="ces-clinreviews__rule">
+                  {%- endif -%}
+                  {%- if block.settings.years != blank -%}
+                    <div class="ces-clinreviews__dd">Years in practice</div>
+                    <div class="ces-clinreviews__dt">{{ block.settings.years }}</div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+
+            <div class="ces-clinreviews__content">
+              {%- if block.settings.summary != blank -%}
+                <p class="ces-clinreviews__summary">{{ block.settings.summary }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.message != blank -%}
+                <div class="ces-clinreviews__message ces-clinreviews__message--clamp" data-ces-clamp>
+                  {{ block.settings.message }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.citation_pill != blank -%}
+                <span class="ces-clinreviews__citation">
+                  <span class="ces-clinreviews__citation-pill" tabindex="0">
+                    {{ ces_book }}
+                    <span>{{ block.settings.citation_pill }}</span>
+                  </span>
+                  {%- if block.settings.citations != blank -%}
+                    {%- assign ces_cits = block.settings.citations | newline_to_br | split: '<br />' -%}
+                    <span class="ces-clinreviews__citation-tip" role="tooltip">
+                      <span class="ces-clinreviews__citation-tip-head">{{ ces_cits.size }} Sources</span>
+                      {%- for ces_cit in ces_cits -%}
+                        {%- assign ces_cit = ces_cit | strip -%}
+                        {%- if ces_cit != blank -%}
+                          {%- assign ces_cit_parts = ces_cit | split: '|' -%}
+                          <span class="ces-clinreviews__citation-item">
+                            <span class="ces-clinreviews__citation-title">{{ ces_cit_parts[0] | strip }}</span>
+                            {%- if ces_cit_parts[1] != blank -%}
+                              <span class="ces-clinreviews__citation-src">{{ ces_cit_parts[1] | strip }}</span>
+                            {%- endif -%}
+                          </span>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </span>
+                  {%- endif -%}
+                </span>
+              {%- endif -%}
+
+              {%- if block.settings.message != blank -%}
+                <button type="button" class="ces-clinreviews__show-more" data-ces-showmore hidden>
+                  {{ block.settings.show_more_label | default: 'Show more' }}
+                </button>
+              {%- endif -%}
+
+              {%- if block.settings.highlights != blank -%}
+                {%- assign ces_hls = block.settings.highlights | newline_to_br | split: '<br />' -%}
+                <div class="ces-clinreviews__highlights">
+                  <span class="ces-clinreviews__highlights-head">{{ block.settings.highlights_label | default: 'Highlights:' }}</span>
+                  {%- for ces_hl in ces_hls -%}
+                    {%- assign ces_hl = ces_hl | strip -%}
+                    {%- if ces_hl != blank -%}
+                      <span class="ces-clinreviews__highlight">
+                        {{ ces_shield }}
+                        <span>{{ ces_hl }}</span>
+                      </span>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_section_footer -%}
+      <div class="ces-clinreviews__footer">
+        <div class="ces-clinreviews__footer-row">
+          {%- if section.settings.footer_button_label != blank -%}
+            <button type="button" class="ces-clinreviews__footer-btn" data-ces-clin-modal>{{ section.settings.footer_button_label }}</button>
+          {%- endif -%}
+          {%- if section.settings.footer_powered_label != blank or section.settings.footer_brand != blank -%}
+            <span class="ces-clinreviews__powered">
+              {{ section.settings.footer_powered_label }}
+              {%- if section.settings.footer_brand != blank -%}
+                <span class="ces-clinreviews__powered-brand">
+                  <span class="ces-clinreviews__caduceus" aria-hidden="true">{{ 'ces-clin-caduceus.svg' | inline_asset_content }}</span>
+                  {{ section.settings.footer_brand }}
+                </span>
+              {%- endif -%}
+            </span>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.footer_note != blank -%}
+          <div class="ces-clinreviews__footer-note">{{ section.settings.footer_note }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+  {%- endif -%}
+
+  {%- comment -%} Modal — FAQ + clinician profile {%- endcomment -%}
+  <div class="ces-clinreviews__modal" data-ces-modal hidden>
+    <div class="ces-clinreviews__modal-overlay" data-ces-modal-close></div>
+    <div class="ces-clinreviews__dialog" role="dialog" aria-modal="true" aria-label="{{ section.settings.modal_title | default: 'Clinician Reviews' | escape }}">
+      <div class="ces-clinreviews__dialog-head">
+        <button type="button" class="ces-clinreviews__dialog-back" data-ces-back aria-label="Back" hidden>
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1 3 7l6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="ces-clinreviews__dialog-brand">
+          <span class="ces-clinreviews__caduceus" aria-hidden="true">{{ 'ces-clin-caduceus.svg' | inline_asset_content }}</span>
+          {{ section.settings.modal_title | default: 'Clinician Reviews' }}
+        </span>
+        <button type="button" class="ces-clinreviews__dialog-close" data-ces-modal-close aria-label="{{ 'accessibility.close' | t }}">
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="ces-clinreviews__dialog-body">
+        <div class="ces-clinreviews__faq" data-ces-faq>
+          {%- for i in (1..4) -%}
+            {%- assign qk = 'faq' | append: i | append: '_q' -%}
+            {%- assign ak = 'faq' | append: i | append: '_a' -%}
+            {%- if section.settings[qk] != blank -%}
+              <details class="ces-clinreviews__faq-item">
+                <summary class="ces-clinreviews__faq-q">
+                  {{ section.settings[qk] }}
+                  <span class="ces-clinreviews__faq-caret" aria-hidden="true"></span>
+                </summary>
+                <div class="ces-clinreviews__faq-a">{{ section.settings[ak] }}</div>
+              </details>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if reviews.size > 0 -%}
+          {%- comment -%} MAIN view — clinicians list (opened by "Learn more") {%- endcomment -%}
+          <div class="ces-clinreviews__view ces-clinreviews__view--main" data-ces-view="main">
+            <div class="ces-clinreviews__shared">
+              {%- if section.settings.clinicians_heading != blank -%}
+                <p class="ces-clinreviews__shared-head">{{ section.settings.clinicians_heading }}</p>
+              {%- endif -%}
+              {%- if section.settings.clinicians_intro != blank -%}
+                <div class="ces-clinreviews__shared-intro">{{ section.settings.clinicians_intro }}</div>
+              {%- endif -%}
+              <ul class="ces-clinreviews__shared-list" role="list">
+                {%- for block in reviews -%}
+                  <li class="ces-clinreviews__shared-item">
+                    {%- if block.settings.image != blank -%}
+                      {{ block.settings.image | image_url: width: 96 | image_tag: loading: 'lazy', widths: '40, 80, 96', sizes: '40px', class: 'ces-clinreviews__shared-avatar', alt: block.settings.name }}
+                    {%- else -%}
+                      <span class="ces-clinreviews__shared-avatar ces-clinreviews__avatar--placeholder" aria-hidden="true"></span>
+                    {%- endif -%}
+                    <span class="ces-clinreviews__shared-info">
+                      <button type="button" class="ces-clinreviews__shared-name" data-ces-clin-open data-target="ClinProf-{{ section.id }}-{{ block.id }}">{{ block.settings.name }}</button>
+                      {%- if block.settings.location != blank -%}
+                        <span class="ces-clinreviews__shared-loc">{{ block.settings.location }}</span>
+                      {%- endif -%}
+                    </span>
+                    <button type="button" class="ces-clinreviews__preview" data-ces-clin-open data-target="ClinProf-{{ section.id }}-{{ block.id }}">
+                      {{ block.settings.preview_label | default: 'Preview' }}
+                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 3h7v7M13 3 6.5 9.5M11 9v4H3V5h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </div>
+
+          {%- comment -%} REVIEWS view — review content (opened by "Read their reviews") {%- endcomment -%}
+          <div class="ces-clinreviews__view ces-clinreviews__view--reviews" data-ces-view="reviews" hidden>
+            {%- for block in reviews -%}
+              <div class="ces-clinreviews__modal-review">
+                <div class="ces-clinreviews__profile-head ces-clinreviews__profile-head--sm">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 120 | image_tag: loading: 'lazy', widths: '48, 96, 120', sizes: '48px', class: 'ces-clinreviews__avatar', alt: block.settings.name }}
+                  {%- else -%}
+                    <span class="ces-clinreviews__avatar ces-clinreviews__avatar--placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
+                  <div class="ces-clinreviews__provider">
+                    {%- if block.settings.name != blank -%}
+                      <button type="button" class="ces-clinreviews__name ces-clinreviews__name--btn" data-ces-clin-open data-target="ClinProf-{{ section.id }}-{{ block.id }}">{{ block.settings.name }}</button>
+                    {%- endif -%}
+                    {%- if block.settings.verified -%}
+                      <span class="ces-clinreviews__verified">
+                        {{ block.settings.verified_label | default: 'Verified clinician' }}
+                        <span class="ces-clinreviews__verified-icon" aria-hidden="true">{{ ces_verified }}</span>
+                      </span>
+                    {%- endif -%}
+                  </div>
+                </div>
+                {%- if block.settings.specialty != blank or block.settings.years != blank -%}
+                  <div class="ces-clinreviews__extra">
+                    {%- if block.settings.specialty != blank -%}
+                      <div class="ces-clinreviews__dd">Specialty</div>
+                      <div class="ces-clinreviews__dt">{{ block.settings.specialty }}</div>
+                    {%- endif -%}
+                    {%- if block.settings.specialty != blank and block.settings.years != blank -%}
+                      <hr class="ces-clinreviews__rule">
+                    {%- endif -%}
+                    {%- if block.settings.years != blank -%}
+                      <div class="ces-clinreviews__dd">Years in practice</div>
+                      <div class="ces-clinreviews__dt">{{ block.settings.years }}</div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.summary != blank -%}
+                  <p class="ces-clinreviews__summary">{{ block.settings.summary }}</p>
+                {%- endif -%}
+                {%- if block.settings.message != blank -%}
+                  <div class="ces-clinreviews__message">{{ block.settings.message }}</div>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+          <div class="ces-clinreviews__view ces-clinreviews__view--profile" data-ces-view="profile" hidden>
+            {%- for block in reviews -%}
+              <div class="ces-clinreviews__profile" id="ClinProf-{{ section.id }}-{{ block.id }}" hidden>
+                <div class="ces-clinreviews__profile-head">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 160 | image_tag: loading: 'lazy', widths: '72, 120, 160', sizes: '72px', class: 'ces-clinreviews__profile-avatar', alt: block.settings.name }}
+                  {%- else -%}
+                    <span class="ces-clinreviews__profile-avatar ces-clinreviews__avatar--placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
+                  {%- if block.settings.name != blank -%}
+                    <p class="ces-clinreviews__profile-name">{{ block.settings.name }}</p>
+                  {%- endif -%}
+                </div>
+                <dl class="ces-clinreviews__info">
+                  {%- if block.settings.website != blank -%}
+                    <div class="ces-clinreviews__info-row">
+                      <dt>Website</dt>
+                      <dd>
+                        <a href="{{ block.settings.website }}" target="_blank" rel="noopener" class="ces-clinreviews__info-link">
+                          {{ block.settings.website_label | default: 'Go to clinician website' }}
+                          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 3h7v7M13 3 6.5 9.5M11 9v4H3V5h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                      </dd>
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.specialty != blank -%}
+                    <div class="ces-clinreviews__info-row"><dt>Expertise</dt><dd>{{ block.settings.specialty }}</dd></div>
+                  {%- endif -%}
+                  {%- if block.settings.location != blank -%}
+                    <div class="ces-clinreviews__info-row"><dt>Location</dt><dd>{{ block.settings.location }}</dd></div>
+                  {%- endif -%}
+                  {%- if block.settings.npi != blank -%}
+                    <div class="ces-clinreviews__info-row"><dt>NPI Number</dt><dd>{{ block.settings.npi }}</dd></div>
+                  {%- endif -%}
+                  {%- if block.settings.practice_type != blank -%}
+                    <div class="ces-clinreviews__info-row"><dt>Practice Type</dt><dd>{{ block.settings.practice_type }}</dd></div>
+                  {%- endif -%}
+                  {%- if block.settings.joined != blank -%}
+                    <div class="ces-clinreviews__info-row"><dt>Joined {{ section.settings.modal_title | default: 'FrontrowMD' }}</dt><dd>{{ block.settings.joined }}</dd></div>
+                  {%- endif -%}
+                  {%- if block.settings.years != blank -%}
+                    <div class="ces-clinreviews__info-row"><dt>Years in practice</dt><dd>{{ block.settings.years }}</dd></div>
+                  {%- endif -%}
+                </dl>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.modal_disclaimer != blank -%}
+        <div class="ces-clinreviews__dialog-foot">
+          <div class="ces-clinreviews__disclaimer">{{ section.settings.modal_disclaimer }}</div>
+          {%- if section.settings.modal_footer_label != blank -%}
+            {%- if section.settings.modal_footer_link != blank -%}
+              <a class="ces-clinreviews__foot-link" href="{{ section.settings.modal_footer_link }}" target="_blank" rel="noopener">{{ section.settings.modal_footer_label }}</a>
+            {%- else -%}
+              <span class="ces-clinreviews__foot-link ces-clinreviews__foot-link--static">{{ section.settings.modal_footer_label }}</span>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</clinician-reviews>
+
+{% schema %}
+{
+  "name": "CES Clinician reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_reviews_on_page",
+      "label": "Show reviews on the page",
+      "info": "Turn off to hide the on-page reviews while keeping the pop-up available for the Clinicians' Choice badge. Do not disable the whole section, or the pop-up stops working.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Clinician Reviews"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Independent Clinician Evaluations"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Clinicians can receive product samples and are <em>never compensated</em> to submit evaluations.</p>"
+    },
+    {
+      "type": "text",
+      "id": "learn_more_label",
+      "label": "Learn more label (opens modal)",
+      "default": "Learn more"
+    },
+    {
+      "type": "header",
+      "content": "Modal"
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "Modal title",
+      "default": "frontrowMD"
+    },
+    {
+      "type": "text",
+      "id": "faq1_q",
+      "label": "FAQ 1 question",
+      "default": "Who is FrontrowMD?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq1_a",
+      "label": "FAQ 1 answer",
+      "default": "<p>FrontrowMD is an independent, third-party on a mission to help shoppers make informed health choices, bringing unbiased medical expert opinions to the point of purchase.</p>"
+    },
+    {
+      "type": "text",
+      "id": "faq2_q",
+      "label": "FAQ 2 question",
+      "default": "Who / how many clinicians share this?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq2_a",
+      "label": "FAQ 2 answer",
+      "default": "<p>Verified, licensed clinicians who chose to share this product with their patients. The number shows how many clinicians included it on their personalized pages.</p>"
+    },
+    {
+      "type": "text",
+      "id": "faq3_q",
+      "label": "FAQ 3 question",
+      "default": "What’s “Clinicians’ Choice” / “share”?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq3_a",
+      "label": "FAQ 3 answer",
+      "default": "<p>Clinicians receive free samples so they can try the product themselves or share it with patients. “Share” means a clinician chose to feature it; if helpful, one or more pre-drafted reviews are provided that they are welcome to edit or submit.</p>"
+    },
+    {
+      "type": "text",
+      "id": "faq4_q",
+      "label": "FAQ 4 question",
+      "default": "Are clinicians paid to do this?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq4_a",
+      "label": "FAQ 4 answer",
+      "default": "<p>No — clinicians are never compensated. This is a free platform for clinicians and patients. These clinicians include products on their personalized discount pages, which you can preview below, to benefit their patients.</p>"
+    },
+    {
+      "type": "text",
+      "id": "clinicians_heading",
+      "label": "Clinicians list heading",
+      "default": "Clinicians who shared this product"
+    },
+    {
+      "type": "richtext",
+      "id": "clinicians_intro",
+      "label": "Clinicians list intro",
+      "default": "<p>For the complete list, click here. Numbers below indicate how many clinicians collaborate to share products on a single page at a medical practice.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "modal_disclaimer",
+      "label": "Modal disclaimer",
+      "default": "<p>Clinicians may edit and/or submit pre-drafted reviews. All reviews are informational only and not medical advice. Always consult your provider.</p>"
+    },
+    {
+      "type": "text",
+      "id": "modal_footer_label",
+      "label": "Footer link label"
+    },
+    {
+      "type": "url",
+      "id": "modal_footer_link",
+      "label": "Footer link"
+    },
+    {
+      "type": "header",
+      "content": "Section footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section_footer",
+      "label": "Show section footer",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "footer_button_label",
+      "label": "Footer button (opens modal)",
+      "default": "Learn more"
+    },
+    {
+      "type": "text",
+      "id": "footer_powered_label",
+      "label": "Powered-by label",
+      "default": "Clinician reviews powered by"
+    },
+    {
+      "type": "text",
+      "id": "footer_brand",
+      "label": "Powered-by brand",
+      "default": "frontrowMD"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_note",
+      "label": "Footer note",
+      "default": "<p>†This clinician wants to clarify that larger-scale research to support their product claims is still developing. These statements have not been reviewed by the FDA and are not intended to be medical advice.</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Clinician review",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Clinician photo" },
+        { "type": "text", "id": "name", "label": "Name & credentials", "default": "Dr. Anand Balasubramanian, MD" },
+        { "type": "checkbox", "id": "verified", "label": "Show \"Verified clinician\"", "default": true },
+        { "type": "text", "id": "verified_label", "label": "Verified label", "default": "Verified clinician" },
+        { "type": "text", "id": "specialty", "label": "Specialty", "default": "Internal medicine" },
+        { "type": "text", "id": "years", "label": "Years in practice", "default": "19" },
+        { "type": "text", "id": "location", "label": "Location", "default": "Houston, TX" },
+        { "type": "text", "id": "preview_label", "label": "Preview button label", "default": "Preview" },
+        { "type": "header", "content": "Profile popup (info panel)" },
+        { "type": "url", "id": "website", "label": "Clinician website" },
+        { "type": "text", "id": "website_label", "label": "Website link label", "default": "Go to clinician website" },
+        { "type": "text", "id": "npi", "label": "NPI number" },
+        { "type": "text", "id": "practice_type", "label": "Practice type", "default": "Private practice" },
+        { "type": "text", "id": "joined", "label": "Joined (year)", "default": "2026" },
+        { "type": "text", "id": "summary", "label": "Summary headline", "default": "Supports eye comfort during screen time and antioxidant balance" },
+        { "type": "richtext", "id": "message", "label": "Review", "default": "<p>If you spend most of your workday staring at screens, you may have noticed your eyes sometimes feel tired or strained by evening. When patients deal with this kind of eye discomfort, I recommend an astaxanthin supplement like this one from Rovina because it may ease the oxidative load on the eyes. One human trial has even shown that this active ingredient may help maintain visual sharpness during heavy screen work.*</p>" },
+        { "type": "header", "content": "Citation pill" },
+        { "type": "text", "id": "citation_pill", "label": "Pill text", "info": "e.g. Journal of Clinical … +1. Leave blank to hide.", "default": "Journal of Clinical … +1" },
+        { "type": "textarea", "id": "citations", "label": "Sources (tooltip)", "info": "One per line, format: Title | Journal, Year", "default": "Effects of diet containing astaxanthin on visual function in healthy individuals | Journal of Clinical Biochemistry and Nutrition, 2022\nAstaxanthin decreased oxidative stress and inflammation and enhanced immune response in humans | Nutrition and Metabolism, 2010" },
+        { "type": "header", "content": "Highlights" },
+        { "type": "text", "id": "highlights_label", "label": "Highlights label", "default": "Highlights:" },
+        { "type": "textarea", "id": "highlights", "label": "Highlights", "info": "One per line.", "default": "Screen fatigue\nOxidative defense\nAll-around support" },
+        { "type": "text", "id": "show_more_label", "label": "Show more label", "default": "Show more" }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "CES Clinician reviews",
+      "blocks": [
+        { "type": "review" },
+        {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Anila Khan, DO",
+            "specialty": "Family medicine",
+            "years": "31",
+            "summary": "Potent antioxidant supports daily skin health and resilience",
+            "message": "<p>I’d gladly recommend Rovina’s softgels to patients who want to support their skin as it ages. The primary ingredient is an antioxidant called astaxanthin, included here at 12 mg, which is similar to what’s been studied in research.*</p>",
+            "citation_pill": "Nutrients … +1",
+            "highlights": "Skin resilience\nAntioxidant support\nDaily use"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "name": "Dr. James Henderson, MD",
+            "specialty": "Ophthalmology",
+            "years": "15",
+            "summary": "Reasonable support for patients with high screen exposure",
+            "message": "<p>Astaxanthin has a solid antioxidant profile. I see this as a helpful adjunct, not a replacement for regular eye care.*</p>",
+            "highlights": "Screen exposure\nEye comfort"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

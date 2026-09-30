@@ -1,0 +1,468 @@
+{{ 'ces-base.css' | asset_url | stylesheet_tag }}
+{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
+{{ 'ces-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'ces-timeline-accordion.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign is_accordion = false
+  if section.settings.display == 'accordion'
+    assign is_accordion = true
+  endif
+
+  if is_accordion and section.settings.exclusive
+    assign accordion_group = 'ces-timeline-' | append: section.id
+  endif
+-%}
+
+{%- if is_accordion -%}
+  <script src="{{ 'ces-accordion.js' | asset_url }}" defer="defer"></script>
+{%- else -%}
+  <script src="{{ 'ces-timeline.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% render 'ces-section-padding' %}
+
+<div class="ces-section ces-timeline-accordion ces-timeline-accordion--head-{{ section.settings.heading_style | default: 'plain' }}{% if section.settings.background_pattern == 'dots' %} ces-section--dotted{% endif %} ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="ces-section__inner ces-section__inner--narrow">
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="ces-section__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ces-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="ces-subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="ces-timeline-accordion__layout ces-timeline-accordion__layout--{{ section.settings.image_position }}">
+    {%- if section.settings.image != blank -%}
+      <div class="ces-timeline-accordion__hero" style="--ces-hero-ratio: {{ section.settings.image_ratio }};">
+        {{
+          section.settings.image
+          | image_url: width: 1600
+          | image_tag:
+            loading: 'lazy',
+            width: section.settings.image.width,
+            height: section.settings.image.height,
+            widths: '450, 750, 1100, 1400, 1600',
+            sizes: '(min-width: 990px) 45vw, calc(100vw - 3rem)',
+            alt: section.settings.image.alt | escape
+        }}
+      </div>
+    {%- endif -%}
+
+    {%- if is_accordion -%}
+      <div class="ces-accordion ces-timeline-accordion__steps">
+        {%- for block in section.blocks -%}
+          {%- capture step_content -%}
+            {%- if block.settings.bullets != blank -%}
+              <ul>
+                {%- assign bullet_lines = block.settings.bullets | strip | newline_to_br | split: '<br />' -%}
+                {%- for line in bullet_lines -%}
+                  {%- assign bullet = line | strip -%}
+                  {%- if bullet != blank -%}
+                    <li>{{ bullet }}</li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+            {{ block.settings.content }}
+          {%- endcapture -%}
+
+          {% render 'ces-accordion-item',
+            id: block.id,
+            variant: 'numbered',
+            number: forloop.index,
+            meta: block.settings.time_label,
+            heading: block.settings.heading,
+            content: step_content,
+            open: block.settings.open,
+            group: accordion_group,
+            shopify_attributes: block.shopify_attributes
+          %}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      {%- comment -%}
+        Always-open progress timeline. Every step is readable without a click,
+        and each one is either highlighted or muted so the sequence reads as a
+        journey rather than a flat list.
+      {%- endcomment -%}
+      <ces-timeline style="--ces-timeline-fill: {{ section.settings.fill_speed }}ms; --ces-meta-opacity: {{ section.settings.meta_opacity | default: 100 | divided_by: 100.0 }};">
+        <ol class="ces-timeline" role="list">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign chosen = block.settings.state | default: 'auto'
+            assign is_auto = false
+
+            if chosen == 'auto'
+              assign is_auto = true
+              # Without JavaScript this is the whole behaviour, and it is a
+              # sensible resting state: the first step reached, the rest ahead.
+              # ces-timeline.js then advances the others as the reader scrolls.
+              if forloop.first
+                assign state = 'active'
+              else
+                assign state = 'muted'
+              endif
+            else
+              assign state = chosen
+            endif
+          -%}
+          <li
+            class="ces-timeline__step ces-timeline__step--{{ state }}"
+            {% if is_auto %}
+              data-ces-timeline-auto
+            {% endif %}
+            {{ block.shopify_attributes }}
+          >
+            <div class="ces-timeline__marker" aria-hidden="true">
+              <span class="ces-timeline__dot">
+                {% render 'ces-icon', icon: 'check-ring', size: '1.8rem' %}
+              </span>
+            </div>
+
+            <div class="ces-timeline__body">
+              {%- if block.settings.time_label != blank or block.settings.heading != blank -%}
+                <div class="ces-timeline__head">
+                  {%- if block.settings.time_label != blank -%}
+                    <p class="ces-timeline__meta">{{ block.settings.time_label }}</p>
+                  {%- endif -%}
+                  {%- if block.settings.heading != blank -%}
+                    <h3 class="ces-timeline__heading">{{ block.settings.heading }}</h3>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.bullets != blank -%}
+                <ul class="ces-timeline__list" role="list">
+                  {%- assign bullet_lines = block.settings.bullets | strip | newline_to_br | split: '<br />' -%}
+                  {%- for line in bullet_lines -%}
+                    {%- assign bullet = line | strip -%}
+                    {%- if bullet != blank -%}
+                      {%- comment -%}
+                        The tick is a text glyph inside the paragraph rather than
+                        a column beside it, so a wrapped line returns to the left
+                        margin instead of hanging under the first word. That is
+                        what gives the reference's list its solid left edge.
+                      {%- endcomment -%}
+                      <li class="ces-timeline__list-item">{{ bullet }}</li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+
+              {%- if block.settings.content != blank -%}
+                <div class="ces-timeline__text rte ces-rte">{{ block.settings.content }}</div>
+              {%- endif -%}
+            </div>
+          </li>
+        {%- endfor -%}
+        </ol>
+      </ces-timeline>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="ces-timeline-accordion__cta">
+        <a
+          class="ces-button ces-timeline-accordion__cta-button"
+          {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}href="#"{% endif %}
+        >
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CES Timeline",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "A what-to-expect timeline. Mark the steps a shopper has reached as highlighted and the ones still ahead as muted, so the sequence reads as a journey."
+    },
+    {
+      "type": "select",
+      "id": "display",
+      "label": "Display",
+      "options": [
+        {
+          "value": "open",
+          "label": "Always open (timeline)"
+        },
+        {
+          "value": "accordion",
+          "label": "Collapsible (accordion)"
+        }
+      ],
+      "default": "open"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "info": "On desktop. The image always sits above the steps on mobile.",
+      "options": [
+        {
+          "value": "start",
+          "label": "Beside the steps, on the left"
+        },
+        {
+          "value": "end",
+          "label": "Beside the steps, on the right"
+        },
+        {
+          "value": "above",
+          "label": "Above the steps, full width"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image shape",
+      "options": [
+        {
+          "value": "3 / 4",
+          "label": "Portrait"
+        },
+        {
+          "value": "1 / 1",
+          "label": "Square"
+        },
+        {
+          "value": "4 / 3",
+          "label": "Landscape"
+        },
+        {
+          "value": "auto",
+          "label": "Original"
+        }
+      ],
+      "default": "3 / 4"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What to expect, week by week"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Astaxanthin builds up in your tissue, so the changes arrive in stages.*"
+    },
+    {
+      "type": "range",
+      "id": "fill_speed",
+      "min": 200,
+      "max": 1600,
+      "step": 100,
+      "unit": "ms",
+      "label": "Fill speed",
+      "info": "How long a step takes to light up as it is reached. Higher is slower and calmer.",
+      "default": 900
+    },
+    {
+      "type": "range",
+      "id": "meta_opacity",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Milestone label strength",
+      "info": "Opacity of the WEEK labels, which use the timeline accent color.",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Step heading style",
+      "options": [
+        { "value": "plain", "label": "Plain text" },
+        { "value": "bar", "label": "Filled color bar" }
+      ],
+      "info": "The bar style fills each step's heading like a coloured pill, matching the reference timeline.",
+      "default": "plain"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "info": "Shown centred below the timeline. Leave empty to hide."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "exclusive",
+      "label": "Only one step open at a time",
+      "info": "Collapsible display only.",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "background_pattern",
+      "label": "Background pattern",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "dots",
+          "label": "Dot grid"
+        }
+      ],
+      "default": "dots"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "timeline_step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "select",
+          "id": "state",
+          "label": "State",
+          "options": [
+            {
+              "value": "auto",
+              "label": "Automatic (first step only)"
+            },
+            {
+              "value": "active",
+              "label": "Highlighted"
+            },
+            {
+              "value": "muted",
+              "label": "Muted"
+            }
+          ],
+          "default": "auto",
+          "info": "Automatic highlights the first step and mutes the rest."
+        },
+        {
+          "type": "text",
+          "id": "time_label",
+          "label": "Time label",
+          "default": "Weeks 1-2"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Cellular Foundation"
+        },
+        {
+          "type": "textarea",
+          "id": "bullets",
+          "label": "Bullets",
+          "info": "One bullet per line.",
+          "default": "Antioxidant activity begins working at the cellular level\nBody starts adapting to daily intake\nMost people feel no dramatic change yet"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Extra text",
+          "info": "Shown below the bullets. Optional."
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open by default",
+          "info": "Collapsible display only.",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "CES Timeline",
+      "blocks": [
+        {
+          "type": "timeline_step",
+          "settings": {
+            "time_label": "WEEKS 1-2",
+            "heading": "Cellular Foundation"
+          }
+        },
+        {
+          "type": "timeline_step",
+          "settings": {
+            "time_label": "WEEK 3-4",
+            "heading": "Early Changes Appear"
+          }
+        },
+        {
+          "type": "timeline_step",
+          "settings": {
+            "time_label": "WEEK 5-8",
+            "heading": "Building Momentum"
+          }
+        },
+        {
+          "type": "timeline_step",
+          "settings": {
+            "time_label": "WEEK 8+",
+            "heading": "Long-Term Support"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

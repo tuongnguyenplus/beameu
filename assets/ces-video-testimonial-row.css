@@ -1,0 +1,229 @@
+/* Section styles for sections/ces-video-testimonial-row.liquid. */
+
+.ces-video-testimonial-row {
+  color: rgb(var(--color-foreground));
+  background: var(--gradient-background);
+}
+
+/* The brand word inside the heading picks up the accent colour, matching the
+   reference where "Rovina™" stands out in burgundy. */
+.ces-video-testimonial-row__heading-accent {
+  color: var(--ces-gold);
+}
+
+/*
+ * A swipeable row paged by <ces-slider>. The column count is a merchant
+ * setting, so the slide width is derived from it rather than a fixed viewport
+ * fraction.
+ *
+ * Snapping is `proximity`, not `mandatory`: a video changes size the moment its
+ * metadata arrives, and under mandatory snapping the browser re-snaps to the
+ * nearest slide when that happens, which reads as the row scrolling itself.
+ * `overflow-anchor: none` stops the same thing happening via scroll anchoring.
+ */
+.ces-video-testimonial-row__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(
+    (100% - (var(--ces-video-columns, 2) - 1) * 1.2rem) / var(--ces-video-columns, 2)
+  );
+  gap: 1.2rem;
+  overflow-x: auto;
+  overflow-anchor: none;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.ces-video-testimonial-row__list::-webkit-scrollbar {
+  display: none;
+}
+
+.ces-video-testimonial-row__item {
+  scroll-snap-align: center;
+}
+
+.ces-video-testimonial-row__frame {
+  position: relative;
+  aspect-ratio: var(--ces-video-ratio, 9 / 16);
+  overflow: hidden;
+  border-radius: var(--ces-radius-lg);
+  background-color: var(--ces-surface);
+}
+
+.ces-video-testimonial-row__video,
+.ces-video-testimonial-row__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*
+ * The clip itself takes no pointer input. On iOS a tap on a playing inline
+ * video can hand it to the native fullscreen player, which is easy to trigger
+ * by accident mid-swipe. The buttons over it own every interaction instead, and
+ * swipes pass through to the scrolling track.
+ */
+.ces-video-testimonial-row__video {
+  pointer-events: none;
+}
+
+.ces-video-testimonial-row__label {
+  margin: 1rem 0 0;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--ces-muted);
+}
+
+/* Sound toggle ------------------------------------------------------------ */
+
+.ces-video-testimonial-row__sound {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+}
+
+.ces-video-testimonial-row__sound:focus-visible {
+  outline: 0.2rem solid #fff;
+  outline-offset: 0.2rem;
+}
+
+/* Two clean SVG speakers: the muted (slashed) one shows by default and the
+   waves one takes over once sound is on. */
+.ces-video-testimonial-row__sound-svg {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.ces-video-testimonial-row__sound-svg--on,
+.ces-video-testimonial-row__sound--on .ces-video-testimonial-row__sound-svg--off {
+  display: none;
+}
+
+.ces-video-testimonial-row__sound--on .ces-video-testimonial-row__sound-svg--on {
+  display: block;
+}
+
+@media screen and (min-width: 750px) {
+  .ces-video-testimonial-row__list {
+    grid-auto-columns: calc(
+      (100% - (var(--ces-video-columns-desktop, 4) - 1) * 2rem) / var(--ces-video-columns-desktop, 4)
+    );
+    gap: 2rem;
+  }
+}
+
+/* Play / pause -------------------------------------------------------------
+   Centred over the clip, unlike the sound toggle in the corner, because it is
+   the primary control when autoplay is switched off. */
+
+.ces-video-testimonial-row__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(var(--color-button), 0.9);
+  color: #fff;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+/* A soft ring that pulses outward from the button, drawing the eye the way the
+   reference does. It sits behind the button and is purely decorative. */
+.ces-video-testimonial-row__play::before {
+  content: '';
+  position: absolute;
+  inset: -0.4rem;
+  border-radius: 50%;
+  border: 0.2rem solid rgba(var(--color-button), 0.55);
+  animation: ces-video-play-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ces-video-play-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+/* The pulse belongs to the paused, "tap me" state; drop it while playing. */
+.ces-video-testimonial-row__play--playing::before {
+  animation: none;
+  opacity: 0;
+}
+
+.ces-video-testimonial-row__frame:hover .ces-video-testimonial-row__play {
+  background-color: rgb(var(--color-button));
+}
+
+.ces-video-testimonial-row__play:focus-visible {
+  outline: 0.2rem solid #fff;
+  outline-offset: 0.2rem;
+}
+
+/* Out of the way while playing, back on hover or keyboard focus. */
+.ces-video-testimonial-row__play--playing {
+  opacity: 0;
+}
+
+.ces-video-testimonial-row__frame:hover .ces-video-testimonial-row__play,
+.ces-video-testimonial-row__play:focus-visible {
+  opacity: 1;
+}
+
+/* A triangle that becomes two bars once playback starts. */
+.ces-video-testimonial-row__play-icon {
+  width: 0;
+  height: 0;
+  margin-left: 0.4rem;
+  border-top: 0.9rem solid transparent;
+  border-bottom: 0.9rem solid transparent;
+  border-left: 1.4rem solid currentColor;
+}
+
+.ces-video-testimonial-row__play--playing .ces-video-testimonial-row__play-icon {
+  width: 1.4rem;
+  height: 1.6rem;
+  margin-left: 0;
+  border: 0;
+  border-left: 0.45rem solid currentColor;
+  border-right: 0.45rem solid currentColor;
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ces-video-testimonial-row__play {
+    transition: none;
+  }
+
+  .ces-video-testimonial-row__play::before {
+    animation: none;
+    opacity: 0;
+  }
+}

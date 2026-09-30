@@ -1,0 +1,227 @@
+{{ 'ces-base.css' | asset_url | stylesheet_tag }}
+{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ces-scroll.js' | asset_url }}" defer="defer"></script>
+{{ 'ces-sticky-atc.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ces-sticky-atc.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign target = section.settings.target_id | default: 'ces-app-price-slot' | handleize
+  assign thumb = section.settings.image | default: product.featured_image
+-%}
+
+{%- if product != blank -%}
+  {%- comment -%}
+    The button is a plain anchor to the buy box rather than a second add-to-cart.
+    Pricing and bundle selection belong to an app on this page, so a duplicate
+    cart control here would either bypass the shopper's choices or fight the app
+    for ownership of them. Sending them back to the real control is both safer
+    and, with a bundle selector, the only correct behaviour.
+  {%- endcomment -%}
+  <ces-sticky-atc
+    class="ces-section ces-sticky-atc color-{{ section.settings.color_scheme }} gradient"
+    data-target="{{ target }}"
+    {% if section.settings.reveal_id != blank %}data-reveal="{{ section.settings.reveal_id | handleize }}"{% endif %}
+    {% if section.settings.hide_on_desktop %}
+      data-mobile-only
+    {% endif %}
+    hidden
+  >
+    <div class="ces-sticky-atc__inner">
+      <div class="ces-sticky-atc__info">
+        {%- if section.settings.show_image and thumb != blank -%}
+          <div class="ces-sticky-atc__thumb">
+            {{
+              thumb
+              | image_url: width: 160
+              | image_tag:
+                loading: 'lazy',
+                width: 80,
+                height: 80,
+                widths: '48, 64, 80, 120, 160',
+                sizes: '4.8rem',
+                alt: ''
+            }}
+          </div>
+        {%- endif -%}
+
+        <div class="ces-sticky-atc__text">
+          <p class="ces-sticky-atc__title">{{ section.settings.title | default: product.title }}</p>
+
+          {%- assign ces_srating = section.settings.rating_tenths | default: 44 | divided_by: 10.0 -%}
+          {%- if section.settings.rating_text != blank or ces_srating > 0 -%}
+            <p class="ces-sticky-atc__rating">
+              {%- if ces_srating > 0 -%}
+                {%- assign ces_srating_pct = section.settings.rating_tenths | default: 44 | times: 2 -%}
+                <span
+                  class="ces-sticky-atc__stars"
+                  style="--ces-rating-pct: {{ ces_srating_pct }}%;"
+                  role="img"
+                  aria-label="{{ ces_srating }} out of 5 stars"
+                >
+                  <span class="ces-sticky-atc__stars-track" aria-hidden="true">
+                    {%- for i in (1..5) -%}{% render 'ces-icon', icon: 'star-filled', size: '1.3rem' %}{%- endfor -%}
+                  </span>
+                  <span class="ces-sticky-atc__stars-fill" aria-hidden="true">
+                    {%- for i in (1..5) -%}{% render 'ces-icon', icon: 'star-filled', size: '1.3rem' %}{%- endfor -%}
+                  </span>
+                </span>
+              {%- endif -%}
+              {%- if section.settings.rating_text != blank -%}
+                <span class="ces-sticky-atc__rating-text">{{ section.settings.rating_text | strip }}
+                  {%- if section.settings.sold_count and section.settings.sold_count > 0 -%}
+                    <script src="{{ 'ces-sold-counter.js' | asset_url }}" defer="defer"></script>
+                    {{- ' ' -}}
+                    <ces-sold-counter
+                      class="ces-sticky-atc__sold"
+                      data-base="{{ section.settings.sold_count }}"
+                      data-step1="{{ section.settings.count_step_1 | default: 0 }}"
+                      data-step2="{{ section.settings.count_step_2 | default: 0 }}"
+                      data-step3="{{ section.settings.count_step_3 | default: 0 }}"
+                      {% unless section.settings.enable_counter %}data-static{% endunless %}
+                    >{{ section.settings.sold_count }}</ces-sold-counter>
+                    {%- if section.settings.sold_suffix != blank -%}
+                      {{- ' ' -}}<strong>{{ section.settings.sold_suffix | strip }}</strong>
+                    {%- endif -%}
+                  {%- endif -%}
+                </span>
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <a class="ces-button ces-sticky-atc__button" href="#{{ target }}">
+        {{ section.settings.button_label }}
+      </a>
+    </div>
+  </ces-sticky-atc>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "CES Sticky add to cart",
+  "tag": "section",
+  "class": "ces-sticky-atc-section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "A bar that appears at the bottom of the screen once the buy box scrolls out of view. Its button scrolls back to the buy box rather than adding to cart, so it never bypasses a bundle or subscription app."
+    },
+    {
+      "type": "text",
+      "id": "target_id",
+      "label": "Scroll target element ID",
+      "info": "Where the button scrolls to. Usually the CES App slot's ID.",
+      "default": "ces-app-price-slot"
+    },
+    {
+      "type": "text",
+      "id": "reveal_id",
+      "label": "Reveal after element ID",
+      "info": "The bar appears once this element scrolls out of view above. Leave empty to use the scroll target. Give the element an ID in its block/section settings, e.g. try-risk-free."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "ADD TO CART"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "Show product thumbnail",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Thumbnail override",
+      "info": "Defaults to the product's featured image."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title override",
+      "info": "Defaults to the product title."
+    },
+    {
+      "type": "range",
+      "id": "rating_tenths",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "label": "Rating (tenths)",
+      "info": "In tenths of a star: 44 = 4.4, 48 = 4.8. Set to 0 to hide the stars.",
+      "default": 44
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating lead text",
+      "info": "Shown before the sold counter, e.g. \"Rated 4.4 Excellent | Over \".",
+      "default": "Rated 4.4 Excellent | Over "
+    },
+    {
+      "type": "header",
+      "content": "Units sold counter"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_counter",
+      "label": "Animate the number upward",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "sold_count",
+      "label": "Starting number",
+      "info": "Set to 0 to hide the counter.",
+      "default": 100000
+    },
+    {
+      "type": "text",
+      "id": "sold_suffix",
+      "label": "Text after the number",
+      "default": " Sold"
+    },
+    {
+      "type": "number",
+      "id": "count_step_1",
+      "label": "Add every 1 second",
+      "default": 1
+    },
+    {
+      "type": "number",
+      "id": "count_step_2",
+      "label": "Add every 2 seconds",
+      "default": 1
+    },
+    {
+      "type": "number",
+      "id": "count_step_3",
+      "label": "Add every 3 seconds",
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_desktop",
+      "label": "Mobile only",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CES Sticky add to cart"
+    }
+  ]
+}
+{% endschema %}

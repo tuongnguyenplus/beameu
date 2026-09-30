@@ -1,0 +1,102 @@
+/* Section styles for sections/ces-icon-feature-grid.liquid. */
+
+.ces-icon-feature-grid {
+  color: rgb(var(--color-foreground));
+  background: var(--gradient-background);
+}
+
+.ces-icon-feature-grid__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--ces-icon-grid-columns-mobile, 2), minmax(0, 1fr));
+  gap: 2.8rem 1.6rem;
+}
+
+.ces-icon-feature-grid__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.ces-icon-feature-grid__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ces-icon-frame, 6.4rem);
+  height: var(--ces-icon-frame, 6.4rem);
+  /* A fixed brand colour by default so the icons read as burgundy on any colour
+     scheme, instead of following the scheme's near-black button colour. */
+  color: var(--ces-icon-color, var(--ces-accent));
+}
+
+/* The highlighted words in the heading pick up the same icon colour. */
+.ces-icon-feature-grid__heading-accent {
+  color: var(--ces-gold);
+}
+
+.ces-icon-feature-grid__icon--disc {
+  border-radius: 50%;
+  background-color: var(--ces-surface-strong);
+}
+
+/* A product shot on a transparent background wants the whole frame; a glyph in
+   a disc wants breathing room inside it. */
+.ces-icon-feature-grid__icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ces-icon-feature-grid__icon--disc .ces-icon-feature-grid__icon-image {
+  width: 50%;
+  height: 50%;
+}
+
+/*
+ * A Material Symbols ligature (blood_pressure, self_improvement, …) as the
+ * reference uses. If the font has not loaded the raw word would show, so it is
+ * clipped to the frame and the settings keep it centred.
+ */
+.ces-icon-feature-grid__icon-text {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-size: calc(var(--ces-icon-frame, 6.4rem) * 0.62);
+  line-height: 1;
+  font-weight: normal;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.ces-icon-feature-grid__heading {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  /* Heavier and in the full foreground colour so the benefit labels read as
+     strong and clear, as in the reference, rather than thin grey text. */
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  color: rgb(var(--color-foreground));
+  text-wrap: balance;
+}
+
+.ces-icon-feature-grid__text {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--ces-muted);
+}
+
+@media screen and (min-width: 750px) {
+  .ces-icon-feature-grid__grid {
+    grid-template-columns: repeat(var(--ces-icon-grid-columns-desktop, 4), minmax(0, 1fr));
+    gap: 3.2rem 2.4rem;
+  }
+
+  .ces-icon-feature-grid__heading {
+    font-size: 1.8rem;
+  }
+}
