@@ -1330,11 +1330,15 @@
         },
         "avatar_item_dXtLe6": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/250fd4af-1287-4044-8a0d-08e60285dd08.webp"
+          }
         },
         "avatar-1": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/8df50a4601b711024edd55c70cb353f9.jpg"
+          }
         },
         "avatar-2": {
           "type": "avatar_item",
@@ -1344,19 +1348,27 @@
         },
         "avatar-3": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Sep_17_2026_04_02_36_PM.webp"
+          }
         },
         "avatar-4": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/ad165c8e1284b37e6abf708c51d0e703.jpg"
+          }
         },
         "avatar-5": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/u2.jpg"
+          }
         },
         "avatar-6": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/2d47cdd450d56ee1cdf4eee19d4acd5b.jpg"
+          }
         },
         "review-4": {
           "type": "review_item",
@@ -1763,6 +1775,7 @@
     "team": {
       "type": "ces-team",
       "settings": {
+        "image": "shopify://shop_images/dermatology-clinic-1.webp",
         "image_position": "left",
         "heading": "The people behind CEBEAM",
         "body": "<p>We built CEBEAM because the eye-care aisle is full of creams that never get past the surface — and we were tired of paying for hope. So we started with the delivery problem first: dissolving micro-cones that carry real actives to where dark circles and puffiness actually form.</p><p>Every batch is made in a GMP-certified facility, dermatologist-tested, and backed by a 90-day money-back guarantee. If it doesn't work for you, you get your money back and you keep the box.</p>",
