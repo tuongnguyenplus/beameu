@@ -610,6 +610,9 @@
         "trust-row": {
           "type": "ces_trust_row",
           "settings": {
+            "avatar_1": "shopify://shop_images/Dr-B-CC-eye.webp",
+            "avatar_2": "shopify://shop_images/Alycia_Wanat-Hawthorne_Cropped.webp",
+            "avatar_3": "shopify://shop_images/karolyn-wanat-1396908216.webp",
             "text": "Loved by 100k+ Tired Eyes",
             "subtext": "for real, visible under-eye results",
             "show_verified": true
@@ -830,6 +833,8 @@
         "p1": {
           "type": "pair",
           "settings": {
+            "before_image": "shopify://shop_images/video_4x5_loop_final_small_954ba221-7830-4dc2-9bd2-800cdba10d0e.webp",
+            "after_image": "shopify://shop_images/ezgif-819a3d5acdbff6b4.webp",
             "rating_tenths": 35,
             "quote": "Overall a good product for the price. Noticed an immediate deflation and reduced puffiness in the first week. After 2 weeks of uses noticed a slight reduction in dark circles. They stay on nicely overnight. You have to press on them to get them to stick and have the micro needles monitor the skin (doesn't hurt) and then after about 5s they are adhered well to the skin and stay on.",
             "name": "Susan, 58",
@@ -840,6 +845,8 @@
         "pair_9M6FUm": {
           "type": "pair",
           "settings": {
+            "before_image": "shopify://shop_images/befdf.webp",
+            "after_image": "shopify://shop_images/afd.webp",
             "rating_tenths": 50,
             "quote": "I couldn’t believe how fast these patches work! After the first time I used them, my under eyes were already more hydrated and less puffy. After a week, the dark circles were lighter, and after a month, my fine lines were almost gone. I’ve never had a skincare product work this fast before!",
             "name": "Anna, 45",
@@ -850,9 +857,11 @@
         "pair_QqPKNN": {
           "type": "pair",
           "settings": {
+            "before_image": "shopify://shop_images/a5a3a761b5029dee0db8979fadcdc47d.webp",
+            "after_image": "shopify://shop_images/c12b8351-17be-4390-8c5f-cd135c90feac.webp",
             "rating_tenths": 44,
             "quote": "An excellent product; after using them several times, I noticed the skin under my eyes looked much more hydrated, soft, and rested. Fine lines appear less pronounced, and the eye area looks brighter and firmer. Each patch comes in an individual sachet, keeping them in perfect condition. Plus, application is very easy, and the treatment feels comfortable.",
-            "name": "David, 58",
+            "name": "Angela, 58",
             "verified": true,
             "progress": "After 6 weeks of use"
           }
@@ -902,6 +911,7 @@
     "mechanism": {
       "type": "ces-image-text-banner",
       "settings": {
+        "image": "shopify://shop_images/sdf231c-4da8-b687-8b0e812e42ae_2ac697fe-be52-402e-89a5-cfa66525cdca.webp",
         "layout": "split",
         "image_shape": "auto",
         "text_position": "center",
