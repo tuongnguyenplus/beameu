@@ -621,6 +621,7 @@
         "guarantee-card": {
           "type": "ces_guarantee_badge",
           "settings": {
+            "image": "shopify://shop_images/1733673742-image_7.avif",
             "badge_text": "90 DAY",
             "heading": "90-Day Money Back Guarantee",
             "text": "<p>Love your results within 90 days or get 100% of your money back.</p>"
