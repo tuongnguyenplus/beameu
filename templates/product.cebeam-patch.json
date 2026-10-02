@@ -854,6 +854,18 @@
             "progress": "After 2 weeks of use"
           }
         },
+        "pair_VcLGTX": {
+          "type": "pair",
+          "settings": {
+            "before_image": "shopify://shop_images/ab46d4e5e1f555af77aa1292eec18e1a.webp",
+            "after_image": "shopify://shop_images/39a0d21ads5-42df-4400-b2b8-d379e8643d12.webp",
+            "rating_tenths": 50,
+            "quote": "I’ve been looking for something effective to treat puffiness and dark circles, and I’m so glad I found these patches. After using them, I noticed a visible difference in the appearance of the eye area; it looks fresher and more hydrated. They are very comfortable to wear and stay perfectly in place. I love the combination of ingredients—like hyaluronic acid and peptides—as they leave the skin feeling firm and smooth.",
+            "name": "Linda, 59",
+            "verified": true,
+            "progress": "After 21 days of use"
+          }
+        },
         "pair_QqPKNN": {
           "type": "pair",
           "settings": {
@@ -864,16 +876,6 @@
             "name": "Angela, 58",
             "verified": true,
             "progress": "After 6 weeks of use"
-          }
-        },
-        "pair_VcLGTX": {
-          "type": "pair",
-          "settings": {
-            "rating_tenths": 50,
-            "quote": "I’ve been looking for something effective to treat puffiness and dark circles, and I’m so glad I found these patches. After using them, I noticed a visible difference in the appearance of the eye area; it looks fresher and more hydrated. They are very comfortable to wear and stay perfectly in place. I love the combination of ingredients—like hyaluronic acid and peptides—as they leave the skin feeling firm and smooth.",
-            "name": "Sarah, 52",
-            "verified": true,
-            "progress": "After 21 days of use"
           }
         },
         "p2": {
@@ -890,8 +892,8 @@
       "block_order": [
         "p1",
         "pair_9M6FUm",
-        "pair_QqPKNN",
         "pair_VcLGTX",
+        "pair_QqPKNN",
         "p2"
       ],
       "settings": {
@@ -936,6 +938,7 @@
           "settings": {
             "tab_label": "Penetration Power",
             "default_open": true,
+            "image": "shopify://shop_images/gdfgfd.webp",
             "heading": "Delivered Below the Surface",
             "text": "<p>Traditional patches and creams sit on top of the skin. Cebeam’s dissolving micro-cones start below the barrier, so the actives reach where dark circles and puffiness actually begin.</p>",
             "bullets": "Beneath the skin barrier, not on top\nPainless dissolving micro-cones\nNo injections, no metal needles\nNo downtime",
@@ -959,6 +962,7 @@
           "settings": {
             "tab_label": "Why It Works",
             "default_open": false,
+            "image": "shopify://shop_images/sdf231c-4da8-b687-8b0e812e42ae_2ac697fe-be52-402e-89a5-cfa66525cdca.webp",
             "heading": "Backed by Results",
             "text": "<p>Most eye treatments fail because good actives never make it past the skin barrier. Cebeam's microneedle patch solves the delivery problem first — then puts targeted actives exactly where dark circles and puffiness form.<br/><br/></p>",
             "bullets": "Micro-cones create a direct path — bypassing the stratum corneum that blocks topical creams\n\nActives dissolve exactly where they're needed — at the dermis, near the pigmentation and microcirculation that cause dark circles\n\nConsistent, repeatable delivery — every application reaches the same depth, unlike creams that vary by how hard you rub them in\n\nBacked by the science of microneedle delivery — a growing body of clinical research on HA-based microneedle patches shows measurable improvements in hydration, wrinkle depth, and skin density over consistent use",
@@ -1025,6 +1029,7 @@
         "eyebrow": "Results Timeline",
         "heading": "What to expect — week by week",
         "subheading": "The 21-Day Eye Reset, stage by stage. Four treatment nights a week throughout.",
+        "image": "shopify://shop_images/nheok.webp",
         "image_caption": "",
         "image_position": "below_subheading",
         "show_quotes": true,
@@ -1278,6 +1283,7 @@
       "settings": {
         "heading": "What sets Cebeam apart",
         "subheading": "",
+        "image": "shopify://shop_images/74cb5b44-22f6-48e7-baf1-8d5dd4d15000.webp",
         "brand_label": "Cebeam",
         "other_label": "Ordinary patches & creams",
         "footnote": "<p>Right column reflects the most common complaints from reviews of ordinary eye patches and creams.</p>",
@@ -1306,15 +1312,21 @@
       "blocks": {
         "avatar_item_TRmW8T": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/9dc1e995694614e1ac7c9482d7f9e99d.jpg"
+          }
         },
         "avatar_item_eaFPzR": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/556fd3399906f40336a288dbceb1109a.jpg"
+          }
         },
         "avatar_item_pfxKER": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/7962c422-b856-4238-b159-0476f7c688f8.webp"
+          }
         },
         "avatar_item_dXtLe6": {
           "type": "avatar_item",
@@ -1326,7 +1338,9 @@
         },
         "avatar-2": {
           "type": "avatar_item",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/045fb1bcd6596bd90aa03ad9634d4425.jpg"
+          }
         },
         "avatar-3": {
           "type": "avatar_item",
