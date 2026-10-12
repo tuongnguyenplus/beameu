@@ -118,7 +118,27 @@
           assign ces_pay = ces_v.price
           assign ces_was = ces_v.compare_at_price | default: 0
           if block.settings.purchase_type == 'subscription'
-            assign ces_alloc = ces_v.selling_plan_allocations | first
+            comment
+              The tier's plan field names a selling plan by id or by part of
+              its name; blank, or no match, takes the variant's first plan.
+            endcomment
+            assign plkey = 'tier_' | append: ces_i | append: '_plan'
+            assign ces_plan_key = block.settings[plkey] | strip | downcase
+            assign ces_alloc = null
+            if ces_plan_key != blank
+              assign ces_plan_num = ces_plan_key | times: 1
+              for a in ces_v.selling_plan_allocations
+                assign ces_plan_name = a.selling_plan.name | downcase
+                if ces_alloc == null
+                  if a.selling_plan.id == ces_plan_num or ces_plan_name contains ces_plan_key
+                    assign ces_alloc = a
+                  endif
+                endif
+              endfor
+            endif
+            if ces_alloc == null
+              assign ces_alloc = ces_v.selling_plan_allocations | first
+            endif
             if ces_alloc
               assign ces_plan_id = ces_alloc.selling_plan.id
               assign ces_pay = ces_alloc.price
