@@ -1257,8 +1257,8 @@
           "type": "ces_bundle_v2",
           "settings": {
             "label": "",
-            "heading": "Choose Your Supply",
-            "intro": "Not every under-eye concern looks the same. Choose based on how often you notice yours and how long it has been there.",
+            "heading": "",
+            "intro": "",
             "accent_color": "#f25627",
             "tier_count": 3,
             "default_tier": 3,
@@ -1271,7 +1271,7 @@
             "onetime_label": "",
             "onetime_url": "",
             "sub_note": "refresh | Refills Ship on Your Own Schedule\nclock | Stop or Cancel Anytime",
-            "show_shipping": true,
+            "show_shipping": false,
             "ship_position": "above",
             "delivery_text": "Arrives by",
             "delivery_days": 5,
@@ -1373,7 +1373,8 @@
             "tier_4_foot": "",
             "tier_1_plan": "every 30 days",
             "tier_2_plan": "every 60 days",
-            "tier_3_plan": "every 90 days"
+            "tier_3_plan": "every 90 days",
+            "tier_style": "compact"
           }
         },
         "shipping-estimate": {

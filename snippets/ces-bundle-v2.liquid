@@ -20,7 +20,7 @@
 
 <ces-bundle
   id="ces-bundle"
-  class="ces-b2 quick-add-hidden"
+  class="ces-b2 ces-b2--{{ block.settings.tier_style | default: 'stacked' }} quick-add-hidden"
   style="--ces-b2-accent: {{ ces_accent }}; --ces-b2-accent-rgb: {{ ces_accent_r }}, {{ ces_accent_g }}, {{ ces_accent_b }}; --ces-bundle-accent: {{ ces_accent }}; --ces-b2-tint: {% if block.settings.selected_bg != blank %}{{ block.settings.selected_bg }}{% else %}{{ ces_accent }}12{% endif %}; scroll-margin-top: 9rem;"
   data-open-drawer="{{ block.settings.open_cart_drawer | default: true }}"
   data-after-add="{{ block.settings.after_add | default: 'drawer' }}"
@@ -244,7 +244,8 @@
         -%}
 
         <label class="ces-b2__tier ces-bundle__tier{% if block.settings[bkey] != blank %} ces-b2__tier--badged{% endif %}{% if ces_checked %} is-selected{% endif %}{% unless ces_v.available %} is-unavailable{% endunless %}">
-          {%- if block.settings[bkey] != blank -%}
+          {%- comment -%}Compact tiers carry the badge as a pill after the name instead.{%- endcomment -%}
+          {%- if block.settings[bkey] != blank and block.settings.tier_style != 'compact' -%}
             <span class="ces-b2__ribbon">{{ block.settings[bkey] }}</span>
           {%- endif -%}
 
@@ -284,6 +285,9 @@
 
             <span class="ces-b2__titles">
               <span class="ces-b2__name">{{ block.settings[nkey] | default: ces_v.title }}</span>
+              {%- if block.settings[bkey] != blank and block.settings.tier_style == 'compact' -%}
+                <span class="ces-b2__pill">{{ block.settings[bkey] }}</span>
+              {%- endif -%}
               {%- if block.settings[stkey] != blank -%}
                 <span class="ces-b2__subtitle">{{ block.settings[stkey] | replace: '[save]', ces_save }}</span>
               {%- endif -%}

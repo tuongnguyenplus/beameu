@@ -165,3 +165,31 @@
 .ces-b2__note-item + .ces-b2__note-item { border-left: 1px solid rgba(var(--color-foreground), .25); }
 .ces-b2__note-icon { display: inline-flex; flex: none; }
 .ces-b2__note-icon svg { width: 100%; height: 100%; }
+
+/* Compact tiers: one row each — radio, name + pill + subtitle, price column on
+   the right. Anything else a tier carries (meta, gifts, benefits) spans below. */
+.ces-b2--compact .ces-b2__tiers { gap: .8rem; }
+.ces-b2--compact .ces-b2__tier { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 1.2rem; padding: 1.2rem 1.4rem; border-width: .15rem; border-radius: 1rem; border-color: rgba(var(--ces-b2-accent-rgb), .28); }
+.ces-b2--compact .ces-b2__tier.is-selected { border-width: .2rem; border-color: var(--ces-b2-accent); }
+.ces-b2--compact .ces-b2__tier--badged { padding-top: 1.2rem; }
+.ces-b2--compact .ces-b2__tier > :not(.ces-b2__head):not(.ces-b2__pricing) { grid-column: 1 / -1; }
+.ces-b2--compact .ces-b2__head { gap: 1.2rem; }
+.ces-b2--compact .ces-b2__dot { width: 2rem; height: 2rem; border-color: rgba(var(--ces-b2-accent-rgb), .35); }
+.ces-b2--compact .ces-b2__titles { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .8rem; }
+.ces-b2--compact .ces-b2__name { font-size: 1.6rem; font-weight: 600; letter-spacing: 0; }
+.ces-b2--compact .ces-b2__pill { display: inline-block; padding: .3rem .9rem; border-radius: .6rem; background: var(--ces-b2-accent); color: #fff; font-size: 1.05rem; font-weight: 700; letter-spacing: .02em; line-height: 1.3; text-transform: uppercase; white-space: nowrap; }
+.ces-b2--compact .ces-b2__subtitle { flex-basis: 100%; margin: 0; font-size: 1.3rem; letter-spacing: 0; }
+.ces-b2--compact .ces-b2__pricing { flex-direction: column; flex-wrap: nowrap; align-items: flex-end; gap: .1rem; margin: 0; text-align: right; }
+.ces-b2--compact .ces-b2__price { font-size: 1.7rem; font-weight: 700; letter-spacing: 0; }
+.ces-b2--compact .ces-b2__compare { font-size: 1.3rem; }
+.ces-b2--compact .ces-b2__heading { font-size: 1.6rem; }
+/* The tier already shows the price, so the button reads like Lumeo's: just the action. */
+.ces-b2--compact .ces-bundle__add-total { display: none; }
+@media screen and (max-width: 389px) {
+  .ces-b2--compact .ces-b2__tier { padding: 1.1rem 1.1rem; column-gap: .8rem; }
+  .ces-b2--compact .ces-b2__name { font-size: 1.5rem; }
+}
+.ces-b2--compact .ces-b2__add,
+.ces-b2--compact .ces-b2__add::before,
+.ces-b2--compact .ces-b2__add::after { border-radius: 99rem; }
+.ces-b2--compact .ces-b2__add { min-height: 5.4rem; font-size: 1.7rem; }
