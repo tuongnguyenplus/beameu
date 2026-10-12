@@ -212,6 +212,7 @@
         "logo-7",
         "logo-8"
       ],
+      "disabled": true,
       "settings": {
         "label": "AS SEEN ON",
         "logo_height": 54,
@@ -225,8 +226,7 @@
         "color_scheme": "scheme-eros-light",
         "padding_top": 24,
         "padding_bottom": 12
-      },
-      "disabled": true
+      }
     },
     "qualify": {
       "type": "ces-experience-list",
@@ -304,43 +304,50 @@
         "marquee_item-1": {
           "type": "marquee_item",
           "settings": {
-            "text": "2 Gummies A Day"
+            "text": "2 Gummies A Day",
+            "icon": ""
           }
         },
         "marquee_item-2": {
           "type": "marquee_item",
           "settings": {
-            "text": "Vegan & Sugar-Free"
+            "text": "Vegan & Sugar-Free",
+            "icon": ""
           }
         },
         "marquee_item-3": {
           "type": "marquee_item",
           "settings": {
-            "text": "20+ Ingredients"
+            "text": "20+ Ingredients",
+            "icon": ""
           }
         },
         "marquee_item-4": {
           "type": "marquee_item",
           "settings": {
-            "text": "No Pills"
+            "text": "No Pills",
+            "icon": ""
           }
         },
         "marquee_item-5": {
           "type": "marquee_item",
           "settings": {
-            "text": "No Timing"
+            "text": "No Timing",
+            "icon": ""
           }
         },
         "marquee_item-6": {
           "type": "marquee_item",
           "settings": {
-            "text": "90-Day Guarantee"
+            "text": "90-Day Guarantee",
+            "icon": ""
           }
         },
         "marquee_item-7": {
           "type": "marquee_item",
           "settings": {
-            "text": "Free Shipping"
+            "text": "Free Shipping",
+            "icon": ""
           }
         }
       },
@@ -394,7 +401,9 @@
         "icon_item-1": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "lock",
+            "icon_color": "",
             "heading": "Prescription Pills",
             "text": "Doctor visit & timing"
           }
@@ -402,7 +411,9 @@
         "icon_item-2": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "lightning",
+            "icon_color": "",
             "heading": "Energy Drinks",
             "text": "Short-lived buzz"
           }
@@ -410,7 +421,9 @@
         "icon_item-3": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "molecule",
+            "icon_color": "",
             "heading": "Single Supplements",
             "text": "Only one angle"
           }
@@ -418,7 +431,9 @@
         "icon_item-4": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "plant",
+            "icon_color": "",
             "heading": "DIY Supplement Stack",
             "text": "Guesswork doses"
           }
@@ -426,7 +441,9 @@
         "icon_item-5": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "sparkle",
+            "icon_color": "",
             "heading": "Sprays & Washes",
             "text": "Surface only"
           }
@@ -434,7 +451,9 @@
         "icon_item-6": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "stopwatch",
+            "icon_color": "",
             "heading": "Waiting It Out",
             "text": "Stress keeps winning"
           }
@@ -499,7 +518,9 @@
         "icon_item-1": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "heart-plus",
+            "icon_color": "",
             "heading": "L-Citrulline 1500 mg",
             "text": "Supports nitric oxide and healthy blood flow.*"
           }
@@ -507,7 +528,9 @@
         "icon_item-2": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "vitality",
+            "icon_color": "",
             "heading": "Tongkat Ali 200 mg",
             "text": "Supports healthy testosterone and libido.*"
           }
@@ -515,7 +538,9 @@
         "icon_item-3": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "leaf",
+            "icon_color": "",
             "heading": "Ashwagandha (KSM-66®) 300 mg",
             "text": "Supports a calmer response to stress.*"
           }
@@ -523,7 +548,9 @@
         "icon_item-4": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "plant",
+            "icon_color": "",
             "heading": "Damiana 300 mg",
             "text": "A traditional herb used to support arousal.*"
           }
@@ -531,7 +558,9 @@
         "icon_item-5": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "lightning",
+            "icon_color": "",
             "heading": "Shilajit (PrimaVie®) 200 mg",
             "text": "Supports energy and stamina.*"
           }
@@ -539,7 +568,9 @@
         "icon_item-6": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "sparkle",
+            "icon_color": "",
             "heading": "Maca Root 300 mg",
             "text": "Supports desire and drive.*"
           }
@@ -547,7 +578,9 @@
         "icon_item-7": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "star",
+            "icon_color": "",
             "heading": "Bromelain 250 mg",
             "text": "Pineapple enzyme included to support a fresher taste.*"
           }
@@ -555,7 +588,9 @@
         "icon_item-8": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "cell-defense",
+            "icon_color": "",
             "heading": "Zinc 30 mg",
             "text": "Contributes to normal testosterone levels and fertility.*"
           }
@@ -600,6 +635,7 @@
         "card-1": {
           "type": "card",
           "settings": {
+            "alt": "",
             "title": "Do I take it right before sex?",
             "text": "<p>No. Take 2 gummies once a day, every day — morning or night, with or without food. No timing the moment.</p>"
           }
@@ -607,6 +643,7 @@
         "card-2": {
           "type": "card",
           "settings": {
+            "alt": "",
             "title": "How soon will I notice something?",
             "text": "<p>Many men notice a difference within 1–2 weeks. Give it a full 30 days of daily use to judge properly.*</p>"
           }
@@ -614,6 +651,7 @@
         "card-3": {
           "type": "card",
           "settings": {
+            "alt": "",
             "title": "Is it a prescription drug?",
             "text": "<p>No. It's a dietary supplement — vegan, sugar-free and made with natural ingredients. If you take medication or have a medical condition, check with your doctor first.</p>"
           }
@@ -621,6 +659,7 @@
         "card-4": {
           "type": "card",
           "settings": {
+            "alt": "",
             "title": "What if it doesn't work for me?",
             "text": "<p>You have 90 days to try it. If it isn't for you, contact us for a full refund.</p>"
           }
@@ -663,6 +702,7 @@
         "card-1": {
           "type": "card",
           "settings": {
+            "alt": "",
             "title": "Steady Daily Support",
             "text": "<p>Two gummies a day keep the key nutrients topped up. No loading phase, no timing — consistency is what makes it work.</p>"
           }
@@ -670,6 +710,7 @@
         "card-2": {
           "type": "card",
           "settings": {
+            "alt": "",
             "title": "Less Stress, More Desire",
             "text": "<p>Ashwagandha supports a calmer stress response while Tongkat Ali, Maca and Damiana support desire and arousal.*</p>"
           }
@@ -677,6 +718,7 @@
         "card-3": {
           "type": "card",
           "settings": {
+            "alt": "",
             "title": "You Show Up Ready",
             "text": "<p>With blood flow, drive and stamina supported, you stop overthinking and start being present.*</p>"
           }
@@ -719,6 +761,8 @@
           "type": "review",
           "settings": {
             "tag": "",
+            "quote": "",
+            "name": "",
             "verified": true,
             "rating_tenths": 50
           }
@@ -727,6 +771,8 @@
           "type": "review",
           "settings": {
             "tag": "",
+            "quote": "",
+            "name": "",
             "verified": true,
             "rating_tenths": 50
           }
@@ -735,6 +781,8 @@
           "type": "review",
           "settings": {
             "tag": "",
+            "quote": "",
+            "name": "",
             "verified": true,
             "rating_tenths": 50
           }
@@ -745,6 +793,7 @@
         "review-2",
         "review-3"
       ],
+      "disabled": true,
       "settings": {
         "rating_tenths": 48,
         "rating_text": "",
@@ -763,8 +812,7 @@
         "color_scheme": "scheme-eros-light",
         "padding_top": 40,
         "padding_bottom": 40
-      },
-      "disabled": true
+      }
     },
     "howto": {
       "type": "ces-usage-steps",
@@ -818,7 +866,10 @@
           "settings": {
             "time_label": "Week 1–2",
             "title": "Getting started",
-            "points": "Your body starts building up the nutrients. Some men notice their drive picking up within the first couple of weeks.*"
+            "points": "Your body starts building up the nutrients. Some men notice their drive picking up within the first couple of weeks.*",
+            "quote_name": "",
+            "quote_title": "",
+            "quote_text": ""
           }
         },
         "stage-2": {
@@ -826,7 +877,10 @@
           "settings": {
             "time_label": "Week 3–4",
             "title": "A noticeable difference",
-            "points": "Desire and confidence tend to become more noticeable. Stay consistent — this is when it starts coming together.*"
+            "points": "Desire and confidence tend to become more noticeable. Stay consistent — this is when it starts coming together.*",
+            "quote_name": "",
+            "quote_title": "",
+            "quote_text": ""
           }
         },
         "stage-3": {
@@ -834,7 +888,10 @@
           "settings": {
             "time_label": "Week 5–8",
             "title": "Building momentum",
-            "points": "With steady daily use, stamina and recovery are supported. Many men say this is when their partner notices.*"
+            "points": "With steady daily use, stamina and recovery are supported. Many men say this is when their partner notices.*",
+            "quote_name": "",
+            "quote_title": "",
+            "quote_text": ""
           }
         },
         "stage-4": {
@@ -842,7 +899,10 @@
           "settings": {
             "time_label": "Week 9–12",
             "title": "Your new normal",
-            "points": "Two gummies a day is just part of the routine — and so is showing up at your best.*"
+            "points": "Two gummies a day is just part of the routine — and so is showing up at your best.*",
+            "quote_name": "",
+            "quote_title": "",
+            "quote_text": ""
           }
         }
       },
@@ -872,6 +932,46 @@
     "mornings": {
       "type": "ces-photo-wall",
       "blocks": {
+        "point-1": {
+          "type": "point",
+          "settings": {
+            "icon": "heart",
+            "title": "Be Present, Not In Your Head",
+            "text": "Less worrying about performance, more enjoying the moment."
+          }
+        },
+        "point-2": {
+          "type": "point",
+          "settings": {
+            "icon": "brighten",
+            "title": "Walk In With Confidence",
+            "text": "Knowing you're giving your body what it needs, every day."
+          }
+        },
+        "point-3": {
+          "type": "point",
+          "settings": {
+            "icon": "stopwatch",
+            "title": "No Timing, No Planning",
+            "text": "Two gummies in the morning. Spontaneity is back."
+          }
+        },
+        "point-4": {
+          "type": "point",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Feel Fresh Up Close",
+            "text": "Bromelain and chlorophyllin are there to support a fresher taste.*"
+          }
+        },
+        "point-5": {
+          "type": "point",
+          "settings": {
+            "icon": "moon-zzz",
+            "title": "Round Two, Back On The Table",
+            "text": "Stamina and recovery support for nights that don't end early.*"
+          }
+        },
         "photo-1": {
           "type": "photo",
           "settings": {
@@ -918,46 +1018,6 @@
           "type": "photo",
           "settings": {
             "alt": ""
-          }
-        },
-        "point-1": {
-          "type": "point",
-          "settings": {
-            "icon": "heart",
-            "title": "Be Present, Not In Your Head",
-            "text": "Less worrying about performance, more enjoying the moment."
-          }
-        },
-        "point-2": {
-          "type": "point",
-          "settings": {
-            "icon": "brighten",
-            "title": "Walk In With Confidence",
-            "text": "Knowing you're giving your body what it needs, every day."
-          }
-        },
-        "point-3": {
-          "type": "point",
-          "settings": {
-            "icon": "stopwatch",
-            "title": "No Timing, No Planning",
-            "text": "Two gummies in the morning. Spontaneity is back."
-          }
-        },
-        "point-4": {
-          "type": "point",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Feel Fresh Up Close",
-            "text": "Bromelain and chlorophyllin are there to support a fresher taste.*"
-          }
-        },
-        "point-5": {
-          "type": "point",
-          "settings": {
-            "icon": "moon-zzz",
-            "title": "Round Two, Back On The Table",
-            "text": "Stamina and recovery support for nights that don't end early.*"
           }
         }
       },
@@ -1007,9 +1067,13 @@
           "settings": {
             "label": "No prescription needed",
             "brand": "yes",
+            "brand_note": "",
             "col_1": "no",
+            "col_1_note": "",
             "col_2": "yes",
-            "col_3": "yes"
+            "col_2_note": "",
+            "col_3": "yes",
+            "col_3_note": ""
           }
         },
         "row-2": {
@@ -1017,9 +1081,13 @@
           "settings": {
             "label": "No timing before intimacy",
             "brand": "yes",
+            "brand_note": "",
             "col_1": "no",
+            "col_1_note": "",
             "col_2": "yes",
-            "col_3": "yes"
+            "col_2_note": "",
+            "col_3": "yes",
+            "col_3_note": ""
           }
         },
         "row-3": {
@@ -1027,9 +1095,13 @@
           "settings": {
             "label": "Supports desire, stamina & stress in one",
             "brand": "yes",
+            "brand_note": "",
             "col_1": "no",
+            "col_1_note": "",
             "col_2": "no",
-            "col_3": "partial"
+            "col_2_note": "",
+            "col_3": "partial",
+            "col_3_note": ""
           }
         },
         "row-4": {
@@ -1037,9 +1109,13 @@
           "settings": {
             "label": "One simple daily serving",
             "brand": "yes",
+            "brand_note": "",
             "col_1": "partial",
+            "col_1_note": "",
             "col_2": "yes",
-            "col_3": "no"
+            "col_2_note": "",
+            "col_3": "no",
+            "col_3_note": ""
           }
         },
         "row-5": {
@@ -1047,9 +1123,13 @@
           "settings": {
             "label": "Formulated to support a fresher taste",
             "brand": "yes",
+            "brand_note": "",
             "col_1": "no",
+            "col_1_note": "",
             "col_2": "no",
-            "col_3": "no"
+            "col_2_note": "",
+            "col_3": "no",
+            "col_3_note": ""
           }
         },
         "row-6": {
@@ -1057,9 +1137,13 @@
           "settings": {
             "label": "Vegan & sugar-free gummy",
             "brand": "yes",
+            "brand_note": "",
             "col_1": "no",
+            "col_1_note": "",
             "col_2": "partial",
-            "col_3": "no"
+            "col_2_note": "",
+            "col_3": "no",
+            "col_3_note": ""
           }
         }
       },
@@ -1123,7 +1207,6 @@
         "promise-3"
       ],
       "settings": {
-        "seal": "shopify://shop_images/1733673742-image_7_fae043e5-b564-4189-89be-488930137256.webp",
         "seal_alt": "90 day money back guarantee",
         "heading": "Try Eros Gummies Risk-Free For 90 Days",
         "heading_accent": "Risk-Free",
@@ -1147,6 +1230,7 @@
       "blocks": {
         "rating-bar": {
           "type": "ces_rating_bar",
+          "disabled": true,
           "settings": {
             "rating_tenths": 45,
             "text": "Rated <strong>4.8 Excellent</strong> | Over",
@@ -1156,8 +1240,7 @@
             "count_step_1": 1,
             "count_step_2": 3,
             "count_step_3": 4
-          },
-          "disabled": true
+          }
         },
         "title": {
           "type": "title",
@@ -1175,12 +1258,16 @@
           "settings": {
             "label": "",
             "heading": "Choose Your Supply",
+            "intro": "Not every under-eye concern looks the same. Choose based on how often you notice yours and how long it has been there.",
             "accent_color": "#f25627",
             "tier_count": 3,
             "default_tier": 3,
             "add_label": "Add To Cart",
             "after_add": "drawer",
             "open_cart_drawer": true,
+            "selected_bg": "#ffe2d3",
+            "purchase_type": "subscription",
+            "auto_compare": true,
             "onetime_label": "",
             "onetime_url": "",
             "sub_note": "refresh | Refills Ship on Your Own Schedule\nclock | Stop or Cancel Anytime",
@@ -1200,32 +1287,68 @@
             "gift_sub_mode": "manual",
             "gift_sub_template": "[value] value · [count] [items]",
             "show_variant_image": false,
+            "tier_1_variant": "47807432753236",
+            "tier_1_name": "1 Month Supply",
             "tier_1_subtitle": "You Save [save] | FREE Shipping",
+            "tier_1_badge": "",
+            "tier_1_cta": "",
             "tier_1_meta": "",
+            "tier_1_quote": "",
+            "tier_1_role": "",
             "tier_1_price": "",
             "tier_1_unit": "",
+            "tier_1_compare": "",
+            "tier_1_off": "",
             "tier_1_serving": "",
             "tier_1_fine": "",
             "tier_1_benefits": "",
             "tier_1_free_products": [],
+            "tier_1_extra_gifts": "truck | Free Express Shipping |",
+            "tier_1_gift_title": "",
+            "tier_1_gift_sub": "",
+            "tier_1_gift_label": "Welcome kit — arrives with first order",
             "tier_1_foot": "",
+            "tier_2_variant": "47807432786004",
+            "tier_2_name": "2 Month Supply",
             "tier_2_subtitle": "You Save [save] | FREE Shipping",
+            "tier_2_badge": "STARTER PACK",
+            "tier_2_cta": "",
             "tier_2_meta": "",
+            "tier_2_quote": "",
+            "tier_2_role": "",
             "tier_2_price": "",
             "tier_2_unit": "",
+            "tier_2_compare": "",
+            "tier_2_off": "",
             "tier_2_serving": "",
             "tier_2_fine": "",
             "tier_2_benefits": "",
             "tier_2_free_products": [],
+            "tier_2_extra_gifts": "truck | Free Express Shipping |",
+            "tier_2_gift_title": "",
+            "tier_2_gift_sub": "",
+            "tier_2_gift_label": "Welcome kit — arrives with first order",
             "tier_2_foot": "",
+            "tier_3_variant": "47807432818772",
+            "tier_3_name": "3 Month Supply",
             "tier_3_subtitle": "You Save [save] | FREE Shipping",
+            "tier_3_badge": "MOST POPULAR",
+            "tier_3_cta": "",
             "tier_3_meta": "",
+            "tier_3_quote": "",
+            "tier_3_role": "",
             "tier_3_price": "",
             "tier_3_unit": "",
+            "tier_3_compare": "",
+            "tier_3_off": "",
             "tier_3_serving": "",
             "tier_3_fine": "",
             "tier_3_benefits": "",
             "tier_3_free_products": [],
+            "tier_3_extra_gifts": "truck | Free Express Shipping |",
+            "tier_3_gift_title": "",
+            "tier_3_gift_sub": "",
+            "tier_3_gift_label": "Welcome kit — arrives with first order",
             "tier_3_foot": "",
             "tier_4_variant": "",
             "tier_4_name": "",
@@ -1247,21 +1370,7 @@
             "tier_4_gift_title": "",
             "tier_4_gift_sub": "",
             "tier_4_gift_label": "",
-            "tier_4_foot": "",
-            "tier_1_variant": "1",
-            "tier_1_name": "1 Month Supply",
-            "tier_1_extra_gifts": "truck | Free Express Shipping |",
-            "tier_2_variant": "2",
-            "tier_2_name": "2 Month Supply",
-            "tier_2_badge": "STARTER PACK",
-            "tier_2_extra_gifts": "truck | Free Express Shipping |",
-            "tier_3_variant": "3",
-            "tier_3_name": "3 Month Supply",
-            "tier_3_badge": "MOST POPULAR",
-            "tier_3_extra_gifts": "truck | Free Express Shipping |",
-            "purchase_type": "subscription",
-            "auto_compare": true,
-            "selected_bg": "#ffe2d3"
+            "tier_4_foot": ""
           }
         },
         "shipping-estimate": {
@@ -1341,17 +1450,105 @@
         "payment-badges": {
           "type": "ces_payment_badges",
           "settings": {
-            "image": "shopify://shop_images/Payment-Badge_1.webp",
             "text": ""
           }
         },
         "guarantee-card": {
           "type": "ces_guarantee_badge",
           "settings": {
-            "image": "shopify://shop_images/1733673742-image_7.webp",
             "badge_text": "90 DAY",
             "heading": "90-Day Money Back Guarantee",
             "text": "<p>Try Eros Gummies for 90 days. If you're not happy with the results, get 100% of your money back.</p>"
+          }
+        },
+        "acc-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What's included?",
+            "icon": "none",
+            "content": "<p>Each bag contains 60 vegan, sugar-free gummies — a full month at 2 gummies a day. The 2- and 3-month supplies include 2 or 3 bags.</p>",
+            "page": ""
+          }
+        },
+        "acc-2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Why Eros?",
+            "icon": "none",
+            "content": "<p><strong>It works on more than one angle.</strong> Two gummies a day support blood flow, desire, stress response, stamina and taste — not just one of them.*</p><p><strong>Discreet & easy.</strong> No awkward pills, no complicated routine, no timing the moment.</p><p><strong>Confidence you can feel.</strong> Stop wondering and walk into every intimate moment as your best self.*</p><p><strong>No nasty stuff.</strong> Vegan, sugar-free and great tasting. Nothing you don't need.</p>",
+            "page": ""
+          }
+        },
+        "acc-3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ingredients & allergies",
+            "icon": "none",
+            "content": "<p><strong>Active ingredients (per 2 gummies):</strong></p><ul><li>L-Citrulline — 1500 mg</li><li>Sunflower Lecithin — 1000 mg</li><li>Damiana Extract — 300 mg</li><li>Maca Root Extract — 300 mg</li><li>Ashwagandha (KSM-66®) — 300 mg</li><li>Bromelain — 250 mg</li><li>Tongkat Ali Extract — 200 mg</li><li>Shilajit (PrimaVie®) — 200 mg</li><li>Chlorophyllin — 150 mg</li><li>Pygeum — 140 mg</li><li>Pineapple Fruit Extract — 100 mg</li><li>Celery Seed Extract — 100 mg</li><li>Zinc Bisglycinate — 30 mg</li><li>Copper — 1 mg</li></ul><p>Vegan and sugar-free. Check the label for the full ingredient and allergen list.</p>",
+            "page": ""
+          }
+        },
+        "acc-4": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How do I take it?",
+            "icon": "none",
+            "content": "<p>Take 2 gummies a day, every day — morning or night, with or without food. Don't skip days: consistency is what makes it work.</p>",
+            "page": ""
+          }
+        },
+        "acc-5": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How long until I see results?",
+            "icon": "none",
+            "content": "<p>Many men notice a difference within 1–2 weeks of daily use. For best results take Eros consistently for at least 30 days.*</p>",
+            "page": ""
+          }
+        },
+        "acc-6": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What improvements can I expect?",
+            "icon": "none",
+            "content": "<ul><li>Support for firmness and stamina*</li><li>Support for desire and arousal*</li><li>Support for a fresher, less bitter taste*</li><li>Support for energy and recovery*</li><li>A calmer, more confident mindset*</li></ul>",
+            "page": ""
+          }
+        },
+        "acc-7": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is it safe to take every day?",
+            "icon": "none",
+            "content": "<p>Eros is made with natural ingredients, is vegan and sugar-free, and is designed for daily use. Consult your healthcare provider before starting any supplement, especially if you take medication or have a medical condition.</p>",
+            "page": ""
+          }
+        },
+        "acc-8": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Do you offer a guarantee?",
+            "icon": "none",
+            "content": "<p>Yes — a 90-day money-back guarantee. If you're not happy with your results, contact us for a full refund.</p>",
+            "page": ""
+          }
+        },
+        "acc-9": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping information",
+            "icon": "none",
+            "content": "<p>Free express shipping. You'll get a tracking link by email as soon as your order leaves our facility.</p>",
+            "page": ""
+          }
+        },
+        "acc-10": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Disclaimer",
+            "icon": "none",
+            "content": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>",
+            "page": ""
           }
         },
         "trust-panel": {
@@ -1367,86 +1564,6 @@
             "items": "20+ Ingredients In One Gummy\n2 Gummies A Day\nNo Pills. No Timing.\nVegan & Sugar-Free\nSupports Desire, Stamina & Confidence*\n90-Day Money-Back Guarantee",
             "footnote": "Natural ingredients · Made for daily use",
             "text_alignment": "center"
-          }
-        },
-        "acc-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "What's included?",
-            "icon": "none",
-            "content": "<p>Each bag contains 60 vegan, sugar-free gummies — a full month at 2 gummies a day. The 2- and 3-month supplies include 2 or 3 bags.</p>"
-          }
-        },
-        "acc-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Why Eros?",
-            "icon": "none",
-            "content": "<p><strong>It works on more than one angle.</strong> Two gummies a day support blood flow, desire, stress response, stamina and taste — not just one of them.*</p><p><strong>Discreet & easy.</strong> No awkward pills, no complicated routine, no timing the moment.</p><p><strong>Confidence you can feel.</strong> Stop wondering and walk into every intimate moment as your best self.*</p><p><strong>No nasty stuff.</strong> Vegan, sugar-free and great tasting. Nothing you don't need.</p>"
-          }
-        },
-        "acc-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Ingredients & allergies",
-            "icon": "none",
-            "content": "<p><strong>Active ingredients (per 2 gummies):</strong></p><ul><li>L-Citrulline — 1500 mg</li><li>Sunflower Lecithin — 1000 mg</li><li>Damiana Extract — 300 mg</li><li>Maca Root Extract — 300 mg</li><li>Ashwagandha (KSM-66®) — 300 mg</li><li>Bromelain — 250 mg</li><li>Tongkat Ali Extract — 200 mg</li><li>Shilajit (PrimaVie®) — 200 mg</li><li>Chlorophyllin — 150 mg</li><li>Pygeum — 140 mg</li><li>Pineapple Fruit Extract — 100 mg</li><li>Celery Seed Extract — 100 mg</li><li>Zinc Bisglycinate — 30 mg</li><li>Copper — 1 mg</li></ul><p>Vegan and sugar-free. Check the label for the full ingredient and allergen list.</p>"
-          }
-        },
-        "acc-4": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "How do I take it?",
-            "icon": "none",
-            "content": "<p>Take 2 gummies a day, every day — morning or night, with or without food. Don't skip days: consistency is what makes it work.</p>"
-          }
-        },
-        "acc-5": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "How long until I see results?",
-            "icon": "none",
-            "content": "<p>Many men notice a difference within 1–2 weeks of daily use. For best results take Eros consistently for at least 30 days.*</p>"
-          }
-        },
-        "acc-6": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "What improvements can I expect?",
-            "icon": "none",
-            "content": "<ul><li>Support for firmness and stamina*</li><li>Support for desire and arousal*</li><li>Support for a fresher, less bitter taste*</li><li>Support for energy and recovery*</li><li>A calmer, more confident mindset*</li></ul>"
-          }
-        },
-        "acc-7": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Is it safe to take every day?",
-            "icon": "none",
-            "content": "<p>Eros is made with natural ingredients, is vegan and sugar-free, and is designed for daily use. Consult your healthcare provider before starting any supplement, especially if you take medication or have a medical condition.</p>"
-          }
-        },
-        "acc-8": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Do you offer a guarantee?",
-            "icon": "none",
-            "content": "<p>Yes — a 90-day money-back guarantee. If you're not happy with your results, contact us for a full refund.</p>"
-          }
-        },
-        "acc-9": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping information",
-            "icon": "none",
-            "content": "<p>Free express shipping. You'll get a tracking link by email as soon as your order leaves our facility.</p>"
-          }
-        },
-        "acc-10": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Disclaimer",
-            "icon": "none",
-            "content": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>"
           }
         }
       },
