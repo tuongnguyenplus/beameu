@@ -1,0 +1,345 @@
+
+{%- liquid
+  assign pw_photos = section.blocks | where: 'type', 'photo'
+  assign pw_points = section.blocks | where: 'type', 'point'
+  assign pw_cols = section.settings.columns
+  if pw_photos.size < pw_cols
+    assign pw_cols = pw_photos.size
+  endif
+
+  comment
+    Each photo is one column of the wall, and the wall takes about half a wide
+    screen in the split layout and all of it otherwise.
+  endcomment
+  assign pw_wall_vw = 94
+  if section.settings.layout == 'split'
+    assign pw_wall_vw = 48
+  endif
+  assign pw_photo_vw = pw_wall_vw | divided_by: pw_cols | at_least: 1
+  assign pw_img_sizes = '(min-width: 750px) ' | append: pw_photo_vw | append: 'vw, ' | append: pw_wall_vw | append: 'vw'
+
+  comment
+    What goes between a point's title and the sentence under it. Left blank,
+    the sentence drops to its own line instead.
+  endcomment
+  case section.settings.point_separator
+    when 'dash'
+      assign pw_sep = '—'
+    when 'pipe'
+      assign pw_sep = '|'
+    when 'break'
+      assign pw_sep = ''
+    else
+      assign pw_sep = '·'
+  endcase
+-%}
+
+{%- style -%}
+  .ces-pw{color:rgb(var(--color-foreground));background:var(--gradient-background)}
+  /* Copy on the left, wall on the right: the list is the promise and the wall
+     is the evidence for it, so they belong to each other rather than sitting
+     in two sections that happen to follow on. */
+  .ces-pw__split{display:flex;flex-direction:column;gap:2.4rem}
+  .ces-pw__copy{min-width:0}
+  .ces-pw__eyebrow{margin:0 0 1.2rem;font-size:1.6rem;font-weight:700;line-height:1.3;
+    color:var(--ces-accent)}
+  .ces-pw__accent{color:var(--ces-accent)}
+  .ces-pw__points{margin:2.4rem 0 0;padding:0;list-style:none}
+  .ces-pw__point{display:flex;align-items:flex-start;gap:1.2rem;padding:1.4rem 0;
+    border-top:.1rem solid rgba(var(--color-foreground),.12)}
+  .ces-pw__point:first-child{border-top:0;padding-top:0}
+  .ces-pw__point-mark{flex:0 0 auto;width:2rem;height:2rem;margin-top:.2rem;color:var(--ces-accent)}
+  .ces-pw__point-title{margin:0;font-size:1.65rem;font-weight:700;line-height:1.35}
+  .ces-pw__point-text{font-size:1.5rem;line-height:1.45;color:var(--ces-muted)}
+  /* Title and text are both inline, so without something between them they
+     run straight into each other. The separator keeps them on one line; the
+     "break" style puts the text on its own line instead. */
+  .ces-pw__point-sep{margin:0 .35rem;color:var(--ces-muted)}
+  .ces-pw__point--stacked .ces-pw__point-text{display:block;margin-top:.4rem}
+  @media screen and (min-width:900px){
+    .ces-pw__split{flex-direction:row;align-items:center;gap:5rem}
+    .ces-pw__split > .ces-pw__copy{flex:1 1 52%;min-width:0}
+    .ces-pw__split > .ces-pw__wall{flex:1 1 44%}
+  }
+  .ces-pw__head{text-align:center;margin-bottom:2rem}
+  /* The wall is a window onto a taller strip: the photos are deliberately cut
+     off top and bottom so it reads as a feed that carries on past the edge. */
+  .ces-pw__wall{display:grid;gap:.8rem;overflow:hidden;
+    height:{{ section.settings.height | times: 0.7 | round }}px;
+    grid-template-columns:repeat({{ pw_cols }},1fr)}
+  {%- if section.settings.fade_edges -%}
+    .ces-pw__wall{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);
+      mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent)}
+  {%- endif -%}
+  .ces-pw__col{overflow:hidden}
+  .ces-pw__track{display:flex;flex-direction:column;gap:.8rem;will-change:transform}
+  /* The group is rendered twice and the track travels exactly one group, so
+     the loop is seamless and needs no JavaScript. */
+  .ces-pw__col--up .ces-pw__track{animation:ces-pw-up {{ section.settings.duration }}s linear infinite}
+  .ces-pw__col--down .ces-pw__track{animation:ces-pw-down {{ section.settings.duration }}s linear infinite}
+  @keyframes ces-pw-up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+  @keyframes ces-pw-down{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+  {%- if section.settings.pause_on_hover -%}
+    .ces-pw__wall:hover .ces-pw__track,.ces-pw__wall:focus-within .ces-pw__track{animation-play-state:paused}
+  {%- endif -%}
+  .ces-pw__item{margin:0;flex:0 0 auto}
+  .ces-pw__item img{display:block;width:100%;height:auto;border-radius:var(--ces-radius);object-fit:cover}
+  {%- if section.settings.image_ratio != 'natural' -%}
+    .ces-pw__item img{aspect-ratio:{{ section.settings.image_ratio }}}
+  {%- endif -%}
+  /* Motion here is decoration, so it is the first thing to go. */
+  @media (prefers-reduced-motion:reduce){
+    .ces-pw__track{animation:none !important}
+  }
+  @media screen and (min-width:750px){
+    .ces-pw__wall{gap:1.2rem;height:{{ section.settings.height }}px}
+    .ces-pw__track{gap:1.2rem}
+    .ces-pw__head{margin-bottom:2.8rem}
+  }
+{%- endstyle -%}
+
+{% render 'ces-section-padding' %}
+
+<div class="ces-section ces-pw ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="ces-section__inner">
+    {%- capture pw_copy -%}
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ces-pw__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        {%- liquid
+          assign pw_heading = section.settings.heading
+          assign pw_accent = section.settings.heading_accent | strip
+          if pw_accent != blank and pw_heading contains pw_accent
+            capture pw_wrapped
+              echo '<span class="ces-pw__accent">'
+              echo pw_accent
+              echo '</span>'
+            endcapture
+            assign pw_heading = pw_heading | replace: pw_accent, pw_wrapped
+          endif
+        -%}
+        <h2 class="ces-heading">{{ pw_heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="ces-subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if pw_points.size > 0 -%}
+        <ul class="ces-pw__points" role="list">
+          {%- for block in pw_points -%}
+            <li class="ces-pw__point{% if pw_sep == blank %} ces-pw__point--stacked{% endif %}" {{ block.shopify_attributes }}>
+              <span class="ces-pw__point-mark" aria-hidden="true">
+                {% render 'ces-icon', icon: block.settings.icon %}
+              </span>
+              <span>
+                {%- if block.settings.title != blank -%}
+                  <span class="ces-pw__point-title">{{ block.settings.title }}</span>
+                {%- endif -%}
+                {%- if block.settings.title != blank and block.settings.text != blank and pw_sep != blank %}
+                  <span class="ces-pw__point-sep">{{ pw_sep }}</span>
+                {% endif -%}
+                {%- if block.settings.text != blank -%}
+                  {{ ' ' }}<span class="ces-pw__point-text">{{ block.settings.text }}</span>
+                {%- endif -%}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    {%- endcapture -%}
+
+    {%- unless section.settings.layout == 'split' -%}
+      {%- if pw_copy != blank -%}
+        <div class="ces-pw__head">{{ pw_copy }}</div>
+      {%- endif -%}
+    {%- endunless -%}
+
+    {%- if section.settings.layout == 'split' -%}<div class="ces-pw__split"><div class="ces-pw__copy">{{ pw_copy }}</div>{%- endif -%}
+
+    {%- if pw_cols > 0 -%}
+      <div class="ces-pw__wall">
+        {%- for col in (1..pw_cols) -%}
+          {%- liquid
+            assign col_index = col | minus: 1
+            # Columns alternate direction, which is what stops the wall reading
+            # as one block sliding past and makes it feel like a feed.
+            assign remainder = col_index | modulo: 2
+            if remainder == 0
+              assign direction = 'up'
+            else
+              assign direction = 'down'
+            endif
+          -%}
+          <div class="ces-pw__col ces-pw__col--{{ direction }}">
+            <div class="ces-pw__track">
+              {%- for pass in (1..2) -%}
+                {%- for block in pw_photos -%}
+                  {%- liquid
+                    assign slot = forloop.index0 | modulo: pw_cols
+                    unless slot == col_index
+                      continue
+                    endunless
+                  -%}
+                  {%- if block.settings.image != blank -%}
+                    <figure
+                      class="ces-pw__item"
+                      {% if pass == 1 %}{{ block.shopify_attributes }}{% else %}aria-hidden="true"{% endif %}
+                    >
+                      {%- liquid
+                        comment
+                          The wall is drawn twice so the marquee can loop; the
+                          second pass is decorative, so it carries no alt text.
+                        endcomment
+                        assign pw_img_alt = ''
+                        if pass == 1
+                          assign pw_img_alt = block.settings.alt | escape
+                        endif
+                      -%}
+                      {% render 'ces-img',
+                         image: block.settings.image,
+                         alt: pw_img_alt,
+                         sizes: pw_img_sizes,
+                         max: 540 %}
+                    </figure>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    {%- if section.settings.layout == 'split' -%}</div>{%- endif -%}
+
+    {% render 'ces-cta-rail',
+       label: section.settings.cta_label,
+       url: section.settings.cta_url,
+       footnote: section.settings.cta_footnote,
+       width: section.settings.cta_width,
+       arrow: section.settings.cta_arrow,
+       id: section.id %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CES Photo wall",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "paragraph", "content": "A wall of customer photos that drifts past, each column going the opposite way to the one beside it. Photos are cut off at the top and bottom on purpose." },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "wall", "label": "Wall on its own" },
+        { "value": "split", "label": "Copy left, wall right" }
+      ],
+      "default": "wall"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "heading_accent", "label": "Part of the heading to colour", "info": "Type the words exactly as they appear in the heading." },
+    { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "header", "content": "The wall" },
+    { "type": "range", "id": "columns", "min": 2, "max": 4, "step": 1, "label": "Columns", "default": 2 },
+    { "type": "range", "id": "height", "min": 240, "max": 800, "step": 20, "unit": "px", "label": "Height on desktop", "info": "Three quarters of this on a phone.", "default": 520 },
+    { "type": "range", "id": "duration", "min": 10, "max": 120, "step": 5, "unit": "s", "label": "Seconds for one full pass", "default": 45 },
+    { "type": "checkbox", "id": "pause_on_hover", "label": "Pause while hovered", "default": true },
+    { "type": "checkbox", "id": "fade_edges", "label": "Fade the top and bottom edges", "default": true },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Photo shape",
+      "options": [
+        { "value": "natural", "label": "As uploaded" },
+        { "value": "1/1", "label": "Square" },
+        { "value": "4/5", "label": "Portrait" },
+        { "value": "3/4", "label": "Tall portrait" }
+      ],
+      "default": "4/5"
+    },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "cta_label", "label": "Button label" },
+    { "type": "url", "id": "cta_url", "label": "Button link", "info": "Defaults to the product buy box (#ces-bundle)." },
+    { "type": "textarea", "id": "cta_footnote", "label": "Text under the button" },
+
+    {
+      "type": "checkbox",
+      "id": "cta_arrow",
+      "label": "Arrow after the label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "cta_width",
+      "label": "Button width",
+      "options": [
+        { "value": "auto", "label": "As wide as its label" },
+        { "value": "full", "label": "Full width" }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "select",
+      "id": "point_separator",
+      "label": "Between a point's title and its text",
+      "options": [
+        { "value": "dot", "label": "Middle dot" },
+        { "value": "dash", "label": "Dash" },
+        { "value": "pipe", "label": "Bar" },
+        { "value": "break", "label": "Nothing - text on its own line" }
+      ],
+      "default": "dot"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Mark",
+          "options": [
+            { "value": "check-circle", "label": "Check" },
+            { "value": "eye", "label": "Eye" },
+            { "value": "brighten", "label": "Brighten" },
+            { "value": "stopwatch", "label": "Stopwatch" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "moon-zzz", "label": "Overnight" }
+          ],
+          "default": "check-circle"
+        },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "text", "label": "Text under it" }
+      ]
+    },
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "alt", "label": "Photo description" }
+      ]
+    }
+  ],
+  "max_blocks": 32,
+  "presets": [
+    {
+      "name": "CES Photo wall",
+      "blocks": [
+        { "type": "photo" }, { "type": "photo" }, { "type": "photo" },
+        { "type": "photo" }, { "type": "photo" }, { "type": "photo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,5 +1,3 @@
-{{ 'ces-base.css' | asset_url | stylesheet_tag }}
-{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'ces-scroll.js' | asset_url }}" defer="defer"></script>
 {{ 'ces-sticky-atc.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'ces-sticky-atc.js' | asset_url }}" defer="defer"></script>
@@ -7,6 +5,70 @@
 {%- liquid
   assign target = section.settings.target_id | default: 'ces-app-price-slot' | handleize
   assign thumb = section.settings.image | default: product.featured_image
+  comment
+    Two shapes for the one bar. 'compact' is the single-line button beside the
+    product; 'gift' hands the call to action to the shared rail snippet, so the
+    bar carries the very button the page carries — label on the first line, the
+    free gift on the second — and one theme setting still edits the gift
+    everywhere it is offered.
+  endcomment
+  assign sticky_style = section.settings.button_style | default: 'compact'
+  assign sticky_url = '#' | append: target
+  comment
+    Written the long way round so a bar saved before this setting existed, and
+    so carrying no value for it, still shows what it always showed.
+  endcomment
+  assign sticky_info = true
+  if section.settings.show_info == false
+    assign sticky_info = false
+  endif
+  comment
+    The rail renders nothing without a label, which with the product hidden
+    would leave the bar as an empty strip across the foot of the page. A
+    merchant who clears the field wants a different word, not no button.
+  endcomment
+  assign sticky_label = section.settings.button_label | default: 'Order Now'
+  comment
+    Same long way round, same reason: a bar saved before this setting existed
+    carries no value for it, and standing down over the buy box is what it
+    should do unless someone says otherwise.
+  endcomment
+  assign sticky_over = 'hide'
+  if section.settings.hide_over_target == false
+    assign sticky_over = 'show'
+  endif
+  comment
+    Where inside the section the button lands. A block has no id of its own on
+    a live page — Shopify only writes block attributes in the theme editor — so
+    each choice is a selector for what that block actually renders, kept here
+    where it can be read rather than buried in the script.
+  endcomment
+  assign sticky_inner = ''
+  case section.settings.target_block
+    when 'bundle'
+      assign sticky_inner = '.ces-b2, .ces-bundle'
+    when 'offer'
+      assign sticky_inner = '.ces-offer--block'
+    when 'buy_buttons'
+      assign sticky_inner = '.product-form__buttons'
+    when 'app_slot'
+      assign sticky_inner = '.ces-app-price-slot, [data-ces-app-slot]'
+    when 'price'
+      assign sticky_inner = '.price'
+    when 'variant'
+      assign sticky_inner = 'variant-selects, .product-form__input'
+    when 'rating'
+      assign sticky_inner = '.ces-main-product__rating'
+    when 'clinicians'
+      comment
+        The card in the info column first; the floating badge above the gallery
+        only if there is no card, since that one sits at the top of the section
+        anyway and scrolling to it is the same as not choosing a block at all.
+      endcomment
+      assign sticky_inner = '.ces-clinicians--card, .ces-clinicians'
+    when 'custom'
+      assign sticky_inner = section.settings.target_selector
+  endcase
 -%}
 
 {%- if product != blank -%}
@@ -18,8 +80,10 @@
     and, with a bundle selector, the only correct behaviour.
   {%- endcomment -%}
   <ces-sticky-atc
-    class="ces-section ces-sticky-atc color-{{ section.settings.color_scheme }} gradient"
+    class="ces-section ces-sticky-atc ces-sticky-atc--{{ section.settings.position | default: 'bottom' }} ces-sticky-atc--{{ sticky_style }} color-{{ section.settings.color_scheme }} gradient"
     data-target="{{ target }}"
+    data-over-target="{{ sticky_over }}"
+    {% if sticky_inner != blank %}data-target-inner="{{ sticky_inner | escape }}"{% endif %}
     {% if section.settings.reveal_id != blank %}data-reveal="{{ section.settings.reveal_id | handleize }}"{% endif %}
     {% if section.settings.hide_on_desktop %}
       data-mobile-only
@@ -27,6 +91,7 @@
     hidden
   >
     <div class="ces-sticky-atc__inner">
+      {%- if sticky_info -%}
       <div class="ces-sticky-atc__info">
         {%- if section.settings.show_image and thumb != blank -%}
           <div class="ces-sticky-atc__thumb">
@@ -89,10 +154,32 @@
           {%- endif -%}
         </div>
       </div>
+      {%- endif -%}
 
-      <a class="ces-button ces-sticky-atc__button" href="#{{ target }}">
-        {{ section.settings.button_label }}
-      </a>
+      {%- liquid
+        comment
+          show: 'always' because the bar is the page's remaining call to action
+          when the in-page rails are switched off — the switch that hides them
+          must not hide this one too.
+
+          Captured rather than printed straight out so the bar can see whether
+          it got a button. The rail answers to a theme switch and to its own
+          rules, and a bar pinned across the foot of the page with nothing in
+          it is worse than one that has quietly gone back to a plain button.
+        endcomment
+        if sticky_style == 'gift'
+          capture sticky_cta
+            render 'ces-cta-rail', label: sticky_label, url: sticky_url, width: 'full', show: 'always'
+          endcapture
+        endif
+      -%}
+      {%- if sticky_cta contains '<a' -%}
+        {{ sticky_cta }}
+      {%- else -%}
+        <a class="ces-button ces-sticky-atc__button" href="{{ sticky_url }}">
+          {{ sticky_label }}
+        </a>
+      {%- endif -%}
     </div>
   </ces-sticky-atc>
 {%- endif -%}
@@ -114,20 +201,74 @@
       "type": "text",
       "id": "target_id",
       "label": "Scroll target element ID",
-      "info": "Where the button scrolls to. Usually the CES App slot's ID.",
+      "info": "Where the button scrolls to. Usually the CES App slot's ID, or the name of the section holding it.",
       "default": "ces-app-price-slot"
+    },
+    {
+      "type": "select",
+      "id": "target_block",
+      "label": "Scroll to which part of it",
+      "info": "The top of the section unless you pick a block. A choice that names more than one thing takes them in order, so the first one present wins. If none is in the section, the button lands at the top and says so in the browser console.",
+      "options": [
+        { "value": "none", "label": "Top of the section" },
+        { "value": "bundle", "label": "Bundle selector" },
+        { "value": "offer", "label": "Offer bundle" },
+        { "value": "buy_buttons", "label": "Add to cart button" },
+        { "value": "app_slot", "label": "App price slot" },
+        { "value": "price", "label": "Price" },
+        { "value": "variant", "label": "Variant picker" },
+        { "value": "rating", "label": "Rating bar" },
+        { "value": "clinicians", "label": "Clinicians' choice" },
+        { "value": "custom", "label": "Custom selector below" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "target_selector",
+      "label": "Custom selector",
+      "info": "Used only by the choice above. Any CSS selector inside the section, e.g. .ces-b2 or #my-anchor."
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Pin the bar to",
+      "info": "Pinned to the top it covers a sticky in-page nav while it is showing.",
+      "options": [
+        { "value": "bottom", "label": "Bottom of the screen" },
+        { "value": "top", "label": "Top of the screen" }
+      ],
+      "default": "bottom"
     },
     {
       "type": "text",
       "id": "reveal_id",
       "label": "Reveal after element ID",
-      "info": "The bar appears once this element scrolls out of view above. Leave empty to use the scroll target. Give the element an ID in its block/section settings, e.g. try-risk-free."
+      "info": "The bar appears once this element scrolls out of view above. A section's own name is enough — hero, or shopify-section-hero. Leave empty to use the scroll target."
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Button label",
       "default": "ADD TO CART"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "info": "The two-line button is the same one the page uses: the label, then the free gift from Theme settings \u203a CES landing pages.",
+      "options": [
+        { "value": "compact", "label": "One line, beside the product" },
+        { "value": "gift", "label": "Two lines, with the free gift" }
+      ],
+      "default": "compact"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_info",
+      "label": "Show the product and rating",
+      "info": "Turn off to give the bar to the button alone.",
+      "default": true
     },
     {
       "type": "checkbox",
@@ -204,6 +345,13 @@
       "id": "count_step_3",
       "label": "Add every 3 seconds",
       "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_over_target",
+      "label": "Hide while the buy box is on screen",
+      "info": "The bar stands down for as long as any part of the scroll target is in view, so it never covers the real add-to-cart.",
+      "default": true
     },
     {
       "type": "checkbox",

@@ -1,10 +1,40 @@
-{{ 'ces-base.css' | asset_url | stylesheet_tag }}
-{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
 {{ 'ces-benefits-checklist.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  /* One column stacks the points as a single read; two sets them as a spec
+     sheet. Which one is right depends on how many there are. */
+  .ces-benefits-checklist--one-col .ces-benefits-checklist__list{grid-template-columns:minmax(0,1fr)}
+  /* The filled style puts a bare tick inside a solid disc. The icon is swapped
+     below so no second ring shows through.
+
+     The inner glyph has to be sized explicitly. Left alone it inherits the
+     shared rule that stretches an icon to the full wrapper, and the checkmark's
+     viewBox is 12 by 9, so fitting it to a 19px square ran its two ends past
+     the curve of the disc and bit notches out of the circle.
+
+     Measured off the reference: a 19px disc around an 11px tick, 12px of air
+     before the label, and a 38px pitch down the list. The disc is deliberately
+     smaller than the 20px the icons use elsewhere — at full size it outweighs
+     the line it belongs to and the list stops feeling light. */
+  .ces-benefits-checklist--filled .ces-checklist-item > .ces-icon{
+    width:1.9rem;height:1.9rem;margin-top:.2em;flex:0 0 auto;
+    display:inline-flex;align-items:center;justify-content:center;
+    border-radius:50%;background:var(--ces-check-color,var(--ces-accent));color:rgb(var(--color-background))}
+  .ces-benefits-checklist--filled .ces-checklist-item > .ces-icon svg{
+    width:1.1rem;height:1.1rem;display:block}
+  .ces-benefits-checklist--filled .ces-checklist-item{gap:1.2rem}
+  .ces-benefits-checklist--filled .ces-checklist-item__text{font-weight:700;line-height:1.5}
+  .ces-benefits-checklist--filled .ces-benefits-checklist__list{gap:1.6rem}
+  @media screen and (min-width:750px){
+    .ces-benefits-checklist--filled .ces-benefits-checklist__list{gap:1.6rem 3.2rem}
+  }
+{%- endstyle -%}
 
 {% render 'ces-section-padding' %}
 
-<div class="ces-section ces-benefits-checklist ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+<div
+  style="{% if section.settings.check_color != blank %}--ces-check-color: {{ section.settings.check_color }};{% endif %}"
+  class="ces-section ces-benefits-checklist{% if section.settings.check_style == 'filled' %} ces-benefits-checklist--filled{% endif %}{% if section.settings.columns_desktop == '1' %} ces-benefits-checklist--one-col{% endif %} ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   <div class="ces-section__inner ces-section__inner--narrow">
     {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
       <div class="ces-section__header">
@@ -19,10 +49,18 @@
 
     {%- if section.blocks.size > 0 -%}
       <ul class="ces-checklist ces-benefits-checklist__list" role="list">
+        {%- liquid
+          # A filled disc needs a bare tick inside it; the outlined style keeps
+          # whichever icon the merchant picked.
+          assign bc_icon = section.settings.icon
+          if section.settings.check_style == 'filled' and bc_icon == 'check-circle'
+            assign bc_icon = 'check'
+          endif
+        -%}
         {%- for block in section.blocks -%}
           {% render 'ces-checklist-item',
             text: block.settings.text,
-            icon: section.settings.icon,
+            icon: bc_icon,
             shopify_attributes: block.shopify_attributes
           %}
         {%- endfor -%}
@@ -32,6 +70,14 @@
     {%- if section.settings.disclaimer != blank -%}
       <div class="ces-disclaimer rte ces-rte">{{ section.settings.disclaimer }}</div>
     {%- endif -%}
+
+    {% render 'ces-cta-rail',
+       label: section.settings.cta_label,
+       url: section.settings.cta_url,
+       footnote: section.settings.cta_footnote,
+       width: section.settings.cta_width,
+       arrow: section.settings.cta_arrow,
+       id: section.id %}
   </div>
 </div>
 
@@ -77,6 +123,68 @@
       "default": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>"
     },
     {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "info": "Always one on a phone.",
+      "options": [
+        { "value": "2", "label": "Two" },
+        { "value": "1", "label": "One" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Tick colour",
+      "info": "Used by the filled style. Leave empty to follow the theme's accent colour, so it matches the other ticks on the page."
+    },
+    {
+      "type": "select",
+      "id": "check_style",
+      "label": "Tick style",
+      "options": [
+        { "value": "outline", "label": "Outlined" },
+        { "value": "filled", "label": "Filled disc, bold text" }
+      ],
+      "default": "outline"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button link",
+      "info": "Defaults to the product buy box (#ces-bundle)."
+    },
+    { "type": "textarea", "id": "cta_footnote",
+      "label": "Text under the button",
+      "info": "One line each as \"icon | label\" renders them with icons side by side."
+    },
+
+    {
+      "type": "checkbox",
+      "id": "cta_arrow",
+      "label": "Arrow after the label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "cta_width",
+      "label": "Button width",
+      "options": [
+        { "value": "auto", "label": "As wide as its label" },
+        { "value": "full", "label": "Full width" }
+      ],
+      "default": "auto"
+    },    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",

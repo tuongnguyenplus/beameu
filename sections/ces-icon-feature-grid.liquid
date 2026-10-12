@@ -1,5 +1,3 @@
-{{ 'ces-base.css' | asset_url | stylesheet_tag }}
-{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
 {{ 'ces-icon-feature-grid.css' | asset_url | stylesheet_tag }}
 
 {%- assign ces_needs_symbols = false -%}
@@ -17,6 +15,19 @@
   >
 {%- endif -%}
 
+{%- style -%}
+  .ces-icon-feature-grid__eyebrow{margin:0 0 .8rem;font-size:1.7rem;font-weight:700;line-height:1.3;color:var(--ces-accent)}
+  /* As a verdict rather than a description: an outlined chip that reads as a
+     label stamped on the thing above it. */
+  .ces-icon-feature-grid__pill{display:inline-block;margin:1rem 0 0;padding:.6rem 1.4rem;
+    border:.15rem solid var(--ces-pill-color,var(--ces-danger));border-radius:var(--ces-radius-pill);
+    color:var(--ces-pill-color,var(--ces-danger));font-size:1.4rem;font-weight:700;line-height:1.25}
+  @media screen and (min-width:750px){
+    .ces-icon-feature-grid__eyebrow{font-size:2rem}
+    .ces-icon-feature-grid__pill{font-size:1.5rem}
+  }
+{%- endstyle -%}
+
 {% render 'ces-section-padding' %}
 
 <div
@@ -25,11 +36,15 @@
     --ces-icon-grid-columns-mobile: {{ section.settings.columns_mobile }};
     --ces-icon-grid-columns-desktop: {{ section.settings.columns_desktop }};
     {% if section.settings.icon_color != blank %}--ces-icon-color: {{ section.settings.icon_color }};{% endif %}
+    {% if section.settings.pill_color != blank %}--ces-pill-color: {{ section.settings.pill_color }};{% endif %}
   "
 >
   <div class="ces-section__inner">
-    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.subheading != blank -%}
       <div class="ces-section__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="ces-icon-feature-grid__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
         {%- if section.settings.heading != blank -%}
           {%- liquid
             assign ces_heading = section.settings.heading
@@ -58,7 +73,7 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      <div class="ces-icon-feature-grid__grid" style="--ces-icon-frame: {{ section.settings.icon_size }}rem;">
+      <div class="ces-icon-feature-grid__grid" style="--ces-icon-frame: {{ section.settings.icon_size }}rem;--ces-icon-image-scale: {{ section.settings.image_scale | default: 50 }}%;">
         {%- for block in section.blocks -%}
           <div class="ces-icon-feature-grid__item" {{ block.shopify_attributes }}>
             <span
@@ -97,12 +112,24 @@
             {%- endif -%}
 
             {%- if block.settings.text != blank -%}
-              <p class="ces-icon-feature-grid__text">{{ block.settings.text }}</p>
+              {%- if section.settings.text_style == 'pill' -%}
+                <p class="ces-icon-feature-grid__pill">{{ block.settings.text }}</p>
+              {%- else -%}
+                <p class="ces-icon-feature-grid__text">{{ block.settings.text }}</p>
+              {%- endif -%}
             {%- endif -%}
           </div>
         {%- endfor -%}
       </div>
     {%- endif -%}
+
+    {% render 'ces-cta-rail',
+       label: section.settings.cta_label,
+       url: section.settings.cta_url,
+       footnote: section.settings.cta_footnote,
+       width: section.settings.cta_width,
+       arrow: section.settings.cta_arrow,
+       id: section.id %}
   </div>
 </div>
 
@@ -112,6 +139,27 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "How the text under each heading looks",
+      "options": [
+        { "value": "text", "label": "A line of description" },
+        { "value": "pill", "label": "An outlined chip, as a verdict" }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "color",
+      "id": "pill_color",
+      "label": "Chip colour",
+      "default": "#c0392b"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -165,6 +213,17 @@
     },
     {
       "type": "range",
+      "id": "image_scale",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "How much of the disc the picture fills",
+      "info": "Only applies when the icon frame is a tinted disc.",
+      "default": 60
+    },
+    {
+      "type": "range",
       "id": "columns_mobile",
       "min": 1,
       "max": 3,
@@ -182,6 +241,40 @@
       "default": 4
     },
     {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button link",
+      "info": "Defaults to the product buy box (#ces-bundle)."
+    },
+    { "type": "textarea", "id": "cta_footnote",
+      "label": "Text under the button"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "cta_arrow",
+      "label": "Arrow after the label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "cta_width",
+      "label": "Button width",
+      "options": [
+        { "value": "auto", "label": "As wide as its label" },
+        { "value": "full", "label": "Full width" }
+      ],
+      "default": "auto"
+    },    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",

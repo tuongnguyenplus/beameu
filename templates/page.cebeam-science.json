@@ -37,7 +37,7 @@
             "reverse": false,
             "image": "shopify://shop_images/hf_20260916_055718_c2279ecd-1695-4f2f-b399-8de9ebf6e6a8.png",
             "science_heading": "The Science",
-            "science_text": "<p>Every CEBEAM patch is lined with hundreds of self-dissolving micro-cones made from cross-linked hyaluronic acid. On contact they create painless micro-channels through the skin's outer barrier, then dissolve completely — carrying their actives past the layer that blocks ordinary creams.</p>",
+            "science_text": "<p>Every CEBEAM patch is lined with 80 self-dissolving micro-cones made from cross-linked hyaluronic acid. On contact they create painless micro-channels through the skin's outer barrier, then dissolve completely — carrying their actives past the layer that blocks ordinary creams.</p>",
             "chips_heading": "Clinically shown to",
             "chip_1_label": "Boost Collagen",
             "chip_2_label": "Improve Absorption",
@@ -303,10 +303,10 @@
           "type": "timeline_step",
           "settings": {
             "state": "auto",
-            "time_label": "Days 1-7",
-            "heading": "7-Day Starter",
+            "time_label": "Weeks 1-3",
+            "heading": "21-Day Eye Reset",
             "bullets": "Antioxidant activity begins working at the cellular level\nBody starts adapting to daily intake\nMost people feel no dramatic change yet",
-            "content": "<p>Four treatments in your first week as skin adjusts to the new delivery. Immediate hydration and de-puffing — the under-eye looks smoother and more awake on waking.</p>",
+            "content": "<p>Two treatments in your first week as skin adjusts to the new delivery. Immediate hydration and de-puffing — the under-eye looks smoother and more awake on waking.</p>",
             "open": true
           }
         },
@@ -314,8 +314,8 @@
           "type": "timeline_step",
           "settings": {
             "state": "auto",
-            "time_label": "Days 8-21",
-            "heading": "21-Day Eye Reset",
+            "time_label": "Weeks 4-6",
+            "heading": "6-Week Eye Rebuild",
             "bullets": "Antioxidant activity begins working at the cellular level\nBody starts adapting to daily intake\nMost people feel no dramatic change yet",
             "content": "<p>Peptides accumulate and the repair response ramps up. Fine lines soften and dark circles start to lift as circulation and collagen improve.</p>",
             "open": false
@@ -325,8 +325,8 @@
           "type": "timeline_step",
           "settings": {
             "state": "auto",
-            "time_label": "Days 22-45",
-            "heading": "45-Day Eye Rebuild",
+            "time_label": "Weeks 7-9",
+            "heading": "9-Week Complete Rebuild",
             "bullets": "Antioxidant activity begins working at the cellular level\nBody starts adapting to daily intake\nMost people feel no dramatic change yet",
             "content": "<p>New collagen and elastin rebuild firmness. Crepiness and hollowing visibly reduce for a lifted, rested, younger-looking eye area.</p>",
             "open": false
@@ -342,7 +342,7 @@
         "display": "open",
         "image_position": "start",
         "image_ratio": "3 / 4",
-        "heading": "Your 45-Day Eye Rebuild",
+        "heading": "Your 9-Week Complete Rebuild",
         "subheading": "Results compound with consistency — here's what to expect.",
         "fill_speed": 900,
         "meta_opacity": 100,
@@ -374,7 +374,7 @@
         "b3": {
           "type": "benefit_item",
           "settings": {
-            "text": "Use one fresh treatment four nights a week through your reset, then two to maintain"
+            "text": "Use one fresh treatment twice a week, through your reset and to maintain"
           }
         },
         "b4": {
@@ -476,7 +476,7 @@
           "settings": {
             "group_label": "",
             "question": "How often should I use them?",
-            "answer": "<p>During your 21-Day Eye Reset, use one fresh two-patch treatment four nights per week. After completing the reset, maintain with two treatment nights per week. Each treatment is single use — a new sealed pouch every time.</p>",
+            "answer": "<p>During your 21-Day Eye Reset, use one fresh two-patch treatment twice per week. After completing the reset, keep to the same two treatment nights per week. Each treatment is single use — a new sealed pouch every time.</p>",
             "open": false
           }
         },

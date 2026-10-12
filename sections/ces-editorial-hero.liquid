@@ -1,12 +1,33 @@
-{{ 'ces-base.css' | asset_url | stylesheet_tag }}
-{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .ces-edhero{color:rgb(var(--color-foreground));background:var(--gradient-background)}
   .ces-edhero__inner{text-align:center;max-width:78rem;margin:0 auto}
+  /* Left-aligned, the hero reads as the opening of an article rather than a
+     poster, which is what a long landing page wants. The rating row and the
+     byline follow the text rather than staying centred under it. */
+  .ces-edhero__inner--left{text-align:left}
+  .ces-edhero__inner--left .ces-edhero__rating,
+  .ces-edhero__inner--left .ces-edhero__byline{justify-content:flex-start}
   .ces-edhero__eyebrow{margin:0 0 1.2rem;font-size:1.2rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ces-accent)}
+  /* The plain eyebrow is a sentence leading into the headline, not a label
+     above it, so it keeps sentence case and the body colour. */
+  .ces-edhero__eyebrow--plain{font-size:2rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ces-muted);line-height:1.35}
+  .ces-edhero__accent{color:var(--ces-accent)}
+  /* The rating sits tight under the image as a caption on it, not as a band
+     of its own — 6px in the reference, measured. */
+  .ces-edhero__rating{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:0 0 .6rem;flex-wrap:wrap}
+  .ces-edhero__stars{position:relative;display:inline-block;line-height:0;flex:0 0 auto}
+  .ces-edhero__stars-track{display:block;color:rgba(var(--color-foreground),.18)}
+  /* The fill is clipped to the score's width, so it must not be a flex
+     container or its stars would shrink instead of being cut off. */
+  .ces-edhero__stars-fill{position:absolute;top:0;left:0;width:var(--ces-rating-pct,100%);overflow:hidden;color:#f5b301;white-space:nowrap}
+  .ces-edhero__stars svg{display:inline-block;vertical-align:top}
+  .ces-edhero__rating-text{font-size:1.5rem;font-weight:700;line-height:1.3}
   .ces-edhero__heading{margin:0;font-size:clamp(2.6rem,4.4vw,4.2rem);line-height:1.15;font-weight:800}
   .ces-edhero__sub{margin:1.6rem 0 0;font-size:1.7rem;line-height:1.55;color:var(--ces-muted)}
+  /* Scoped to the landing-page headline so the article pages already using
+     this hero keep the metrics they were set with. */
+  .ces-edhero__heading--large + .ces-edhero__sub{margin-top:2.2rem;font-size:1.8rem;line-height:1.5}
   .ces-edhero__byline{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem 0 0;flex-wrap:wrap}
   .ces-edhero__avatar{width:4.4rem;height:4.4rem;border-radius:50%;overflow:hidden;background:var(--ces-surface);flex:0 0 auto}
   .ces-edhero__avatar img{width:100%;height:100%;object-fit:cover;display:block}
@@ -16,29 +37,137 @@
   .ces-edhero__media{margin:2.8rem 0 0;border-radius:var(--ces-radius);overflow:hidden;border:.1rem solid var(--ces-border-color)}
   .ces-edhero__media img{width:100%;height:auto;display:block}
   .ces-edhero__cta{margin:2.4rem 0 0}
+  /* The points sit in the copy column, sharing its left edge with the
+     headline. Held in a section of their own they centred in their own
+     container and stopped lining up with anything above them. */
+  .ces-edhero__points{margin:2.4rem 0 0;padding:0;list-style:none;display:grid;gap:1.6rem}
+  .ces-edhero__point{display:flex;align-items:flex-start;gap:1.2rem;
+    font-size:1.5rem;font-weight:700;line-height:1.5;text-align:left}
+  /* The disc and the tick are one 20x20 glyph rather than a CSS circle holding
+     a 12x9 one: fitted into a square the old mark letterboxed, which pushed it
+     up and to the left of the disc's centre and left a wedge of empty teal at
+     the bottom right. Drawn together, the tick is centred and round-capped. */
+  .ces-edhero__tick{flex:0 0 auto;margin-top:.2em;display:block;line-height:0;
+    color:var(--ces-tick-color,var(--ces-accent))}
+  /* The rail centres its own button; inside a left-aligned hero it should
+     start at the same margin as everything above it. The rail's own rule has
+     the same specificity and is emitted after this one, so the modifier class
+     is named here too in order to outweigh it. */
+  .ces-edhero__inner--left .ces-cta-rail,
+  .ces-edhero__inner--left .ces-cta-rail__trust{justify-content:flex-start;text-align:left}
+  .ces-edhero__inner--left .ces-cta-rail--full .ces-cta-rail__box{margin-left:0;margin-right:auto}
+  /* Split: the copy takes the left column and the picture the right, which is
+     how the reference runs on a wide screen. Narrow, the two stack with the
+     picture on top — column-reverse, as the reference does it, so the markup
+     still reads copy-then-picture. */
+  .ces-edhero__inner--split{display:flex;flex-direction:column-reverse;align-items:stretch;
+    gap:2.4rem;max-width:none;text-align:left}
+  .ces-edhero__inner--split .ces-edhero__media{margin:0}
+  @media screen and (min-width:769px){
+    .ces-edhero__inner--split{flex-direction:row;flex-wrap:wrap;justify-content:space-between;
+      align-items:center;gap:4rem}
+    .ces-edhero__inner--split .ces-edhero__col{width:56%}
+    .ces-edhero__inner--split .ces-edhero__media{width:40%;flex:0 0 auto}
+  }
+  /* The reference steps its headline rather than scaling it smoothly, and the
+     steps are what keep it from running over three lines at each width. */
+  .ces-edhero__heading--large{font-size:3.2rem;line-height:1.125;letter-spacing:-.03rem}
+  @media screen and (min-width:768px){
+    .ces-edhero__heading--large{font-size:3.6rem;line-height:1.167}
+  }
+  @media screen and (min-width:1022px){
+    .ces-edhero__heading--large{font-size:4.9rem;line-height:1.122}
+  }
+  @media screen and (min-width:1201px){
+    .ces-edhero__heading--large{font-size:5.6rem;line-height:1.071}
+  }
 {%- endstyle -%}
 
 {% render 'ces-section-padding' %}
 
-<div class="ces-section ces-edhero ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+<div
+  style="{% if section.settings.tick_color != blank %}--ces-tick-color: {{ section.settings.tick_color }};{% endif %}"
+  class="ces-section ces-edhero ces-section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
   <div class="ces-section__inner">
-    <div class="ces-edhero__inner">
+    <div class="ces-edhero__inner{% if section.settings.text_align == 'left' %} ces-edhero__inner--left{% endif %}{% if section.settings.layout == 'split' %} ces-edhero__inner--split{% endif %}">
       {%- capture edh_media -%}
         {%- if section.settings.image != blank -%}
-          <figure class="ces-edhero__media"><img src="{{ section.settings.image | image_url: width: 1600 }}" alt="{{ section.settings.heading | escape }}" loading="lazy"></figure>
+          {%- liquid
+            assign edh_img_alt = section.settings.heading | escape
+            comment
+              The hero picture is this page's largest paint, so it is the one
+              image that loads straight away and asks for priority.
+            endcomment
+          -%}
+          <figure class="ces-edhero__media">
+            {% render 'ces-img',
+               image: section.settings.image,
+               alt: edh_img_alt,
+               sizes: '(min-width: 769px) 40vw, 100vw',
+               max: 1280,
+               eager: true,
+               priority: true %}
+          </figure>
         {%- endif -%}
       {%- endcapture -%}
 
-      {%- if section.settings.image_position == 'above' -%}{{ edh_media }}{%- endif -%}
+      {%- capture edh_body -%}
+{%- liquid
+        assign edh_rating = section.settings.rating_tenths | default: 0
+        assign edh_pct = edh_rating | times: 2
+        assign edh_stars = edh_rating | divided_by: 10.0
+      -%}
+      {%- if edh_rating > 0 or section.settings.rating_text != blank -%}
+        <div class="ces-edhero__rating">
+          {%- if edh_rating > 0 -%}
+            <span class="ces-edhero__stars" style="--ces-rating-pct: {{ edh_pct }}%;" role="img" aria-label="{{ edh_stars }} out of 5 stars">
+              <span class="ces-edhero__stars-track" aria-hidden="true">
+                {%- for i in (1..5) -%}{% render 'ces-icon', icon: 'star-filled', size: '1.8rem' %}{%- endfor -%}
+              </span>
+              <span class="ces-edhero__stars-fill" aria-hidden="true">
+                {%- for i in (1..5) -%}{% render 'ces-icon', icon: 'star-filled', size: '1.8rem' %}{%- endfor -%}
+              </span>
+            </span>
+          {%- endif -%}
+          {%- if section.settings.rating_text != blank -%}
+            <span class="ces-edhero__rating-text">{{ section.settings.rating_text }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
 
-      {%- if section.settings.eyebrow != blank -%}<p class="ces-edhero__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      {%- if section.settings.heading != blank -%}<h1 class="ces-edhero__heading">{{ section.settings.heading }}</h1>{%- endif -%}
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ces-edhero__eyebrow{% if section.settings.eyebrow_style == 'plain' %} ces-edhero__eyebrow--plain{% endif %}">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        {%- liquid
+          assign edh_heading = section.settings.heading
+          assign edh_accent = section.settings.heading_accent | strip
+          if edh_accent != blank and edh_heading contains edh_accent
+            capture edh_wrapped
+              echo '<span class="ces-edhero__accent">'
+              echo edh_accent
+              echo '</span>'
+            endcapture
+            assign edh_heading = edh_heading | replace: edh_accent, edh_wrapped
+          endif
+        -%}
+        <h1 class="ces-edhero__heading{% if section.settings.heading_size == 'large' %} ces-edhero__heading--large{% endif %}">{{ edh_heading }}</h1>
+      {%- endif -%}
       {%- if section.settings.subheading != blank -%}<p class="ces-edhero__sub">{{ section.settings.subheading }}</p>{%- endif -%}
 
       {%- if section.settings.author_name != blank or section.settings.date_text != blank -%}
         <div class="ces-edhero__byline">
           {%- if section.settings.author_image != blank -%}
-            <span class="ces-edhero__avatar"><img src="{{ section.settings.author_image | image_url: width: 160 }}" alt="{{ section.settings.author_name | escape }}" loading="lazy"></span>
+            {%- assign edh_author_alt = section.settings.author_name | escape -%}
+            <span class="ces-edhero__avatar">
+              {% render 'ces-img',
+                 image: section.settings.author_image,
+                 alt: edh_author_alt,
+                 sizes: '44px',
+                 max: 160,
+                 eager: true %}
+            </span>
           {%- endif -%}
           <span class="ces-edhero__by">
             {%- if section.settings.author_name != blank -%}<strong>{{ section.settings.author_name }}</strong>{%- endif -%}
@@ -46,13 +175,55 @@
           </span>
         </div>
       {%- endif -%}
+      {%- endcapture -%}
 
-      {%- unless section.settings.image_position == 'above' -%}{{ edh_media }}{%- endunless -%}
+      {%- capture edh_points -%}
+        {%- assign edh_list = section.blocks | where: 'type', 'point' -%}
+        {%- if edh_list.size > 0 -%}
+          <ul class="ces-edhero__points" role="list">
+            {%- for block in edh_list -%}
+              {%- if block.settings.text != blank -%}
+                <li class="ces-edhero__point" {{ block.shopify_attributes }}>
+                  <span class="ces-edhero__tick" aria-hidden="true">
+                    {% render 'ces-icon', icon: 'check-circle', size: '1.9rem' %}
+                  </span>
+                  <span>{{ block.settings.text }}</span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      {%- endcapture -%}
 
-      {%- if section.settings.cta_label != blank -%}
-        <p class="ces-edhero__cta">
-          <a class="ces-button" href="{{ section.settings.cta_url | default: '#ces-bundle' }}">{{ section.settings.cta_label }}</a>
-        </p>
+      {%- capture edh_cta -%}
+        <div class="ces-edhero__cta">
+          {%- comment -%}
+            The hero's button is exempt from the theme switch that hides the
+            in-page buttons. The sticky bar only appears once the hero has
+            scrolled past, so hiding this one would leave the first screen —
+            the only one some visitors see — with nothing to click. Clearing
+            its label still removes it.
+          {%- endcomment -%}
+          {% render 'ces-cta-rail',
+             label: section.settings.cta_label,
+             url: section.settings.cta_url,
+             footnote: section.settings.cta_footnote,
+             width: section.settings.cta_width,
+             arrow: section.settings.cta_arrow,
+             show: 'always',
+             id: section.id %}
+        </div>
+      {%- endcapture -%}
+
+      {%- if section.settings.layout == 'split' -%}
+        <div class="ces-edhero__col">{{ edh_body }}{{ edh_points }}{{ edh_cta }}</div>
+        {{ edh_media }}
+      {%- else -%}
+        {%- if section.settings.image_position == 'above' -%}{{ edh_media }}{%- endif -%}
+        {{ edh_body }}
+        {{ edh_points }}
+        {%- unless section.settings.image_position == 'above' -%}{{ edh_media }}{%- endunless -%}
+        {{ edh_cta }}
       {%- endif -%}
     </div>
   </div>
@@ -69,9 +240,72 @@
       "content": "Editorial-style opener for an advertorial product page: big listicle headline, author byline and a call to action."
     },
     {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "stacked", "label": "One column" },
+        { "value": "split", "label": "Copy left, picture right" }
+      ],
+      "info": "Split stacks on a phone with the picture on top.",
+      "default": "stacked"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Alignment",
+      "options": [
+        { "value": "center", "label": "Centred" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "rating_tenths",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "label": "Rating (tenths)",
+      "info": "In tenths of a star: 48 = 4.8. Set to 0 to hide the stars.",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Text beside the stars",
+      "info": "For example, 4.8/5 based on 43,893 reviews. Use your own figure."
+    },
+    {
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow"
+    },
+    {
+      "type": "select",
+      "id": "eyebrow_style",
+      "label": "Eyebrow style",
+      "options": [
+        { "value": "badge", "label": "Small caps, accent colour" },
+        { "value": "plain", "label": "A sentence leading into the headline" }
+      ],
+      "default": "badge"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Headline size",
+      "options": [
+        { "value": "default", "label": "Article" },
+        { "value": "large", "label": "Landing page" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Part of the headline to colour",
+      "info": "Type the words exactly as they appear in the headline."
     },
     {
       "type": "textarea",
@@ -134,6 +368,22 @@
       "label": "Button link",
       "info": "Defaults to the product buy box (#ces-bundle)."
     },
+    { "type": "textarea", "id": "cta_footnote",
+      "label": "Text under the button",
+      "info": "One line each as \"icon | label\" renders them with icons side by side."
+    },
+    {
+      "type": "select",
+      "id": "cta_width",
+      "label": "Button width",
+      "options": [
+        { "value": "auto", "label": "As wide as its label" },
+        { "value": "full", "label": "One size" }
+      ],
+      "default": "auto"
+    },
+    { "type": "checkbox", "id": "cta_arrow", "label": "Arrow after the label", "default": false },
+    { "type": "color", "id": "tick_color", "label": "Tick colour", "info": "Leave empty to follow the theme's accent." },
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -165,6 +415,16 @@
       "default": 32
     }
   ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
   "presets": [
     {
       "name": "CES Editorial hero"

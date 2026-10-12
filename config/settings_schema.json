@@ -1598,5 +1598,42 @@
         "label": "t:settings_schema.customer_accounts.settings.customer_account_menu.label"
       }
     ]
+  },
+  {
+    "name": "CES landing pages",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Gift shown on every call to action"
+      },
+      {
+        "type": "paragraph",
+        "content": "The second line inside each CTA button down a landing page. One edit here changes all of them. Leave empty for a single-line button."
+      },
+      {
+        "type": "text",
+        "id": "ces_cta_gift",
+        "label": "Gift line",
+        "info": "e.g. Get FREE Lymphatic Drainage Support [bottle] — $49 value. Writing [bottle], [gift], [drop] or any other icon name puts that icon where it stands."
+      },
+      {
+        "type": "text",
+        "id": "ces_cta_gift_icon",
+        "label": "Gift icon",
+        "info": "The icon that opens the line: gift, bottle, drop, leaf, sparkle. \"none\" leaves it off.",
+        "default": "gift"
+      },
+      {
+        "type": "header",
+        "content": "In-page call-to-action buttons"
+      },
+      {
+        "type": "checkbox",
+        "id": "ces_hide_inline_ctas",
+        "label": "Hide them and use only the sticky bar",
+        "info": "On product pages only, the buttons down the page stop rendering entirely and the sticky add-to-cart bar carries the only call to action. Other pages keep their buttons, since the bar is not on them.",
+        "default": false
+      }
+    ]
   }
 ]

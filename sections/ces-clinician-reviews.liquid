@@ -1,5 +1,3 @@
-{{ 'ces-base.css' | asset_url | stylesheet_tag }}
-{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
 {{ 'ces-clinician-reviews.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'ces-clinician-reviews.js' | asset_url }}" defer="defer"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -261,6 +259,41 @@
                   </li>
                 {%- endfor -%}
               </ul>
+              {%- if section.settings.roster != blank -%}
+                {%- comment -%}
+                  The rest of the roster. It is handed over as data and the
+                  rows are built when the modal is first opened, rather than
+                  written into the page: a couple of hundred names is a few
+                  hundred <li> elements that every shopper would otherwise
+                  download and parse whether or not they ever open this.
+                {%- endcomment -%}
+                {%- comment -%}
+                  The replace escapes any "</" the typist left in, which would
+                  otherwise end the script element early whatever JSON says.
+                {%- endcomment -%}
+                {%- liquid
+                  assign roster_joined_label = 'Joined ' | append: section.settings.modal_title | default: 'Joined FrontrowMD'
+                  assign roster_link_label = section.settings.roster_link_label | default: 'Go to clinician website'
+                  assign roster_preview_label = section.settings.roster_preview_label | default: 'Preview'
+                -%}
+                <script
+                  type="application/json"
+                  data-ces-roster
+                  data-label-website="Website"
+                  data-label-link="{{ roster_link_label | escape }}"
+                  data-label-expertise="Expertise"
+                  data-label-location="Location"
+                  data-label-npi="NPI Number"
+                  data-label-practice="Practice Type"
+                  data-label-joined="{{ roster_joined_label | escape }}"
+                  data-label-years="Years in practice"
+                  data-label-preview="{{ roster_preview_label | escape }}"
+                  data-photo-base="{{ section.settings.roster_photo_base | escape }}"
+                >{{ section.settings.roster | json | replace: '</', '<\/' }}</script>
+                <p class="ces-clinreviews__roster-note" data-ces-roster-empty hidden>
+                  {{ section.settings.roster_fallback | default: 'The full list could not be loaded.' }}
+                </p>
+              {%- endif -%}
             </div>
           </div>
 
@@ -481,6 +514,37 @@
       "id": "clinicians_intro",
       "label": "Clinicians list intro",
       "default": "<p>For the complete list, click here. Numbers below indicate how many clinicians collaborate to share products on a single page at a medical practice.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "roster",
+      "label": "The rest of the clinicians, one per line",
+      "info": "Name | Location | Website | Expertise | NPI | Practice type | Joined | Years | Photo. Only the name is needed — leave a field empty to drop that row from the profile, and stop early if you have no more. \"Dr. Jane Doe, MD | Austin, TX\" is a valid line. These need no block; whatever you give them shows behind Preview."
+    },
+    {
+      "type": "text",
+      "id": "roster_photo_base",
+      "label": "Photo folder for those",
+      "info": "Upload the photos under Settings > Files, then paste the part of the address they share, up to and including the last slash. A line can then give just the file name (jane.jpg); a full https address in that field is used as-is and ignores this."
+    },
+    {
+      "type": "text",
+      "id": "roster_preview_label",
+      "label": "Preview button label for those",
+      "default": "Preview"
+    },
+    {
+      "type": "text",
+      "id": "roster_link_label",
+      "label": "Website link label for those",
+      "default": "Go to clinician website"
+    },
+    {
+      "type": "text",
+      "id": "roster_fallback",
+      "label": "If that list cannot be shown",
+      "info": "Shown in its place if the browser cannot read it.",
+      "default": "The full list could not be loaded."
     },
     {
       "type": "richtext",

@@ -25,14 +25,51 @@
     '[id^="ProductInfo-"]',
   ];
 
+  /*
+   * Shopify renders a section of a JSON template with a generated id:
+   * the key "mechanism" becomes shopify-section-template--1234567__mechanism.
+   * Links are written with the short form, so the short form has to find it.
+   * (The sticky bar carries its own copy of this: one small function repeated
+   * beats three files loading a fourth to share it.)
+   */
+  function cesSectionById(value) {
+    if (!value) return null;
+
+    var raw = String(value).replace(/^#/, '');
+    var key = raw.replace(/^shopify-section-/, '');
+    if (!key) return null;
+
+    var el = document.getElementById(raw) || document.getElementById('shopify-section-' + key);
+    if (el) return el;
+
+    try {
+      return document.querySelector('[id^="shopify-section-"][id$="__' + CSS.escape(key) + '"]');
+    } catch (e) {
+      return null;
+    }
+  }
+
   function headerOffset() {
     var header = document.querySelector('.section-header, .header-wrapper, sticky-header');
     var h = header ? header.getBoundingClientRect().height : 0;
+
+    // A sticky in-page nav sits below the header and covers the same amount
+    // again, so the target has to clear both or it lands underneath the strip.
+    // Pages without one measure 0 here and behave exactly as before.
+    var nav = document.querySelector('.ces-nav--sticky');
+    if (nav) h += nav.getBoundingClientRect().height;
+
     // A little breathing room so the target does not hug the header edge.
     return h + 16;
   }
 
   function resolve(hash) {
+    // The link's own target first, by id, so a link that names a section lands
+    // on that section rather than falling through to the buy box like every
+    // other button on the page.
+    var named = cesSectionById(hash);
+    if (named) return named;
+
     var selectors = [];
     if (hash && hash.length > 1) selectors.push(hash);
     selectors = selectors.concat(FALLBACKS);

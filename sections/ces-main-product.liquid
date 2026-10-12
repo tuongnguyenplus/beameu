@@ -11,8 +11,6 @@
   {% endif %}
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-  {{ 'ces-base.css' | asset_url | stylesheet_tag }}
-{{ 'ces-theme.css' | asset_url | stylesheet_tag }}
   {{ 'ces-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'ces-offer-bundle.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'ces-offer-bundle.js' | asset_url }}" defer="defer"></script>
@@ -156,19 +154,34 @@
         {%- assign ces_clin_top = block -%}
       {%- endif -%}
     {%- endfor -%}
+    {%- liquid
+      # A page that leads with its own imagery further up does not need the
+      # gallery again; hiding it hands the whole width to the buy box, which is
+      # what Dawn already does when a product has no media at all.
+      assign ces_show_media = false
+      if section.settings.show_media and product.media.size > 0
+        assign ces_show_media = true
+      endif
+    -%}
     <div class="page-width">
-      <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-        <div class="grid__item product__media-wrapper{% if ces_clin_top %} ces-clin-anchor{% endif %}">
-          {% render 'product-media-gallery', variant_images: variant_images %}
-          {%- if ces_clin_top -%}
-            {%- render 'ces-clinicians-badge', block: ces_clin_top, variant: 'top' -%}
-          {%- endif -%}
-        </div>
+      <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if ces_show_media %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+        {%- if ces_show_media -%}
+          <div class="grid__item product__media-wrapper{% if ces_clin_top %} ces-clin-anchor{% endif %}">
+            {% render 'product-media-gallery', variant_images: variant_images %}
+            {%- if ces_clin_top -%}
+              {%- render 'ces-clinicians-badge', block: ces_clin_top, variant: 'top' -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
         <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <section
             id="ProductInfo-{{ section.id }}"
             class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
           >
+            {%- if ces_clin_top and ces_show_media == false -%}
+              {%- render 'ces-clinicians-badge', block: ces_clin_top, variant: 'top' -%}
+            {%- endif -%}
+
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
             {%- comment -%}
@@ -3962,7 +3975,7 @@
           "type": "text",
           "id": "tier_1_name",
           "label": "Name",
-          "default": "7-Day Starter"
+          "default": "21-Day Eye Reset™"
         },
         {
           "type": "text",
@@ -3986,7 +3999,7 @@
           "id": "tier_1_inclusions",
           "label": "Inclusion rows",
           "info": "One per line: icon | text | value. Icons: gift, truck, coin, doc, tracker, clock, star, leaf, check. Value optional (shown struck through, e.g. $35). Example: gift | Free D3 + K2 Gummies | $35",
-          "default": "coin | 30-Day Money Back |"
+          "default": "coin | 90-Day Money Back |"
         },
         {
           "type": "product_list",
@@ -4035,7 +4048,7 @@
           "id": "tier_2_inclusions",
           "label": "Inclusion rows",
           "info": "One per line: icon | text | value. Icons: gift, truck, coin, doc, tracker, clock, star, leaf, check. Value optional (shown struck through, e.g. $35). Example: gift | Free D3 + K2 Gummies | $35",
-          "default": "doc | CEBEAM Eye Reset Protocol | $39\ntruck | Free & Fast Shipping |\ncoin | 60-Day Money Back |"
+          "default": "doc | CEBEAM Eye Reset Protocol | $39\ntruck | Free & Fast Shipping |\ncoin | 90-Day Money Back |"
         },
         {
           "type": "product_list",
@@ -4059,7 +4072,7 @@
           "type": "text",
           "id": "tier_3_name",
           "label": "Name",
-          "default": "45-Day Eye Rebuild"
+          "default": "9-Week Complete Rebuild"
         },
         {
           "type": "text",
@@ -4327,6 +4340,24 @@
         },
         {
           "type": "select",
+          "id": "trust_position",
+          "label": "Trust line position",
+          "info": "Under the button is where it is read last, next to the one-time-purchase note.",
+          "options": [
+            { "value": "above", "label": "Above the button" },
+            { "value": "below", "label": "Under the button" }
+          ],
+          "default": "above"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_gift_prices",
+          "label": "Price on each gift thumbnail",
+          "info": "Off by default. The gift bar already states one value for the whole kit; a second price beside each item invites the shopper to work out which one is real.",
+          "default": false
+        },
+        {
+          "type": "select",
           "id": "gift_sub_mode",
           "label": "Free gift value line",
           "options": [
@@ -4351,6 +4382,18 @@
         {
           "type": "header",
           "content": "Tier 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_variant_image",
+          "label": "Show a picture on each tier",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "tier_1_image",
+          "label": "Tier 1 picture",
+          "info": "Overrides the variant's own image."
         },
         {
           "type": "text",
@@ -4379,13 +4422,13 @@
           "type": "text",
           "id": "tier_1_cta",
           "label": "Button wording for this tier",
-          "info": "Replaces the button text while this tier is selected, e.g. Start My 21-Day Reset. Leave blank to use the button label above."
+          "info": "Replaces the button text while this tier is selected, e.g. Start My 21-Day Reset · [price]. [price] is swapped for this tier's own price, so the button cannot fall out of step with it. Leave blank to use the button label above."
         },
         {
           "type": "text",
           "id": "tier_1_meta",
           "label": "Treatments and cost",
-          "info": "e.g. 12 Treatments · $5.41/Treatment"
+          "info": "Leave empty. This is only used when \"Treatments in this tier\" below is blank; otherwise the line is worked out from that count and the variant's own price, so it cannot drift from what the customer is charged."
         },
         {
           "type": "number",
@@ -4397,7 +4440,7 @@
           "type": "text",
           "id": "tier_1_quote",
           "label": "Treatment schedule",
-          "info": "e.g. 4 treatments a week for 3 weeks"
+          "info": "e.g. 2 treatments a week for 6 weeks"
         },
         {
           "type": "text",
@@ -4483,6 +4526,12 @@
           "content": "Tier 2"
         },
         {
+          "type": "image_picker",
+          "id": "tier_2_image",
+          "label": "Tier 2 picture",
+          "info": "Overrides the variant's own image."
+        },
+        {
           "type": "text",
           "id": "tier_2_variant",
           "label": "Variant",
@@ -4509,13 +4558,13 @@
           "type": "text",
           "id": "tier_2_cta",
           "label": "Button wording for this tier",
-          "info": "Replaces the button text while this tier is selected, e.g. Start My 21-Day Reset. Leave blank to use the button label above."
+          "info": "Replaces the button text while this tier is selected, e.g. Start My 21-Day Reset · [price]. [price] is swapped for this tier's own price, so the button cannot fall out of step with it. Leave blank to use the button label above."
         },
         {
           "type": "text",
           "id": "tier_2_meta",
           "label": "Treatments and cost",
-          "info": "e.g. 12 Treatments · $5.41/Treatment"
+          "info": "Leave empty. This is only used when \"Treatments in this tier\" below is blank; otherwise the line is worked out from that count and the variant's own price, so it cannot drift from what the customer is charged."
         },
         {
           "type": "number",
@@ -4527,7 +4576,7 @@
           "type": "text",
           "id": "tier_2_quote",
           "label": "Treatment schedule",
-          "info": "e.g. 4 treatments a week for 3 weeks"
+          "info": "e.g. 2 treatments a week for 6 weeks"
         },
         {
           "type": "text",
@@ -4613,6 +4662,12 @@
           "content": "Tier 3"
         },
         {
+          "type": "image_picker",
+          "id": "tier_3_image",
+          "label": "Tier 3 picture",
+          "info": "Overrides the variant's own image."
+        },
+        {
           "type": "text",
           "id": "tier_3_variant",
           "label": "Variant",
@@ -4639,13 +4694,13 @@
           "type": "text",
           "id": "tier_3_cta",
           "label": "Button wording for this tier",
-          "info": "Replaces the button text while this tier is selected, e.g. Start My 21-Day Reset. Leave blank to use the button label above."
+          "info": "Replaces the button text while this tier is selected, e.g. Start My 21-Day Reset · [price]. [price] is swapped for this tier's own price, so the button cannot fall out of step with it. Leave blank to use the button label above."
         },
         {
           "type": "text",
           "id": "tier_3_meta",
           "label": "Treatments and cost",
-          "info": "e.g. 12 Treatments · $5.41/Treatment"
+          "info": "Leave empty. This is only used when \"Treatments in this tier\" below is blank; otherwise the line is worked out from that count and the variant's own price, so it cannot drift from what the customer is charged."
         },
         {
           "type": "number",
@@ -4657,7 +4712,7 @@
           "type": "text",
           "id": "tier_3_quote",
           "label": "Treatment schedule",
-          "info": "e.g. 4 treatments a week for 3 weeks"
+          "info": "e.g. 2 treatments a week for 6 weeks"
         },
         {
           "type": "text",
@@ -4743,6 +4798,12 @@
           "content": "Tier 4"
         },
         {
+          "type": "image_picker",
+          "id": "tier_4_image",
+          "label": "Tier 4 picture",
+          "info": "Overrides the variant's own image."
+        },
+        {
           "type": "text",
           "id": "tier_4_variant",
           "label": "Variant",
@@ -4769,13 +4830,13 @@
           "type": "text",
           "id": "tier_4_cta",
           "label": "Button wording for this tier",
-          "info": "Replaces the button text while this tier is selected, e.g. Start My 21-Day Reset. Leave blank to use the button label above."
+          "info": "Replaces the button text while this tier is selected, e.g. Start My 21-Day Reset · [price]. [price] is swapped for this tier's own price, so the button cannot fall out of step with it. Leave blank to use the button label above."
         },
         {
           "type": "text",
           "id": "tier_4_meta",
           "label": "Treatments and cost",
-          "info": "e.g. 12 Treatments · $5.41/Treatment"
+          "info": "Leave empty. This is only used when \"Treatments in this tier\" below is blank; otherwise the line is worked out from that count and the variant's own price, so it cannot drift from what the customer is charged."
         },
         {
           "type": "number",
@@ -4787,7 +4848,7 @@
           "type": "text",
           "id": "tier_4_quote",
           "label": "Treatment schedule",
-          "info": "e.g. 4 treatments a week for 3 weeks"
+          "info": "e.g. 2 treatments a week for 6 weeks"
         },
         {
           "type": "text",
@@ -4970,6 +5031,13 @@
     }
   ],
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_media",
+      "label": "Show the picture gallery",
+      "info": "Turn off on a page that already leads with its own imagery; the buy box then takes the full width.",
+      "default": true
+    },
     {
       "type": "checkbox",
       "id": "enable_sticky_info",
