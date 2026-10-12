@@ -21,7 +21,7 @@
 <ces-bundle
   id="ces-bundle"
   class="ces-b2 quick-add-hidden"
-  style="--ces-b2-accent: {{ ces_accent }}; --ces-b2-accent-rgb: {{ ces_accent_r }}, {{ ces_accent_g }}, {{ ces_accent_b }}; --ces-bundle-accent: {{ ces_accent }}; --ces-b2-tint: {{ ces_accent }}12; scroll-margin-top: 9rem;"
+  style="--ces-b2-accent: {{ ces_accent }}; --ces-b2-accent-rgb: {{ ces_accent_r }}, {{ ces_accent_g }}, {{ ces_accent_b }}; --ces-bundle-accent: {{ ces_accent }}; --ces-b2-tint: {% if block.settings.selected_bg != blank %}{{ block.settings.selected_bg }}{% else %}{{ ces_accent }}12{% endif %}; scroll-margin-top: 9rem;"
   data-open-drawer="{{ block.settings.open_cart_drawer | default: true }}"
   data-after-add="{{ block.settings.after_add | default: 'drawer' }}"
   {{ block.shopify_attributes }}
@@ -109,10 +109,44 @@
           assign ctakey = 'tier_' | append: ces_i | append: '_cta'
           assign frkey = 'tier_' | append: ces_i | append: '_free_products'
 
+          comment
+            What the shopper pays for this tier. In subscription mode the
+            variant's first selling plan is added with the line, so its price
+            is the one to show; a variant without a plan falls back to one-time.
+          endcomment
+          assign ces_plan_id = ''
+          assign ces_pay = ces_v.price
+          assign ces_was = ces_v.compare_at_price | default: 0
+          if block.settings.purchase_type == 'subscription'
+            assign ces_alloc = ces_v.selling_plan_allocations | first
+            if ces_alloc
+              assign ces_plan_id = ces_alloc.selling_plan.id
+              assign ces_pay = ces_alloc.price
+              assign ces_alloc_was = ces_alloc.compare_at_price | default: 0
+              if ces_alloc_was > ces_was
+                assign ces_was = ces_alloc_was
+              endif
+            endif
+          endif
+
           if block.settings[pkey] != blank
             assign ces_price = block.settings[pkey]
           else
-            assign ces_price = ces_v.price | money
+            assign ces_price = ces_pay | money
+          endif
+
+          comment
+            Auto compare: the struck-through price and the [save] amount come
+            from the variant's compare-at price, so they follow each market's
+            currency. A tier's own compare text still wins.
+          endcomment
+          assign ces_compare = block.settings[ckey]
+          assign ces_save = ''
+          if block.settings.auto_compare and ces_was > ces_pay
+            if ces_compare == blank
+              assign ces_compare = ces_was | money
+            endif
+            assign ces_save = ces_was | minus: ces_pay | money
           endif
           comment
             A tier's button can carry its own price with [price], so the label
@@ -141,7 +175,7 @@
           assign ces_meta = block.settings[mtkey]
           assign ces_treatments = block.settings[tnkey] | default: 0
           if ces_treatments > 0
-            assign ces_unit_cents = ces_v.price | times: 1.0 | divided_by: ces_treatments | round
+            assign ces_unit_cents = ces_pay | times: 1.0 | divided_by: ces_treatments | round
             assign ces_unit = ces_unit_cents | money
             assign ces_meta = block.settings.meta_template | default: '[count] treatments &middot; [unit]/treatment'
             assign ces_meta = ces_meta | replace: '[count]', ces_treatments | replace: '[unit]', ces_unit | replace: '[total]', ces_price
@@ -203,7 +237,8 @@
               data-variant-id="{{ ces_v.id }}"
               data-quantity="1"
               data-free-ids="{{ ces_free_ids | strip }}"
-              data-price-label="{{ ces_v.price | money_with_currency | strip }}"
+              data-price-label="{{ ces_pay | money_with_currency | strip }}"
+              {% if ces_plan_id != blank %}data-selling-plan="{{ ces_plan_id }}"{% endif %}
               data-add-label="{{ ces_cta_label | escape }}"
               {% unless ces_v.available %}data-unavailable="true"{% endunless %}
               {% if ces_checked %}checked{% endif %}
@@ -230,14 +265,14 @@
             <span class="ces-b2__titles">
               <span class="ces-b2__name">{{ block.settings[nkey] | default: ces_v.title }}</span>
               {%- if block.settings[stkey] != blank -%}
-                <span class="ces-b2__subtitle">{{ block.settings[stkey] }}</span>
+                <span class="ces-b2__subtitle">{{ block.settings[stkey] | replace: '[save]', ces_save }}</span>
               {%- endif -%}
             </span>
           </span>
 
           <span class="ces-b2__pricing">
             <span class="ces-b2__price">{{ ces_price }}</span>
-            {%- if block.settings[ckey] != blank -%}<span class="ces-b2__compare">{{ block.settings[ckey] }}</span>{%- endif -%}
+            {%- if ces_compare != blank -%}<span class="ces-b2__compare">{{ ces_compare }}</span>{%- endif -%}
             {%- if block.settings[ukey] != blank -%}<span class="ces-b2__unit">{{ block.settings[ukey] }}</span>{%- endif -%}
             {%- if block.settings[okey] != blank -%}<span class="ces-b2__off">{{ block.settings[okey] }}</span>{%- endif -%}
           </span>
@@ -429,7 +464,28 @@
   {%- unless block.settings.ship_position == 'above' -%}{{ ces_ship_row }}{%- endunless -%}
 
   {%- if block.settings.sub_note != blank -%}
-    <p class="ces-bundle__note">{{ block.settings.sub_note }}</p>
+    {%- comment -%}
+      Lines written as "icon | text" become an icon row ("Refills ship on your
+      schedule | Stop anytime"); any other note stays a plain sentence.
+    {%- endcomment -%}
+    {%- if block.settings.sub_note contains '|' -%}
+      <ul class="ces-bundle__note ces-b2__note-row" role="list">
+        {%- assign ces_note_lines = block.settings.sub_note | newline_to_br | split: '<br />' -%}
+        {%- for line in ces_note_lines -%}
+          {%- assign nparts = line | split: '|' -%}
+          {%- assign ntext = nparts[1] | strip -%}
+          {%- if ntext != blank -%}
+            <li class="ces-b2__note-item">
+              {%- assign nicon = nparts[0] | strip -%}
+              {%- if nicon != blank -%}{%- render 'ces-icon', icon: nicon, size: '1.8rem', class: 'ces-b2__note-icon' -%}{%- endif -%}
+              <span>{{ ntext }}</span>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- else -%}
+      <p class="ces-bundle__note">{{ block.settings.sub_note }}</p>
+    {%- endif -%}
   {%- endif -%}
 
   {%- if block.settings.trust_position == 'below' -%}{{ ces_trust_row }}{%- endif -%}

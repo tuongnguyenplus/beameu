@@ -9,7 +9,7 @@
   - icon: {String} Icon name. One of: check, check-circle, cross, cross-circle,
       bottle, check-ring, gift, shield, star, star-filled, star-half, caret, chevron-left, chevron-right, truck, lock, return, leaf,
       plane, plant, recycle, heart, stopwatch, lightning, fire, info,
-      question-mark, gluten-free, dairy-free, nut-free, play, pause.
+      question-mark, gluten-free, dairy-free, nut-free, play, pause, refresh, clock.
   - size: {String} Optional CSS length for width/height. Default 2rem.
   - class: {String} Optional extra class names on the wrapper.
 
@@ -278,6 +278,18 @@
           <path d="M3.4 18.6h17.2"/>
           <path d="M7.4 18.6a4.6 4.6 0 0 1 9.2 0"/>
           <path d="M12 6.2v2.2M6.6 8.4 8 9.8M17.4 8.4 16 9.8M3.2 13.8h2M18.8 13.8h2"/>
+        </svg>
+
+      {%- when 'refresh' -%}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 12a8 8 0 1 1-2.34-5.66"/>
+          <path d="M20 4v4.5h-4.5"/>
+        </svg>
+
+      {%- when 'clock' -%}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8.5"/>
+          <path d="M12 7.5V12l3 2"/>
         </svg>
     {%- endcase -%}
   {%- endif -%}

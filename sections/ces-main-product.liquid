@@ -4235,6 +4235,30 @@
           "info": "Only applies when the cart drawer opens."
         },
         {
+          "type": "color",
+          "id": "selected_bg",
+          "label": "Selected tier background",
+          "info": "Leave blank for a faint tint of the accent color."
+        },
+        {
+          "type": "select",
+          "id": "purchase_type",
+          "label": "Purchase type",
+          "info": "Subscription adds each tier with its variant's first selling plan and shows that plan's price. A variant without a selling plan is sold one-time.",
+          "options": [
+            { "value": "onetime", "label": "One-time" },
+            { "value": "subscription", "label": "Subscription" }
+          ],
+          "default": "onetime"
+        },
+        {
+          "type": "checkbox",
+          "id": "auto_compare",
+          "label": "Compare price from Shopify",
+          "info": "Shows the variant's compare-at price struck through when a tier has no compare text, and fills [save] in a tier subtitle with the difference.",
+          "default": false
+        },
+        {
           "type": "text",
           "id": "onetime_label",
           "label": "One-time purchase link"
@@ -4247,7 +4271,8 @@
         {
           "type": "textarea",
           "id": "sub_note",
-          "label": "Note under the button"
+          "label": "Note under the button",
+          "info": "Write one \"icon | text\" per line for an icon row, e.g. \"refresh | Refills ship on your schedule\". Icons: refresh, clock, truck, shield, check-circle, gift, lock, return."
         },
         {
           "type": "header",

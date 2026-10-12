@@ -51,11 +51,12 @@ class CesBundle extends HTMLElement {
   // Add a single variant. When `withSections` is true, ask Shopify to return the
   // rendered drawer sections — only the single-item form reliably echoes them,
   // so we do this on the last (main) add and render from its response.
-  addLine(id, quantity, withSections) {
+  addLine(id, quantity, withSections, sellingPlan) {
     const config = this.baseConfig();
     const formData = new FormData();
     formData.append('id', id);
     formData.append('quantity', quantity);
+    if (sellingPlan) formData.append('selling_plan', sellingPlan);
     if (withSections && this.cart && typeof this.cart.getSectionsToRender === 'function') {
       formData.append('sections', this.cart.getSectionsToRender().map((section) => section.id));
       formData.append('sections_url', window.location.pathname);
@@ -78,6 +79,8 @@ class CesBundle extends HTMLElement {
     const toCheckout = this.dataset.afterAdd === 'checkout';
     const mainId = parseInt(radio.dataset.variantId, 10);
     const mainQty = parseInt(radio.dataset.quantity, 10) || 1;
+    // Set only in subscription mode, and only when the variant has a plan.
+    const mainPlan = radio.dataset.sellingPlan || '';
     const freeIds = (radio.dataset.freeIds || '')
       .split(',')
       .map((s) => s.trim())
@@ -96,7 +99,7 @@ class CesBundle extends HTMLElement {
     });
 
     chain
-      .then(() => this.addLine(mainId, mainQty, !toCheckout))
+      .then(() => this.addLine(mainId, mainQty, !toCheckout, mainPlan))
       .then((response) => {
         if (response && response.status) {
           this.showError(response.description || response.message || 'Could not add to cart.');
