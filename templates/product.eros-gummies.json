@@ -25,7 +25,7 @@
         "expired_text": "",
         "cta_label": "",
         "cta_url": "#shopify-section-main",
-        "color_scheme": "scheme-eros-orange",
+        "color_scheme": "scheme-eros-light",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -1265,6 +1265,7 @@
             "add_label": "Add To Cart",
             "after_add": "drawer",
             "open_cart_drawer": true,
+            "tier_style": "compact",
             "selected_bg": "#ffe2d3",
             "purchase_type": "subscription",
             "auto_compare": true,
@@ -1288,6 +1289,7 @@
             "gift_sub_template": "[value] value · [count] [items]",
             "show_variant_image": false,
             "tier_1_variant": "47807432753236",
+            "tier_1_plan": "every 30 days",
             "tier_1_name": "1 Month Supply",
             "tier_1_subtitle": "You Save [save] | FREE Shipping",
             "tier_1_badge": "",
@@ -1309,6 +1311,7 @@
             "tier_1_gift_label": "Welcome kit — arrives with first order",
             "tier_1_foot": "",
             "tier_2_variant": "47807432786004",
+            "tier_2_plan": "every 60 days",
             "tier_2_name": "2 Month Supply",
             "tier_2_subtitle": "You Save [save] | FREE Shipping",
             "tier_2_badge": "STARTER PACK",
@@ -1330,6 +1333,7 @@
             "tier_2_gift_label": "Welcome kit — arrives with first order",
             "tier_2_foot": "",
             "tier_3_variant": "47807432818772",
+            "tier_3_plan": "every 90 days",
             "tier_3_name": "3 Month Supply",
             "tier_3_subtitle": "You Save [save] | FREE Shipping",
             "tier_3_badge": "MOST POPULAR",
@@ -1370,11 +1374,7 @@
             "tier_4_gift_title": "",
             "tier_4_gift_sub": "",
             "tier_4_gift_label": "",
-            "tier_4_foot": "",
-            "tier_1_plan": "every 30 days",
-            "tier_2_plan": "every 60 days",
-            "tier_3_plan": "every 90 days",
-            "tier_style": "compact"
+            "tier_4_foot": ""
           }
         },
         "shipping-estimate": {
