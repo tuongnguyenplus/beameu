@@ -15,32 +15,36 @@
         "t1": {
           "type": "marquee_item",
           "settings": {
-            "text": "OVER 255,000 PATCHES WORN",
-            "icon": ""
+            "text": "FREE EXPRESS SHIPPING"
           }
         },
         "t2": {
           "type": "marquee_item",
           "settings": {
-            "text": "FREE SHIPPING TODAY",
-            "icon": ""
+            "text": "90-DAY MONEY-BACK GUARANTEE"
           }
         },
         "t3": {
           "type": "marquee_item",
           "settings": {
-            "text": "90-DAY MONEY-BACK GUARANTEE",
-            "icon": ""
+            "text": "VEGAN & SUGAR-FREE"
+          }
+        },
+        "t4": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "2 GUMMIES A DAY"
           }
         }
       },
       "block_order": [
         "t1",
         "t2",
-        "t3"
+        "t3",
+        "t4"
       ],
       "settings": {
-        "color_scheme": "scheme-635f3633-af8d-4bb2-9cd0-d06ec600252e",
+        "color_scheme": "scheme-eros-orange",
         "speed": 60,
         "direction": "left",
         "pause_on_hover": true,
@@ -57,17 +61,17 @@
         "image_shape": "auto",
         "text_position": "start",
         "overlay_opacity": 55,
-        "eyebrow": "OVER 255,000 PATCHES WORN",
-        "heading_accent": "Your Routine Didn’t.",
-        "heading": "Your Under-Eyes Changed. Your Routine Didn’t.",
-        "text": "<p>Dissolving microneedle patches that reach the bags, shadows and fine lines a cream can’t — delivered below the surface, painless, two nights a week. No needles, no downtime.</p>",
+        "eyebrow": "EROS GUMMIES — 20+ INGREDIENTS, 2 A DAY",
+        "heading_accent": "At Your Best",
+        "heading": "Show Up At Your Best. Every Single Time.",
+        "text": "<p>Two daily gummies with L-Citrulline, Tongkat Ali, Ashwagandha (KSM-66®) and Shilajit (PrimaVie®) to support desire, stamina and confidence.* No pills. No timing the moment.</p>",
         "cta_width": "auto",
         "cta_arrow": false,
         "cta_footnote": "",
-        "button_label": "Shop now",
-        "button_link": "shopify://products/microneedle-under-eye-patches",
+        "button_label": "Shop Eros Gummies",
+        "button_link": "/products/eros-gummies",
         "badge_speed": 40,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-eros-light",
         "padding_top": 0,
         "padding_bottom": 40
       }
@@ -78,41 +82,29 @@
         "w1": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "sparkle",
-            "icon_color": "",
-            "heading": "Dark Circles & Shadows",
-            "text": ""
+            "icon": "heart-plus",
+            "heading": "Firmness & Blood Flow"
           }
         },
         "w2": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "check-circle",
-            "icon_color": "",
-            "heading": "Under-Eye Bags & Puffiness",
-            "text": ""
+            "icon": "lightning",
+            "heading": "Stamina That Lasts"
           }
         },
         "w3": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "vitality",
-            "icon_color": "",
-            "heading": "Fine Lines & Crepey Texture",
-            "text": ""
+            "icon": "fire",
+            "heading": "Desire & Arousal"
           }
         },
         "w4": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "skin-aging",
-            "icon_color": "",
-            "heading": "Tired-Looking Eyes",
-            "text": ""
+            "icon": "sparkle",
+            "heading": "A Fresher Taste"
           }
         }
       },
@@ -125,11 +117,11 @@
       "settings": {
         "eyebrow": "",
         "text_style": "text",
-        "pill_color": "#c0392b",
-        "heading": "One Patch. So Many Wins",
+        "pill_color": "#f25627",
+        "heading": "One Gummy. Five Wins.",
         "highlight_words": "",
-        "subheading": "From bags to fine lines, two nights a week does it all.",
-        "icon_color": "#1d5c5c",
+        "subheading": "Two gummies a day, built to support everything that makes intimacy great.*",
+        "icon_color": "#f25627",
         "icon_frame": "bare",
         "icon_size": 6,
         "image_scale": 60,
@@ -140,7 +132,7 @@
         "cta_footnote": "",
         "cta_arrow": false,
         "cta_width": "auto",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-eros-peach",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -148,17 +140,16 @@
     "allinone": {
       "type": "ces-bullet-cta",
       "settings": {
-        "image": "shopify://shop_images/4f18ee18-2a54-49f3-8cce-2cd1296dc899.webp",
         "image_position": "start",
-        "heading": "The Two-Night-a-Week Treatment",
-        "bullets": "<ul><li>Dark circles</li><li>Under-eye bags</li><li>Puffiness</li><li>Fine lines</li><li>Crepey texture</li></ul>",
+        "heading": "The 2-Gummy Daily Routine",
+        "bullets": "<ul><li>Supports firmness & stamina*</li><li>Supports desire & arousal*</li><li>Supports a calmer stress response*</li><li>Formulated for a fresher taste*</li><li>Vegan, sugar-free, no pills</li></ul>",
         "cta_width": "auto",
         "cta_arrow": false,
-        "button_label": "Shop the patches",
-        "button_link": "https://cebeam.com/products/microneedle-under-eye-patches",
+        "button_label": "Shop Eros Gummies",
+        "button_link": "/products/eros-gummies",
         "button_footnote": "90-day money-back guarantee",
         "show_frame": true,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-eros-light",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -169,81 +160,65 @@
         "g1": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "sparkle",
-            "icon_color": "",
-            "heading": "Hyaluronic Acid",
-            "text": "Holds water in the tissue — the immediate effect."
+            "icon": "heart-plus",
+            "heading": "L-Citrulline",
+            "text": "Supports nitric oxide and healthy blood flow.*"
           }
         },
         "g2": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "molecule",
-            "icon_color": "",
-            "heading": "Niacinamide",
-            "text": "Works on tone and barrier strength over weeks."
+            "icon": "vitality",
+            "heading": "Tongkat Ali",
+            "text": "Supports healthy testosterone and libido.*"
           }
         },
         "g3": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
             "icon": "leaf",
-            "icon_color": "",
-            "heading": "Peptides",
-            "text": "Signal toward firmness — the slower work."
+            "heading": "Ashwagandha (KSM-66®)",
+            "text": "Supports a calmer response to stress.*"
           }
         },
         "g4": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "shield",
-            "icon_color": "",
-            "heading": "Collagen",
-            "text": "Supports firmer-looking under-eyes."
+            "icon": "plant",
+            "heading": "Damiana",
+            "text": "A traditional herb used to support arousal.*"
           }
         },
         "g5": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "cell-defense",
-            "icon_color": "",
-            "heading": "Vitamin C",
-            "text": "Targets dullness; dried, so it won’t oxidise."
+            "icon": "lightning",
+            "heading": "Shilajit (PrimaVie®)",
+            "text": "Supports energy and stamina.*"
           }
         },
         "g6": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "heart-plus",
-            "icon_color": "",
-            "heading": "Retinol",
-            "text": "Smooths fine lines and texture."
+            "icon": "sparkle",
+            "heading": "Maca Root",
+            "text": "Supports desire and drive.*"
           }
         },
         "g7": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "leaf",
-            "icon_color": "",
-            "heading": "Ceramides",
-            "text": "Rebuild the barrier that thins with age."
+            "icon": "star",
+            "heading": "Bromelain",
+            "text": "Pineapple enzyme included to support a fresher taste.*"
           }
         },
         "g8": {
           "type": "icon_item",
           "settings": {
-            "icon_text": "",
-            "icon": "sparkle",
-            "icon_color": "",
-            "heading": "Microdart Delivery",
-            "text": "Starts below the barrier, not on top of it."
+            "icon": "cell-defense",
+            "heading": "Zinc",
+            "text": "Contributes to normal testosterone levels and fertility.*"
           }
         }
       },
@@ -260,11 +235,11 @@
       "settings": {
         "eyebrow": "",
         "text_style": "text",
-        "pill_color": "#c0392b",
-        "heading": "Actives That Actually Get In",
+        "pill_color": "#f25627",
+        "heading": "What's Inside Every Serving",
         "highlight_words": "",
-        "subheading": "The micro-cones are made from the actives themselves — delivered below the skin barrier, where a cream stops.",
-        "icon_color": "#1d5c5c",
+        "subheading": "Key actives per 2-gummy serving — 20+ ingredients in total, nothing you don’t need.",
+        "icon_color": "#f25627",
         "icon_frame": "disc",
         "icon_size": 6,
         "image_scale": 60,
@@ -275,7 +250,7 @@
         "cta_footnote": "",
         "cta_arrow": false,
         "cta_width": "auto",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-eros-light",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -286,49 +261,49 @@
         "b1": {
           "type": "rovina_point",
           "settings": {
-            "text": "Delivers actives below the skin barrier"
+            "text": "Supports desire, stamina & stress in one"
           }
         },
         "o1": {
           "type": "other_brand_point",
           "settings": {
-            "text": "Sits on top of the skin"
+            "text": "One ingredient, one angle"
           }
         },
         "b2": {
           "type": "rovina_point",
           "settings": {
-            "text": "Painless dissolving micro-cones"
+            "text": "2 tasty gummies a day"
           }
         },
         "o2": {
           "type": "other_brand_point",
           "settings": {
-            "text": "Formulated weak for the eye area"
+            "text": "Handfuls of pills"
           }
         },
         "b3": {
           "type": "rovina_point",
           "settings": {
-            "text": "Two nights a week — no routine"
+            "text": "No timing before intimacy"
           }
         },
         "o3": {
           "type": "other_brand_point",
           "settings": {
-            "text": "Daily routine to keep up"
+            "text": "Plan around a pill"
           }
         },
         "b4": {
           "type": "rovina_point",
           "settings": {
-            "text": "Works on bags, shadows & texture"
+            "text": "Vegan & sugar-free"
           }
         },
         "o4": {
           "type": "other_brand_point",
           "settings": {
-            "text": "Mostly surface hydration"
+            "text": "Fillers and sugar coatings"
           }
         }
       },
@@ -343,12 +318,12 @@
         "o4"
       ],
       "settings": {
-        "heading": "Why People Are Switching From Eye Cream to Microneedle Patches",
-        "subheading": "One reaches the problem. The other stops at the surface.",
-        "brand_label": "Cebeam",
-        "other_label": "Eye Cream",
+        "heading": "Why Men Are Switching To Eros Gummies",
+        "subheading": "One formula that covers every angle — versus a cabinet of single-ingredient pills.",
+        "brand_label": "Eros",
+        "other_label": "Typical Supplements",
         "footnote": "",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-eros-peach",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -359,27 +334,40 @@
         "q1": {
           "type": "faq_item",
           "settings": {
-            "group_label": "",
-            "question": "How is this different from an eye cream?",
-            "answer": "<p>A cream sits on the skin’s outer barrier, so most of it never gets far. The dissolving micro-cones start <strong>below</strong> that barrier and deliver the actives where they can work. It’s a delivery difference, not a stronger cream.</p>",
+            "question": "How do I take Eros Gummies?",
+            "answer": "<p>Take 2 gummies a day, every day — morning or night, with or without food. No timing the moment; consistency is what makes it work.</p>",
             "open": true
           }
         },
         "q2": {
           "type": "faq_item",
           "settings": {
-            "group_label": "",
-            "question": "Does it hurt?",
-            "answer": "<p>No. A light prickle for a minute while the cones soften, then you stop noticing. They’re far too short to reach a nerve or draw blood.</p>",
+            "question": "How long until I notice a difference?",
+            "answer": "<p>Many men notice a difference within 1–2 weeks of daily use. Give it a full 30 days to judge properly.*</p>",
             "open": false
           }
         },
         "q3": {
           "type": "faq_item",
           "settings": {
-            "group_label": "",
-            "question": "How long until I see results?",
-            "answer": "<p>A fresher look the next morning is mostly hydration. The changes that hold to bags, shadows and lines build over several weeks of consistent use.*</p>",
+            "question": "Is it safe to take every day?",
+            "answer": "<p>Eros is made with natural ingredients, is vegan and sugar-free, and is designed for daily use. Consult your healthcare provider before starting any supplement, especially if you take medication or have a medical condition.</p>",
+            "open": false
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if it doesn't work for me?",
+            "answer": "<p>You have 90 days to try it. If you're not happy with your results, contact us for a full refund.</p>",
+            "open": false
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I pause or cancel my refills?",
+            "answer": "<p>Yes. Refills ship on your own schedule and you can stop or cancel anytime.</p>",
             "open": false
           }
         }
@@ -387,14 +375,16 @@
       "block_order": [
         "q1",
         "q2",
-        "q3"
+        "q3",
+        "q4",
+        "q5"
       ],
       "settings": {
         "heading": "FAQ",
         "subheading": "Everything you’re wondering — answered simply.",
         "exclusive": true,
-        "footer_text": "<p>Still have a question? Email us at support@cebeam.com and a real person will get back to you within one business day.</p>",
-        "color_scheme": "scheme-1",
+        "footer_text": "<p>Still have a question? Contact us and a real person will get back to you within one business day.</p><p><small>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</small></p>",
+        "color_scheme": "scheme-eros-light",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -402,11 +392,11 @@
     "newsletter": {
       "type": "ces-newsletter-signup",
       "settings": {
-        "heading": "Join The Cebeam Community",
-        "text": "<p>Under-eye tips, honest product updates and subscriber-only offers. One email a week, and you can leave whenever you like.</p>",
+        "heading": "Join The Eros Community",
+        "text": "<p>Performance tips, product news and subscriber-only offers. One email a week, and you can leave whenever you like.</p>",
         "footnote": "No spam. Unsubscribe in one click.",
         "overlay_opacity": 50,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-eros-peach",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -417,7 +407,7 @@
       "settings": {
         "collection": "frontpage",
         "products_to_show": 4,
-        "title": "Featured collection",
+        "title": "Shop Eros",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -427,7 +417,7 @@
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "color_scheme": "",
+        "color_scheme": "scheme-eros-light",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
