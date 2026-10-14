@@ -254,8 +254,7 @@
         -%}
 
         <label class="ces-b2__tier ces-bundle__tier{% if block.settings[bkey] != blank %} ces-b2__tier--badged{% endif %}{% if ces_checked %} is-selected{% endif %}{% unless ces_v.available %} is-unavailable{% endunless %}">
-          {%- comment -%}Compact tiers carry the badge as a pill after the name instead.{%- endcomment -%}
-          {%- if block.settings[bkey] != blank and block.settings.tier_style != 'compact' -%}
+          {%- if block.settings[bkey] != blank -%}
             <span class="ces-b2__ribbon">{{ block.settings[bkey] }}</span>
           {%- endif -%}
 
@@ -296,9 +295,6 @@
 
             <span class="ces-b2__titles">
               <span class="ces-b2__name">{{ block.settings[nkey] | default: ces_v.title }}</span>
-              {%- if block.settings[bkey] != blank and block.settings.tier_style == 'compact' -%}
-                <span class="ces-b2__pill">{{ block.settings[bkey] }}</span>
-              {%- endif -%}
               {%- if block.settings[stkey] != blank -%}
                 <span class="ces-b2__subtitle">{{ block.settings[stkey] | replace: '[save]', ces_save }}</span>
               {%- endif -%}
