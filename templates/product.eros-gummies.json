@@ -766,7 +766,7 @@
         "avatar_shape": "tile",
         "avatar_speed": 35,
         "disclaimer": "<p>Public Reddit posts from 2025 and 2026, quoted word for word. These men are describing their own experiences with other treatments. They are not reviewing Eros.</p>",
-        "color_scheme": "",
+        "color_scheme": "scheme-eros-light",
         "padding_top": 40,
         "padding_bottom": 40
       }
