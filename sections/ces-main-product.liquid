@@ -850,6 +850,60 @@
                     </div>
                   {%- endunless -%}
 
+                {%- when 'ces_review' -%}
+                  {%- comment -%}
+                    One customer review as a card: avatar, stars, optional
+                    title, the quote, then the name with a verified tick.
+                    Add the block several times for several reviews.
+                  {%- endcomment -%}
+                  <figure
+                    class="ces-main-product__review quick-add-hidden"
+                    style="{% if block.settings.card_bg != blank %}--ces-review-bg: {{ block.settings.card_bg }};{% endif %}{% if block.settings.star_color != blank %}--ces-review-star: {{ block.settings.star_color }};{% endif %}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <div class="ces-main-product__review-head">
+                      {%- if block.settings.avatar != blank -%}
+                        {{
+                          block.settings.avatar
+                          | image_url: width: 120
+                          | image_tag:
+                            loading: 'lazy',
+                            width: 60,
+                            height: 60,
+                            widths: '60, 120',
+                            sizes: '4.4rem',
+                            class: 'ces-main-product__review-avatar',
+                            alt: block.settings.name | escape
+                        }}
+                      {%- endif -%}
+                      <div class="ces-main-product__review-meta">
+                        <span class="ces-main-product__review-stars" role="img" aria-label="{{ block.settings.rating }} out of 5 stars">
+                          {%- for i in (1..5) -%}
+                            {%- if i <= block.settings.rating -%}
+                              {% render 'ces-icon', icon: 'star-filled', size: '1.5rem' %}
+                            {%- else -%}
+                              {% render 'ces-icon', icon: 'star', size: '1.5rem', class: 'ces-main-product__review-star--empty' %}
+                            {%- endif -%}
+                          {%- endfor -%}
+                        </span>
+                        <figcaption class="ces-main-product__review-author">
+                          <span class="ces-main-product__review-name">{{ block.settings.name }}</span>
+                          {%- if block.settings.verified_label != blank -%}
+                            <span class="ces-main-product__review-verified">
+                              {% render 'ces-icon', icon: 'check-circle', size: '1.4rem' %}
+                              {{ block.settings.verified_label }}
+                            </span>
+                          {%- endif -%}
+                        </figcaption>
+                      </div>
+                    </div>
+                    {%- if block.settings.title != blank -%}
+                      <p class="ces-main-product__review-title">{{ block.settings.title }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.quote != blank -%}
+                      <blockquote class="ces-main-product__review-quote">{{ block.settings.quote }}</blockquote>
+                    {%- endif -%}
+                  </figure>
                 {%- when 'ces_trust_row' -%}
                   {%- liquid
                     # Collect the avatars that are actually set, so the verified
@@ -2949,6 +3003,63 @@
           "id": "text",
           "label": "Label",
           "default": "Cellular & Antioxidant Defense*"
+        }
+      ]
+    },
+    {
+      "type": "ces_review",
+      "name": "CES Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Customer photo"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Stars",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review title",
+          "info": "Optional, shown in bold above the quote."
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Review",
+          "default": "<p>Write what the customer said, in their own words.</p>"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer name",
+          "default": "Customer name"
+        },
+        {
+          "type": "text",
+          "id": "verified_label",
+          "label": "Verified label",
+          "info": "Leave blank to hide.",
+          "default": "Verified Customer"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Card background",
+          "info": "Blank uses a light tint of the text color."
+        },
+        {
+          "type": "color",
+          "id": "star_color",
+          "label": "Star color",
+          "info": "Blank uses the button color of the color scheme."
         }
       ]
     },

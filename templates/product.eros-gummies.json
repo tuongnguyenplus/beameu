@@ -1569,6 +1569,18 @@
             "footnote": "Natural ingredients · Made for daily use",
             "text_alignment": "center"
           }
+        },
+        "review-1": {
+          "type": "ces_review",
+          "disabled": true,
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Write what the customer said, in their own words.</p>",
+            "name": "Customer name",
+            "verified_label": "Verified Customer",
+            "card_bg": "#feeee9",
+            "star_color": "#f25627"
+          }
         }
       },
       "block_order": [
@@ -1576,6 +1588,7 @@
         "title",
         "subtitle",
         "ces_bundle_v2_6QEajj",
+        "review-1",
         "shipping-estimate",
         "price",
         "app-price-slot",

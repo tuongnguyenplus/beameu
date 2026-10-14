@@ -1120,3 +1120,19 @@ body {
     transform: scale(0.7);
   }
 }
+
+/* CES Review block: one customer review card inside the product info column. */
+.ces-main-product__review { margin: 1.6rem 0 0; padding: 1.6rem 1.8rem; border-radius: 1.2rem; background: var(--ces-review-bg, rgba(var(--color-foreground), .04)); }
+.ces-main-product__review-head { display: flex; align-items: center; gap: 1.2rem; }
+.ces-main-product__review-avatar { flex: none; width: 4.4rem; height: 4.4rem; border-radius: 50%; object-fit: cover; }
+.ces-main-product__review-meta { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
+.ces-main-product__review-stars { display: inline-flex; gap: .2rem; color: var(--ces-review-star, rgb(var(--color-button))); }
+.ces-main-product__review-star--empty { opacity: .35; }
+.ces-main-product__review-author { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .8rem; margin: 0; font-size: 1.35rem; line-height: 1.3; }
+.ces-main-product__review-name { font-weight: 700; }
+.ces-main-product__review-verified { display: inline-flex; align-items: center; gap: .4rem; color: rgba(var(--color-foreground), .65); }
+.ces-main-product__review-verified .ces-icon { color: #2e9e5b; }
+.ces-main-product__review-title { margin: 1.2rem 0 0; font-size: 1.5rem; font-weight: 700; line-height: 1.35; }
+.ces-main-product__review-quote { margin: .6rem 0 0; padding: 0; border: 0; font-size: 1.45rem; font-style: normal; line-height: 1.5; color: rgba(var(--color-foreground), .85); }
+.ces-main-product__review-quote > :first-child { margin-top: 0; }
+.ces-main-product__review-quote > :last-child { margin-bottom: 0; }
