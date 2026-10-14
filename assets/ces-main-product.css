@@ -29,6 +29,14 @@ body {
   /* Sit flush under the announcement marquee — no white gap above the gallery. */
   margin-top: 0;
 }
+
+/* The colour-scheme class sits on the inner wrapper, not on the section
+   element above, so the accent must be resolved again there — otherwise it
+   keeps the theme's default scheme button colour whatever scheme is chosen. */
+.ces-main-product-section [class*='color-scheme-'] {
+  --ces-accent: rgb(var(--color-button));
+  --ces-accent-contrast: rgb(var(--color-button-text));
+}
 /* Remove any residual gap between the marquee and the section right below it. */
 .ces-announcement-marquee-section {
   margin-bottom: 0;
