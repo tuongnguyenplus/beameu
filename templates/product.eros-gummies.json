@@ -493,7 +493,8 @@
     "mechanism": {
       "type": "ces-image-text-banner",
       "settings": {
-        "layout": "band",
+        "image": "shopify://shop_images/19_cef2e974-aebd-4a3e-8ef0-7677f36e23f5.webp",
+        "layout": "split",
         "image_shape": "auto",
         "text_position": "center",
         "overlay_opacity": 0,
@@ -1231,6 +1232,7 @@
         "ces_review_rMr6tU": {
           "type": "ces_review",
           "settings": {
+            "autoplay_seconds": 5,
             "verified_label": "Verified Customer",
             "card_bg": "",
             "star_color": "",
@@ -1412,6 +1414,7 @@
           "type": "ces_review",
           "disabled": true,
           "settings": {
+            "autoplay_seconds": 5,
             "verified_label": "Verified Customer",
             "card_bg": "#feeee9",
             "star_color": "#f25627",
@@ -1689,6 +1692,7 @@
     },
     "finalcta": {
       "type": "ces-bullet-cta",
+      "disabled": true,
       "settings": {
         "image_position": "end",
         "heading": "Ready To Show Up At Your Best?",
@@ -1697,11 +1701,103 @@
         "cta_arrow": true,
         "button_label": "Get My Eros Gummies",
         "button_link": "#shopify-section-main",
-        "button_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
+        "button_footnote": "shield | 90 Day Money Back Guarantee truck | Free Shipping",
         "show_frame": false,
         "color_scheme": "scheme-eros-peach",
         "padding_top": 40,
         "padding_bottom": 48
+      }
+    },
+    "ces_testimonial_marquee_UzJ6Gf": {
+      "type": "ces-testimonial-marquee",
+      "blocks": {
+        "avatar_item_RJ98c4": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_9CmiW7": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_mxJffn": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_cb8Hjh": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_UGg9Qq": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_8rYX3f": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "review_item_4cm3cG": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>Eight weeks in and my skin stopped feeling tight by the afternoon. I did not expect a supplement to be the thing that changed that.*</p>",
+            "name": "Maya R.",
+            "meta": "Verified Buyer",
+            "verified": true,
+            "rating": 5
+          }
+        },
+        "review_item_jGfTB6": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>I train five days a week and the day-after soreness is noticeably shorter. That alone is worth it.*</p>",
+            "name": "Daniel K.",
+            "meta": "Verified Buyer",
+            "verified": true,
+            "rating": 5
+          }
+        },
+        "review_item_difxCU": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>I stare at screens for ten hours a day. My eyes are far less tired by evening than they used to be.*</p>",
+            "name": "Priya S.",
+            "meta": "Verified Buyer",
+            "verified": true,
+            "rating": 5
+          }
+        },
+        "review_item_bHk4cC": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>I have tried astaxanthin before and felt nothing. The difference here is the dose — 12mg, not 4mg.*</p>",
+            "name": "Chris M.",
+            "meta": "Verified Buyer",
+            "verified": true,
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "avatar_item_RJ98c4",
+        "avatar_item_9CmiW7",
+        "avatar_item_mxJffn",
+        "avatar_item_cb8Hjh",
+        "avatar_item_UGg9Qq",
+        "avatar_item_8rYX3f",
+        "review_item_4cm3cG",
+        "review_item_jGfTB6",
+        "review_item_difxCU",
+        "review_item_bHk4cC"
+      ],
+      "name": "CES Testimonial marquee",
+      "settings": {
+        "heading": "What Some Customers Are Saying",
+        "subheading": "",
+        "avatar_shape": "tile",
+        "avatar_speed": 35,
+        "disclaimer": "<p>*Results vary from person to person. These reviews describe individual experiences and are not a promise of any particular outcome.</p>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "sticky": {
@@ -1752,6 +1848,7 @@
     "guarantee",
     "main",
     "finalcta",
+    "ces_testimonial_marquee_UzJ6Gf",
     "sticky"
   ]
 }
