@@ -115,6 +115,7 @@
             is the one to show; a variant without a plan falls back to one-time.
           endcomment
           assign ces_plan_id = ''
+          assign ces_alloc = null
           assign ces_pay = ces_v.price
           assign ces_was = ces_v.compare_at_price | default: 0
           if block.settings.purchase_type == 'subscription'
@@ -147,6 +148,15 @@
                 assign ces_was = ces_alloc_was
               endif
             endif
+          endif
+
+          assign rfkey = 'tier_' | append: ces_i | append: '_refill'
+          assign ces_refill = block.settings[rfkey]
+          if ces_refill == blank and ces_alloc
+            assign ces_refill = ces_alloc.selling_plan.name
+          endif
+          if ces_checked_refill == null and ces_i == ces_default_tier
+            assign ces_checked_refill = ces_refill
           endif
 
           if block.settings[pkey] != blank
@@ -261,6 +271,7 @@
               data-price-label="{{ ces_pay | money_with_currency | strip }}"
               {% if ces_plan_id != blank %}data-selling-plan="{{ ces_plan_id }}"{% endif %}
               data-add-label="{{ ces_cta_label | escape }}"
+              data-refill="{{ ces_refill | escape }}"
               {% unless ces_v.available %}data-unavailable="true"{% endunless %}
               {% if ces_checked %}checked{% endif %}
             >
@@ -492,6 +503,7 @@
       Lines written as "icon | text" become an icon row ("Refills ship on your
       schedule | Stop anytime"); any other note stays a plain sentence.
     {%- endcomment -%}
+    {%- capture ces_refill_span -%}<span data-ces-refill>{{ ces_checked_refill | escape }}</span>{%- endcapture -%}
     {%- if block.settings.sub_note contains '|' -%}
       <ul class="ces-bundle__note ces-b2__note-row" role="list">
         {%- assign ces_note_lines = block.settings.sub_note | newline_to_br | split: '<br />' -%}
@@ -502,7 +514,7 @@
             <li class="ces-b2__note-item">
               {%- assign nicon = nparts[0] | strip -%}
               {%- if nicon != blank -%}{%- render 'ces-icon', icon: nicon, size: '1.8rem', class: 'ces-b2__note-icon' -%}{%- endif -%}
-              <span>{{ ntext }}</span>
+              <span>{{ ntext | replace: '[refill]', ces_refill_span }}</span>
             </li>
           {%- endif -%}
         {%- endfor -%}

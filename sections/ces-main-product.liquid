@@ -4574,7 +4574,7 @@
           "type": "textarea",
           "id": "sub_note",
           "label": "Note under the button",
-          "info": "Write one \"icon | text\" per line for an icon row, e.g. \"refresh | Refills ship on your schedule\". Icons: refresh, clock, truck, shield, check-circle, gift, lock, return."
+          "info": "Write one \"icon | text\" per line for an icon row, e.g. \"refresh | Refills ship on your schedule\". Icons: refresh, clock, truck, shield, check-circle, gift, lock, return. [refill] shows the selected tier's refill line."
         },
         {
           "type": "header",
@@ -4736,6 +4736,12 @@
         },
         {
           "type": "text",
+          "id": "tier_1_refill",
+          "label": "Refill line",
+          "info": "Replaces [refill] in the note under the button while this tier is selected, e.g. Refills ship every 30 days. Blank uses the subscription plan's name."
+        },
+        {
+          "type": "text",
           "id": "tier_1_name",
           "label": "Name"
         },
@@ -4878,6 +4884,12 @@
         },
         {
           "type": "text",
+          "id": "tier_2_refill",
+          "label": "Refill line",
+          "info": "Replaces [refill] in the note under the button while this tier is selected, e.g. Refills ship every 30 days. Blank uses the subscription plan's name."
+        },
+        {
+          "type": "text",
           "id": "tier_2_name",
           "label": "Name"
         },
@@ -5017,6 +5029,12 @@
           "id": "tier_3_plan",
           "label": "Subscription plan",
           "info": "Used when Purchase type is Subscription. Selling plan ID or part of the plan name, e.g. Deliver every 30 days. Blank uses the variant's first plan."
+        },
+        {
+          "type": "text",
+          "id": "tier_3_refill",
+          "label": "Refill line",
+          "info": "Replaces [refill] in the note under the button while this tier is selected, e.g. Refills ship every 30 days. Blank uses the subscription plan's name."
         },
         {
           "type": "text",

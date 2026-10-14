@@ -34,6 +34,12 @@ class CesBundle extends HTMLElement {
     if (radio && this.totalEl) this.totalEl.textContent = radio.dataset.priceLabel || '';
     if (radio && this.labelEl) this.labelEl.textContent = radio.dataset.addLabel || this.defaultLabel;
     if (radio && this.addBtn) this.addBtn.disabled = radio.dataset.unavailable === 'true';
+    // Note lines written with [refill] follow the selected tier's refill wording.
+    if (radio && radio.dataset.refill !== undefined) {
+      this.querySelectorAll('[data-ces-refill]').forEach((el) => {
+        el.textContent = radio.dataset.refill;
+      });
+    }
   }
 
   baseConfig() {

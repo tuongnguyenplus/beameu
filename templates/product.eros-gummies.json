@@ -108,7 +108,7 @@
             "auto_compare": true,
             "onetime_label": "",
             "onetime_url": "",
-            "sub_note": "refresh | Refills Ship on Your Own Schedule\nclock | Stop or Cancel Anytime",
+            "sub_note": "refresh | [refill]\nclock | Stop or Cancel Anytime",
             "show_shipping": false,
             "ship_position": "above",
             "delivery_text": "Arrives by",
@@ -211,7 +211,10 @@
             "tier_4_gift_title": "",
             "tier_4_gift_sub": "",
             "tier_4_gift_label": "",
-            "tier_4_foot": ""
+            "tier_4_foot": "",
+            "tier_1_refill": "Refills Ship Every 30 Days",
+            "tier_2_refill": "Refills Ship Every 60 Days",
+            "tier_3_refill": "Refills Ship Every 90 Days"
           }
         },
         "review-1": {
