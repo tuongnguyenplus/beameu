@@ -755,6 +755,79 @@
         "padding_bottom": 40
       }
     },
+    "ces_timeline_accordion_iRkPe3": {
+      "type": "ces-timeline-accordion",
+      "blocks": {
+        "timeline_step_kr9xeP": {
+          "type": "timeline_step",
+          "settings": {
+            "state": "auto",
+            "time_label": "WEEKS 1-2",
+            "heading": "Cellular Foundation",
+            "bullets": "Antioxidant activity begins working at the cellular level\nBody starts adapting to daily intake\nMost people feel no dramatic change yet",
+            "content": "",
+            "open": false
+          }
+        },
+        "timeline_step_QkpJTc": {
+          "type": "timeline_step",
+          "settings": {
+            "state": "auto",
+            "time_label": "WEEK 3-4",
+            "heading": "Early Changes Appear",
+            "bullets": "Antioxidant activity begins working at the cellular level\nBody starts adapting to daily intake\nMost people feel no dramatic change yet",
+            "content": "",
+            "open": false
+          }
+        },
+        "timeline_step_aCNmk8": {
+          "type": "timeline_step",
+          "settings": {
+            "state": "auto",
+            "time_label": "WEEK 5-8",
+            "heading": "Building Momentum",
+            "bullets": "Antioxidant activity begins working at the cellular level\nBody starts adapting to daily intake\nMost people feel no dramatic change yet",
+            "content": "",
+            "open": false
+          }
+        },
+        "timeline_step_yEH6K9": {
+          "type": "timeline_step",
+          "settings": {
+            "state": "auto",
+            "time_label": "WEEK 8+",
+            "heading": "Long-Term Support",
+            "bullets": "Antioxidant activity begins working at the cellular level\nBody starts adapting to daily intake\nMost people feel no dramatic change yet",
+            "content": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "timeline_step_kr9xeP",
+        "timeline_step_QkpJTc",
+        "timeline_step_aCNmk8",
+        "timeline_step_yEH6K9"
+      ],
+      "name": "CES Timeline",
+      "settings": {
+        "display": "open",
+        "image_position": "start",
+        "image_ratio": "3 / 4",
+        "heading": "What to expect, week by week",
+        "subheading": "Astaxanthin builds up in your tissue, so the changes arrive in stages.*",
+        "fill_speed": 900,
+        "meta_opacity": 100,
+        "heading_style": "plain",
+        "button_label": "",
+        "button_link": "",
+        "exclusive": true,
+        "background_pattern": "dots",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "results": {
       "type": "ces-review-cards",
       "blocks": {
@@ -845,6 +918,7 @@
         "step-2",
         "step-3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "2 Gummies A Day. That's The Whole Routine.",
         "subheading": "",
@@ -913,6 +987,7 @@
         "stage-3",
         "stage-4"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "Your First 90 Days",
         "heading": "What To Expect, Month By Month",
@@ -1840,6 +1915,7 @@
     "actives",
     "preqa",
     "howitworks",
+    "ces_timeline_accordion_iRkPe3",
     "results",
     "howto",
     "timeline",
