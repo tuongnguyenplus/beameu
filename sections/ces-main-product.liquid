@@ -853,8 +853,9 @@
                 {%- when 'ces_review' -%}
                   {%- comment -%}
                     Up to five customer reviews. One filled slot renders as a
-                    single card; two or more become a horizontal slider (swipe,
-                    arrows, dots). A slot counts once it has a quote or a name.
+                    single card; two or more slide on their own every few
+                    seconds and can be swiped. A slot counts once it has a
+                    quote or a name.
                   {%- endcomment -%}
                   {%- liquid
                     assign ces_rv_slots = ''
@@ -870,6 +871,7 @@
                   {%- if ces_rv_slots.size > 0 -%}
                     <ces-review-slider
                       class="ces-main-product__reviews quick-add-hidden{% if ces_rv_slots.size > 1 %} is-slider{% endif %}"
+                      data-interval="{{ block.settings.autoplay_seconds | default: 5 }}"
                       style="{% if block.settings.card_bg != blank %}--ces-review-bg: {{ block.settings.card_bg }};{% endif %}{% if block.settings.star_color != blank %}--ces-review-star: {{ block.settings.star_color }};{% endif %}"
                       {{ block.shopify_attributes }}
                     >
@@ -930,19 +932,6 @@
                         {%- endfor -%}
                       </div>
                       {%- if ces_rv_slots.size > 1 -%}
-                        <div class="ces-main-product__reviews-nav">
-                          <button type="button" class="ces-main-product__reviews-arrow" data-prev aria-label="Previous review">
-                            {% render 'ces-icon', icon: 'chevron-left', size: '1.4rem' %}
-                          </button>
-                          <div class="ces-main-product__reviews-dots" data-dots>
-                            {%- for i in ces_rv_slots -%}
-                              <button type="button" class="ces-main-product__reviews-dot{% if forloop.first %} is-active{% endif %}" data-dot="{{ forloop.index0 }}" aria-label="Review {{ forloop.index }}"></button>
-                            {%- endfor -%}
-                          </div>
-                          <button type="button" class="ces-main-product__reviews-arrow" data-next aria-label="Next review">
-                            {% render 'ces-icon', icon: 'chevron-right', size: '1.4rem' %}
-                          </button>
-                        </div>
                         <script src="{{ 'ces-review-slider.js' | asset_url }}" defer="defer"></script>
                       {%- endif -%}
                     </ces-review-slider>
@@ -3055,7 +3044,18 @@
       "settings": [
         {
           "type": "paragraph",
-          "content": "Fill in up to five reviews. Two or more slide horizontally; empty reviews are skipped."
+          "content": "Fill in up to five reviews. Two or more slide on their own; empty reviews are skipped."
+        },
+        {
+          "type": "range",
+          "id": "autoplay_seconds",
+          "min": 2,
+          "max": 15,
+          "step": 1,
+          "unit": "s",
+          "label": "Time per review",
+          "info": "With two or more reviews they slide on their own; hovering or swiping pauses it.",
+          "default": 5
         },
         {
           "type": "text",

@@ -1,8 +1,9 @@
 /*
- * <ces-review-slider> — horizontal review slider for the CES Reviews block.
+ * <ces-review-slider> — auto-advancing review slider for the CES Reviews block.
  * The track is a native scroll-snap container, so swipe and trackpad work
- * without JS; this only wires the arrows and dots and keeps the active dot
- * in step with whatever the shopper scrolled to.
+ * without JS; this advances it every `data-interval` seconds, wrapping from
+ * the last review to the first. Hover, focus or a touch pauses it, and it
+ * only runs while the slider is on screen and the tab is visible.
  */
 if (!customElements.get('ces-review-slider')) {
   customElements.define(
@@ -11,22 +12,47 @@ if (!customElements.get('ces-review-slider')) {
       connectedCallback() {
         this.track = this.querySelector('[data-track]');
         this.slides = Array.from(this.querySelectorAll('[data-slide]'));
-        this.dots = Array.from(this.querySelectorAll('[data-dot]'));
         if (!this.track || this.slides.length < 2) return;
 
-        this.querySelector('[data-prev]')?.addEventListener('click', () => this.go(this.index() - 1));
-        this.querySelector('[data-next]')?.addEventListener('click', () => this.go(this.index() + 1));
-        this.dots.forEach((dot) => dot.addEventListener('click', () => this.go(Number(dot.dataset.dot))));
+        this.delay = Math.max(2, Number(this.dataset.interval) || 5) * 1000;
+        this.paused = false;
+        this.visible = false;
+        this.reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        let frame;
-        this.track.addEventListener(
-          'scroll',
-          () => {
-            cancelAnimationFrame(frame);
-            frame = requestAnimationFrame(() => this.sync());
-          },
-          { passive: true }
-        );
+        const pause = () => { this.paused = true; this.stop(); };
+        const resume = () => { this.paused = false; this.start(); };
+        this.addEventListener('mouseenter', pause);
+        this.addEventListener('mouseleave', resume);
+        this.addEventListener('focusin', pause);
+        this.addEventListener('focusout', resume);
+        this.track.addEventListener('touchstart', pause, { passive: true });
+        this.track.addEventListener('touchend', resume, { passive: true });
+
+        this.onVisibility = () => (document.hidden ? this.stop() : this.start());
+        document.addEventListener('visibilitychange', this.onVisibility);
+
+        this.observer = new IntersectionObserver((entries) => {
+          this.visible = entries.some((e) => e.isIntersecting);
+          this.visible ? this.start() : this.stop();
+        });
+        this.observer.observe(this);
+      }
+
+      disconnectedCallback() {
+        this.stop();
+        this.observer?.disconnect();
+        if (this.onVisibility) document.removeEventListener('visibilitychange', this.onVisibility);
+      }
+
+      start() {
+        this.stop();
+        if (this.paused || !this.visible || document.hidden) return;
+        this.timer = setInterval(() => this.go(this.index() + 1), this.delay);
+      }
+
+      stop() {
+        clearInterval(this.timer);
+        this.timer = null;
       }
 
       // Distance from one slide to the next, gap included.
@@ -39,17 +65,8 @@ if (!customElements.get('ces-review-slider')) {
       }
 
       go(i) {
-        const count = this.slides.length;
-        const next = (i + count) % count; // wrap around at either end
-        this.track.scrollTo({ left: next * this.step(), behavior: 'smooth' });
-      }
-
-      sync() {
-        const current = this.index();
-        this.dots.forEach((dot, i) => {
-          dot.classList.toggle('is-active', i === current);
-          dot.setAttribute('aria-current', i === current ? 'true' : 'false');
-        });
+        const next = (i + this.slides.length) % this.slides.length;
+        this.track.scrollTo({ left: next * this.step(), behavior: this.reduceMotion ? 'auto' : 'smooth' });
       }
     }
   );
