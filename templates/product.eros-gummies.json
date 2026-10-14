@@ -1228,6 +1228,37 @@
     "main": {
       "type": "ces-main-product",
       "blocks": {
+        "ces_review_rMr6tU": {
+          "type": "ces_review",
+          "settings": {
+            "verified_label": "Verified Customer",
+            "card_bg": "",
+            "star_color": "",
+            "avatar_1": "shopify://shop_images/bef.webp",
+            "rating_1": 5,
+            "title_1": "",
+            "quote_1": "<p><em>“The obvious improvement has been sexual function, but what surprised me was what happened to my confidence around sex and intimacy.”</em></p>",
+            "name_1": "David 58, Texas",
+            "avatar_2": "shopify://shop_images/a27678e0-e592-4a10-bd64-a1cd33b9cd67.webp",
+            "rating_2": 5,
+            "title_2": "",
+            "quote_2": "<p><em>“My libido feels stronger, I've been much more comfortable sexually with my wife.”</em></p>",
+            "name_2": "Jonathan 55, NY",
+            "avatar_3": "shopify://shop_images/65926863-1770-41e5-af1a-b9f94e34f9c0.webp",
+            "rating_3": 5,
+            "title_3": "",
+            "quote_3": "<p>“At 50 I feel more sexually confident, more emotionally connected to my wife and more comfortable with myself than I remember feeling before.”</p>",
+            "name_3": "John 50, NY",
+            "rating_4": 5,
+            "title_4": "",
+            "quote_4": "",
+            "name_4": "",
+            "rating_5": 5,
+            "title_5": "",
+            "quote_5": "",
+            "name_5": ""
+          }
+        },
         "rating-bar": {
           "type": "ces_rating_bar",
           "disabled": true,
@@ -1375,6 +1406,35 @@
             "tier_4_gift_sub": "",
             "tier_4_gift_label": "",
             "tier_4_foot": ""
+          }
+        },
+        "review-1": {
+          "type": "ces_review",
+          "disabled": true,
+          "settings": {
+            "verified_label": "Verified Customer",
+            "card_bg": "#feeee9",
+            "star_color": "#f25627",
+            "rating_1": 5,
+            "title_1": "",
+            "quote_1": "",
+            "name_1": "",
+            "rating_2": 5,
+            "title_2": "",
+            "quote_2": "",
+            "name_2": "",
+            "rating_3": 5,
+            "title_3": "",
+            "quote_3": "",
+            "name_3": "",
+            "rating_4": 5,
+            "title_4": "",
+            "quote_4": "",
+            "name_4": "",
+            "rating_5": 5,
+            "title_5": "",
+            "quote_5": "",
+            "name_5": ""
           }
         },
         "shipping-estimate": {
@@ -1569,23 +1629,10 @@
             "footnote": "Natural ingredients · Made for daily use",
             "text_alignment": "center"
           }
-        },
-        "review-1": {
-          "type": "ces_review",
-          "disabled": true,
-          "settings": {
-            "verified_label": "Verified Customer",
-            "card_bg": "#feeee9",
-            "star_color": "#f25627",
-            "rating_1": 5,
-            "rating_2": 5,
-            "rating_3": 5,
-            "rating_4": 5,
-            "rating_5": 5
-          }
         }
       },
       "block_order": [
+        "ces_review_rMr6tU",
         "rating-bar",
         "title",
         "subtitle",
