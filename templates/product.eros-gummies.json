@@ -86,7 +86,7 @@
         "subtitle": {
           "type": "text",
           "settings": {
-            "text": "For men over 50 who are tired of “not feeling quite like myself”. Two gummies a day to support desire, energy and confidence.*",
+            "text": "For men over 45 who are tired of “not feeling quite like myself”. Two gummies a day to support desire, energy and confidence.",
             "text_style": "body"
           }
         },
@@ -127,6 +127,7 @@
             "show_variant_image": false,
             "tier_1_variant": "47807432753236",
             "tier_1_plan": "every 30 days",
+            "tier_1_refill": "Refills Ship Every 30 Days",
             "tier_1_name": "1 Month Supply",
             "tier_1_subtitle": "You Save [save] | FREE Shipping",
             "tier_1_badge": "",
@@ -149,6 +150,7 @@
             "tier_1_foot": "",
             "tier_2_variant": "47807432786004",
             "tier_2_plan": "every 60 days",
+            "tier_2_refill": "Refills Ship Every 60 Days",
             "tier_2_name": "2 Month Supply",
             "tier_2_subtitle": "You Save [save] | FREE Shipping",
             "tier_2_badge": "STARTER PACK",
@@ -171,6 +173,7 @@
             "tier_2_foot": "",
             "tier_3_variant": "47807432818772",
             "tier_3_plan": "every 90 days",
+            "tier_3_refill": "Refills Ship Every 90 Days",
             "tier_3_name": "3 Month Supply",
             "tier_3_subtitle": "You Save [save] | FREE Shipping",
             "tier_3_badge": "MOST POPULAR",
@@ -211,10 +214,7 @@
             "tier_4_gift_title": "",
             "tier_4_gift_sub": "",
             "tier_4_gift_label": "",
-            "tier_4_foot": "",
-            "tier_1_refill": "Refills Ship Every 30 Days",
-            "tier_2_refill": "Refills Ship Every 60 Days",
-            "tier_3_refill": "Refills Ship Every 90 Days"
+            "tier_4_foot": ""
           }
         },
         "review-1": {
@@ -593,7 +593,7 @@
         "item-2": {
           "type": "item",
           "settings": {
-            "text": "“It was stressful for several months preparing to have sex.” (age 50)"
+            "text": "“It was stressful for several months preparing to have sex.” (age 46)"
           }
         },
         "item-3": {
@@ -617,7 +617,7 @@
         "item-6": {
           "type": "item",
           "settings": {
-            "text": "“Maybe I see a urologist or just accept it.” (age 58)"
+            "text": "“Maybe I see a urologist or just accept it.” (age 48)"
           }
         }
       },
@@ -651,6 +651,7 @@
         "heading": "“I never thought I'd be posting about ED.” Neither Did Most Men.",
         "subheading": "",
         "body": "<p>That's how one 50-year-old started his post. Another, 58 and in good health, wrote that losing his drive had “affected my self esteem”.</p><p>It rarely starts dramatically. A night that doesn’t go to plan. Then you start “preparing” for intimacy instead of enjoying it. Then you start avoiding it. The desire is still there; the confidence is what goes.</p><p>Most men handle it quietly. They put it off, “just accept it”, or reach for whatever they saw advertised. Eros is for the man who would rather do something sensible about it: <strong>a daily routine he understands, with every ingredient and dose on the label.</strong></p>",
+        "image": "shopify://shop_images/sdfsadfsdfsd.webp",
         "image_position": "beside_body",
         "image_alt": "",
         "image_caption": "",
@@ -880,7 +881,7 @@
         "eyebrow": "How Eros Works",
         "heading_accent": "",
         "heading": "Built For The Whole Picture, Not Just One Night",
-        "text": "<p>Men over 50 describe it the same way: “brain fog, lethargy, lower sexual desire”. It’s rarely only about blood flow. Desire, stress, energy and confidence are all part of feeling like yourself, which is why Eros doesn’t lean on a single ingredient.</p><p><strong>Healthy blood flow</strong>: L-Citrulline (1500 mg) supports nitric oxide production.*<br/><strong>Desire</strong>: Tongkat Ali, Maca and Damiana support libido.*<br/><strong>Stress</strong>: Ashwagandha (KSM-66®) supports a calmer stress response.*<br/><strong>Energy</strong>: Shilajit (PrimaVie®), Zinc and Copper support energy and normal testosterone levels.*</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
+        "text": "<p>Men over 45 describe it the same way: “brain fog, lethargy, lower sexual desire”. It’s rarely only about blood flow. Desire, stress, energy and confidence are all part of feeling like yourself, which is why Eros doesn’t lean on a single ingredient.</p><p><strong>Healthy blood flow</strong>: L-Citrulline (1500 mg) supports nitric oxide production.*<br/><strong>Desire</strong>: Tongkat Ali, Maca and Damiana support libido.<br/><strong>Stress</strong>: Ashwagandha (KSM-66®) supports a calmer stress response.*<br/><strong>Energy</strong>: Shilajit (PrimaVie®), Zinc and Copper support energy and normal testosterone levels.</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
         "cta_width": "full",
         "cta_arrow": true,
         "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
@@ -1108,6 +1109,98 @@
         "padding_bottom": 40
       }
     },
+    "ces_testimonial_marquee_EYLmzw": {
+      "type": "ces-testimonial-marquee",
+      "blocks": {
+        "avatar_item_JRT8KP": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_x8hBMd": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_YYbTnL": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_j896zJ": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_AeW68H": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "avatar_item_yxyYRj": {
+          "type": "avatar_item",
+          "settings": {}
+        },
+        "review_item_FyDUET": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>Eight weeks in and my skin stopped feeling tight by the afternoon. I did not expect a supplement to be the thing that changed that.*</p>",
+            "name": "Maya R.",
+            "meta": "Verified Buyer",
+            "verified": true,
+            "rating": 5
+          }
+        },
+        "review_item_88CYjN": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>I train five days a week and the day-after soreness is noticeably shorter. That alone is worth it.*</p>",
+            "name": "Daniel K.",
+            "meta": "Verified Buyer",
+            "verified": true,
+            "rating": 5
+          }
+        },
+        "review_item_gz8LU6": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>I stare at screens for ten hours a day. My eyes are far less tired by evening than they used to be.*</p>",
+            "name": "Priya S.",
+            "meta": "Verified Buyer",
+            "verified": true,
+            "rating": 5
+          }
+        },
+        "review_item_VLhUb3": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>I have tried astaxanthin before and felt nothing. The difference here is the dose — 12mg, not 4mg.*</p>",
+            "name": "Chris M.",
+            "meta": "Verified Buyer",
+            "verified": true,
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "avatar_item_JRT8KP",
+        "avatar_item_x8hBMd",
+        "avatar_item_YYbTnL",
+        "avatar_item_j896zJ",
+        "avatar_item_AeW68H",
+        "avatar_item_yxyYRj",
+        "review_item_FyDUET",
+        "review_item_88CYjN",
+        "review_item_gz8LU6",
+        "review_item_VLhUb3"
+      ],
+      "name": "CES Testimonial marquee",
+      "settings": {
+        "heading": "What Some Customers Are Saying",
+        "subheading": "",
+        "avatar_shape": "tile",
+        "avatar_speed": 35,
+        "disclaimer": "<p>*Results vary from person to person. These reviews describe individual experiences and are not a promise of any particular outcome.</p>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "ces_timeline_accordion_iRkPe3": {
       "type": "ces-timeline-accordion",
       "blocks": {
@@ -1165,6 +1258,7 @@
       "name": "CES Timeline",
       "settings": {
         "display": "open",
+        "image": "shopify://shop_images/sdfsadfsdfsd.webp",
         "image_position": "start",
         "image_ratio": "3 / 4",
         "heading": "What To Expect, Honestly",
@@ -1922,6 +2016,7 @@
     "mechanism",
     "actives",
     "compare",
+    "ces_testimonial_marquee_EYLmzw",
     "ces_timeline_accordion_iRkPe3",
     "preqa",
     "mornings",
