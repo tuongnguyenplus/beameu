@@ -1151,10 +1151,11 @@
         "review_item_FyDUET": {
           "type": "review_item",
           "settings": {
-            "review": "<p>I have not had erections like this in many years. These are exactly the gummies I needed.</p>",
+            "review": "<p>\"I have not had erections like this in many years. These are exactly the gummies I needed.\"</p>",
             "name": "Marc R, 61",
             "meta": "Verified Buyer",
             "verified": true,
+            "avatar": "shopify://shop_images/673b0071594fda359eac01e345857cc2.jpg",
             "rating": 5
           }
         },
@@ -1165,6 +1166,7 @@
             "name": "Daniel K, 55",
             "meta": "Verified Buyer",
             "verified": true,
+            "avatar": "shopify://shop_images/c597d57c729f4276bb43e3531dcd3412.jpg",
             "rating": 5
           }
         },
@@ -1172,9 +1174,10 @@
           "type": "review_item",
           "settings": {
             "review": "<p>\"I hadn’t been able to have sex twice in the same hour since we were in our twenties. Has affected my self esteem. &nbsp;Now my performance matches my desire.\"</p>",
-            "name": "Priya S, 48",
+            "name": "Jonathan S, 48",
             "meta": "Verified Buyer",
             "verified": true,
+            "avatar": "shopify://shop_images/a5e0229cd17fc48b4f831fd62957bf13.jpg",
             "rating": 5
           }
         },
@@ -1185,6 +1188,7 @@
             "name": "James M, 58",
             "meta": "Verified Buyer",
             "verified": true,
+            "avatar": "shopify://shop_images/43.webp",
             "rating": 5
           }
         }
