@@ -903,57 +903,7 @@
             "icon": "heart-plus",
             "icon_color": "",
             "heading": "L-Citrulline 1500 mg",
-            "text": "Supports nitric oxide and healthy blood flow.*"
-          }
-        },
-        "icon_item-2": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "vitality",
-            "icon_color": "",
-            "heading": "Tongkat Ali 200 mg",
-            "text": "Supports libido and healthy testosterone.*"
-          }
-        },
-        "icon_item-3": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "leaf",
-            "icon_color": "",
-            "heading": "Ashwagandha (KSM-66®) 300 mg",
-            "text": "Supports a calmer response to stress.*"
-          }
-        },
-        "icon_item-4": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "plant",
-            "icon_color": "",
-            "heading": "Damiana 300 mg",
-            "text": "A traditional herb used to support desire.*"
-          }
-        },
-        "icon_item-5": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "lightning",
-            "icon_color": "",
-            "heading": "Shilajit (PrimaVie®) 200 mg",
-            "text": "Supports energy and stamina.*"
-          }
-        },
-        "icon_item-6": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "sparkle",
-            "icon_color": "",
-            "heading": "Maca Root 300 mg",
-            "text": "Supports desire and drive.*"
+            "text": "Supports nitric oxide and healthy blood flow."
           }
         },
         "icon_item-7": {
@@ -963,7 +913,57 @@
             "icon": "cell-defense",
             "icon_color": "",
             "heading": "Zinc 30 mg",
-            "text": "Contributes to normal testosterone levels and fertility.*"
+            "text": "Contributes to normal testosterone levels and fertility."
+          }
+        },
+        "icon_item-5": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "lightning",
+            "icon_color": "",
+            "heading": "Shilajit (PrimaVie®) 200 mg",
+            "text": "Supports energy and stamina."
+          }
+        },
+        "icon_item-3": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "leaf",
+            "icon_color": "",
+            "heading": "Ashwagandha (KSM-66®) 300 mg",
+            "text": "Supports a calmer response to stress."
+          }
+        },
+        "icon_item-2": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "vitality",
+            "icon_color": "",
+            "heading": "Tongkat Ali 200 mg",
+            "text": "Supports libido and healthy testosterone."
+          }
+        },
+        "icon_item-4": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "plant",
+            "icon_color": "",
+            "heading": "Damiana 300 mg",
+            "text": "A traditional herb used to support desire."
+          }
+        },
+        "icon_item-6": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "sparkle",
+            "icon_color": "",
+            "heading": "Maca Root 300 mg",
+            "text": "Supports desire and drive."
           }
         },
         "icon_item-8": {
@@ -973,18 +973,18 @@
             "icon": "check-circle",
             "icon_color": "",
             "heading": "Pygeum 140 mg",
-            "text": "Traditionally used to support prostate and urinary health.*"
+            "text": "Traditionally used to support prostate and urinary health."
           }
         }
       },
       "block_order": [
         "icon_item-1",
-        "icon_item-2",
-        "icon_item-3",
-        "icon_item-4",
-        "icon_item-5",
-        "icon_item-6",
         "icon_item-7",
+        "icon_item-5",
+        "icon_item-3",
+        "icon_item-2",
+        "icon_item-4",
+        "icon_item-6",
         "icon_item-8"
       ],
       "settings": {
