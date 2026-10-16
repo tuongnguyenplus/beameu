@@ -45,7 +45,7 @@
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
-        "color_scheme": "scheme-eros-light",
+        "color_scheme": "scheme-eros-orange",
         "menu_color_scheme": "scheme-eros-light",
         "enable_country_selector": true,
         "enable_language_selector": true,
