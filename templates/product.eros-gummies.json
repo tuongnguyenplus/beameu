@@ -75,8 +75,7 @@
             "sold_suffix": "sold",
             "count_step_1": 1,
             "count_step_2": 3,
-            "count_step_3": 4,
-            "star_color": "#f25627"
+            "count_step_3": 4
           }
         },
         "title": {
@@ -1133,7 +1132,7 @@
         "heading": "What Eros Is, And What It Isn't",
         "subheading": "",
         "table_caption": "Eros compared with prescription ED pills, mystery-blend gummies and single-ingredient supplements",
-        "brand_label": "EROS",
+        "brand_label": "LUMEO",
         "col_1_label": "Prescription ED Pills",
         "col_2_label": "Mystery-Blend Gummies",
         "col_3_label": "Single-Ingredient Supplements",
