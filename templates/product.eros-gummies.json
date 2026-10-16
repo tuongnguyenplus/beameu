@@ -458,21 +458,21 @@
           "type": "ces_highlight",
           "settings": {
             "icon": "lightning",
-            "text": "Boosts <strong>hardness &amp; stamina</strong>*"
+            "text": "Boosts <strong>hardness &amp; stamina</strong>"
           }
         },
         "benefit-2": {
           "type": "ces_highlight",
           "settings": {
             "icon": "fire",
-            "text": "Heightens <strong>arousal &amp; desire</strong>*"
+            "text": "Heightens <strong>arousal &amp; desire</strong>"
           }
         },
         "benefit-3": {
           "type": "ces_highlight",
           "settings": {
             "icon": "drop",
-            "text": "Sweetens taste, <strong>bigger loads</strong>*"
+            "text": "Sweetens taste, <strong>bigger loads</strong>"
           }
         },
         "benefit-4": {
