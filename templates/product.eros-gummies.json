@@ -68,6 +68,7 @@
         "rating-bar": {
           "type": "ces_rating_bar",
           "settings": {
+            "star_color": "#f25627",
             "rating_tenths": 45,
             "text": "Rated <strong>4.8 Excellent</strong> | Over",
             "enable_counter": false,
@@ -1132,14 +1133,14 @@
         "heading": "What Eros Is, And What It Isn't",
         "subheading": "",
         "table_caption": "Eros compared with prescription ED pills, mystery-blend gummies and single-ingredient supplements",
-        "brand_label": "LUMEO",
+        "brand_label": "EROS",
         "col_1_label": "Prescription ED Pills",
         "col_2_label": "Mystery-Blend Gummies",
         "col_3_label": "Single-Ingredient Supplements",
         "yes_text": "Yes",
         "partial_text": "Partly",
         "no_text": "No",
-        "footnote": "<p>Prescription ED medication is a proven treatment for erectile dysfunction and the right choice for many men, so talk to your doctor about it. Eros is not a drug and not a substitute for medical care. It's a daily dietary supplement for men who want to support desire, energy and confidence as part of a healthy routine.*</p>",
+        "footnote": "<p>Prescription ED medication is a proven treatment for erectile dysfunction and the right choice for many men, so talk to your doctor about it. Eros is not a drug and not a substitute for medical care. It's a daily dietary supplement for men who want to support desire, energy and confidence as part of a healthy routine.</p>",
         "color_scheme": "scheme-eros-light",
         "padding_top": 40,
         "padding_bottom": 40
