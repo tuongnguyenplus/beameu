@@ -453,6 +453,34 @@
             "footnote": "Not a drug. Not a miracle. A daily routine you understand.",
             "text_alignment": "center"
           }
+        },
+        "benefit-1": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "lightning",
+            "text": "Boosts <strong>hardness &amp; stamina</strong>*"
+          }
+        },
+        "benefit-2": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "fire",
+            "text": "Heightens <strong>arousal &amp; desire</strong>*"
+          }
+        },
+        "benefit-3": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "drop",
+            "text": "Sweetens taste, <strong>bigger loads</strong>*"
+          }
+        },
+        "benefit-4": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "leaf",
+            "text": "Vegan, sugar-free &amp; <strong>no awkward pills</strong>"
+          }
         }
       },
       "block_order": [
@@ -460,6 +488,10 @@
         "rating-bar",
         "title",
         "subtitle",
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4",
         "ces_bundle_v2_6QEajj",
         "review-1",
         "shipping-estimate",
@@ -502,8 +534,8 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "ces_highlights_layout": "inline",
-        "ces_highlights_columns_mobile": 2,
-        "ces_highlights_columns_desktop": 2,
+        "ces_highlights_columns_mobile": 1,
+        "ces_highlights_columns_desktop": 1,
         "ces_title_size": 22,
         "atc_label": "GET YOURS NOW",
         "atc_bg": "#f25627",

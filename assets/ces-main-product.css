@@ -1149,3 +1149,8 @@ body {
 .ces-main-product__review-quote { margin: .6rem 0 0; padding: 0; border: 0; font-size: 1.45rem; font-style: normal; line-height: 1.5; color: rgba(var(--color-foreground), .85); }
 .ces-main-product__review-quote > :first-child { margin-top: 0; }
 .ces-main-product__review-quote > :last-child { margin-bottom: 0; }
+
+/* A highlight label with a <strong> run reads as a benefit line: regular
+   weight with the key words in bold accent ("Boosts <strong>hardness</strong>"). */
+.ces-main-product__highlight-label:has(strong) { font-weight: 400; }
+.ces-main-product__highlight-label strong { color: var(--ces-accent); font-weight: 800; }
