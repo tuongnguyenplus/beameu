@@ -1404,54 +1404,6 @@
             "title": "Not “just accept it”",
             "text": "Doing something sensible about it, on your terms."
           }
-        },
-        "photo-1": {
-          "type": "photo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "photo-2": {
-          "type": "photo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "photo-3": {
-          "type": "photo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "photo-4": {
-          "type": "photo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "photo-5": {
-          "type": "photo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "photo-6": {
-          "type": "photo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "photo-7": {
-          "type": "photo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "photo-8": {
-          "type": "photo",
-          "settings": {
-            "alt": ""
-          }
         }
       },
       "block_order": [
@@ -1459,15 +1411,7 @@
         "point-2",
         "point-3",
         "point-4",
-        "point-5",
-        "photo-1",
-        "photo-2",
-        "photo-3",
-        "photo-4",
-        "photo-5",
-        "photo-6",
-        "photo-7",
-        "photo-8"
+        "point-5"
       ],
       "settings": {
         "layout": "split",
