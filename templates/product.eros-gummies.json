@@ -65,6 +65,10 @@
             "name_5": ""
           }
         },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
         "rating-bar": {
           "type": "ces_rating_bar",
           "settings": {
@@ -78,10 +82,6 @@
             "count_step_2": 3,
             "count_step_3": 4
           }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
         },
         "subtitle": {
           "type": "text",
@@ -485,8 +485,8 @@
       },
       "block_order": [
         "ces_review_rMr6tU",
-        "rating-bar",
         "title",
+        "rating-bar",
         "subtitle",
         "benefit-1",
         "benefit-2",
