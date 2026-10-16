@@ -814,7 +814,7 @@
                     {%- assign ces_highlights_rendered = true -%}
                     {%- assign ces_highlights = section.blocks | where: 'type', 'ces_highlight' -%}
                     <div
-                      class="ces-main-product__highlights ces-main-product__highlights--{{ section.settings.ces_highlights_layout }} quick-add-hidden"
+                      class="ces-main-product__highlights ces-main-product__highlights--{{ section.settings.ces_highlights_layout }}{% if section.settings.ces_highlights_dividers == false %} ces-main-product__highlights--plain{% endif %} quick-add-hidden"
                       style="
                         --ces-highlights-columns-mobile: {{ section.settings.ces_highlights_columns_mobile }};
                         --ces-highlights-columns-desktop: {{ section.settings.ces_highlights_columns_desktop }};
@@ -5578,6 +5578,12 @@
     {
       "type": "header",
       "content": "CES Highlights grid"
+    },
+    {
+      "type": "checkbox",
+      "id": "ces_highlights_dividers",
+      "label": "Lines above and below highlights",
+      "default": true
     },
     {
       "type": "select",

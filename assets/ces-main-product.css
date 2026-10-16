@@ -1154,3 +1154,4 @@ body {
    weight with the key words in bold accent ("Boosts <strong>hardness</strong>"). */
 .ces-main-product__highlight-label:has(strong) { font-weight: 400; }
 .ces-main-product__highlight-label strong { color: var(--ces-accent); font-weight: 800; }
+.ces-main-product__highlights--plain { border-top: 0; border-bottom: 0; padding: .4rem 0; }

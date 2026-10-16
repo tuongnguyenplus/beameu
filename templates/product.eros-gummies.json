@@ -541,7 +541,8 @@
         "atc_bg": "#f25627",
         "atc_text": "#ffffff",
         "atc_hover_bg": "#000000",
-        "atc_hover_text": "#ffffff"
+        "atc_hover_text": "#ffffff",
+        "ces_highlights_dividers": false
       }
     },
     "badges": {
