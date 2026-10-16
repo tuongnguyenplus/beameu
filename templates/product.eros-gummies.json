@@ -348,9 +348,9 @@
         "faq-2": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Why Eros?",
+            "heading": "Why Lumeo Eros Gummies?",
             "icon": "none",
-            "content": "<p><strong>You know exactly what you're taking.</strong> Every active ingredient and its dose is on the label. No proprietary blend, nothing hidden.</p><p><strong>It covers the whole picture.</strong> Desire, stress, energy and healthy blood flow are all part of feeling like yourself, so Eros supports all four, not just one.*</p><p><strong>It fits your life.</strong> Two gummies a day, whenever suits you. No timing the moment, no appointments.</p><p><strong>It's honest.</strong> Eros is a daily supplement, not a drug and not a miracle. We'd rather set real expectations than sell you a fantasy.</p>",
+            "content": "<p><strong>It's simple!</strong></p><p><strong>It Actually Works:</strong> Two gummies a day is all it takes to transform your performance in the bedroom — harder, longer, hungrier. Results she'll feel before you even say a word.</p><p><strong>Discreet & Easy:</strong> No awkward pills, no complicated routines, no timing the moment. Just two delicious gummies a day and you're ready whenever she is.</p><p><strong>Confidence You Can Feel:</strong> Stop wondering, stop worrying. Walk into every intimate moment knowing you'll show up like the best version of yourself — every single time.</p><p><strong>No Nasty Stuff:</strong> Vegan, sugar-free, great tasting, and powered by 20 clinically-studied ingredients. Nothing you don't need, everything you do.</p>",
             "page": ""
           }
         },
@@ -377,7 +377,7 @@
           "settings": {
             "heading": "How long until I notice a difference?",
             "icon": "none",
-            "content": "<p>Eros isn't instant, and nothing you take daily should claim to be. Some men notice a difference in energy and desire within 2 to 4 weeks. Give it at least 60 to 90 days of daily use to judge it properly. Results vary from man to man.*</p>",
+            "content": "<p>Eros isn't instant, and nothing you take daily should claim to be. Some men notice a difference in energy and desire within 2 to 4 weeks. Give it at least 60 to 90 days of daily use to judge it properly. Results vary from man to man.</p>",
             "page": ""
           }
         },
@@ -386,12 +386,13 @@
           "settings": {
             "heading": "Is Eros like Viagra or Cialis?",
             "icon": "none",
-            "content": "<p>No, and we won't pretend it is. Viagra and Cialis are prescription drugs that treat erectile dysfunction. Eros is a daily dietary supplement designed to support desire, energy, stress response and healthy blood flow as part of an overall routine.* It is not a treatment for ED and not a substitute for medical care.</p>",
+            "content": "<p>No, and we won't pretend it is. Viagra and Cialis are prescription drugs that treat erectile dysfunction. Eros is a daily dietary supplement designed to support desire, energy, stress response and healthy blood flow as part of an overall routine.</p>",
             "page": ""
           }
         },
         "faq-7": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Can I take it with my medication?",
             "icon": "none",
@@ -401,6 +402,7 @@
         },
         "faq-8": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "When should I see a doctor?",
             "icon": "none",
@@ -428,6 +430,7 @@
         },
         "acc-10": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Disclaimer",
             "icon": "none",
