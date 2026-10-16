@@ -15,25 +15,29 @@
         "t1": {
           "type": "marquee_item",
           "settings": {
-            "text": "FREE EXPRESS SHIPPING"
+            "text": "FREE EXPRESS SHIPPING",
+            "icon": ""
           }
         },
         "t2": {
           "type": "marquee_item",
           "settings": {
-            "text": "90-DAY MONEY-BACK GUARANTEE"
+            "text": "90-DAY MONEY-BACK GUARANTEE",
+            "icon": ""
           }
         },
         "t3": {
           "type": "marquee_item",
           "settings": {
-            "text": "VEGAN & SUGAR-FREE"
+            "text": "VEGAN & SUGAR-FREE",
+            "icon": ""
           }
         },
         "t4": {
           "type": "marquee_item",
           "settings": {
-            "text": "2 GUMMIES A DAY"
+            "text": "2 GUMMIES A DAY",
+            "icon": ""
           }
         }
       },
@@ -57,6 +61,7 @@
     "hero": {
       "type": "ces-image-text-banner",
       "settings": {
+        "image": "shopify://shop_images/18_fad27d31-5b44-4247-add0-d1b2f9b452cb.webp",
         "layout": "split",
         "image_shape": "auto",
         "text_position": "start",
@@ -82,29 +87,41 @@
         "w1": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "heart-plus",
-            "heading": "Firmness & Blood Flow"
+            "icon_color": "",
+            "heading": "Firmness & Blood Flow",
+            "text": ""
           }
         },
         "w2": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "lightning",
-            "heading": "Stamina That Lasts"
+            "icon_color": "",
+            "heading": "Stamina That Lasts",
+            "text": ""
           }
         },
         "w3": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "fire",
-            "heading": "Desire & Arousal"
+            "icon_color": "",
+            "heading": "Desire & Arousal",
+            "text": ""
           }
         },
         "w4": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "sparkle",
-            "heading": "A Fresher Taste"
+            "icon_color": "",
+            "heading": "A Fresher Taste",
+            "text": ""
           }
         }
       },
@@ -160,7 +177,9 @@
         "g1": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "heart-plus",
+            "icon_color": "",
             "heading": "L-Citrulline",
             "text": "Supports nitric oxide and healthy blood flow.*"
           }
@@ -168,7 +187,9 @@
         "g2": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "vitality",
+            "icon_color": "",
             "heading": "Tongkat Ali",
             "text": "Supports healthy testosterone and libido.*"
           }
@@ -176,7 +197,9 @@
         "g3": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "leaf",
+            "icon_color": "",
             "heading": "Ashwagandha (KSM-66®)",
             "text": "Supports a calmer response to stress.*"
           }
@@ -184,7 +207,9 @@
         "g4": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "plant",
+            "icon_color": "",
             "heading": "Damiana",
             "text": "A traditional herb used to support arousal.*"
           }
@@ -192,7 +217,9 @@
         "g5": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "lightning",
+            "icon_color": "",
             "heading": "Shilajit (PrimaVie®)",
             "text": "Supports energy and stamina.*"
           }
@@ -200,7 +227,9 @@
         "g6": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "sparkle",
+            "icon_color": "",
             "heading": "Maca Root",
             "text": "Supports desire and drive.*"
           }
@@ -208,7 +237,9 @@
         "g7": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "star",
+            "icon_color": "",
             "heading": "Bromelain",
             "text": "Pineapple enzyme included to support a fresher taste.*"
           }
@@ -216,7 +247,9 @@
         "g8": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "cell-defense",
+            "icon_color": "",
             "heading": "Zinc",
             "text": "Contributes to normal testosterone levels and fertility.*"
           }
@@ -320,6 +353,7 @@
       "settings": {
         "heading": "Why Men Are Switching To Eros Gummies",
         "subheading": "One formula that covers every angle — versus a cabinet of single-ingredient pills.",
+        "image": "shopify://shop_images/44.webp",
         "brand_label": "Eros",
         "other_label": "Typical Supplements",
         "footnote": "",
@@ -334,6 +368,7 @@
         "q1": {
           "type": "faq_item",
           "settings": {
+            "group_label": "",
             "question": "How do I take Eros Gummies?",
             "answer": "<p>Take 2 gummies a day, every day — morning or night, with or without food. No timing the moment; consistency is what makes it work.</p>",
             "open": true
@@ -342,6 +377,7 @@
         "q2": {
           "type": "faq_item",
           "settings": {
+            "group_label": "",
             "question": "How long until I notice a difference?",
             "answer": "<p>Many men notice a difference within 1–2 weeks of daily use. Give it a full 30 days to judge properly.*</p>",
             "open": false
@@ -350,6 +386,7 @@
         "q3": {
           "type": "faq_item",
           "settings": {
+            "group_label": "",
             "question": "Is it safe to take every day?",
             "answer": "<p>Eros is made with natural ingredients, is vegan and sugar-free, and is designed for daily use. Consult your healthcare provider before starting any supplement, especially if you take medication or have a medical condition.</p>",
             "open": false
@@ -358,6 +395,7 @@
         "q4": {
           "type": "faq_item",
           "settings": {
+            "group_label": "",
             "question": "What if it doesn't work for me?",
             "answer": "<p>You have 90 days to try it. If you're not happy with your results, contact us for a full refund.</p>",
             "open": false
@@ -366,6 +404,7 @@
         "q5": {
           "type": "faq_item",
           "settings": {
+            "group_label": "",
             "question": "Can I pause or cancel my refills?",
             "answer": "<p>Yes. Refills ship on your own schedule and you can stop or cancel anytime.</p>",
             "open": false
@@ -403,6 +442,7 @@
     },
     "featured_collection_nheyBm": {
       "type": "featured-collection",
+      "disabled": true,
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "frontpage",
