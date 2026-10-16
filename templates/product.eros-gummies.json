@@ -109,7 +109,7 @@
             "onetime_label": "",
             "onetime_url": "",
             "sub_note": "refresh | [refill]\nclock | Stop or Cancel Anytime",
-            "show_shipping": false,
+            "show_shipping": true,
             "ship_position": "above",
             "delivery_text": "Arrives by",
             "delivery_days": 5,
@@ -314,6 +314,7 @@
         },
         "ship-3": {
           "type": "ces_shipping_item",
+          "disabled": true,
           "settings": {
             "icon": "check-circle",
             "text": "Free express shipping",
@@ -1281,7 +1282,7 @@
         "image_position": "start",
         "image_ratio": "3 / 4",
         "heading": "What To Expect, Honestly",
-        "subheading": "Supplements aren't instant. Here's a realistic picture of daily use.*",
+        "subheading": "Supplements aren't instant. Here's a realistic picture of daily use.",
         "fill_speed": 900,
         "meta_opacity": 100,
         "heading_style": "plain",
