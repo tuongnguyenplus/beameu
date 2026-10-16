@@ -195,3 +195,5 @@
 .ces-b2--compact .ces-b2__add::before,
 .ces-b2--compact .ces-b2__add::after { border-radius: 99rem; }
 .ces-b2--compact .ces-b2__add { min-height: 5.4rem; font-size: 1.7rem; }
+/* Theme-editor-only notice: subscription mode but the variant has no plan. */
+.ces-b2__editor-warning { grid-column: 1 / -1; order: 99; display: block; margin: .8rem 0 0; padding: .6rem .8rem; border-radius: .6rem; background: #fff4d6; color: #7a5200; font-size: 1.2rem; line-height: 1.4; }

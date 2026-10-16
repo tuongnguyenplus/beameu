@@ -301,6 +301,13 @@
             </span>
           </span>
 
+          {%- comment -%}
+            Subscription mode with no plan on this variant silently sells it
+            one-time, so say so where only the merchant sees it.
+          {%- endcomment -%}
+          {%- if request.design_mode and block.settings.purchase_type == 'subscription' and ces_plan_id == blank -%}
+            <span class="ces-b2__editor-warning">No subscription plan on this variant for the storefront, so this tier sells one-time. Check the plan is applied to this variant and that the store's payment provider supports subscriptions.</span>
+          {%- endif -%}
           <span class="ces-b2__pricing">
             <span class="ces-b2__price">{{ ces_price }}</span>
             {%- if ces_compare != blank -%}<span class="ces-b2__compare">{{ ces_compare }}</span>{%- endif -%}
