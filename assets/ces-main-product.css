@@ -548,7 +548,7 @@ body {
   left: 0;
   width: var(--ces-rating-pct, 100%);
   overflow: hidden;
-  color: #f5b301;
+  color: var(--ces-rating-star, #f5b301);
 }
 
 .ces-main-product__rating-track .ces-icon,

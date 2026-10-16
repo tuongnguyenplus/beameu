@@ -1069,7 +1069,7 @@
                   </div>
 
                 {%- when 'ces_rating_bar' -%}
-                  <div class="ces-main-product__rating quick-add-hidden" {{ block.shopify_attributes }}>
+                  <div class="ces-main-product__rating quick-add-hidden"{% if block.settings.star_color != blank %} style="--ces-rating-star: {{ block.settings.star_color }};"{% endif %} {{ block.shopify_attributes }}>
                     {%- assign ces_rating = block.settings.rating_tenths | default: 45 | divided_by: 10.0 -%}
                     {%- if ces_rating > 0 -%}
                       {%- comment -%}
@@ -3486,6 +3486,12 @@
       "name": "CES Rating bar",
       "limit": 1,
       "settings": [
+        {
+          "type": "color",
+          "id": "star_color",
+          "label": "Star color",
+          "info": "Blank keeps gold."
+        },
         {
           "type": "range",
           "id": "rating_tenths",

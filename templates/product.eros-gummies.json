@@ -75,7 +75,8 @@
             "sold_suffix": "sold",
             "count_step_1": 1,
             "count_step_2": 3,
-            "count_step_3": 4
+            "count_step_3": 4,
+            "star_color": "#f25627"
           }
         },
         "title": {
