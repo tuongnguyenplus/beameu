@@ -67,7 +67,6 @@
         },
         "rating-bar": {
           "type": "ces_rating_bar",
-          "disabled": true,
           "settings": {
             "rating_tenths": 45,
             "text": "Rated <strong>4.8 Excellent</strong> | Over",
@@ -88,6 +87,34 @@
           "settings": {
             "text": "For men over 45 who are tired of “not feeling quite like myself”. Two gummies a day to support desire, energy and confidence.",
             "text_style": "body"
+          }
+        },
+        "benefit-1": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "lightning",
+            "text": "Boosts <strong>hardness & stamina</strong>"
+          }
+        },
+        "benefit-2": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "fire",
+            "text": "Heightens <strong>arousal & desire</strong>"
+          }
+        },
+        "benefit-3": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "drop",
+            "text": "Sweetens taste, <strong>bigger loads</strong>"
+          }
+        },
+        "benefit-4": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "leaf",
+            "text": "Vegan, sugar-free & <strong>no awkward pills</strong>"
           }
         },
         "ces_bundle_v2_6QEajj": {
@@ -453,34 +480,6 @@
             "footnote": "Not a drug. Not a miracle. A daily routine you understand.",
             "text_alignment": "center"
           }
-        },
-        "benefit-1": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "lightning",
-            "text": "Boosts <strong>hardness &amp; stamina</strong>"
-          }
-        },
-        "benefit-2": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "fire",
-            "text": "Heightens <strong>arousal &amp; desire</strong>"
-          }
-        },
-        "benefit-3": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "drop",
-            "text": "Sweetens taste, <strong>bigger loads</strong>"
-          }
-        },
-        "benefit-4": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "leaf",
-            "text": "Vegan, sugar-free &amp; <strong>no awkward pills</strong>"
-          }
         }
       },
       "block_order": [
@@ -533,6 +532,7 @@
         "enable_video_looping": false,
         "padding_top": 0,
         "padding_bottom": 0,
+        "ces_highlights_dividers": false,
         "ces_highlights_layout": "inline",
         "ces_highlights_columns_mobile": 1,
         "ces_highlights_columns_desktop": 1,
@@ -541,8 +541,7 @@
         "atc_bg": "#f25627",
         "atc_text": "#ffffff",
         "atc_hover_bg": "#000000",
-        "atc_hover_text": "#ffffff",
-        "ces_highlights_dividers": false
+        "atc_hover_text": "#ffffff"
       }
     },
     "badges": {
