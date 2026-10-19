@@ -181,8 +181,8 @@
           endif
           comment
             Customer-chooses mode: the tier also carries its subscription
-            price. The struck-through price there is the one-time price, so the
-            saving shown is the subscribe-and-save discount.
+            price. The struck-through price there is the higher of the one-time
+            price and, with auto compare on, the variant's compare-at price.
           endcomment
           assign ces_sub_plan_id = ''
           assign ces_sub_price = ''
@@ -196,6 +196,9 @@
             assign ces_sub_was = ces_alloc.compare_at_price | default: 0
             if ces_v.price > ces_sub_was
               assign ces_sub_was = ces_v.price
+            endif
+            if block.settings.auto_compare and ces_v.compare_at_price > ces_sub_was
+              assign ces_sub_was = ces_v.compare_at_price
             endif
             assign ces_sub_price = ces_sub_pay | money
             if ces_sub_was > ces_sub_pay
