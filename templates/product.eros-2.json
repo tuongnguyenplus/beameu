@@ -132,8 +132,8 @@
             "open_cart_drawer": true,
             "tier_style": "compact",
             "selected_bg": "#ffe2d3",
-            "purchase_type": "subscription",
-            "auto_compare": true,
+            "purchase_type": "choice",
+            "auto_compare": false,
             "onetime_label": "",
             "onetime_url": "",
             "sub_note": "refresh | [refill]\nclock | Stop or Cancel Anytime",
@@ -242,7 +242,10 @@
             "tier_4_gift_title": "",
             "tier_4_gift_sub": "",
             "tier_4_gift_label": "",
-            "tier_4_foot": ""
+            "tier_4_foot": "",
+            "subscribe_label": "Subscribe & Save",
+            "subscribe_sub": "[plan] | Cancel Anytime",
+            "subscribe_default": false
           }
         },
         "review-1": {

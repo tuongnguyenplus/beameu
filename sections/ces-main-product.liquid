@@ -4552,12 +4552,33 @@
           "type": "select",
           "id": "purchase_type",
           "label": "Purchase type",
-          "info": "Subscription adds each tier with its variant's first selling plan and shows that plan's price. A variant without a selling plan is sold one-time.",
+          "info": "Subscription adds each tier with its selling plan and shows that plan's price. Customer chooses shows one-time prices plus a Subscribe & Save box that switches every tier to its plan price. A variant without a selling plan is sold one-time.",
           "options": [
             { "value": "onetime", "label": "One-time" },
-            { "value": "subscription", "label": "Subscription" }
+            { "value": "subscription", "label": "Subscription" },
+            { "value": "choice", "label": "Customer chooses (Subscribe & Save box)" }
           ],
           "default": "onetime"
+        },
+        {
+          "type": "text",
+          "id": "subscribe_label",
+          "label": "Subscribe box title",
+          "info": "Customer chooses mode only.",
+          "default": "Subscribe & Save"
+        },
+        {
+          "type": "text",
+          "id": "subscribe_sub",
+          "label": "Subscribe box line",
+          "info": "[plan] is the selected tier's subscription plan name, [refill] its refill line.",
+          "default": "[plan] | Cancel Anytime"
+        },
+        {
+          "type": "checkbox",
+          "id": "subscribe_default",
+          "label": "Subscribe box ticked by default",
+          "default": false
         },
         {
           "type": "checkbox",

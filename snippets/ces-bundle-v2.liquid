@@ -20,7 +20,7 @@
 
 <ces-bundle
   id="ces-bundle"
-  class="ces-b2 ces-b2--{{ block.settings.tier_style | default: 'stacked' }} quick-add-hidden"
+  class="ces-b2 ces-b2--{{ block.settings.tier_style | default: 'stacked' }}{% if block.settings.purchase_type == 'choice' %} ces-b2--choice{% if block.settings.subscribe_default %} ces-b2--subscribed{% endif %}{% endif %} quick-add-hidden"
   style="--ces-b2-accent: {{ ces_accent }}; --ces-b2-accent-rgb: {{ ces_accent_r }}, {{ ces_accent_g }}, {{ ces_accent_b }}; --ces-bundle-accent: {{ ces_accent }}; --ces-b2-tint: {% if block.settings.selected_bg != blank %}{{ block.settings.selected_bg }}{% else %}{{ ces_accent }}12{% endif %}; scroll-margin-top: 9rem;"
   data-open-drawer="{{ block.settings.open_cart_drawer | default: true }}"
   data-after-add="{{ block.settings.after_add | default: 'drawer' }}"
@@ -118,7 +118,8 @@
           assign ces_alloc = null
           assign ces_pay = ces_v.price
           assign ces_was = ces_v.compare_at_price | default: 0
-          if block.settings.purchase_type == 'subscription'
+          assign ces_mode = block.settings.purchase_type | default: 'onetime'
+          if ces_mode == 'subscription' or ces_mode == 'choice'
             comment
               The tier's plan field names a selling plan by id or by part of
               its name; blank, or no match, takes the variant's first plan.
@@ -140,7 +141,7 @@
             if ces_alloc == null
               assign ces_alloc = ces_v.selling_plan_allocations | first
             endif
-            if ces_alloc
+            if ces_alloc and ces_mode == 'subscription'
               assign ces_plan_id = ces_alloc.selling_plan.id
               assign ces_pay = ces_alloc.price
               assign ces_alloc_was = ces_alloc.compare_at_price | default: 0
@@ -178,6 +179,60 @@
             endif
             assign ces_save = ces_was | minus: ces_pay | money
           endif
+          comment
+            Customer-chooses mode: the tier also carries its subscription
+            price. The struck-through price there is the one-time price, so the
+            saving shown is the subscribe-and-save discount.
+          endcomment
+          assign ces_sub_plan_id = ''
+          assign ces_sub_price = ''
+          assign ces_sub_compare = ''
+          assign ces_sub_save = ''
+          assign ces_plan_label = ''
+          if ces_mode == 'choice' and ces_alloc
+            assign ces_sub_plan_id = ces_alloc.selling_plan.id
+            assign ces_plan_label = ces_alloc.selling_plan.name
+            assign ces_sub_pay = ces_alloc.price
+            assign ces_sub_was = ces_alloc.compare_at_price | default: 0
+            if ces_v.price > ces_sub_was
+              assign ces_sub_was = ces_v.price
+            endif
+            assign ces_sub_price = ces_sub_pay | money
+            if ces_sub_was > ces_sub_pay
+              assign ces_sub_compare = ces_sub_was | money
+              assign ces_sub_save = ces_sub_was | minus: ces_sub_pay | money
+            endif
+          endif
+          if ces_checked_plan_label == null and ces_i == ces_default_tier
+            assign ces_checked_plan_label = ces_plan_label
+          endif
+
+          comment
+            A subtitle is read as " | " separated parts; a part holding [save]
+            is dropped when there is no saving, so "You Save [save] | FREE
+            Shipping" reads "FREE Shipping" rather than "You Save  | ...".
+          endcomment
+          assign ces_sub_parts = block.settings[stkey] | split: ' | '
+          assign ces_subtitle = ''
+          assign ces_subtitle_sub = ''
+          for raw_part in ces_sub_parts
+            assign part = raw_part | strip
+            unless part contains '[save]' and ces_save == blank
+              if ces_subtitle != blank
+                assign ces_subtitle = ces_subtitle | append: ' | '
+              endif
+              assign ces_subtitle = ces_subtitle | append: part
+            endunless
+            unless part contains '[save]' and ces_sub_save == blank
+              if ces_subtitle_sub != blank
+                assign ces_subtitle_sub = ces_subtitle_sub | append: ' | '
+              endif
+              assign ces_subtitle_sub = ces_subtitle_sub | append: part
+            endunless
+          endfor
+          assign ces_subtitle = ces_subtitle | replace: '[save]', ces_save
+          assign ces_subtitle_sub = ces_subtitle_sub | replace: '[save]', ces_sub_save
+
           comment
             A tier's button can carry its own price with [price], so the label
             cannot fall out of step with what the shopper is about to pay.
@@ -269,6 +324,8 @@
               data-free-ids="{{ ces_free_ids | strip }}"
               data-price-label="{{ ces_pay | money_with_currency | strip }}"
               {% if ces_plan_id != blank %}data-selling-plan="{{ ces_plan_id }}"{% endif %}
+              {% if ces_sub_plan_id != blank %}data-selling-plan-sub="{{ ces_sub_plan_id }}" data-price-label-sub="{{ ces_sub_pay | money_with_currency | strip }}"{% endif %}
+              data-plan-label="{{ ces_plan_label | escape }}"
               data-add-label="{{ ces_cta_label | escape }}"
               data-refill="{{ ces_refill | escape }}"
               {% unless ces_v.available %}data-unavailable="true"{% endunless %}
@@ -295,8 +352,11 @@
 
             <span class="ces-b2__titles">
               <span class="ces-b2__name">{{ block.settings[nkey] | default: ces_v.title }}</span>
-              {%- if block.settings[stkey] != blank -%}
-                <span class="ces-b2__subtitle">{{ block.settings[stkey] | replace: '[save]', ces_save }}</span>
+              {%- if ces_sub_plan_id != blank -%}
+                {%- if ces_subtitle != blank -%}<span class="ces-b2__subtitle ces-b2__v ces-b2__v--once">{{ ces_subtitle }}</span>{%- endif -%}
+                {%- if ces_subtitle_sub != blank -%}<span class="ces-b2__subtitle ces-b2__v ces-b2__v--sub">{{ ces_subtitle_sub }}</span>{%- endif -%}
+              {%- elsif ces_subtitle != blank -%}
+                <span class="ces-b2__subtitle">{{ ces_subtitle }}</span>
               {%- endif -%}
             </span>
           </span>
@@ -305,12 +365,23 @@
             Subscription mode with no plan on this variant silently sells it
             one-time, so say so where only the merchant sees it.
           {%- endcomment -%}
-          {%- if request.design_mode and block.settings.purchase_type == 'subscription' and ces_plan_id == blank -%}
+          {%- if request.design_mode and ces_mode == 'subscription' and ces_plan_id == blank or request.design_mode and ces_mode == 'choice' and ces_sub_plan_id == blank -%}
             <span class="ces-b2__editor-warning">No subscription plan on this variant for the storefront, so this tier sells one-time. Check the plan is applied to this variant and that the store's payment provider supports subscriptions.</span>
           {%- endif -%}
           <span class="ces-b2__pricing">
-            <span class="ces-b2__price">{{ ces_price }}</span>
-            {%- if ces_compare != blank -%}<span class="ces-b2__compare">{{ ces_compare }}</span>{%- endif -%}
+            {%- if ces_sub_plan_id != blank -%}
+              <span class="ces-b2__v ces-b2__v--once">
+                <span class="ces-b2__price">{{ ces_price }}</span>
+                {%- if ces_compare != blank -%}<span class="ces-b2__compare">{{ ces_compare }}</span>{%- endif -%}
+              </span>
+              <span class="ces-b2__v ces-b2__v--sub">
+                <span class="ces-b2__price">{{ ces_sub_price }}</span>
+                {%- if ces_sub_compare != blank -%}<span class="ces-b2__compare">{{ ces_sub_compare }}</span>{%- endif -%}
+              </span>
+            {%- else -%}
+              <span class="ces-b2__price">{{ ces_price }}</span>
+              {%- if ces_compare != blank -%}<span class="ces-b2__compare">{{ ces_compare }}</span>{%- endif -%}
+            {%- endif -%}
             {%- if block.settings[ukey] != blank -%}<span class="ces-b2__unit">{{ block.settings[ukey] }}</span>{%- endif -%}
             {%- if block.settings[okey] != blank -%}<span class="ces-b2__off">{{ block.settings[okey] }}</span>{%- endif -%}
           </span>
@@ -447,6 +518,26 @@
       {%- endif -%}
     {%- endfor -%}
   </div>
+
+  {%- comment -%}
+    Customer-chooses mode: one checkbox switches every tier between its
+    one-time and its subscribe-and-save price, and decides whether the line is
+    added with the tier's selling plan. [plan] is the selected tier's plan name.
+  {%- endcomment -%}
+  {%- if block.settings.purchase_type == 'choice' -%}
+    <label class="ces-b2__subscribe">
+      <input type="checkbox" class="ces-b2__subscribe-input visually-hidden" data-ces-subscribe {% if block.settings.subscribe_default %}checked{% endif %}>
+      <span class="ces-b2__subscribe-box" aria-hidden="true"></span>
+      <span class="ces-b2__subscribe-text">
+        <span class="ces-b2__subscribe-title">{{ block.settings.subscribe_label | default: 'Subscribe & Save' }}</span>
+        {%- if block.settings.subscribe_sub != blank -%}
+          {%- capture ces_plan_span -%}<span data-ces-plan-label>{{ ces_checked_plan_label | escape }}</span>{%- endcapture -%}
+          {%- capture ces_refill_span2 -%}<span data-ces-refill>{{ ces_checked_refill | escape }}</span>{%- endcapture -%}
+          <span class="ces-b2__subscribe-sub">{{ block.settings.subscribe_sub | replace: '[plan]', ces_plan_span | replace: '[refill]', ces_refill_span2 }}</span>
+        {%- endif -%}
+      </span>
+    </label>
+  {%- endif -%}
 
   {%- capture ces_trust_row -%}
     {%- if block.settings.trust_line != blank -%}

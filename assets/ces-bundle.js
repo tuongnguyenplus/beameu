@@ -16,6 +16,10 @@ class CesBundle extends HTMLElement {
     this.radios = Array.from(this.querySelectorAll('.ces-bundle__radio'));
 
     this.radios.forEach((radio) => radio.addEventListener('change', () => this.sync()));
+    // Customer-chooses mode: one checkbox flips every tier between its
+    // one-time and its subscribe-and-save price.
+    this.subscribeInput = this.querySelector('[data-ces-subscribe]');
+    if (this.subscribeInput) this.subscribeInput.addEventListener('change', () => this.sync());
     this.sync();
 
     if (this.addBtn) this.addBtn.addEventListener('click', () => this.add());
@@ -25,13 +29,26 @@ class CesBundle extends HTMLElement {
     return this.radios.find((radio) => radio.checked) || this.radios[0];
   }
 
+  get subscribed() {
+    return Boolean(this.subscribeInput && this.subscribeInput.checked);
+  }
+
   sync() {
+    if (this.subscribeInput) this.classList.toggle('ces-b2--subscribed', this.subscribed);
     this.radios.forEach((radio) => {
       const tier = radio.closest('.ces-bundle__tier');
       if (tier) tier.classList.toggle('is-selected', radio.checked);
     });
     const radio = this.selected;
-    if (radio && this.totalEl) this.totalEl.textContent = radio.dataset.priceLabel || '';
+    if (radio && this.totalEl) {
+      this.totalEl.textContent =
+        (this.subscribed && radio.dataset.priceLabelSub) || radio.dataset.priceLabel || '';
+    }
+    if (radio && radio.dataset.planLabel !== undefined) {
+      this.querySelectorAll('[data-ces-plan-label]').forEach((el) => {
+        el.textContent = radio.dataset.planLabel;
+      });
+    }
     if (radio && this.labelEl) this.labelEl.textContent = radio.dataset.addLabel || this.defaultLabel;
     if (radio && this.addBtn) this.addBtn.disabled = radio.dataset.unavailable === 'true';
     // Note lines written with [refill] follow the selected tier's refill wording.
@@ -85,8 +102,12 @@ class CesBundle extends HTMLElement {
     const toCheckout = this.dataset.afterAdd === 'checkout';
     const mainId = parseInt(radio.dataset.variantId, 10);
     const mainQty = parseInt(radio.dataset.quantity, 10) || 1;
-    // Set only in subscription mode, and only when the variant has a plan.
-    const mainPlan = radio.dataset.sellingPlan || '';
+    // Subscription mode always sends the tier's plan; customer-chooses mode
+    // only while the subscribe box is ticked. A variant without a plan sells
+    // one-time either way.
+    const mainPlan = this.subscribeInput
+      ? (this.subscribed && radio.dataset.sellingPlanSub) || ''
+      : radio.dataset.sellingPlan || '';
     const freeIds = (radio.dataset.freeIds || '')
       .split(',')
       .map((s) => s.trim())
