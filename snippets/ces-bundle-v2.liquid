@@ -220,7 +220,17 @@
           assign ces_subtitle_sub = ''
           for raw_part in ces_sub_parts
             assign part = raw_part | strip
-            unless part contains '[save]' and ces_save == blank
+            comment
+              In customer-chooses mode the saving belongs to the subscribe
+              state only; the one-time state keeps just the struck price.
+            endcomment
+            assign ces_drop_once = false
+            if part contains '[save]'
+              if ces_save == blank or ces_sub_plan_id != blank
+                assign ces_drop_once = true
+              endif
+            endif
+            unless ces_drop_once
               if ces_subtitle != blank
                 assign ces_subtitle = ces_subtitle | append: ' | '
               endif
