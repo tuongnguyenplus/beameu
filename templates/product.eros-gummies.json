@@ -548,79 +548,6 @@
         "atc_hover_text": "#ffffff"
       }
     },
-    "badges": {
-      "type": "ces-announcement-marquee",
-      "blocks": {
-        "marquee_item-1": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "Every Dose On The Label",
-            "icon": ""
-          }
-        },
-        "marquee_item-2": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "No Proprietary Blend",
-            "icon": ""
-          }
-        },
-        "marquee_item-3": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "2 Gummies A Day",
-            "icon": ""
-          }
-        },
-        "marquee_item-4": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "No Prescription Needed",
-            "icon": ""
-          }
-        },
-        "marquee_item-5": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "Vegan & Sugar-Free",
-            "icon": ""
-          }
-        },
-        "marquee_item-6": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "90-Day Guarantee",
-            "icon": ""
-          }
-        },
-        "marquee_item-7": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "Free Shipping",
-            "icon": ""
-          }
-        }
-      },
-      "block_order": [
-        "marquee_item-1",
-        "marquee_item-2",
-        "marquee_item-3",
-        "marquee_item-4",
-        "marquee_item-5",
-        "marquee_item-6",
-        "marquee_item-7"
-      ],
-      "settings": {
-        "color_scheme": "scheme-eros-orange",
-        "speed": 40,
-        "direction": "left",
-        "pause_on_hover": true,
-        "separator": "•",
-        "icon_style": "none",
-        "font_size": 14,
-        "padding": 10
-      }
-    },
     "ces_press_strip_DRFEQp": {
       "type": "ces-press-strip",
       "blocks": {
@@ -707,6 +634,79 @@
         "padding_bottom": 12
       }
     },
+    "badges": {
+      "type": "ces-announcement-marquee",
+      "blocks": {
+        "marquee_item-1": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Every Dose On The Label",
+            "icon": ""
+          }
+        },
+        "marquee_item-2": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "No Proprietary Blend",
+            "icon": ""
+          }
+        },
+        "marquee_item-3": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "2 Gummies A Day",
+            "icon": ""
+          }
+        },
+        "marquee_item-4": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "No Prescription Needed",
+            "icon": ""
+          }
+        },
+        "marquee_item-5": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Vegan & Sugar-Free",
+            "icon": ""
+          }
+        },
+        "marquee_item-6": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "90-Day Guarantee",
+            "icon": ""
+          }
+        },
+        "marquee_item-7": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Free Shipping",
+            "icon": ""
+          }
+        }
+      },
+      "block_order": [
+        "marquee_item-1",
+        "marquee_item-2",
+        "marquee_item-3",
+        "marquee_item-4",
+        "marquee_item-5",
+        "marquee_item-6",
+        "marquee_item-7"
+      ],
+      "settings": {
+        "color_scheme": "scheme-eros-orange",
+        "speed": 40,
+        "direction": "left",
+        "pause_on_hover": true,
+        "separator": "•",
+        "icon_style": "none",
+        "font_size": 14,
+        "padding": 10
+      }
+    },
     "qualify": {
       "type": "ces-experience-list",
       "blocks": {
@@ -719,25 +719,25 @@
         "item-2": {
           "type": "item",
           "settings": {
-            "text": "“It was stressful for several months preparing to have sex.” (age 46)"
+            "text": "“It was stressful for several months preparing to have sex.” (age 56)"
           }
         },
         "item-3": {
           "type": "item",
           "settings": {
-            "text": "“Has affected my self esteem.” (age 58)"
+            "text": "“Has affected my self esteem.” (age 62)"
           }
         },
         "item-4": {
           "type": "item",
           "settings": {
-            "text": "“Over the last few years I'd been dealing with brain fog, lethargy, lower sexual desire and generally not feeling quite like myself.” (age 50)"
+            "text": "“Over the last few years I'd been dealing with brain fog, lethargy, lower sexual desire and generally not feeling quite like myself.” (age 61)"
           }
         },
         "item-5": {
           "type": "item",
           "settings": {
-            "text": "“I'm married, love my family but I feel deflated.” (age 50)"
+            "text": "“I'm married, love my family but I feel deflated.” (age 51)"
           }
         },
         "item-6": {
