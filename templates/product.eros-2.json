@@ -109,6 +109,92 @@
         "padding_bottom": 40
       }
     },
+    "ces_press_strip_pbVLiU": {
+      "type": "ces-press-strip",
+      "blocks": {
+        "logo_LK7gtr": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Men_s_Health.webp",
+            "alt": ""
+          }
+        },
+        "logo_wKxPRe": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/grindr-wordmark-1.webp",
+            "alt": ""
+          }
+        },
+        "logo_UyLqTR": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/WebMD_logo_f73ccf11-95ac-4aaf-b0fd-6c3fe9eea2bc.png",
+            "alt": ""
+          }
+        },
+        "logo_CiBzf8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/132-1326461_mens-journal-01-mens-journal-september-2018-cover.png",
+            "alt": ""
+          }
+        },
+        "logo_He3wie": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/gq-logo-png-transparent.webp",
+            "alt": ""
+          }
+        },
+        "logo_DUQFib": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthline_logo_svg_52b907f7-7803-4306-b2c8-29b71ee574ad.png",
+            "alt": ""
+          }
+        },
+        "logo_q7jR7i": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Taxi_Maxim_Logo.webp",
+            "alt": ""
+          }
+        },
+        "logo_m4pcn7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Logo_Askmen_COLOR.webp",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_LK7gtr",
+        "logo_wKxPRe",
+        "logo_UyLqTR",
+        "logo_CiBzf8",
+        "logo_He3wie",
+        "logo_DUQFib",
+        "logo_q7jR7i",
+        "logo_m4pcn7"
+      ],
+      "name": "CES Press strip",
+      "settings": {
+        "label": "AS SEEN ON",
+        "logo_height": 54,
+        "gap": 15,
+        "scroll_mode": "mobile",
+        "duration": 25,
+        "pause_on_hover": true,
+        "show_rule_top": false,
+        "show_rule_bottom": true,
+        "rule_color": "#d1d1d1",
+        "color_scheme": "",
+        "padding_top": 24,
+        "padding_bottom": 12
+      }
+    },
     "qualify": {
       "type": "ces-experience-list",
       "blocks": {
@@ -2033,6 +2119,7 @@
   },
   "order": [
     "mornings",
+    "ces_press_strip_pbVLiU",
     "qualify",
     "layers",
     "ces_testimonial_marquee_UzJ6Gf",
