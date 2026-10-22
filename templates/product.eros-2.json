@@ -190,7 +190,7 @@
         "show_rule_top": false,
         "show_rule_bottom": true,
         "rule_color": "#d1d1d1",
-        "color_scheme": "",
+        "color_scheme": "scheme-eros-peach",
         "padding_top": 24,
         "padding_bottom": 12
       }
