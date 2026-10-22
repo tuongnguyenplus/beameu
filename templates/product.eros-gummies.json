@@ -133,6 +133,9 @@
             "tier_style": "compact",
             "selected_bg": "#ffe2d3",
             "purchase_type": "subscription",
+            "subscribe_label": "Subscribe & Save",
+            "subscribe_sub": "[plan] | Cancel Anytime",
+            "subscribe_default": false,
             "auto_compare": true,
             "onetime_label": "",
             "onetime_url": "",
@@ -616,6 +619,92 @@
         "icon_style": "none",
         "font_size": 14,
         "padding": 10
+      }
+    },
+    "ces_press_strip_DRFEQp": {
+      "type": "ces-press-strip",
+      "blocks": {
+        "logo_8x9BmM": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Men_s_Health.webp",
+            "alt": ""
+          }
+        },
+        "logo_R9NbhT": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/grindr-wordmark-1.webp",
+            "alt": ""
+          }
+        },
+        "logo_mJceWc": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/WebMD_logo_f73ccf11-95ac-4aaf-b0fd-6c3fe9eea2bc.png",
+            "alt": ""
+          }
+        },
+        "logo_46PCGc": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/132-1326461_mens-journal-01-mens-journal-september-2018-cover.png",
+            "alt": ""
+          }
+        },
+        "logo_VTkjVQ": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/gq-logo-png-transparent.webp",
+            "alt": ""
+          }
+        },
+        "logo_EfnrrU": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthline_logo_svg_52b907f7-7803-4306-b2c8-29b71ee574ad.png",
+            "alt": ""
+          }
+        },
+        "logo_WCzwQt": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Taxi_Maxim_Logo.webp",
+            "alt": ""
+          }
+        },
+        "logo_PQh9dq": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Logo_Askmen_COLOR.webp",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_8x9BmM",
+        "logo_R9NbhT",
+        "logo_mJceWc",
+        "logo_46PCGc",
+        "logo_VTkjVQ",
+        "logo_EfnrrU",
+        "logo_WCzwQt",
+        "logo_PQh9dq"
+      ],
+      "name": "CES Press strip",
+      "settings": {
+        "label": "AS SEEN ON",
+        "logo_height": 54,
+        "gap": 15,
+        "scroll_mode": "mobile",
+        "duration": 25,
+        "pause_on_hover": true,
+        "show_rule_top": false,
+        "show_rule_bottom": true,
+        "rule_color": "#d1d1d1",
+        "color_scheme": "scheme-eros-peach",
+        "padding_top": 24,
+        "padding_bottom": 12
       }
     },
     "qualify": {
@@ -2005,6 +2094,7 @@
   "order": [
     "countdown",
     "main",
+    "ces_press_strip_DRFEQp",
     "badges",
     "qualify",
     "layers",
