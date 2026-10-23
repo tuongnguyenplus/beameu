@@ -86,36 +86,8 @@
         "subtitle": {
           "type": "text",
           "settings": {
-            "text": "&nbsp;For men 45+ who want their libido back. Two gummies a day with 20+ potent ingredients to support energy and confidence. <strong>Be unforgettable in the bedroom.&nbsp;</strong>",
+            "text": "For men 45+ who want their libido back. <strong>The 5-Pathway Protocol</strong> in two daily gummies: Hardness, Stamina, Arousal, Volume and Taste. <strong>Be unforgettable in the bedroom.</strong>",
             "text_style": "body"
-          }
-        },
-        "benefit-1": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "lightning",
-            "text": "Boosts <strong>hardness & stamina</strong>"
-          }
-        },
-        "benefit-2": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "fire",
-            "text": "Heightens <strong>arousal & desire</strong>"
-          }
-        },
-        "benefit-3": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "drop",
-            "text": "Sweetens taste, <strong>bigger loads</strong>"
-          }
-        },
-        "benefit-4": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "leaf",
-            "text": "Vegan, sugar-free & <strong>no awkward pills</strong>"
           }
         },
         "ces_bundle_v2_6QEajj": {
@@ -382,7 +354,7 @@
           "settings": {
             "heading": "Why Lumeo Eros Gummies?",
             "icon": "none",
-            "content": "<p><strong>It's simple!</strong></p><p><strong>It Actually Works:</strong> Two gummies a day is all it takes to transform your performance in the bedroom — harder, longer, hungrier. Results she'll feel before you even say a word.</p><p><strong>Discreet & Easy:</strong> No awkward pills, no complicated routines, no timing the moment. Just two delicious gummies a day and you're ready whenever she is.</p><p><strong>Confidence You Can Feel:</strong> Stop wondering, stop worrying. Walk into every intimate moment knowing you'll show up like the best version of yourself — every single time.</p><p><strong>No Nasty Stuff:</strong> Vegan, sugar-free, great tasting, and powered by 20 clinically-studied ingredients. Nothing you don't need, everything you do.</p>",
+            "content": "<p><strong>It works on 5 pathways, not 1.</strong> The 5-Pathway Protocol supports Hardness, Stamina, Arousal, Volume and Taste in two daily gummies, where most products only touch one.*</p><p><strong>It Actually Works:</strong> Two gummies a day is all it takes to transform your performance in the bedroom — harder, longer, hungrier. Results she'll feel before you even say a word.</p><p><strong>Discreet & Easy:</strong> No awkward pills, no complicated routines, no timing the moment. Just two delicious gummies a day and you're ready whenever she is.</p><p><strong>Confidence You Can Feel:</strong> Stop wondering, stop worrying. Walk into every intimate moment knowing you'll show up like the best version of yourself — every single time.</p><p><strong>No Nasty Stuff:</strong> Vegan, sugar-free, great tasting, and powered by 20 clinically-studied ingredients. Nothing you don't need, everything you do.</p>",
             "page": ""
           }
         },
@@ -480,9 +452,77 @@
             "overlay_opacity": 0,
             "heading": "Why Men 50+ Choose Eros",
             "icon": "check-circle",
-            "items": "Every Dose On The Label, No Proprietary Blend\n2 Gummies A Day, Any Time\nNo Prescription Or Appointment\nVegan & Sugar-Free\nMade For Daily Use\n90-Day Money-Back Guarantee",
+            "items": "The 5-Pathway Protocol In One Gummy\nEvery Dose On The Label, No Proprietary Blend\n2 Gummies A Day, Any Time\nNo Prescription Or Appointment\nPlain Packaging, Discreet Billing\n90-Day Money-Back Guarantee",
             "footnote": "Not a drug. Not a miracle. A daily routine you understand.",
             "text_alignment": "center"
+          }
+        },
+        "um-label": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>The 5-Pathway Protocol</strong>",
+            "text_style": "uppercase"
+          }
+        },
+        "pathway-1": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "lightning",
+            "text": "Boosts <strong>hardness</strong>"
+          }
+        },
+        "pathway-2": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "stopwatch",
+            "text": "Builds <strong>stamina</strong>"
+          }
+        },
+        "pathway-3": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "fire",
+            "text": "Heightens <strong>arousal &amp; desire</strong>"
+          }
+        },
+        "pathway-4": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "drop",
+            "text": "Supports <strong>bigger loads</strong>"
+          }
+        },
+        "pathway-5": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "sparkle",
+            "text": "Sweetens <strong>taste</strong>"
+          }
+        },
+        "ship-discreet": {
+          "type": "ces_shipping_item",
+          "settings": {
+            "icon": "lock",
+            "text": "Plain packaging. Discreet billing.",
+            "standalone": false,
+            "align": "center"
+          }
+        },
+        "ship-vegan": {
+          "type": "ces_shipping_item",
+          "settings": {
+            "icon": "check-circle",
+            "text": "Vegan, sugar-free &amp; no awkward pills",
+            "standalone": false,
+            "align": "center"
+          }
+        },
+        "faq-discreet": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is the packaging and billing discreet?",
+            "icon": "none",
+            "content": "<p>Yes. Every order ships in plain outer packaging with no product name or description on the outside, and the charge appears on your statement under a neutral company name. Nobody needs to know what you ordered.</p>"
           }
         }
       },
@@ -491,10 +531,12 @@
         "title",
         "rating-bar",
         "subtitle",
-        "benefit-1",
-        "benefit-2",
-        "benefit-3",
-        "benefit-4",
+        "um-label",
+        "pathway-1",
+        "pathway-2",
+        "pathway-3",
+        "pathway-4",
+        "pathway-5",
         "ces_bundle_v2_6QEajj",
         "review-1",
         "shipping-estimate",
@@ -503,12 +545,15 @@
         "quantity_selector",
         "buy_buttons",
         "guarantee-line",
+        "ship-discreet",
         "ship-1",
         "ship-2",
+        "ship-vegan",
         "ship-3",
         "payment-badges",
         "guarantee-card",
         "faq-1",
+        "faq-discreet",
         "faq-2",
         "acc-3",
         "faq-4",
@@ -759,16 +804,32 @@
             "text": "Free Shipping",
             "icon": ""
           }
+        },
+        "um": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "The 5-Pathway Protocol",
+            "icon": ""
+          }
+        },
+        "discreet": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Discreet Packaging",
+            "icon": ""
+          }
         }
       },
       "block_order": [
+        "um",
         "marquee_item-1",
         "marquee_item-2",
         "marquee_item-3",
         "marquee_item-4",
         "marquee_item-5",
         "marquee_item-6",
-        "marquee_item-7"
+        "marquee_item-7",
+        "discreet"
       ],
       "settings": {
         "color_scheme": "scheme-eros-orange",
@@ -1078,10 +1139,10 @@
         "image_shape": "auto",
         "text_position": "center",
         "overlay_opacity": 0,
-        "eyebrow": "How Eros Works",
+        "eyebrow": "The 5-Pathway Protocol",
         "heading_accent": "",
-        "heading": "Built For The Whole Picture, Not Just One Night",
-        "text": "<p>Men over 45 describe it the same way: “brain fog, lethargy, lower sexual desire”. It’s rarely only about blood flow. Desire, stress, energy and confidence are all part of feeling like yourself, which is why Eros doesn’t lean on a single ingredient.</p><p><strong>Healthy blood flow</strong>: L-Citrulline (1500 mg) supports nitric oxide production.<br/><strong>Desire</strong>: Tongkat Ali, Maca and Damiana support libido.<br/><strong>Stress</strong>: Ashwagandha (KSM-66®) supports a calmer stress response.<br/><strong>Energy</strong>: Shilajit (PrimaVie®), Zinc and Copper support energy and normal testosterone levels.</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
+        "heading": "Why One Pill Was Never Going To Be Enough",
+        "text": "<p>Prescription pills work on one pathway: blood flow. They are a proven treatment for ED, and for many men the right one. But men over 50 describe the problem as “brain fog, lethargy, lower sexual desire”. That isn’t one pathway. It’s five.</p><p><strong>Eros is built on The 5-Pathway Protocol:</strong> one daily formula that supports all five together.*</p><ul><li><strong>Hardness</strong>: healthy blood flow</li><li><strong>Stamina</strong>: energy that lasts</li><li><strong>Arousal</strong>: desire and a calm head</li><li><strong>Volume</strong>: healthy reproductive function</li><li><strong>Taste</strong>: a fresher natural taste</li></ul><p><strong>That’s why a single-ingredient supplement is never enough.</strong></p>",
         "cta_width": "full",
         "cta_arrow": true,
         "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
@@ -1191,7 +1252,7 @@
         "eyebrow": "",
         "text_style": "text",
         "pill_color": "#f25627",
-        "heading": "Know Exactly What You're Taking",
+        "heading": "The 5-Pathway Protocol, Dose By Dose",
         "highlight_words": "",
         "subheading": "Because “basically a scam” is what most men expect from this category. Every key active and its dose, per 2-gummy serving. No proprietary blend, nothing hidden.",
         "icon_color": "#f25627",
@@ -1282,9 +1343,20 @@
             "col_3": "partial",
             "col_3_note": ""
           }
+        },
+        "row-um": {
+          "type": "row",
+          "settings": {
+            "label": "Works on all 5 pathways",
+            "brand": "yes",
+            "col_1": "no",
+            "col_2": "partial",
+            "col_3": "no"
+          }
         }
       },
       "block_order": [
+        "row-um",
         "row-1",
         "row-2",
         "row-3",
@@ -1595,7 +1667,7 @@
         "seal_alt": "90 day money back guarantee",
         "heading": "Try Eros For 90 Days, Risk-Free",
         "heading_accent": "Risk-Free",
-        "subheading": "Take two a day for the full routine. If you're not happy, you get your money back.",
+        "subheading": "Give The 5-Pathway Protocol the full routine. If you’re not happy, you get your money back.",
         "card_bg": "",
         "why_title": "Why do we offer this?",
         "why_text": "<p>Because men over 50 have heard “basically a scam” enough times to be skeptical, and they're right to be. A promise on a page isn't proof. Give Eros a real chance. If it isn't for you, you shouldn't pay for it.</p>",
@@ -1813,52 +1885,62 @@
     "howitworks": {
       "type": "ces-card-row",
       "blocks": {
-        "card-1": {
+        "pathway-1": {
           "type": "card",
           "settings": {
-            "alt": "",
-            "title": "Steady Daily Support",
-            "text": "<p>Two gummies a day keep the key nutrients topped up. No loading phase, no timing — consistency is what makes it work.</p>"
+            "title": "Pathway 1: Hardness",
+            "text": "<p><strong>L-Citrulline 1500 mg</strong> supports nitric oxide production and healthy blood flow, the pathway prescription pills focus on.*</p>"
           }
         },
-        "card-2": {
+        "pathway-2": {
           "type": "card",
           "settings": {
-            "alt": "",
-            "title": "Less Stress, More Desire",
-            "text": "<p>Ashwagandha supports a calmer stress response while Tongkat Ali, Maca and Damiana support desire and arousal.*</p>"
+            "title": "Pathway 2: Stamina",
+            "text": "<p><strong>Shilajit (PrimaVie®) 200 mg, Zinc and Copper</strong> support energy and normal testosterone levels, so you don’t run out of steam.*</p>"
           }
         },
-        "card-3": {
+        "pathway-3": {
           "type": "card",
           "settings": {
-            "alt": "",
-            "title": "You Show Up Ready",
-            "text": "<p>With blood flow, drive and stamina supported, you stop overthinking and start being present.*</p>"
+            "title": "Pathway 3: Arousal",
+            "text": "<p><strong>Tongkat Ali, Maca and Damiana</strong> support libido, while <strong>Ashwagandha (KSM-66®)</strong> supports a calmer response to stress, the thing that kills the mood.*</p>"
+          }
+        },
+        "pathway-4": {
+          "type": "card",
+          "settings": {
+            "title": "Pathway 4: Volume",
+            "text": "<p><strong>Sunflower Lecithin 1000 mg, Zinc 30 mg and Pygeum 140 mg</strong>. Zinc contributes to normal fertility and reproduction; Pygeum is traditionally used for prostate health.*</p>"
+          }
+        },
+        "pathway-5": {
+          "type": "card",
+          "settings": {
+            "title": "Pathway 5: Taste",
+            "text": "<p><strong>Bromelain 250 mg, Pineapple, Chlorophyllin and Celery Seed</strong> are included to support a fresher natural taste.*</p>"
           }
         }
       },
       "block_order": [
-        "card-1",
-        "card-2",
-        "card-3"
+        "pathway-1",
+        "pathway-2",
+        "pathway-3",
+        "pathway-4",
+        "pathway-5"
       ],
-      "disabled": true,
       "settings": {
-        "eyebrow": "",
-        "heading": "This Is What Happens Once You Start Taking Eros",
-        "heading_accent": "This Is What Happens",
-        "subheading": "",
+        "eyebrow": "The 5-Pathway Protocol",
+        "heading": "Five Pathways. One Daily Gummy.",
+        "heading_accent": "Five Pathways.",
+        "subheading": "Each pathway, what supports it, and what it’s there for.",
         "columns": 3,
         "mobile_layout": "scroll",
         "image_ratio": "square",
         "card_style": "framed",
         "frame_color": "",
         "text_align": "left",
-        "show_numbers": false,
-        "footnote": "",
-        "proof_alt": "",
-        "proof_caption": "",
+        "show_numbers": true,
+        "footnote": "<p>One pathway is a single ingredient. Five pathways is a protocol. <strong>That’s why a single-ingredient supplement is never enough.</strong></p>",
         "cta_label": "",
         "cta_url": "",
         "cta_footnote": "",
@@ -2102,6 +2184,7 @@
     "ces_testimonial_marquee_UzJ6Gf",
     "failures",
     "mechanism",
+    "howitworks",
     "actives",
     "compare",
     "ces_testimonial_marquee_EYLmzw",
@@ -2111,7 +2194,6 @@
     "nav",
     "hero",
     "recognition",
-    "howitworks",
     "results",
     "howto",
     "timeline",
