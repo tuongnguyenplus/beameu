@@ -402,6 +402,7 @@
         },
         "cta-refund": {
           "type": "ces_shipping_item",
+          "disabled": true,
           "settings": {
             "icon": "return",
             "text": "90 days to judge it. Email “refund” and we send your money back.",
@@ -1231,7 +1232,7 @@
         "eyebrow": "",
         "text_style": "text",
         "pill_color": "#f25627",
-        "heading": "Every Milligram Printed. 1500 mg L-Citrulline, Not “Proprietary Blend.”",
+        "heading": "Know Exactly What You're Taking",
         "highlight_words": "",
         "subheading": "Because “basically a scam” is what most men expect from this category. Every key active, the pathway it supports and its dose per 2-gummy serving. No proprietary blend, nothing hidden.",
         "icon_color": "#f25627",
@@ -1574,6 +1575,7 @@
       "name": "CES Timeline",
       "settings": {
         "display": "open",
+        "image": "shopify://shop_images/15_500fb482-749a-4df3-9c3f-40fed7116231.webp",
         "image_position": "start",
         "image_ratio": "auto",
         "heading": "Week 3 Is When Many Men First Notice Something They Can Point To",
@@ -1587,8 +1589,7 @@
         "background_pattern": "dots",
         "color_scheme": "scheme-eros-light",
         "padding_top": 40,
-        "padding_bottom": 40,
-        "image": "shopify://shop_images/15_500fb482-749a-4df3-9c3f-40fed7116231.webp"
+        "padding_bottom": 40
       }
     },
     "safety": {
