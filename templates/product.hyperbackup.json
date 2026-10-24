@@ -873,36 +873,8 @@
         "subtitle": {
           "type": "text",
           "settings": {
-            "text": "&nbsp;For men 45+ who want their libido back. Two gummies a day with 20+ potent ingredients to support energy and confidence. <strong>Be unforgettable in the bedroom.&nbsp;</strong>",
+            "text": "&nbsp;For men 45+ who want their libido back. Two vegan, sugar-free gummies a day with 20+ potent ingredients to support energy and confidence. <strong>Be unforgettable in the bedroom.&nbsp;</strong>",
             "text_style": "body"
-          }
-        },
-        "benefit-1": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "lightning",
-            "text": "Boosts <strong>hardness & stamina</strong>"
-          }
-        },
-        "benefit-2": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "fire",
-            "text": "Heightens <strong>arousal & desire</strong>"
-          }
-        },
-        "benefit-3": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "drop",
-            "text": "Sweetens taste, <strong>bigger loads</strong>"
-          }
-        },
-        "benefit-4": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "leaf",
-            "text": "Vegan, sugar-free & <strong>no awkward pills</strong>"
           }
         },
         "ces_bundle_v2_6QEajj": {
@@ -1153,7 +1125,7 @@
             "image": "shopify://shop_images/1733673742-image_7.avif",
             "badge_text": "90 DAY",
             "heading": "90-Day Money Back Guarantee",
-            "text": "<p>Try Eros Gummies for 90 days. If you're not happy with the results, get 100% of your money back.</p>"
+            "text": "<p>Try Eros for 90 days. If it isn’t working for you, email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.</p>"
           }
         },
         "faq-1": {
@@ -1233,9 +1205,9 @@
         "faq-9": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Do you offer a guarantee?",
+            "heading": "Guarantee & refunds",
             "icon": "none",
-            "content": "<p>Yes, a 90-day money-back guarantee that covers the full routine. If you're not happy with your results, contact us for a full refund.</p>",
+            "content": "<p>You have 90 days to judge it. If it isn’t working for you, email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back. No form, no questions.</p>",
             "page": ""
           }
         },
@@ -1272,6 +1244,48 @@
             "footnote": "Not a drug. Not a miracle. A daily routine you understand.",
             "text_alignment": "center"
           }
+        },
+        "um-label": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>The 5-Pathway Formula</strong>",
+            "text_style": "uppercase"
+          }
+        },
+        "pathway-1": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "lightning",
+            "text": "<strong>Boosts Hardness</strong>: 1500 mg L-Citrulline supports nitric oxide and healthy blood flow."
+          }
+        },
+        "pathway-2": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "stopwatch",
+            "text": "<strong>Builds Stamina & Energy</strong>: Shilajit (PrimaVie®) and Zinc support energy and normal testosterone levels."
+          }
+        },
+        "pathway-3": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "fire",
+            "text": "<strong>Heightens Arousal & Calm</strong>: Tongkat Ali, Maca and KSM-66® Ashwagandha support desire and a calmer stress response."
+          }
+        },
+        "pathway-4": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "drop",
+            "text": "<strong>Supports Bigger Loads</strong>: Sunflower Lecithin and Zinc support healthy reproductive function."
+          }
+        },
+        "pathway-5": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "sparkle",
+            "text": "<strong>Sweetens Taste</strong>: Bromelain, Pineapple and Chlorophyllin, because the details matter to her too."
+          }
         }
       },
       "block_order": [
@@ -1279,10 +1293,12 @@
         "title",
         "rating-bar",
         "subtitle",
-        "benefit-1",
-        "benefit-2",
-        "benefit-3",
-        "benefit-4",
+        "um-label",
+        "pathway-1",
+        "pathway-2",
+        "pathway-3",
+        "pathway-4",
+        "pathway-5",
         "ces_bundle_v2_6QEajj",
         "review-1",
         "shipping-estimate",
@@ -1465,7 +1481,7 @@
             "time_label": "WEEKS 3-4",
             "heading": "She Notices Before You Say Anything",
             "bullets": "Morning erections come back first. For most men this is the first thing they can actually point to.\n\nDesire stops being something you have to summon.\n\nThis is the window partners start commenting in. \"She literally asked what I changed\" is our single most common review — and not one of those men announced they were taking anything.",
-            "content": "<p><strong>THE WEEK 4 PROMISE</strong><br/><br/>If she hasn't said something by day 28 — unprompted, without you telling her you're taking anything — email us the word \"refund.\"<br/>You keep the bag.<br/><br/><strong>We're not asking you to be patient. We're asking you to test us.</strong></p>",
+            "content": "<p><strong>THE 90-DAY GUARANTEE</strong><br/><br/>If it isn’t working for you, email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.</p>",
             "open": false
           }
         },
@@ -1486,7 +1502,7 @@
             "state": "auto",
             "time_label": "WEEK 9+",
             "heading": "This Is Just You Now",
-            "bullets": "Two gummies is part of your morning. You don't think about it.\nThis is a new baseline, not a peak you're straining to hold.\nAnd if you're standing here at week 9 with nothing to show for\n  it — then we were wrong about you, and we pay. One email with \"refund\" in the subject. Money back in 24 hours. No questions, no return shipping, no form.",
+            "bullets": "Two gummies is part of your morning. You don’t think about it.\nThis is a new baseline, not a peak you’re straining to hold.\nAnd if you’re standing here at week 9 with nothing to show for it, then we were wrong about you. Email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.",
             "content": "",
             "open": false
           }
@@ -1550,7 +1566,7 @@
           "settings": {
             "alt": "",
             "title": "“Basically a scam?” What if it doesn’t work?",
-            "text": "<p>Then you don't pay. You have 90 days to try it. If you're not happy, contact us for a full refund.</p>"
+            "text": "<p>Then you don’t pay. You have 90 days to judge it. Email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.</p>"
           }
         }
       },
@@ -1600,8 +1616,8 @@
           "type": "promise",
           "settings": {
             "icon": "return",
-            "title": "Full Refund, No Awkward Questions",
-            "text": "Contact our support team and we'll process your refund promptly."
+            "title": "Email “Refund”. That’s It.",
+            "text": "Keep the pouch you’ve opened. Send back any unopened ones."
           }
         },
         "promise-3": {
@@ -1620,9 +1636,9 @@
       ],
       "settings": {
         "seal_alt": "90 day money back guarantee",
-        "heading": "Try Eros For 90 Days, Risk-Free",
-        "heading_accent": "Risk-Free",
-        "subheading": "Take two a day for the full routine. If you're not happy, you get your money back.",
+        "heading": "90 Days To Judge It. If We’re Wrong, We Pay.",
+        "heading_accent": "If We’re Wrong, We Pay.",
+        "subheading": "Email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back. No form, no questions.",
         "card_bg": "",
         "why_title": "Why do we offer this?",
         "why_text": "<p>Because men over 50 have heard “basically a scam” enough times to be skeptical, and they're right to be. A promise on a page isn't proof. Give Eros a real chance. If it isn't for you, you shouldn't pay for it.</p>",
@@ -1635,61 +1651,6 @@
         "color_scheme": "scheme-eros-light",
         "padding_top": 48,
         "padding_bottom": 48
-      }
-    },
-    "nav": {
-      "type": "ces-anchor-nav",
-      "blocks": {
-        "link-1": {
-          "type": "link",
-          "settings": {
-            "label": "How It Works",
-            "target_id": "shopify-section-mechanism"
-          }
-        },
-        "link-2": {
-          "type": "link",
-          "settings": {
-            "label": "Ingredients",
-            "target_id": "shopify-section-actives"
-          }
-        },
-        "link-3": {
-          "type": "link",
-          "settings": {
-            "label": "How To Use",
-            "target_id": "shopify-section-howto"
-          }
-        },
-        "link-4": {
-          "type": "link",
-          "settings": {
-            "label": "Offers",
-            "target_id": "shopify-section-main"
-          }
-        },
-        "link-5": {
-          "type": "link",
-          "settings": {
-            "label": "FAQ",
-            "target_id": "shopify-section-main"
-          }
-        }
-      },
-      "block_order": [
-        "link-1",
-        "link-2",
-        "link-3",
-        "link-4",
-        "link-5"
-      ],
-      "disabled": true,
-      "settings": {
-        "sticky": true,
-        "aria_label": "Jump to a section",
-        "cta_label": "Order Now",
-        "cta_url": "#shopify-section-main",
-        "color_scheme": "scheme-eros-light"
       }
     },
     "hero": {
@@ -2117,6 +2078,31 @@
         "color_scheme": "scheme-eros-light",
         "button_subline": "[lock] Plain packaging. Discreet billing."
       }
+    },
+    "founder": {
+      "type": "ces-stat-proof",
+      "settings": {
+        "eyebrow": "A Note From Our Founder",
+        "heading": "At 56, I Started Making Excuses When My Wife Reached for Me.",
+        "subheading": "",
+        "body": "<p>I’m John, the founder of LUMEO. I live in Burlington, Colorado, and the idea for this company started at home.</p><p>My drive wasn’t what it used to be. And even when I wanted to be close to my wife, I’d catch myself worrying about whether my body would cooperate.</p><p>So I started putting it off. Long day. Too tired. Maybe tomorrow.</p><p>Then something else started bothering me: <em>What if she thought I didn’t want her anymore?</em></p><p><strong>I hadn’t lost interest in her. I was losing confidence in myself.</strong></p><p>Eventually, I opened up to friends with backgrounds in natural products chemistry and supplement formulation. I told them what I was dealing with and asked them to help me make sense of the options.</p><p>Those conversations turned into a project. They advised me on ingredient selection and formulation, helping turn my idea into a daily supplement.</p><p>That work became LUMEO and our <strong>5-Pathway Formula</strong>: support for hardness, stamina, arousal, volume and taste, in a simple routine of two gummies a day.</p><p>I wanted to understand every ingredient we chose and be able to explain why it was there. That’s something I owe every man who buys from us, too.</p><p>I remember how hard it was to bring this up. When you come to LUMEO with questions, I want you to feel comfortable asking them, and know you’ll get a straight answer.</p><p><strong>John</strong><br/>Founder, LUMEO</p>",
+        "image": "shopify://shop_images/9ebeb612-4a24-4ca4-a062-79eeebe28244.webp",
+        "image_position": "above_body",
+        "image_alt": "John, founder of LUMEO",
+        "image_caption": "",
+        "callout_label": "",
+        "callout_lead": "",
+        "callout_figure": "",
+        "callout_text": "",
+        "callout_source": "",
+        "callout_bg": "#fff8bd",
+        "callout_border": "#000000",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-eros-peach",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
@@ -2135,8 +2121,8 @@
     "ces_testimonial_marquee_EYLmzw",
     "ces_timeline_accordion_iRkPe3",
     "preqa",
+    "founder",
     "guarantee",
-    "nav",
     "hero",
     "recognition",
     "howitworks",
