@@ -80,7 +80,7 @@
           "settings": {
             "star_color": "#f25627",
             "rating_tenths": 45,
-            "text": "&nbsp;Rated <strong>4.8 Excellent</strong> | Over <strong>23,000</strong> men served",
+            "text": "&nbsp;Rated <strong>4.8 Excellent</strong> | <strong>23,000+</strong> men served",
             "enable_counter": false,
             "sold_count": 0,
             "sold_suffix": "",
@@ -661,80 +661,6 @@
         "atc_hover_text": "#ffffff"
       }
     },
-    "mornings": {
-      "type": "ces-photo-wall",
-      "blocks": {
-        "point-1": {
-          "type": "point",
-          "settings": {
-            "icon": "heart",
-            "title": "“Emotionally connected to my wife”",
-            "text": "Intimacy that feels close again, not like a test you might fail."
-          }
-        },
-        "point-2": {
-          "type": "point",
-          "settings": {
-            "icon": "brighten",
-            "title": "“Sexually confident”",
-            "text": "Walking in without the knot in your stomach."
-          }
-        },
-        "point-3": {
-          "type": "point",
-          "settings": {
-            "icon": "stopwatch",
-            "title": "No more “preparing to have sex”",
-            "text": "Two gummies a day. No timing, no mental math."
-          }
-        },
-        "point-4": {
-          "type": "point",
-          "settings": {
-            "icon": "check-circle",
-            "title": "“Comfortable with myself”",
-            "text": "Feeling like yourself again, at 50, 60 and beyond."
-          }
-        },
-        "point-5": {
-          "type": "point",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Not “just accept it”",
-            "text": "Doing something sensible about it, on your terms."
-          }
-        }
-      },
-      "block_order": [
-        "point-1",
-        "point-2",
-        "point-3",
-        "point-4",
-        "point-5"
-      ],
-      "settings": {
-        "layout": "split",
-        "eyebrow": "What Men Over 50 Say They Want",
-        "heading": "“More Comfortable With Myself”. That’s What This Is Really About.",
-        "heading_accent": "More Comfortable With Myself",
-        "subheading": "",
-        "columns": 2,
-        "height": 520,
-        "duration": 45,
-        "pause_on_hover": true,
-        "fade_edges": true,
-        "image_ratio": "4/5",
-        "cta_label": "GET MY CONFIDENCE BACK",
-        "cta_url": "#shopify-section-main",
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "cta_arrow": true,
-        "cta_width": "full",
-        "point_separator": "dot",
-        "color_scheme": "scheme-eros-peach",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
     "ces_press_strip_DRFEQp": {
       "type": "ces-press-strip",
       "blocks": {
@@ -819,6 +745,80 @@
         "color_scheme": "scheme-eros-peach",
         "padding_top": 24,
         "padding_bottom": 12
+      }
+    },
+    "mornings": {
+      "type": "ces-photo-wall",
+      "blocks": {
+        "point-1": {
+          "type": "point",
+          "settings": {
+            "icon": "heart",
+            "title": "“Emotionally connected to my wife”",
+            "text": "Intimacy that feels close again, not like a test you might fail."
+          }
+        },
+        "point-2": {
+          "type": "point",
+          "settings": {
+            "icon": "brighten",
+            "title": "“Sexually confident”",
+            "text": "Walking in without the knot in your stomach."
+          }
+        },
+        "point-3": {
+          "type": "point",
+          "settings": {
+            "icon": "stopwatch",
+            "title": "No more “preparing to have sex”",
+            "text": "Two gummies a day. No timing, no mental math."
+          }
+        },
+        "point-4": {
+          "type": "point",
+          "settings": {
+            "icon": "check-circle",
+            "title": "“Comfortable with myself”",
+            "text": "Feeling like yourself again, at 50, 60 and beyond."
+          }
+        },
+        "point-5": {
+          "type": "point",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Not “just accept it”",
+            "text": "Doing something sensible about it, on your terms."
+          }
+        }
+      },
+      "block_order": [
+        "point-1",
+        "point-2",
+        "point-3",
+        "point-4",
+        "point-5"
+      ],
+      "settings": {
+        "layout": "split",
+        "eyebrow": "What Men Over 50 Say They Want",
+        "heading": "“More Comfortable With Myself”. That’s What This Is Really About.",
+        "heading_accent": "More Comfortable With Myself",
+        "subheading": "",
+        "columns": 2,
+        "height": 520,
+        "duration": 45,
+        "pause_on_hover": true,
+        "fade_edges": true,
+        "image_ratio": "4/5",
+        "cta_label": "GET MY CONFIDENCE BACK",
+        "cta_url": "#shopify-section-main",
+        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
+        "cta_arrow": true,
+        "cta_width": "full",
+        "point_separator": "dot",
+        "color_scheme": "scheme-eros-peach",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "qualify": {
