@@ -358,7 +358,7 @@
           "settings": {
             "heading": "Why Lumeo Eros Gummies?",
             "icon": "none",
-            "content": "<p><strong>It works on 5 pathways, not 1.</strong> The 5-Pathway Formula supports Hardness, Stamina, Arousal, Volume and Taste in two daily gummies, where most products only touch one.*</p><p><strong>It Actually Works:</strong> Two gummies a day is all it takes to transform your performance in the bedroom — harder, longer, hungrier. Results she'll feel before you even say a word.</p><p><strong>Discreet & Easy:</strong> No awkward pills, no complicated routines, no timing the moment. Just two delicious gummies a day and you're ready whenever she is.</p><p><strong>Confidence You Can Feel:</strong> Stop wondering, stop worrying. Walk into every intimate moment knowing you'll show up like the best version of yourself — every single time.</p><p><strong>No Nasty Stuff:</strong> Vegan, sugar-free, great tasting, and powered by 20 clinically-studied ingredients. Nothing you don't need, everything you do.</p>",
+            "content": "<p><strong>It works on 5 pathways, not 1.</strong> The 5-Pathway Formula supports Hardness, Stamina, Arousal, Volume and Taste in two daily gummies, where most products only touch one.</p><p><strong>It Actually Works:</strong> Two gummies a day is all it takes to transform your performance in the bedroom — harder, longer, hungrier. Results she'll feel before you even say a word.</p><p><strong>Discreet & Easy:</strong> No awkward pills, no complicated routines, no timing the moment. Just two delicious gummies a day and you're ready whenever she is.</p><p><strong>Confidence You Can Feel:</strong> Stop wondering, stop worrying. Walk into every intimate moment knowing you'll show up like the best version of yourself — every single time.</p><p><strong>No Nasty Stuff:</strong> Vegan, sugar-free, great tasting, and powered by 20 clinically-studied ingredients. Nothing you don't need, everything you do.</p>",
             "page": ""
           },
           "disabled": true
@@ -442,7 +442,7 @@
           "settings": {
             "heading": "Disclaimer",
             "icon": "none",
-            "content": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>",
+            "content": "<p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>",
             "page": ""
           }
         },
@@ -472,28 +472,28 @@
           "type": "ces_highlight",
           "settings": {
             "icon": "lightning",
-            "text": "<strong>Boosts Hardness</strong>: 1500 mg L-Citrulline supports nitric oxide and healthy blood flow.*"
+            "text": "<strong>Boosts Hardness</strong>: 1500 mg L-Citrulline supports nitric oxide and healthy blood flow."
           }
         },
         "pathway-2": {
           "type": "ces_highlight",
           "settings": {
             "icon": "stopwatch",
-            "text": "<strong>Builds Stamina &amp; Energy</strong>: Shilajit (PrimaVie®) and Zinc support energy and normal testosterone levels.*"
+            "text": "<strong>Builds Stamina &amp; Energy</strong>: Shilajit (PrimaVie®) and Zinc support energy and normal testosterone levels."
           }
         },
         "pathway-3": {
           "type": "ces_highlight",
           "settings": {
             "icon": "fire",
-            "text": "<strong>Heightens Arousal &amp; Calm</strong>: Tongkat Ali, Maca and KSM-66® Ashwagandha support desire and a calmer stress response.*"
+            "text": "<strong>Heightens Arousal &amp; Calm</strong>: Tongkat Ali, Maca and KSM-66® Ashwagandha support desire and a calmer stress response."
           }
         },
         "pathway-4": {
           "type": "ces_highlight",
           "settings": {
-            "icon": "sparkle",
-            "text": "<strong>Sweetens Taste, Bigger Loads</strong>: Bromelain, chlorophyll and Zinc, because the details matter to her too.*"
+            "icon": "drop",
+            "text": "<strong>Supports Bigger Loads</strong>: Sunflower Lecithin and Zinc support healthy reproductive function."
           }
         },
         "ship-vegan": {
@@ -540,6 +540,20 @@
             "standalone": false,
             "align": "center"
           }
+        },
+        "pathway-5": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "sparkle",
+            "text": "<strong>Sweetens Taste</strong>: Bromelain, Pineapple and Chlorophyllin, because the details matter to her too."
+          }
+        },
+        "vegan": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "leaf",
+            "text": "<strong>Vegan &amp; Sugar-Free</strong>: a gummy you look forward to, not another pill."
+          }
         }
       },
       "block_order": [
@@ -551,6 +565,8 @@
         "pathway-2",
         "pathway-3",
         "pathway-4",
+        "pathway-5",
+        "vegan",
         "ces_review_rMr6tU",
         "ces_bundle_v2_6QEajj",
         "review-1",
@@ -626,7 +642,7 @@
           "settings": {
             "icon": "brighten",
             "title": "“Sexually confident”",
-            "text": "Walking in without the knot in your stomach.*"
+            "text": "Walking in without the knot in your stomach."
           }
         },
         "point-3": {
@@ -642,7 +658,7 @@
           "settings": {
             "icon": "check-circle",
             "title": "“Comfortable with myself”",
-            "text": "Feeling like yourself again, at 50, 60 and beyond.*"
+            "text": "Feeling like yourself again, at 50, 60 and beyond."
           }
         },
         "point-5": {
@@ -1112,7 +1128,7 @@
         "eyebrow": "The 5-Pathway Formula",
         "heading_accent": "",
         "heading": "The 5-Pathway Formula: One Gummy Doing Five Jobs, Every Morning",
-        "text": "<p><strong>1. After 50, it’s not one thing failing. It’s five slipping together.</strong> Men describe it the same way: “brain fog, lethargy, lower sexual desire”. Blood flow is only part of it.</p><p><strong>2. Prescription pills fix one pathway, for a few hours.</strong> They open blood vessels. They don’t touch desire, energy or stress, and they wear off. They are a proven ED treatment and the right choice for many men.</p><p><strong>3. Single-ingredient supplements fix a different one, and skip the other four.</strong> Tongkat Ali alone touches desire, not blood flow. Citrulline alone does the opposite.</p><p><strong>4. Eros doses all five, every day.</strong> Not for one night. So your baseline lifts and stays there.*</p><ul><li>Hardness, Stamina, Arousal, Volume and Taste in one formula</li><li>Every dose printed on the label</li><li>2 gummies a day, no timing the moment</li><li>No prescription, and 90 days to judge it</li></ul>",
+        "text": "<p><strong>1. After 50, it’s not one thing failing. It’s five slipping together.</strong> Men describe it the same way: “brain fog, lethargy, lower sexual desire”. Blood flow is only part of it.</p><p><strong>2. Prescription pills fix one pathway, for a few hours.</strong> They open blood vessels. They don’t touch desire, energy or stress, and they wear off. They are a proven ED treatment and the right choice for many men.</p><p><strong>3. Single-ingredient supplements fix a different one, and skip the other four.</strong> Tongkat Ali alone touches desire, not blood flow. Citrulline alone does the opposite.</p><p><strong>4. Eros doses all five, every day.</strong> Not for one night. So your baseline lifts and stays there.</p><ul><li>Hardness, Stamina, Arousal, Volume and Taste in one formula</li><li>Every dose printed on the label</li><li>2 gummies a day, no timing the moment</li><li>No prescription, and 90 days to judge it</li></ul>",
         "cta_width": "full",
         "cta_arrow": true,
         "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
@@ -1132,7 +1148,7 @@
           "settings": {
             "icon": "lightning",
             "heading": "1. Hardness",
-            "text": "L-Citrulline 1500 mg supports nitric oxide and healthy blood flow.*"
+            "text": "L-Citrulline 1500 mg supports nitric oxide and healthy blood flow."
           }
         },
         "pathway-2": {
@@ -1140,7 +1156,7 @@
           "settings": {
             "icon": "stopwatch",
             "heading": "2. Stamina",
-            "text": "Shilajit (PrimaVie®) 200 mg, Zinc and Copper support energy and stamina.*"
+            "text": "Shilajit (PrimaVie®) 200 mg, Zinc and Copper support energy and stamina."
           }
         },
         "pathway-3": {
@@ -1148,7 +1164,7 @@
           "settings": {
             "icon": "fire",
             "heading": "3. Arousal",
-            "text": "Tongkat Ali, Maca and Damiana support libido; Ashwagandha (KSM-66®) calms stress.*"
+            "text": "Tongkat Ali, Maca and Damiana support libido; Ashwagandha (KSM-66®) calms stress."
           }
         },
         "pathway-4": {
@@ -1156,7 +1172,7 @@
           "settings": {
             "icon": "vitality",
             "heading": "4. Volume",
-            "text": "Sunflower Lecithin 1000 mg, Zinc 30 mg and Pygeum 140 mg support reproductive health.*"
+            "text": "Sunflower Lecithin 1000 mg, Zinc 30 mg and Pygeum 140 mg support reproductive health."
           }
         },
         "pathway-5": {
@@ -1164,7 +1180,7 @@
           "settings": {
             "icon": "sparkle",
             "heading": "5. Taste",
-            "text": "Bromelain 250 mg, Pineapple and Chlorophyllin support a fresher natural taste.*"
+            "text": "Bromelain 250 mg, Pineapple and Chlorophyllin support a fresher natural taste."
           }
         },
         "pathway-6": {
@@ -1419,7 +1435,7 @@
         "subheading": "",
         "avatar_shape": "tile",
         "avatar_speed": 35,
-        "disclaimer": "<p>*Results vary from person to person. These reviews describe individual experiences and are not a promise of any particular outcome.</p>",
+        "disclaimer": "<p>Results vary from person to person. These reviews describe individual experiences and are not a promise of any particular outcome.</p>",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 40
@@ -1445,7 +1461,7 @@
             "state": "auto",
             "time_label": "WEEKS 3-4",
             "heading": "She May Notice Before You Say Anything",
-            "bullets": "Many men say morning erections are the first thing they notice.*\n\nDesire stops being something you have to summon.*\n\nThis is the window some partners start commenting in, often before anything is said.",
+            "bullets": "Many men say morning erections are the first thing they notice.\n\nDesire stops being something you have to summon.\n\nThis is the window some partners start commenting in, often before anything is said.",
             "content": "<p><strong>THE 90-DAY GUARANTEE</strong><br/><br/>If it isn’t working for you, email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.</p>",
             "open": false
           }
@@ -1456,7 +1472,7 @@
             "state": "auto",
             "time_label": "WEEKS 5-8",
             "heading": "You Stop Thinking About It",
-            "bullets": "For many men, firmness becomes more consistent.* L-Citrulline is a daily nutrient, not an on-demand trigger, which is why consistency matters.\n\nYou stop monitoring yourself mid-act. Nobody warns you how much mental space that was taking until it’s gone.\n\nBromelain and chlorophyll work on a cycle, not a switch. Keep going.",
+            "bullets": "For many men, firmness becomes more consistent.L-Citrulline is a daily nutrient, not an on-demand trigger, which is why consistency matters.\n\nYou stop monitoring yourself mid-act. Nobody warns you how much mental space that was taking until it’s gone.\n\nBromelain and chlorophyll work on a cycle, not a switch. Keep going.",
             "content": "",
             "open": false
           }
@@ -1507,7 +1523,7 @@
           "settings": {
             "alt": "",
             "title": "“I'm a little confused.” Is it like Viagra or Cialis?",
-            "text": "<p>No, and we won't pretend it is. Those are prescription drugs. Eros is a daily supplement that supports desire, energy, stress response and healthy blood flow.* If you have ED, talk to your doctor.</p>"
+            "text": "<p>No, and we won't pretend it is. Those are prescription drugs. Eros is a daily supplement that supports desire, energy, stress response and healthy blood flow.If you have ED, talk to your doctor.</p>"
           }
         },
         "card-2": {
@@ -1523,7 +1539,7 @@
           "settings": {
             "alt": "",
             "title": "When will I notice something?",
-            "text": "<p>It isn't instant. Some men notice a difference in 2 to 4 weeks; give it a full 60 to 90 days of daily use.*</p>"
+            "text": "<p>It isn't instant. Some men notice a difference in 2 to 4 weeks; give it a full 60 to 90 days of daily use.</p>"
           }
         },
         "card-4": {
@@ -1639,7 +1655,7 @@
           "type": "step",
           "settings": {
             "title": "Give It 60 To 90 Days",
-            "text": "Some men notice a difference in 2 to 4 weeks; give it the full 60 to 90 days.*"
+            "text": "Some men notice a difference in 2 to 4 weeks; give it the full 60 to 90 days."
           }
         }
       },
