@@ -217,7 +217,8 @@
             "tier_4_gift_title": "",
             "tier_4_gift_sub": "",
             "tier_4_gift_label": "",
-            "tier_4_foot": ""
+            "tier_4_foot": "",
+            "add_subline": "lock | Plain packaging. Discreet billing."
           }
         },
         "review-1": {
@@ -499,15 +500,6 @@
             "text": "Sweetens <strong>taste</strong>"
           }
         },
-        "ship-discreet": {
-          "type": "ces_shipping_item",
-          "settings": {
-            "icon": "lock",
-            "text": "Plain packaging. Discreet billing.",
-            "standalone": false,
-            "align": "center"
-          }
-        },
         "ship-vegan": {
           "type": "ces_shipping_item",
           "settings": {
@@ -545,7 +537,6 @@
         "quantity_selector",
         "buy_buttons",
         "guarantee-line",
-        "ship-discreet",
         "ship-1",
         "ship-2",
         "ship-vegan",
@@ -2169,7 +2160,8 @@
         "count_step_3": 2,
         "hide_over_target": true,
         "hide_on_desktop": false,
-        "color_scheme": "scheme-eros-light"
+        "color_scheme": "scheme-eros-light",
+        "button_subline": "[lock] Plain packaging. Discreet billing."
       }
     }
   },

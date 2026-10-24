@@ -214,3 +214,9 @@
 .ces-b2__subscribe-text { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
 .ces-b2__subscribe-title { font-size: 1.6rem; font-weight: 700; line-height: 1.3; }
 .ces-b2__subscribe-sub { font-size: 1.3rem; line-height: 1.4; color: rgba(var(--color-foreground), .7); }
+
+/* Optional second line inside the add button, under its label. */
+.ces-b2__add--sub { flex-wrap: wrap; row-gap: .2rem; padding-top: 1rem; padding-bottom: 1rem; }
+.ces-b2__add-sub { display: flex; flex-basis: 100%; justify-content: center; align-items: center; gap: .5rem; font-size: 1.25rem; font-weight: 500; letter-spacing: .01em; line-height: 1.3; opacity: .92; }
+.ces-b2__add-sub .ces-icon { flex: none; }
+.ces-bundle__add.is-loading .ces-b2__add-sub { visibility: hidden; }

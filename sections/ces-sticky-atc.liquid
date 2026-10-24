@@ -169,7 +169,7 @@
         endcomment
         if sticky_style == 'gift'
           capture sticky_cta
-            render 'ces-cta-rail', label: sticky_label, url: sticky_url, width: 'full', show: 'always'
+            render 'ces-cta-rail', label: sticky_label, url: sticky_url, width: 'full', show: 'always', gift: section.settings.button_subline
           endcapture
         endif
       -%}
@@ -262,6 +262,12 @@
         { "value": "gift", "label": "Two lines, with the free gift" }
       ],
       "default": "compact"
+    },
+    {
+      "type": "text",
+      "id": "button_subline",
+      "label": "Button second line",
+      "info": "With the two-line style: the small line under the label. Blank uses the gift line from Theme settings. Write [lock] (or another icon name) to place an icon, e.g. [lock] Plain packaging. Discreet billing."
     },
     {
       "type": "checkbox",

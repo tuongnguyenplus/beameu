@@ -597,9 +597,25 @@
 
   {%- if block.settings.ship_position == 'above' -%}{{ ces_ship_row }}{%- endif -%}
 
-  <button type="button" class="ces-b2__add ces-bundle__add button button--full-width button--primary" data-ces-bundle-add>
+  <button type="button" class="ces-b2__add ces-bundle__add button button--full-width button--primary{% if block.settings.add_subline != blank %} ces-b2__add--sub{% endif %}" data-ces-bundle-add>
     <span class="ces-bundle__add-label" data-ces-bundle-label>{{ block.settings.add_label | default: 'Add to Cart' }}</span>
     <span class="ces-bundle__add-total" data-ces-bundle-total></span>
+    {%- comment -%}
+      A small reassurance line inside the button, under the label. Written as
+      "icon | text" it opens with that icon, e.g. "lock | Plain packaging."
+    {%- endcomment -%}
+    {%- if block.settings.add_subline != blank -%}
+      {%- assign ces_addsub_parts = block.settings.add_subline | split: '|' -%}
+      <span class="ces-b2__add-sub">
+        {%- if ces_addsub_parts.size > 1 -%}
+          {%- assign ces_sub_icon = ces_addsub_parts[0] | strip -%}
+          {% render 'ces-icon', icon: ces_sub_icon, size: '1.3rem' %}
+          <span>{{ ces_addsub_parts[1] | strip }}</span>
+        {%- else -%}
+          <span>{{ block.settings.add_subline }}</span>
+        {%- endif -%}
+      </span>
+    {%- endif -%}
     <span class="ces-bundle__spinner" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.5" stroke-opacity="0.3"/><path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
   </button>
 
