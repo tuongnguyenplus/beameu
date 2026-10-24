@@ -1676,7 +1676,8 @@
         "color_scheme": "scheme-eros-light",
         "padding_top": 32,
         "padding_bottom": 40
-      }
+      },
+      "disabled": true
     },
     "sticky": {
       "type": "ces-sticky-atc",
