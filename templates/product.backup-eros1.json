@@ -2203,6 +2203,28 @@
         "padding_top": 32,
         "padding_bottom": 40
       }
+    },
+    "founder": {
+      "type": "ces-stat-proof",
+      "settings": {
+        "eyebrow": "A Note From Our Founder",
+        "heading": "At 56, I Started Making Excuses When My Wife Reached for Me.",
+        "subheading": "",
+        "body": "<p>I’m John, the founder of LUMEO. I live in Burlington, Colorado, and the idea for this company started at home.</p><p>My drive wasn’t what it used to be. And even when I wanted to be close to my wife, I’d catch myself worrying about whether my body would cooperate.</p><p>So I started putting it off. Long day. Too tired. Maybe tomorrow.</p><p>Then something else started bothering me: <em>What if she thought I didn’t want her anymore?</em></p><p><strong>I hadn’t lost interest in her. I was losing confidence in myself.</strong></p><p>Eventually, I opened up to friends with backgrounds in natural products chemistry and supplement formulation. I told them what I was dealing with and asked them to help me make sense of the options.</p><p>Those conversations turned into a project. They advised me on ingredient selection and formulation, helping turn my idea into a daily supplement.</p><p>That work became LUMEO and our <strong>5-Pathway Formula</strong>: support for hardness, stamina, arousal, volume and taste, in a simple routine of two gummies a day.</p><p>I wanted to understand every ingredient we chose and be able to explain why it was there. That’s something I owe every man who buys from us, too.</p><p>I remember how hard it was to bring this up. When you come to LUMEO with questions, I want you to feel comfortable asking them, and know you’ll get a straight answer.</p><p><strong>John</strong><br/>Founder, LUMEO</p>",
+        "image_position": "above_body",
+        "image_alt": "John, founder of LUMEO",
+        "image_caption": "",
+        "callout_label": "",
+        "callout_lead": "",
+        "callout_figure": "",
+        "callout_text": "",
+        "callout_source": "",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-eros-peach",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
@@ -2222,6 +2244,7 @@
     "ces_testimonial_marquee_EYLmzw",
     "ces_timeline_accordion_iRkPe3",
     "safety",
+    "founder",
     "guarantee",
     "preqa",
     "howitworks",
