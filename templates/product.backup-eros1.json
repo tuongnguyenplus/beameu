@@ -519,9 +519,8 @@
         }
       },
       "block_order": [
-        "ces_review_rMr6tU",
-        "title",
         "rating-bar",
+        "title",
         "subtitle",
         "um-label",
         "pathway-1",
@@ -529,6 +528,7 @@
         "pathway-3",
         "pathway-4",
         "pathway-5",
+        "ces_review_rMr6tU",
         "ces_bundle_v2_6QEajj",
         "review-1",
         "shipping-estimate",
@@ -1132,7 +1132,7 @@
         "overlay_opacity": 0,
         "eyebrow": "The 5-Pathway Protocol",
         "heading_accent": "",
-        "heading": "Why One Pill Was Never Going To Be Enough",
+        "heading": "Prescription Pills Fix One Pathway. Men Over 45 Need Five.",
         "text": "<p>Prescription pills work on one pathway: blood flow. They are a proven treatment for ED, and for many men the right one. But men over 50 describe the problem as “brain fog, lethargy, lower sexual desire”. That isn’t one pathway. It’s five.</p><p><strong>Eros is built on The 5-Pathway Protocol:</strong> one daily formula that supports all five together.*</p><p><strong>That’s why a single-ingredient supplement is never enough.</strong></p>",
         "cta_width": "full",
         "cta_arrow": true,
@@ -1209,7 +1209,7 @@
         "eyebrow": "",
         "text_style": "text",
         "pill_color": "#f25627",
-        "heading": "The 5-Pathway Protocol, Pathway By Pathway",
+        "heading": "The 5-Pathway Protocol: Every Pathway, Every Dose",
         "highlight_words": "",
         "subheading": "Because “basically a scam” is what most men expect from this category. Every key active and its dose, per 2-gummy serving. No proprietary blend, nothing hidden.",
         "icon_color": "#f25627",
@@ -1322,7 +1322,7 @@
       ],
       "settings": {
         "eyebrow": "An Honest Comparison",
-        "heading": "What Eros Is, And What It Isn't",
+        "heading": "5 Pathways. No Prescription. Nothing Hidden.",
         "subheading": "",
         "table_caption": "Eros compared with prescription ED pills, mystery-blend gummies and single-ingredient supplements",
         "brand_label": "EROS",
@@ -1990,7 +1990,7 @@
           "type": "step",
           "settings": {
             "title": "Give It 30 Days",
-            "text": "Many men notice a difference in 1–2 weeks; the full picture builds over the first month.*"
+            "text": "Some men notice a difference in 2 to 4 weeks; give it the full 60 to 90 days.*"
           }
         }
       },
@@ -1999,9 +1999,8 @@
         "step-2",
         "step-3"
       ],
-      "disabled": true,
       "settings": {
-        "heading": "2 Gummies A Day. That's The Whole Routine.",
+        "heading": "2 Gummies A Day. No Planning Around The Moment.",
         "subheading": "",
         "note": "<p>Consistency matters more than timing. The ingredients in Eros work best when taken every day — so make it part of your morning or evening and don't skip days.</p><p>Each bag holds 60 gummies: a full month.</p>",
         "cta_label": "GET MY CONFIDENCE BACK",
@@ -2134,27 +2133,27 @@
   },
   "order": [
     "countdown",
+    "badges",
     "main",
     "ces_press_strip_DRFEQp",
-    "badges",
-    "mornings",
     "qualify",
     "layers",
     "ces_testimonial_marquee_UzJ6Gf",
     "failures",
     "mechanism",
     "actives",
-    "howitworks",
+    "howto",
+    "mornings",
     "compare",
     "ces_testimonial_marquee_EYLmzw",
     "ces_timeline_accordion_iRkPe3",
     "preqa",
     "guarantee",
+    "howitworks",
     "nav",
     "hero",
     "recognition",
     "results",
-    "howto",
     "timeline",
     "finalcta",
     "sticky"
