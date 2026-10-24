@@ -493,9 +493,9 @@
         "text_position": "center",
         "overlay_opacity": 0,
         "eyebrow": "How Eros Works",
-        "heading_accent": "",
-        "heading": "One Daily Gummy Built For The Whole Picture",
-        "text": "<p><strong>Eros combines 14 researched actives in two daily gummies</strong>, built to support the four things men over 50 say they’ve lost: healthy blood flow, desire, a calm head and energy.</p><p><strong>Unlike prescription pills</strong>, there’s no appointment and no timing the moment. <strong>Unlike mystery-blend gummies</strong>, every ingredient and every dose is printed on the label, so you know exactly what you’re taking.</p><p>L-Citrulline (1500 mg) supports nitric oxide and healthy blood flow. Tongkat Ali, Maca and Damiana support libido. Ashwagandha (KSM-66®) supports a calmer response to stress. Shilajit (PrimaVie®), Zinc and Copper support energy and normal testosterone levels.</p><p>One simple routine in place of a cabinet of single-ingredient bottles, vegan and sugar-free, and backed by a 90-day money-back guarantee.</p><ul><li>Supports blood flow and firmness</li><li>Supports desire and arousal</li><li>Supports a calmer, more confident head</li><li>No prescription, no timing, every dose on the label</li></ul>",
+        "heading_accent": "The 5-Pathway Formula",
+        "heading": "One Pill Fixes One Pathway. The 5-Pathway Formula Supports All Five.",
+        "text": "<p>Men over 50 describe it the same way: “brain fog, lethargy, lower sexual desire”. That isn’t one problem. It’s five pathways slipping at once: <strong>hardness, stamina, arousal, volume and taste</strong>.</p><p><strong>Prescription pills work on one</strong>: blood flow, for a few hours. They’re a proven ED treatment and the right choice for many men. <strong>Single-ingredient supplements work on one too</strong>, just a different one.</p><p><strong>The 5-Pathway Formula supports all five, every day</strong>, so your baseline lifts instead of chasing one good night.</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
         "cta_width": "full",
         "cta_arrow": true,
         "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
@@ -510,104 +510,104 @@
     "actives": {
       "type": "ces-icon-feature-grid",
       "blocks": {
-        "icon_item-1": {
+        "active-1": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
             "icon": "heart-plus",
             "icon_color": "",
             "heading": "L-Citrulline 1500 mg",
-            "text": "Supports nitric oxide and healthy blood flow."
+            "text": "Hardness · Supports nitric oxide and healthy blood flow."
           }
         },
-        "icon_item-7": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "cell-defense",
-            "icon_color": "",
-            "heading": "Zinc 30 mg",
-            "text": "Contributes to normal testosterone levels and fertility."
-          }
-        },
-        "icon_item-5": {
+        "active-2": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
             "icon": "lightning",
             "icon_color": "",
             "heading": "Shilajit (PrimaVie®) 200 mg",
-            "text": "Supports energy and stamina."
+            "text": "Stamina · Supports energy and stamina."
           }
         },
-        "icon_item-3": {
+        "active-3": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
-            "icon": "leaf",
+            "icon": "cell-defense",
             "icon_color": "",
-            "heading": "Ashwagandha (KSM-66®) 300 mg",
-            "text": "Supports a calmer response to stress."
+            "heading": "Zinc 30 mg",
+            "text": "Stamina & Volume · Contributes to normal testosterone levels and fertility."
           }
         },
-        "icon_item-2": {
+        "active-4": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
             "icon": "vitality",
             "icon_color": "",
             "heading": "Tongkat Ali 200 mg",
-            "text": "Supports libido and healthy testosterone."
+            "text": "Arousal · Supports libido and healthy testosterone."
           }
         },
-        "icon_item-4": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "plant",
-            "icon_color": "",
-            "heading": "Damiana 300 mg",
-            "text": "A traditional herb used to support desire."
-          }
-        },
-        "icon_item-6": {
+        "active-5": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
             "icon": "sparkle",
             "icon_color": "",
             "heading": "Maca Root 300 mg",
-            "text": "Supports desire and drive."
+            "text": "Arousal · Supports desire and drive."
           }
         },
-        "icon_item-8": {
+        "active-6": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
-            "icon": "check-circle",
+            "icon": "leaf",
             "icon_color": "",
-            "heading": "Pygeum 140 mg",
-            "text": "Traditionally used to support prostate and urinary health."
+            "heading": "Ashwagandha (KSM-66®) 300 mg",
+            "text": "Arousal · Supports a calmer response to stress."
+          }
+        },
+        "active-7": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "molecule",
+            "icon_color": "",
+            "heading": "Sunflower Lecithin 1000 mg",
+            "text": "Volume · Supports healthy reproductive function."
+          }
+        },
+        "active-8": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "plant",
+            "icon_color": "",
+            "heading": "Bromelain 250 mg",
+            "text": "Taste · Included with Pineapple and Chlorophyllin for a fresher natural taste."
           }
         }
       },
       "block_order": [
-        "icon_item-1",
-        "icon_item-7",
-        "icon_item-5",
-        "icon_item-3",
-        "icon_item-2",
-        "icon_item-4",
-        "icon_item-6",
-        "icon_item-8"
+        "active-1",
+        "active-2",
+        "active-3",
+        "active-4",
+        "active-5",
+        "active-6",
+        "active-7",
+        "active-8"
       ],
       "settings": {
         "eyebrow": "",
         "text_style": "text",
         "pill_color": "#f25627",
-        "heading": "Know Exactly What You're Taking",
+        "heading": "Every Milligram Printed. 1500 mg L-Citrulline, Not “Proprietary Blend.”",
         "highlight_words": "",
-        "subheading": "Because “basically a scam” is what most men expect from this category. Every key active and its dose, per 2-gummy serving. No proprietary blend, nothing hidden.",
+        "subheading": "Because “basically a scam” is what most men expect from this category. Every key active, the pathway it supports and its dose per 2-gummy serving. No proprietary blend, nothing hidden.",
         "icon_color": "#f25627",
         "icon_frame": "disc",
         "icon_size": 6,
@@ -863,7 +863,7 @@
             "rating_tenths": 45,
             "text": "Rated <strong>4.8 Excellent</strong> | Over",
             "enable_counter": false,
-            "sold_count": 170000,
+            "sold_count": 23000,
             "sold_suffix": "sold",
             "count_step_1": 1,
             "count_step_2": 3,
