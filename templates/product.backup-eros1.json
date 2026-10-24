@@ -87,7 +87,7 @@
         "subtitle": {
           "type": "text",
           "settings": {
-            "text": "For men 50+ who want their libido back. Two gummies a day. <strong>Be unforgettable in the bedroom.</strong>",
+            "text": "For men 50+ who want their libido back. Two vegan, sugar-free gummies a day. <strong>Be unforgettable in the bedroom.</strong>",
             "text_style": "body"
           }
         },
@@ -547,13 +547,6 @@
             "icon": "sparkle",
             "text": "<strong>Sweetens Taste</strong>: Bromelain, Pineapple and Chlorophyllin, because the details matter to her too."
           }
-        },
-        "vegan": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "leaf",
-            "text": "<strong>Vegan &amp; Sugar-Free</strong>: a gummy you look forward to, not another pill."
-          }
         }
       },
       "block_order": [
@@ -566,7 +559,6 @@
         "pathway-3",
         "pathway-4",
         "pathway-5",
-        "vegan",
         "ces_review_rMr6tU",
         "ces_bundle_v2_6QEajj",
         "review-1",
