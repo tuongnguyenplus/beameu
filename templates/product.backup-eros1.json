@@ -1117,10 +1117,10 @@
         "image_shape": "auto",
         "text_position": "center",
         "overlay_opacity": 0,
-        "eyebrow": "The 5-Pathway Formula",
-        "heading_accent": "",
-        "heading": "The 5-Pathway Formula: One Gummy Doing Five Jobs, Every Morning",
-        "text": "<p><strong>1. After 50, it’s not one thing failing. It’s five slipping together.</strong> Men describe it the same way: “brain fog, lethargy, lower sexual desire”. Blood flow is only part of it.</p><p><strong>2. Prescription pills fix one pathway, for a few hours.</strong> They open blood vessels. They don’t touch desire, energy or stress, and they wear off. They are a proven ED treatment and the right choice for many men.</p><p><strong>3. Single-ingredient supplements fix a different one, and skip the other four.</strong> Tongkat Ali alone touches desire, not blood flow. Citrulline alone does the opposite.</p><p><strong>4. Eros doses all five, every day.</strong> Not for one night. So your baseline lifts and stays there.</p><ul><li>Hardness, Stamina, Arousal, Volume and Taste in one formula</li><li>Every dose printed on the label</li><li>2 gummies a day, no timing the moment</li><li>No prescription, and 90 days to judge it</li></ul>",
+        "eyebrow": "How Eros Works",
+        "heading_accent": "The 5-Pathway Formula",
+        "heading": "One Pill Fixes One Pathway. The 5-Pathway Formula Supports All Five.",
+        "text": "<p>Men over 50 describe it the same way: “brain fog, lethargy, lower sexual desire”. That isn’t one problem. It’s five pathways slipping at once: <strong>hardness, stamina, arousal, volume and taste</strong>.</p><p><strong>Prescription pills work on one</strong>: blood flow, for a few hours. They’re a proven ED treatment and the right choice for many men. <strong>Single-ingredient supplements work on one too</strong>, just a different one.</p><p><strong>The 5-Pathway Formula supports all five, every day</strong>, so your baseline lifts instead of chasing one good night.</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
         "cta_width": "full",
         "cta_arrow": true,
         "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
@@ -1135,62 +1135,96 @@
     "actives": {
       "type": "ces-icon-feature-grid",
       "blocks": {
-        "pathway-1": {
+        "active-1": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
+            "icon": "heart-plus",
+            "icon_color": "",
+            "heading": "L-Citrulline 1500 mg",
+            "text": "Hardness · Supports nitric oxide and healthy blood flow."
+          }
+        },
+        "active-2": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
             "icon": "lightning",
-            "heading": "1. Hardness",
-            "text": "L-Citrulline 1500 mg supports nitric oxide and healthy blood flow."
+            "icon_color": "",
+            "heading": "Shilajit (PrimaVie®) 200 mg",
+            "text": "Stamina · Supports energy and stamina."
           }
         },
-        "pathway-2": {
+        "active-3": {
           "type": "icon_item",
           "settings": {
-            "icon": "stopwatch",
-            "heading": "2. Stamina",
-            "text": "Shilajit (PrimaVie®) 200 mg, Zinc and Copper support energy and stamina."
+            "icon_text": "",
+            "icon": "cell-defense",
+            "icon_color": "",
+            "heading": "Zinc 30 mg",
+            "text": "Stamina & Volume · Contributes to normal testosterone levels and fertility."
           }
         },
-        "pathway-3": {
+        "active-4": {
           "type": "icon_item",
           "settings": {
-            "icon": "fire",
-            "heading": "3. Arousal",
-            "text": "Tongkat Ali, Maca and Damiana support libido; Ashwagandha (KSM-66®) calms stress."
-          }
-        },
-        "pathway-4": {
-          "type": "icon_item",
-          "settings": {
+            "icon_text": "",
             "icon": "vitality",
-            "heading": "4. Volume",
-            "text": "Sunflower Lecithin 1000 mg, Zinc 30 mg and Pygeum 140 mg support reproductive health."
+            "icon_color": "",
+            "heading": "Tongkat Ali 200 mg",
+            "text": "Arousal · Supports libido and healthy testosterone."
           }
         },
-        "pathway-5": {
+        "active-5": {
           "type": "icon_item",
           "settings": {
+            "icon_text": "",
             "icon": "sparkle",
-            "heading": "5. Taste",
-            "text": "Bromelain 250 mg, Pineapple and Chlorophyllin support a fresher natural taste."
+            "icon_color": "",
+            "heading": "Maca Root 300 mg",
+            "text": "Arousal · Supports desire and drive."
           }
         },
-        "pathway-6": {
+        "active-6": {
           "type": "icon_item",
           "settings": {
-            "icon": "check-circle",
-            "heading": "Every Dose On The Label",
-            "text": "No proprietary blend, nothing hidden. Full list under Ingredients."
+            "icon_text": "",
+            "icon": "leaf",
+            "icon_color": "",
+            "heading": "Ashwagandha (KSM-66®) 300 mg",
+            "text": "Arousal · Supports a calmer response to stress."
+          }
+        },
+        "active-7": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "molecule",
+            "icon_color": "",
+            "heading": "Sunflower Lecithin 1000 mg",
+            "text": "Volume · Supports healthy reproductive function."
+          }
+        },
+        "active-8": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "plant",
+            "icon_color": "",
+            "heading": "Bromelain 250 mg",
+            "text": "Taste · Included with Pineapple and Chlorophyllin for a fresher natural taste."
           }
         }
       },
       "block_order": [
-        "pathway-1",
-        "pathway-2",
-        "pathway-3",
-        "pathway-4",
-        "pathway-5",
-        "pathway-6"
+        "active-1",
+        "active-2",
+        "active-3",
+        "active-4",
+        "active-5",
+        "active-6",
+        "active-7",
+        "active-8"
       ],
       "settings": {
         "eyebrow": "",
@@ -1198,13 +1232,13 @@
         "pill_color": "#f25627",
         "heading": "Every Milligram Printed. 1500 mg L-Citrulline, Not “Proprietary Blend.”",
         "highlight_words": "",
-        "subheading": "Because “basically a scam” is what most men expect from this category. Every key active and its dose, per 2-gummy serving. No proprietary blend, nothing hidden.",
+        "subheading": "Because “basically a scam” is what most men expect from this category. Every key active, the pathway it supports and its dose per 2-gummy serving. No proprietary blend, nothing hidden.",
         "icon_color": "#f25627",
         "icon_frame": "disc",
         "icon_size": 6,
         "image_scale": 60,
         "columns_mobile": 2,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "cta_label": "",
         "cta_url": "",
         "cta_footnote": "",
