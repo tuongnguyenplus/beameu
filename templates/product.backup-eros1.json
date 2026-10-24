@@ -80,7 +80,7 @@
           "settings": {
             "star_color": "#f25627",
             "rating_tenths": 48,
-            "text": "<strong>4.8 / 5</strong> · 5,000+ reviews · 23,000+ men served",
+            "text": "&nbsp;Rated <strong>4.8 Excellent</strong> | Over <strong>23,000</strong> men served",
             "enable_counter": false,
             "sold_count": 0,
             "sold_suffix": "",
