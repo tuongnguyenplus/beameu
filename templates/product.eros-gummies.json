@@ -31,9 +31,117 @@
         "padding_bottom": 0
       }
     },
+    "badges": {
+      "type": "ces-announcement-marquee",
+      "blocks": {
+        "benefit-1": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Free Express Shipping",
+            "icon": ""
+          }
+        },
+        "benefit-2": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "90-Day Money-Back Guarantee",
+            "icon": ""
+          }
+        },
+        "benefit-3": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Plain Packaging",
+            "icon": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit-1",
+        "benefit-2",
+        "benefit-3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-eros-orange",
+        "speed": 40,
+        "direction": "left",
+        "pause_on_hover": true,
+        "separator": "•",
+        "icon_style": "none",
+        "font_size": 14,
+        "padding": 10
+      }
+    },
     "main": {
       "type": "ces-main-product",
       "blocks": {
+        "rating-bar": {
+          "type": "ces_rating_bar",
+          "settings": {
+            "star_color": "#f25627",
+            "rating_tenths": 45,
+            "text": "&nbsp;Rated <strong>4.8 Excellent</strong> | Over <strong>23,000</strong> men served",
+            "enable_counter": false,
+            "sold_count": 0,
+            "sold_suffix": "",
+            "count_step_1": 1,
+            "count_step_2": 3,
+            "count_step_3": 4
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "For men 50+ who want their libido back. Two vegan, sugar-free gummies a day. <strong>Be unforgettable in the bedroom.</strong>",
+            "text_style": "body"
+          }
+        },
+        "um-label": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>The 5-Pathway Formula</strong>",
+            "text_style": "uppercase"
+          }
+        },
+        "pathway-1": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "lightning",
+            "text": "<strong>Boosts Hardness</strong>: 1500 mg L-Citrulline supports nitric oxide and healthy blood flow."
+          }
+        },
+        "pathway-2": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "stopwatch",
+            "text": "<strong>Builds Stamina & Energy</strong>: Shilajit (PrimaVie®) and Zinc support energy and normal testosterone levels."
+          }
+        },
+        "pathway-3": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "fire",
+            "text": "<strong>Heightens Arousal & Calm</strong>: Tongkat Ali, Maca and KSM-66® Ashwagandha support desire and a calmer stress response."
+          }
+        },
+        "pathway-4": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "drop",
+            "text": "<strong>Supports Bigger Loads</strong>: Sunflower Lecithin and Zinc support healthy reproductive function."
+          }
+        },
+        "pathway-5": {
+          "type": "ces_highlight",
+          "settings": {
+            "icon": "sparkle",
+            "text": "<strong>Sweetens Taste</strong>: Bromelain, Pineapple and Chlorophyllin, because the details matter to her too."
+          }
+        },
         "ces_review_rMr6tU": {
           "type": "ces_review",
           "settings": {
@@ -64,59 +172,6 @@
             "title_5": "",
             "quote_5": "",
             "name_5": ""
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "rating-bar": {
-          "type": "ces_rating_bar",
-          "settings": {
-            "star_color": "#f25627",
-            "rating_tenths": 45,
-            "text": "Rated <strong>4.8 Excellent</strong> | Over",
-            "enable_counter": false,
-            "sold_count": 23000,
-            "sold_suffix": "sold",
-            "count_step_1": 1,
-            "count_step_2": 3,
-            "count_step_3": 4
-          }
-        },
-        "subtitle": {
-          "type": "text",
-          "settings": {
-            "text": "&nbsp;For men 45+ who want their libido back. Two gummies a day with 20+ potent ingredients to support energy and confidence. <strong>Be unforgettable in the bedroom.&nbsp;</strong>",
-            "text_style": "body"
-          }
-        },
-        "benefit-1": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "lightning",
-            "text": "Boosts <strong>hardness & stamina</strong>"
-          }
-        },
-        "benefit-2": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "fire",
-            "text": "Heightens <strong>arousal & desire</strong>"
-          }
-        },
-        "benefit-3": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "drop",
-            "text": "Sweetens taste, <strong>bigger loads</strong>"
-          }
-        },
-        "benefit-4": {
-          "type": "ces_highlight",
-          "settings": {
-            "icon": "leaf",
-            "text": "Vegan, sugar-free & <strong>no awkward pills</strong>"
           }
         },
         "ces_bundle_v2_6QEajj": {
@@ -327,8 +382,36 @@
             "align": "center"
           }
         },
+        "cta-box": {
+          "type": "ces_shipping_item",
+          "settings": {
+            "icon": "lock",
+            "text": "Plain box. No product name on the outside.",
+            "standalone": false,
+            "align": "center"
+          }
+        },
+        "cta-statement": {
+          "type": "ces_shipping_item",
+          "settings": {
+            "icon": "shield",
+            "text": "Your card statement reads “LUMEO”. Nothing else.",
+            "standalone": false,
+            "align": "center"
+          }
+        },
+        "cta-refund": {
+          "type": "ces_shipping_item",
+          "settings": {
+            "icon": "return",
+            "text": "90 days to judge it. Email “refund” and we send your money back.",
+            "standalone": false,
+            "align": "center"
+          }
+        },
         "ship-1": {
           "type": "ces_shipping_item",
+          "disabled": true,
           "settings": {
             "icon": "check-circle",
             "text": "2 gummies a day, no planning around a pill",
@@ -338,9 +421,20 @@
         },
         "ship-2": {
           "type": "ces_shipping_item",
+          "disabled": true,
           "settings": {
             "icon": "check-circle",
             "text": "Every ingredient and dose on the label",
+            "standalone": false,
+            "align": "center"
+          }
+        },
+        "ship-vegan": {
+          "type": "ces_shipping_item",
+          "disabled": true,
+          "settings": {
+            "icon": "check-circle",
+            "text": "Vegan, sugar-free &amp; no awkward pills",
             "standalone": false,
             "align": "center"
           }
@@ -367,7 +461,7 @@
             "image": "shopify://shop_images/1733673742-image_7.avif",
             "badge_text": "90 DAY",
             "heading": "90-Day Money Back Guarantee",
-            "text": "<p>Try Eros Gummies for 90 days. If you're not happy with the results, get 100% of your money back.</p>"
+            "text": "<p>Try Eros for 90 days. If it isn’t working for you, email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.</p>"
           }
         },
         "faq-1": {
@@ -379,19 +473,28 @@
             "page": ""
           }
         },
-        "faq-2": {
+        "faq-7": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Why Lumeo Eros Gummies?",
+            "heading": "Is this safe with my medications?",
             "icon": "none",
-            "content": "<p><strong>It's simple!</strong></p><p><strong>It Actually Works:</strong> Two gummies a day is all it takes to transform your performance in the bedroom — harder, longer, hungrier. Results she'll feel before you even say a word.</p><p><strong>Discreet & Easy:</strong> No awkward pills, no complicated routines, no timing the moment. Just two delicious gummies a day and you're ready whenever she is.</p><p><strong>Confidence You Can Feel:</strong> Stop wondering, stop worrying. Walk into every intimate moment knowing you'll show up like the best version of yourself — every single time.</p><p><strong>No Nasty Stuff:</strong> Vegan, sugar-free, great tasting, and powered by 20 clinically-studied ingredients. Nothing you don't need, everything you do.</p>",
+            "content": "<p>Talk to your doctor first if you take any prescription medication, especially for blood pressure, your heart (including nitrates), diabetes, blood thinning or ED, or if you have a medical condition. L-Citrulline can affect blood pressure, and herbal ingredients such as Ashwagandha and Tongkat Ali can interact with some medicines. Every ingredient and dose is listed, so you can show your doctor exactly what's in it.</p>",
+            "page": ""
+          }
+        },
+        "faq-8": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "When should I see a doctor?",
+            "icon": "none",
+            "content": "<p>See a healthcare professional if changes in erections are sudden or persistent, or come with chest pain, shortness of breath, numbness or other new symptoms. Erection changes can be an early sign of heart or blood-sugar problems, and those deserve a proper check-up.</p>",
             "page": ""
           }
         },
         "acc-3": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Ingredients & allergies",
+            "heading": "Full ingredient list & doses",
             "icon": "none",
             "content": "<p><strong>Active ingredients (per 2 gummies):</strong></p><ul><li>L-Citrulline — 1500 mg</li><li>Sunflower Lecithin — 1000 mg</li><li>Damiana Extract — 300 mg</li><li>Maca Root Extract — 300 mg</li><li>Ashwagandha (KSM-66®) — 300 mg</li><li>Bromelain — 250 mg</li><li>Tongkat Ali Extract — 200 mg</li><li>Shilajit (PrimaVie®) — 200 mg</li><li>Chlorophyllin — 150 mg</li><li>Pygeum — 140 mg</li><li>Pineapple Fruit Extract — 100 mg</li><li>Celery Seed Extract — 100 mg</li><li>Zinc Bisglycinate — 30 mg</li><li>Copper — 1 mg</li></ul><p>Vegan and sugar-free. Check the label for the full ingredient and allergen list.</p>",
             "page": ""
@@ -400,7 +503,7 @@
         "faq-4": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "How do I take it?",
+            "heading": "How to take it",
             "icon": "none",
             "content": "<p>Take 2 gummies a day, every day, morning or night, with or without food. Take them at the same time each day so you don't miss days; consistency is what makes a supplement work.</p>",
             "page": ""
@@ -424,37 +527,37 @@
             "page": ""
           }
         },
-        "faq-7": {
+        "faq-discreet": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
-            "heading": "Can I take it with my medication?",
+            "heading": "Shipping & discreet delivery",
             "icon": "none",
-            "content": "<p>Talk to your doctor first if you take any prescription medication, especially for blood pressure, your heart (including nitrates), diabetes, blood thinning or ED, or if you have a medical condition. L-Citrulline can affect blood pressure, and herbal ingredients such as Ashwagandha and Tongkat Ali can interact with some medicines. Every ingredient and dose is listed, so you can show your doctor exactly what's in it.</p>",
-            "page": ""
-          }
-        },
-        "faq-8": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "When should I see a doctor?",
-            "icon": "none",
-            "content": "<p>See a healthcare professional if changes in erections are sudden or persistent, or come with chest pain, shortness of breath, numbness or other new symptoms. Erection changes can be an early sign of heart or blood-sugar problems, and those deserve a proper check-up.</p>",
+            "content": "<p>Free express shipping, with a tracking link by email as soon as your order leaves our facility.</p><p>Every order ships in a plain box with no product name or description on the outside. Your card statement reads “LUMEO”, nothing else.</p>",
             "page": ""
           }
         },
         "faq-9": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Do you offer a guarantee?",
+            "heading": "Guarantee & refunds",
             "icon": "none",
-            "content": "<p>Yes, a 90-day money-back guarantee that covers the full routine. If you're not happy with your results, contact us for a full refund.</p>",
+            "content": "<p>You have 90 days to judge it. If it isn’t working for you, email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back. No form, no questions.</p>",
+            "page": ""
+          }
+        },
+        "faq-2": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Why Lumeo Eros Gummies?",
+            "icon": "none",
+            "content": "<p><strong>It works on 5 pathways, not 1.</strong> The 5-Pathway Formula supports Hardness, Stamina, Arousal, Volume and Taste in two daily gummies, where most products only touch one.</p><p><strong>It Actually Works:</strong> Two gummies a day is all it takes to transform your performance in the bedroom — harder, longer, hungrier. Results she'll feel before you even say a word.</p><p><strong>Discreet & Easy:</strong> No awkward pills, no complicated routines, no timing the moment. Just two delicious gummies a day and you're ready whenever she is.</p><p><strong>Confidence You Can Feel:</strong> Stop wondering, stop worrying. Walk into every intimate moment knowing you'll show up like the best version of yourself — every single time.</p><p><strong>No Nasty Stuff:</strong> Vegan, sugar-free, great tasting, and powered by 20 clinically-studied ingredients. Nothing you don't need, everything you do.</p>",
             "page": ""
           }
         },
         "acc-9": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Shipping information",
             "icon": "none",
@@ -468,7 +571,7 @@
           "settings": {
             "heading": "Disclaimer",
             "icon": "none",
-            "content": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>",
+            "content": "<p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>",
             "page": ""
           }
         },
@@ -482,21 +585,23 @@
             "overlay_opacity": 0,
             "heading": "Why Men 50+ Choose Eros",
             "icon": "check-circle",
-            "items": "Every Dose On The Label, No Proprietary Blend\n2 Gummies A Day, Any Time\nNo Prescription Or Appointment\nVegan & Sugar-Free\nMade For Daily Use\n90-Day Money-Back Guarantee",
+            "items": "The 5-Pathway Formula In One Gummy\nEvery Dose On The Label, No Proprietary Blend\n2 Gummies A Day, Any Time\nNo Prescription Or Appointment\nPlain Packaging, Discreet Billing\n90-Day Money-Back Guarantee",
             "footnote": "Not a drug. Not a miracle. A daily routine you understand.",
             "text_alignment": "center"
           }
         }
       },
       "block_order": [
-        "ces_review_rMr6tU",
-        "title",
         "rating-bar",
+        "title",
         "subtitle",
-        "benefit-1",
-        "benefit-2",
-        "benefit-3",
-        "benefit-4",
+        "um-label",
+        "pathway-1",
+        "pathway-2",
+        "pathway-3",
+        "pathway-4",
+        "pathway-5",
+        "ces_review_rMr6tU",
         "ces_bundle_v2_6QEajj",
         "review-1",
         "shipping-estimate",
@@ -505,20 +610,25 @@
         "quantity_selector",
         "buy_buttons",
         "guarantee-line",
+        "cta-box",
+        "cta-statement",
+        "cta-refund",
         "ship-1",
         "ship-2",
+        "ship-vegan",
         "ship-3",
         "payment-badges",
         "guarantee-card",
         "faq-1",
-        "faq-2",
+        "faq-7",
+        "faq-8",
         "acc-3",
         "faq-4",
         "faq-5",
         "faq-6",
-        "faq-7",
-        "faq-8",
+        "faq-discreet",
         "faq-9",
+        "faq-2",
         "acc-9",
         "acc-10",
         "trust-panel"
@@ -548,6 +658,80 @@
         "atc_text": "#ffffff",
         "atc_hover_bg": "#000000",
         "atc_hover_text": "#ffffff"
+      }
+    },
+    "mornings": {
+      "type": "ces-photo-wall",
+      "blocks": {
+        "point-1": {
+          "type": "point",
+          "settings": {
+            "icon": "heart",
+            "title": "“Emotionally connected to my wife”",
+            "text": "Intimacy that feels close again, not like a test you might fail."
+          }
+        },
+        "point-2": {
+          "type": "point",
+          "settings": {
+            "icon": "brighten",
+            "title": "“Sexually confident”",
+            "text": "Walking in without the knot in your stomach."
+          }
+        },
+        "point-3": {
+          "type": "point",
+          "settings": {
+            "icon": "stopwatch",
+            "title": "No more “preparing to have sex”",
+            "text": "Two gummies a day. No timing, no mental math."
+          }
+        },
+        "point-4": {
+          "type": "point",
+          "settings": {
+            "icon": "check-circle",
+            "title": "“Comfortable with myself”",
+            "text": "Feeling like yourself again, at 50, 60 and beyond."
+          }
+        },
+        "point-5": {
+          "type": "point",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Not “just accept it”",
+            "text": "Doing something sensible about it, on your terms."
+          }
+        }
+      },
+      "block_order": [
+        "point-1",
+        "point-2",
+        "point-3",
+        "point-4",
+        "point-5"
+      ],
+      "settings": {
+        "layout": "split",
+        "eyebrow": "What Men Over 50 Say They Want",
+        "heading": "“More Comfortable With Myself”. That’s What This Is Really About.",
+        "heading_accent": "More Comfortable With Myself",
+        "subheading": "",
+        "columns": 2,
+        "height": 520,
+        "duration": 45,
+        "pause_on_hover": true,
+        "fade_edges": true,
+        "image_ratio": "4/5",
+        "cta_label": "GET MY CONFIDENCE BACK",
+        "cta_url": "#shopify-section-main",
+        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
+        "cta_arrow": true,
+        "cta_width": "full",
+        "point_separator": "dot",
+        "color_scheme": "scheme-eros-peach",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "ces_press_strip_DRFEQp": {
@@ -620,6 +804,7 @@
         "logo_WCzwQt",
         "logo_PQh9dq"
       ],
+      "disabled": true,
       "name": "CES Press strip",
       "settings": {
         "label": "AS SEEN ON",
@@ -634,153 +819,6 @@
         "color_scheme": "scheme-eros-peach",
         "padding_top": 24,
         "padding_bottom": 12
-      }
-    },
-    "badges": {
-      "type": "ces-announcement-marquee",
-      "blocks": {
-        "marquee_item-1": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "Every Dose On The Label",
-            "icon": ""
-          }
-        },
-        "marquee_item-2": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "No Proprietary Blend",
-            "icon": ""
-          }
-        },
-        "marquee_item-3": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "2 Gummies A Day",
-            "icon": ""
-          }
-        },
-        "marquee_item-4": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "No Prescription Needed",
-            "icon": ""
-          }
-        },
-        "marquee_item-5": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "Vegan & Sugar-Free",
-            "icon": ""
-          }
-        },
-        "marquee_item-6": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "90-Day Guarantee",
-            "icon": ""
-          }
-        },
-        "marquee_item-7": {
-          "type": "marquee_item",
-          "settings": {
-            "text": "Free Shipping",
-            "icon": ""
-          }
-        }
-      },
-      "block_order": [
-        "marquee_item-1",
-        "marquee_item-2",
-        "marquee_item-3",
-        "marquee_item-4",
-        "marquee_item-5",
-        "marquee_item-6",
-        "marquee_item-7"
-      ],
-      "settings": {
-        "color_scheme": "scheme-eros-orange",
-        "speed": 40,
-        "direction": "left",
-        "pause_on_hover": true,
-        "separator": "•",
-        "icon_style": "none",
-        "font_size": 14,
-        "padding": 10
-      }
-    },
-    "mornings": {
-      "type": "ces-photo-wall",
-      "blocks": {
-        "point-1": {
-          "type": "point",
-          "settings": {
-            "icon": "heart",
-            "title": "“Emotionally connected to my wife”",
-            "text": "Intimacy that feels close again, not like a test you might fail."
-          }
-        },
-        "point-2": {
-          "type": "point",
-          "settings": {
-            "icon": "brighten",
-            "title": "“Sexually confident”",
-            "text": "Walking in without the knot in your stomach."
-          }
-        },
-        "point-3": {
-          "type": "point",
-          "settings": {
-            "icon": "stopwatch",
-            "title": "No more “preparing to have sex”",
-            "text": "Two gummies a day. No timing, no mental math."
-          }
-        },
-        "point-4": {
-          "type": "point",
-          "settings": {
-            "icon": "check-circle",
-            "title": "“Comfortable with myself”",
-            "text": "Feeling like yourself again, at 50, 60 and beyond."
-          }
-        },
-        "point-5": {
-          "type": "point",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Not “just accept it”",
-            "text": "Doing something sensible about it, on your terms."
-          }
-        }
-      },
-      "block_order": [
-        "point-1",
-        "point-2",
-        "point-3",
-        "point-4",
-        "point-5"
-      ],
-      "settings": {
-        "layout": "split",
-        "eyebrow": "What Men Over 45 Say They Want",
-        "heading": "“More Comfortable With Myself”. That’s What This Is Really About.",
-        "heading_accent": "More Comfortable With Myself",
-        "subheading": "",
-        "columns": 2,
-        "height": 520,
-        "duration": 45,
-        "pause_on_hover": true,
-        "fade_edges": true,
-        "image_ratio": "4/5",
-        "cta_label": "GET MY CONFIDENCE BACK",
-        "cta_url": "#shopify-section-main",
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "cta_arrow": true,
-        "cta_width": "full",
-        "point_separator": "dot",
-        "color_scheme": "scheme-eros-peach",
-        "padding_top": 40,
-        "padding_bottom": 40
       }
     },
     "qualify": {
@@ -832,15 +870,15 @@
         "item-6"
       ],
       "settings": {
-        "heading": "“Anyone Else Feel Like Their Best Years Are Behind Them?”",
+        "heading": "After 50, It’s Never Just Blood Flow. It’s Five Things Slipping At Once.",
         "subheading": "",
         "tick_style": "outline",
         "show_dividers": false,
         "columns_desktop": "1",
-        "heading_accent": "Best Years Are Behind Them?",
+        "heading_accent": "Five Things Slipping At Once.",
         "image_position": "right",
         "image_alt": "",
-        "image_caption": "Every line above was written by a man over 50 on Reddit, word for word. If you've thought any of it, you're not alone. And you're not past it.",
+        "image_caption": "Every line above was written by a man over 50 on Reddit, word for word. If you've thought any of it, you're not alone. And you're not past it. Read them again: desire, energy, stress, confidence, performance. That isn’t one thing failing. It’s five pathways slipping together.",
         "color_scheme": "scheme-eros-light",
         "padding_top": 40,
         "padding_bottom": 24
@@ -967,7 +1005,7 @@
       ],
       "name": "CES Testimonial marquee",
       "settings": {
-        "heading": "In Their Own Words",
+        "heading": "Read What Men Over 50 Actually Say About Cialis, Gummies And Giving Up",
         "subheading": "What men over 50 say about the options they've already tried.",
         "avatar_shape": "tile",
         "avatar_speed": 35,
@@ -987,7 +1025,7 @@
             "icon": "lock",
             "icon_color": "",
             "heading": "Prescription Pills",
-            "text": "“that gives headaches”"
+            "text": "“that gives headaches” · Blood flow only, for a few hours"
           }
         },
         "icon_item-2": {
@@ -997,7 +1035,7 @@
             "icon": "stopwatch",
             "icon_color": "",
             "heading": "Pill-And-Wait",
-            "text": "“needing to plan”"
+            "text": "“needing to plan” · Works on demand, then wears off"
           }
         },
         "icon_item-3": {
@@ -1007,7 +1045,7 @@
             "icon": "eye",
             "icon_color": "",
             "heading": "Mystery-Blend Gummies",
-            "text": "“basically a scam”"
+            "text": "“basically a scam” · No way to know which pathway, at what dose"
           }
         },
         "icon_item-4": {
@@ -1017,7 +1055,7 @@
             "icon": "molecule",
             "icon_color": "",
             "heading": "Single Ingredients",
-            "text": "One piece of the picture"
+            "text": "One pathway covered, four ignored"
           }
         },
         "icon_item-5": {
@@ -1027,7 +1065,7 @@
             "icon": "fire",
             "icon_color": "",
             "heading": "Higher Doses",
-            "text": "“not working as good anymore”"
+            "text": "“not working as good anymore” · More of one pathway is still one"
           }
         },
         "icon_item-6": {
@@ -1037,7 +1075,7 @@
             "icon": "heart",
             "icon_color": "",
             "heading": "Giving Up",
-            "text": "“just accept it”"
+            "text": "“just accept it” · Zero pathways"
           }
         }
       },
@@ -1053,7 +1091,7 @@
         "eyebrow": "That's Why So Many Men Give Up.",
         "text_style": "pill",
         "pill_color": "#f25627",
-        "heading": "Every Option Seems To Come With A Catch:",
+        "heading": "Every Option On The Market Fixes One Pathway And Ignores The Other Four",
         "highlight_words": "",
         "subheading": "",
         "icon_color": "#f25627",
@@ -1081,9 +1119,9 @@
         "text_position": "center",
         "overlay_opacity": 0,
         "eyebrow": "How Eros Works",
-        "heading_accent": "",
-        "heading": "Built For The Whole Picture, Not Just One Night",
-        "text": "<p>Men over 45 describe it the same way: “brain fog, lethargy, lower sexual desire”. It’s rarely only about blood flow. Desire, stress, energy and confidence are all part of feeling like yourself, which is why Eros doesn’t lean on a single ingredient.</p><p><strong>Healthy blood flow</strong>: L-Citrulline (1500 mg) supports nitric oxide production.<br/><strong>Desire</strong>: Tongkat Ali, Maca and Damiana support libido.<br/><strong>Stress</strong>: Ashwagandha (KSM-66®) supports a calmer stress response.<br/><strong>Energy</strong>: Shilajit (PrimaVie®), Zinc and Copper support energy and normal testosterone levels.</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
+        "heading_accent": "The 5-Pathway Formula",
+        "heading": "One Pill Fixes One Pathway. The 5-Pathway Formula Supports All Five.",
+        "text": "<p>Men over 50 describe it the same way: “brain fog, lethargy, lower sexual desire”. That isn’t one problem. It’s five pathways slipping at once: <strong>hardness, stamina, arousal, volume and taste</strong>.</p><p><strong>Prescription pills work on one</strong>: blood flow, for a few hours. They’re a proven ED treatment and the right choice for many men. <strong>Single-ingredient supplements work on one too</strong>, just a different one.</p><p><strong>The 5-Pathway Formula supports all five, every day</strong>, so your baseline lifts instead of chasing one good night.</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
         "cta_width": "full",
         "cta_arrow": true,
         "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
@@ -1098,104 +1136,104 @@
     "actives": {
       "type": "ces-icon-feature-grid",
       "blocks": {
-        "icon_item-1": {
+        "active-1": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
             "icon": "heart-plus",
             "icon_color": "",
             "heading": "L-Citrulline 1500 mg",
-            "text": "Supports nitric oxide and healthy blood flow."
+            "text": "Hardness · Supports nitric oxide and healthy blood flow."
           }
         },
-        "icon_item-7": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "cell-defense",
-            "icon_color": "",
-            "heading": "Zinc 30 mg",
-            "text": "Contributes to normal testosterone levels and fertility."
-          }
-        },
-        "icon_item-5": {
+        "active-2": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
             "icon": "lightning",
             "icon_color": "",
             "heading": "Shilajit (PrimaVie®) 200 mg",
-            "text": "Supports energy and stamina."
+            "text": "Stamina · Supports energy and stamina."
           }
         },
-        "icon_item-3": {
+        "active-3": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
-            "icon": "leaf",
+            "icon": "cell-defense",
             "icon_color": "",
-            "heading": "Ashwagandha (KSM-66®) 300 mg",
-            "text": "Supports a calmer response to stress."
+            "heading": "Zinc 30 mg",
+            "text": "Stamina & Volume · Contributes to normal testosterone levels and fertility."
           }
         },
-        "icon_item-2": {
+        "active-4": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
             "icon": "vitality",
             "icon_color": "",
             "heading": "Tongkat Ali 200 mg",
-            "text": "Supports libido and healthy testosterone."
+            "text": "Arousal · Supports libido and healthy testosterone."
           }
         },
-        "icon_item-4": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "plant",
-            "icon_color": "",
-            "heading": "Damiana 300 mg",
-            "text": "A traditional herb used to support desire."
-          }
-        },
-        "icon_item-6": {
+        "active-5": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
             "icon": "sparkle",
             "icon_color": "",
             "heading": "Maca Root 300 mg",
-            "text": "Supports desire and drive."
+            "text": "Arousal · Supports desire and drive."
           }
         },
-        "icon_item-8": {
+        "active-6": {
           "type": "icon_item",
           "settings": {
             "icon_text": "",
-            "icon": "check-circle",
+            "icon": "leaf",
             "icon_color": "",
-            "heading": "Pygeum 140 mg",
-            "text": "Traditionally used to support prostate and urinary health."
+            "heading": "Ashwagandha (KSM-66®) 300 mg",
+            "text": "Arousal · Supports a calmer response to stress."
+          }
+        },
+        "active-7": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "molecule",
+            "icon_color": "",
+            "heading": "Sunflower Lecithin 1000 mg",
+            "text": "Volume · Supports healthy reproductive function."
+          }
+        },
+        "active-8": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "plant",
+            "icon_color": "",
+            "heading": "Bromelain 250 mg",
+            "text": "Taste · Included with Pineapple and Chlorophyllin for a fresher natural taste."
           }
         }
       },
       "block_order": [
-        "icon_item-1",
-        "icon_item-7",
-        "icon_item-5",
-        "icon_item-3",
-        "icon_item-2",
-        "icon_item-4",
-        "icon_item-6",
-        "icon_item-8"
+        "active-1",
+        "active-2",
+        "active-3",
+        "active-4",
+        "active-5",
+        "active-6",
+        "active-7",
+        "active-8"
       ],
       "settings": {
         "eyebrow": "",
         "text_style": "text",
         "pill_color": "#f25627",
-        "heading": "Know Exactly What You're Taking",
+        "heading": "Every Milligram Printed. 1500 mg L-Citrulline, Not “Proprietary Blend.”",
         "highlight_words": "",
-        "subheading": "Because “basically a scam” is what most men expect from this category. Every key active and its dose, per 2-gummy serving. No proprietary blend, nothing hidden.",
+        "subheading": "Because “basically a scam” is what most men expect from this category. Every key active, the pathway it supports and its dose per 2-gummy serving. No proprietary blend, nothing hidden.",
         "icon_color": "#f25627",
         "icon_frame": "disc",
         "icon_size": 6,
@@ -1215,6 +1253,20 @@
     "compare": {
       "type": "ces-compare-matrix",
       "blocks": {
+        "row-um": {
+          "type": "row",
+          "settings": {
+            "label": "Works on all 5 pathways",
+            "brand": "yes",
+            "brand_note": "",
+            "col_1": "no",
+            "col_1_note": "",
+            "col_2": "partial",
+            "col_2_note": "",
+            "col_3": "no",
+            "col_3_note": ""
+          }
+        },
         "row-1": {
           "type": "row",
           "settings": {
@@ -1287,6 +1339,7 @@
         }
       },
       "block_order": [
+        "row-um",
         "row-1",
         "row-2",
         "row-3",
@@ -1295,7 +1348,7 @@
       ],
       "settings": {
         "eyebrow": "An Honest Comparison",
-        "heading": "What Eros Is, And What It Isn't",
+        "heading": "Eros vs. Prescription Pills vs. Mystery-Blend Gummies, Side By Side",
         "subheading": "",
         "table_caption": "Eros compared with prescription ED pills, mystery-blend gummies and single-ingredient supplements",
         "brand_label": "EROS",
@@ -1308,6 +1361,51 @@
         "footnote": "<p>Prescription ED medication is a proven treatment for erectile dysfunction and the right choice for many men, so talk to your doctor about it. Eros is not a drug and not a substitute for medical care. It's a daily dietary supplement for men who want to support desire, energy and confidence as part of a healthy routine.</p>",
         "color_scheme": "scheme-eros-light",
         "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "howto": {
+      "type": "ces-usage-steps",
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "title": "Take 2 Gummies",
+            "text": "Once a day, morning or night, with or without food."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "title": "Stay Consistent",
+            "text": "Every day — not just before date night. Daily use is what makes it work."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "title": "Give It 60 To 90 Days",
+            "text": "Some men notice a difference in 2 to 4 weeks; give it the full 60 to 90 days."
+          }
+        }
+      },
+      "block_order": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Two Gummies With Your Coffee. That Is The Entire Protocol.",
+        "subheading": "",
+        "note": "<p>Consistency matters more than timing. The ingredients in Eros work best when taken every day — so make it part of your morning or evening and don't skip days.</p><p>Each bag holds 60 gummies: a full month.</p>",
+        "cta_label": "GET MY CONFIDENCE BACK",
+        "cta_url": "#shopify-section-main",
+        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
+        "cta_arrow": true,
+        "cta_width": "full",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 32,
         "padding_bottom": 40
       }
     },
@@ -1413,7 +1511,7 @@
         "subheading": "",
         "avatar_shape": "tile",
         "avatar_speed": 35,
-        "disclaimer": "<p>*Results vary from person to person. These reviews describe individual experiences and are not a promise of any particular outcome.</p>",
+        "disclaimer": "<p>Results vary from person to person. These reviews describe individual experiences and are not a promise of any particular outcome.</p>",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 40
@@ -1438,9 +1536,9 @@
           "settings": {
             "state": "auto",
             "time_label": "WEEKS 3-4",
-            "heading": "She Notices Before You Say Anything",
-            "bullets": "Morning erections come back first. For most men this is the first thing they can actually point to.\n\nDesire stops being something you have to summon.\n\nThis is the window partners start commenting in. \"She literally asked what I changed\" is our single most common review — and not one of those men announced they were taking anything.",
-            "content": "<p><strong>THE WEEK 4 PROMISE</strong><br/><br/>If she hasn't said something by day 28 — unprompted, without you telling her you're taking anything — email us the word \"refund.\"<br/>You keep the bag.<br/><br/><strong>We're not asking you to be patient. We're asking you to test us.</strong></p>",
+            "heading": "She May Notice Before You Say Anything",
+            "bullets": "Many men say morning erections are the first thing they notice.\n\nDesire stops being something you have to summon.\n\nThis is the window some partners start commenting in, often before anything is said.",
+            "content": "<p><strong>THE 90-DAY GUARANTEE</strong><br/><br/>If it isn’t working for you, email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.</p>",
             "open": false
           }
         },
@@ -1450,7 +1548,7 @@
             "state": "auto",
             "time_label": "WEEKS 5-8",
             "heading": "You Stop Thinking About It",
-            "bullets": "Harder, and it holds. L-Citrulline needs roughly six weeks to finish its work on blood flow.\n\nYou stop monitoring yourself mid-act. Nobody warns you how much mental space that was taking until it's gone.\n\nTaste has fully turned over. Bromelain and chlorophyll work on a cycle, not a switch — week 6 is when partners stop noticing anything at all.",
+            "bullets": "For many men, firmness becomes more consistent.L-Citrulline is a daily nutrient, not an on-demand trigger, which is why consistency matters.\n\nYou stop monitoring yourself mid-act. Nobody warns you how much mental space that was taking until it’s gone.\n\nBromelain and chlorophyll work on a cycle, not a switch. Keep going.",
             "content": "",
             "open": false
           }
@@ -1461,7 +1559,7 @@
             "state": "auto",
             "time_label": "WEEK 9+",
             "heading": "This Is Just You Now",
-            "bullets": "Two gummies is part of your morning. You don't think about it.\nThis is a new baseline, not a peak you're straining to hold.\nAnd if you're standing here at week 9 with nothing to show for\n  it — then we were wrong about you, and we pay. One email with \"refund\" in the subject. Money back in 24 hours. No questions, no return shipping, no form.",
+            "bullets": "Two gummies is part of your morning. You don’t think about it.\nThis is a new baseline, not a peak you’re straining to hold.\nAnd if you’re standing here at week 9 with nothing to show for it, then we were wrong about you. Email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.",
             "content": "",
             "open": false
           }
@@ -1476,10 +1574,9 @@
       "name": "CES Timeline",
       "settings": {
         "display": "open",
-        "image": "shopify://shop_images/15_500fb482-749a-4df3-9c3f-40fed7116231.webp",
         "image_position": "start",
         "image_ratio": "auto",
-        "heading": "What To Expect, Honestly",
+        "heading": "Week 3 Is When Many Men First Notice Something They Can Point To",
         "subheading": "Supplements aren't instant. Here's a realistic picture of daily use.",
         "fill_speed": 900,
         "meta_opacity": 100,
@@ -1490,7 +1587,180 @@
         "background_pattern": "dots",
         "color_scheme": "scheme-eros-light",
         "padding_top": 40,
+        "padding_bottom": 40,
+        "image": "shopify://shop_images/15_500fb482-749a-4df3-9c3f-40fed7116231.webp"
+      }
+    },
+    "safety": {
+      "type": "ces-icon-feature-grid",
+      "blocks": {
+        "safety-1": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "heart",
+            "icon_color": "",
+            "heading": "On Blood Pressure Or Heart Meds?",
+            "text": "Including nitrates: ask your doctor before taking Eros. L-Citrulline can lower blood pressure."
+          }
+        },
+        "safety-2": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "lightning",
+            "icon_color": "",
+            "heading": "Already Taking An ED Pill?",
+            "text": "Don’t combine them without your doctor’s OK."
+          }
+        },
+        "safety-3": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "eye",
+            "icon_color": "",
+            "heading": "Who Shouldn’t Take It",
+            "text": "Anyone under 18, or anyone told by a doctor to avoid sexual activity or herbal supplements."
+          }
+        },
+        "safety-4": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "check-circle",
+            "icon_color": "",
+            "heading": "Show Your Doctor The Label",
+            "text": "Every ingredient and dose is printed. Full list under “Full ingredient list & doses” above."
+          }
+        },
+        "safety-5": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "lock",
+            "icon_color": "",
+            "heading": "A Plain Box On Your Porch",
+            "text": "No product name or description on the outside."
+          }
+        },
+        "safety-6": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "sparkle",
+            "icon_color": "",
+            "heading": "A Neutral Name On Your Statement",
+            "text": "Your card statement reads “LUMEO”. Nothing else."
+          }
+        }
+      },
+      "block_order": [
+        "safety-1",
+        "safety-2",
+        "safety-3",
+        "safety-4",
+        "safety-5",
+        "safety-6"
+      ],
+      "settings": {
+        "eyebrow": "Safety & Discretion",
+        "text_style": "text",
+        "pill_color": "#f25627",
+        "heading": "What To Tell Your Doctor, And What The Box Looks Like On Your Porch",
+        "highlight_words": "",
+        "subheading": "Feeling safe matters more than anything we could promise. Here is the plain version.",
+        "icon_color": "#f25627",
+        "icon_frame": "disc",
+        "icon_size": 7,
+        "image_scale": 70,
+        "columns_mobile": 1,
+        "columns_desktop": 3,
+        "cta_label": "",
+        "cta_url": "",
+        "cta_footnote": "",
+        "cta_arrow": false,
+        "cta_width": "auto",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 32,
         "padding_bottom": 40
+      }
+    },
+    "founder": {
+      "type": "ces-stat-proof",
+      "settings": {
+        "eyebrow": "A Note From Our Founder",
+        "heading": "At 56, I Started Making Excuses When My Wife Reached for Me.",
+        "subheading": "",
+        "body": "<p>I’m John, the founder of LUMEO. I live in Burlington, Colorado, and the idea for this company started at home.</p><p>My drive wasn’t what it used to be. And even when I wanted to be close to my wife, I’d catch myself worrying about whether my body would cooperate.</p><p>So I started putting it off. Long day. Too tired. Maybe tomorrow.</p><p>Then something else started bothering me: <em>What if she thought I didn’t want her anymore?</em></p><p><strong>I hadn’t lost interest in her. I was losing confidence in myself.</strong></p><p>Eventually, I opened up to friends with backgrounds in natural products chemistry and supplement formulation. I told them what I was dealing with and asked them to help me make sense of the options.</p><p>Those conversations turned into a project. They advised me on ingredient selection and formulation, helping turn my idea into a daily supplement.</p><p>That work became LUMEO and our <strong>5-Pathway Formula</strong>: support for hardness, stamina, arousal, volume and taste, in a simple routine of two gummies a day.</p><p>I wanted to understand every ingredient we chose and be able to explain why it was there. That’s something I owe every man who buys from us, too.</p><p>I remember how hard it was to bring this up. When you come to LUMEO with questions, I want you to feel comfortable asking them, and know you’ll get a straight answer.</p><p><strong>John</strong><br/>Founder, LUMEO</p>",
+        "image": "shopify://shop_images/9ebeb612-4a24-4ca4-a062-79eeebe28244.webp",
+        "image_position": "above_body",
+        "image_alt": "John, founder of LUMEO",
+        "image_caption": "",
+        "callout_label": "",
+        "callout_lead": "",
+        "callout_figure": "",
+        "callout_text": "",
+        "callout_source": "",
+        "callout_bg": "#fff8bd",
+        "callout_border": "#000000",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-eros-peach",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "guarantee": {
+      "type": "ces-guarantee",
+      "blocks": {
+        "promise-1": {
+          "type": "promise",
+          "settings": {
+            "icon": "stopwatch",
+            "title": "A Full 90 Days",
+            "text": "Enough time to take them consistently and judge the results for yourself."
+          }
+        },
+        "promise-2": {
+          "type": "promise",
+          "settings": {
+            "icon": "return",
+            "title": "Email “Refund”. That’s It.",
+            "text": "Keep the pouch you’ve opened. Send back any unopened ones."
+          }
+        },
+        "promise-3": {
+          "type": "promise",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Nothing To Lose",
+            "text": "If it isn't for you, you pay nothing."
+          }
+        }
+      },
+      "block_order": [
+        "promise-1",
+        "promise-2",
+        "promise-3"
+      ],
+      "settings": {
+        "seal_alt": "90 day money back guarantee",
+        "heading": "90 Days To Judge It. If We’re Wrong, We Pay.",
+        "heading_accent": "If We’re Wrong, We Pay.",
+        "subheading": "Email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back. No form, no questions.",
+        "card_bg": "",
+        "why_title": "Why do we offer this?",
+        "why_text": "<p>Because men over 50 have heard “basically a scam” enough times to be skeptical, and they're right to be. A promise on a page isn't proof. Give Eros a real chance. If it isn't for you, you shouldn't pay for it.</p>",
+        "why_bg": "",
+        "cta_label": "GET MY CONFIDENCE BACK",
+        "cta_url": "#shopify-section-main",
+        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
+        "cta_width": "full",
+        "cta_arrow": true,
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "preqa": {
@@ -1501,7 +1771,7 @@
           "settings": {
             "alt": "",
             "title": "“I'm a little confused.” Is it like Viagra or Cialis?",
-            "text": "<p>No, and we won't pretend it is. Those are prescription drugs. Eros is a daily supplement that supports desire, energy, stress response and healthy blood flow.* If you have ED, talk to your doctor.</p>"
+            "text": "<p>No, and we won't pretend it is. Those are prescription drugs. Eros is a daily supplement that supports desire, energy, stress response and healthy blood flow.If you have ED, talk to your doctor.</p>"
           }
         },
         "card-2": {
@@ -1517,7 +1787,7 @@
           "settings": {
             "alt": "",
             "title": "When will I notice something?",
-            "text": "<p>It isn't instant. Some men notice a difference in 2 to 4 weeks; give it a full 60 to 90 days of daily use.*</p>"
+            "text": "<p>It isn't instant. Some men notice a difference in 2 to 4 weeks; give it a full 60 to 90 days of daily use.</p>"
           }
         },
         "card-4": {
@@ -1525,7 +1795,7 @@
           "settings": {
             "alt": "",
             "title": "“Basically a scam?” What if it doesn’t work?",
-            "text": "<p>Then you don't pay. You have 90 days to try it. If you're not happy, contact us for a full refund.</p>"
+            "text": "<p>Then you don’t pay. You have 90 days to judge it. Email us the word “refund.” Keep the pouch you’ve opened, send back any unopened ones, and you get your money back.</p>"
           }
         }
       },
@@ -1560,512 +1830,6 @@
         "padding_bottom": 40
       }
     },
-    "guarantee": {
-      "type": "ces-guarantee",
-      "blocks": {
-        "promise-1": {
-          "type": "promise",
-          "settings": {
-            "icon": "stopwatch",
-            "title": "A Full 90 Days",
-            "text": "Enough time to take them consistently and judge the results for yourself."
-          }
-        },
-        "promise-2": {
-          "type": "promise",
-          "settings": {
-            "icon": "return",
-            "title": "Full Refund, No Awkward Questions",
-            "text": "Contact our support team and we'll process your refund promptly."
-          }
-        },
-        "promise-3": {
-          "type": "promise",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Nothing To Lose",
-            "text": "If it isn't for you, you pay nothing."
-          }
-        }
-      },
-      "block_order": [
-        "promise-1",
-        "promise-2",
-        "promise-3"
-      ],
-      "settings": {
-        "seal_alt": "90 day money back guarantee",
-        "heading": "Try Eros For 90 Days, Risk-Free",
-        "heading_accent": "Risk-Free",
-        "subheading": "Take two a day for the full routine. If you're not happy, you get your money back.",
-        "card_bg": "",
-        "why_title": "Why do we offer this?",
-        "why_text": "<p>Because men over 50 have heard “basically a scam” enough times to be skeptical, and they're right to be. A promise on a page isn't proof. Give Eros a real chance. If it isn't for you, you shouldn't pay for it.</p>",
-        "why_bg": "",
-        "cta_label": "GET MY CONFIDENCE BACK",
-        "cta_url": "#shopify-section-main",
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "cta_width": "full",
-        "cta_arrow": true,
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "nav": {
-      "type": "ces-anchor-nav",
-      "blocks": {
-        "link-1": {
-          "type": "link",
-          "settings": {
-            "label": "How It Works",
-            "target_id": "shopify-section-mechanism"
-          }
-        },
-        "link-2": {
-          "type": "link",
-          "settings": {
-            "label": "Ingredients",
-            "target_id": "shopify-section-actives"
-          }
-        },
-        "link-3": {
-          "type": "link",
-          "settings": {
-            "label": "How To Use",
-            "target_id": "shopify-section-howto"
-          }
-        },
-        "link-4": {
-          "type": "link",
-          "settings": {
-            "label": "Offers",
-            "target_id": "shopify-section-main"
-          }
-        },
-        "link-5": {
-          "type": "link",
-          "settings": {
-            "label": "FAQ",
-            "target_id": "shopify-section-main"
-          }
-        }
-      },
-      "block_order": [
-        "link-1",
-        "link-2",
-        "link-3",
-        "link-4",
-        "link-5"
-      ],
-      "disabled": true,
-      "settings": {
-        "sticky": true,
-        "aria_label": "Jump to a section",
-        "cta_label": "Order Now",
-        "cta_url": "#shopify-section-main",
-        "color_scheme": "scheme-eros-light"
-      }
-    },
-    "hero": {
-      "type": "ces-editorial-hero",
-      "blocks": {
-        "point-1": {
-          "type": "point",
-          "settings": {
-            "text": "Supports firmness & stamina*"
-          }
-        },
-        "point-2": {
-          "type": "point",
-          "settings": {
-            "text": "Supports desire & arousal*"
-          }
-        },
-        "point-3": {
-          "type": "point",
-          "settings": {
-            "text": "Formulated to support a fresher natural taste*"
-          }
-        },
-        "point-4": {
-          "type": "point",
-          "settings": {
-            "text": "Vegan & sugar-free"
-          }
-        },
-        "point-5": {
-          "type": "point",
-          "settings": {
-            "text": "No pills, no timing — just 2 gummies a day"
-          }
-        }
-      },
-      "block_order": [
-        "point-1",
-        "point-2",
-        "point-3",
-        "point-4",
-        "point-5"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "split",
-        "text_align": "left",
-        "rating_tenths": 0,
-        "rating_text": "",
-        "eyebrow": "Your Drive Isn't What It Used To Be?",
-        "eyebrow_style": "badge",
-        "heading_size": "default",
-        "heading_accent": "Show Up At Your Best",
-        "heading": "Two Gummies A Day To Help You Show Up At Your Best In The Bedroom",
-        "subheading": "20+ ingredients — including L-Citrulline, Tongkat Ali, Ashwagandha (KSM-66®) and Shilajit (PrimaVie®) — to support desire, stamina and confidence. No pills. No timing the moment.",
-        "author_name": "",
-        "date_text": "",
-        "image_position": "below",
-        "cta_label": "GET MY CONFIDENCE BACK",
-        "cta_url": "#shopify-section-main",
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "cta_width": "full",
-        "cta_arrow": true,
-        "tick_color": "",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 32,
-        "padding_bottom": 32
-      }
-    },
-    "recognition": {
-      "type": "ces-press-strip",
-      "blocks": {
-        "logo-1": {
-          "type": "logo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "logo-2": {
-          "type": "logo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "logo-3": {
-          "type": "logo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "logo-4": {
-          "type": "logo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "logo-5": {
-          "type": "logo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "logo-6": {
-          "type": "logo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "logo-7": {
-          "type": "logo",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "logo-8": {
-          "type": "logo",
-          "settings": {
-            "alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo-1",
-        "logo-2",
-        "logo-3",
-        "logo-4",
-        "logo-5",
-        "logo-6",
-        "logo-7",
-        "logo-8"
-      ],
-      "disabled": true,
-      "settings": {
-        "label": "AS SEEN ON",
-        "logo_height": 54,
-        "gap": 15,
-        "scroll_mode": "mobile",
-        "duration": 25,
-        "pause_on_hover": true,
-        "show_rule_top": false,
-        "show_rule_bottom": true,
-        "rule_color": "#d1d1d1",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 24,
-        "padding_bottom": 12
-      }
-    },
-    "howitworks": {
-      "type": "ces-card-row",
-      "blocks": {
-        "card-1": {
-          "type": "card",
-          "settings": {
-            "alt": "",
-            "title": "Steady Daily Support",
-            "text": "<p>Two gummies a day keep the key nutrients topped up. No loading phase, no timing — consistency is what makes it work.</p>"
-          }
-        },
-        "card-2": {
-          "type": "card",
-          "settings": {
-            "alt": "",
-            "title": "Less Stress, More Desire",
-            "text": "<p>Ashwagandha supports a calmer stress response while Tongkat Ali, Maca and Damiana support desire and arousal.*</p>"
-          }
-        },
-        "card-3": {
-          "type": "card",
-          "settings": {
-            "alt": "",
-            "title": "You Show Up Ready",
-            "text": "<p>With blood flow, drive and stamina supported, you stop overthinking and start being present.*</p>"
-          }
-        }
-      },
-      "block_order": [
-        "card-1",
-        "card-2",
-        "card-3"
-      ],
-      "disabled": true,
-      "settings": {
-        "eyebrow": "",
-        "heading": "This Is What Happens Once You Start Taking Eros",
-        "heading_accent": "This Is What Happens",
-        "subheading": "",
-        "columns": 3,
-        "mobile_layout": "scroll",
-        "image_ratio": "square",
-        "card_style": "framed",
-        "frame_color": "",
-        "text_align": "left",
-        "show_numbers": false,
-        "footnote": "",
-        "proof_alt": "",
-        "proof_caption": "",
-        "cta_label": "",
-        "cta_url": "",
-        "cta_footnote": "",
-        "cta_width": "auto",
-        "cta_arrow": false,
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "results": {
-      "type": "ces-review-cards",
-      "blocks": {
-        "review-1": {
-          "type": "review",
-          "settings": {
-            "tag": "",
-            "quote": "",
-            "name": "",
-            "verified": true,
-            "rating_tenths": 50
-          }
-        },
-        "review-2": {
-          "type": "review",
-          "settings": {
-            "tag": "",
-            "quote": "",
-            "name": "",
-            "verified": true,
-            "rating_tenths": 50
-          }
-        },
-        "review-3": {
-          "type": "review",
-          "settings": {
-            "tag": "",
-            "quote": "",
-            "name": "",
-            "verified": true,
-            "rating_tenths": 50
-          }
-        }
-      },
-      "block_order": [
-        "review-1",
-        "review-2",
-        "review-3"
-      ],
-      "disabled": true,
-      "settings": {
-        "rating_tenths": 48,
-        "rating_text": "",
-        "heading": "What Our Customers Say",
-        "subheading": "",
-        "columns": 3,
-        "image_height": 320,
-        "card_bg": "",
-        "card_border": "",
-        "card_border_style": "dashed",
-        "verified_label": "Verified Buyer",
-        "prev_label": "Previous reviews",
-        "next_label": "Next reviews",
-        "page_label": "Page",
-        "disclaimer": "Real customers, unretouched, shared with permission. Individual results vary.",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "howto": {
-      "type": "ces-usage-steps",
-      "blocks": {
-        "step-1": {
-          "type": "step",
-          "settings": {
-            "title": "Take 2 Gummies",
-            "text": "Once a day, morning or night, with or without food."
-          }
-        },
-        "step-2": {
-          "type": "step",
-          "settings": {
-            "title": "Stay Consistent",
-            "text": "Every day — not just before date night. Daily use is what makes it work."
-          }
-        },
-        "step-3": {
-          "type": "step",
-          "settings": {
-            "title": "Give It 30 Days",
-            "text": "Many men notice a difference in 1–2 weeks; the full picture builds over the first month.*"
-          }
-        }
-      },
-      "block_order": [
-        "step-1",
-        "step-2",
-        "step-3"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "2 Gummies A Day. That's The Whole Routine.",
-        "subheading": "",
-        "note": "<p>Consistency matters more than timing. The ingredients in Eros work best when taken every day — so make it part of your morning or evening and don't skip days.</p><p>Each bag holds 60 gummies: a full month.</p>",
-        "cta_label": "GET MY CONFIDENCE BACK",
-        "cta_url": "#shopify-section-main",
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "cta_arrow": true,
-        "cta_width": "full",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 32,
-        "padding_bottom": 40
-      }
-    },
-    "timeline": {
-      "type": "ces-results-timeline",
-      "blocks": {
-        "stage-1": {
-          "type": "stage",
-          "settings": {
-            "time_label": "Week 1–2",
-            "title": "Getting started",
-            "points": "Your body starts building up the nutrients. Some men notice their drive picking up within the first couple of weeks.*",
-            "quote_name": "",
-            "quote_title": "",
-            "quote_text": ""
-          }
-        },
-        "stage-2": {
-          "type": "stage",
-          "settings": {
-            "time_label": "Week 3–4",
-            "title": "A noticeable difference",
-            "points": "Desire and confidence tend to become more noticeable. Stay consistent — this is when it starts coming together.*",
-            "quote_name": "",
-            "quote_title": "",
-            "quote_text": ""
-          }
-        },
-        "stage-3": {
-          "type": "stage",
-          "settings": {
-            "time_label": "Week 5–8",
-            "title": "Building momentum",
-            "points": "With steady daily use, stamina and recovery are supported. Many men say this is when their partner notices.*",
-            "quote_name": "",
-            "quote_title": "",
-            "quote_text": ""
-          }
-        },
-        "stage-4": {
-          "type": "stage",
-          "settings": {
-            "time_label": "Week 9–12",
-            "title": "Your new normal",
-            "points": "Two gummies a day is just part of the routine — and so is showing up at your best.*",
-            "quote_name": "",
-            "quote_title": "",
-            "quote_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "stage-1",
-        "stage-2",
-        "stage-3",
-        "stage-4"
-      ],
-      "disabled": true,
-      "settings": {
-        "eyebrow": "Your First 90 Days",
-        "heading": "What To Expect, Month By Month",
-        "subheading": "",
-        "image_caption": "",
-        "image_position": "below_subheading",
-        "show_quotes": false,
-        "cta_label": "GET MY CONFIDENCE BACK",
-        "cta_url": "#shopify-section-main",
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "cta_arrow": true,
-        "cta_width": "full",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "finalcta": {
-      "type": "ces-bullet-cta",
-      "disabled": true,
-      "settings": {
-        "image_position": "end",
-        "heading": "Ready To Show Up At Your Best?",
-        "bullets": "<ul><li>Two gummies a day. No pills, no timing.</li><li>Vegan, sugar-free, 20+ ingredients.</li><li>90 days to decide, with a full refund if it isn't for you.</li></ul>",
-        "cta_width": "full",
-        "cta_arrow": true,
-        "button_label": "GET MY CONFIDENCE BACK",
-        "button_link": "#shopify-section-main",
-        "button_footnote": "shield | 90 Day Money Back Guarantee truck | Free Shipping",
-        "show_frame": false,
-        "color_scheme": "scheme-eros-peach",
-        "padding_top": 40,
-        "padding_bottom": 48
-      }
-    },
     "sticky": {
       "type": "ces-sticky-atc",
       "settings": {
@@ -2096,10 +1860,10 @@
   },
   "order": [
     "countdown",
-    "main",
-    "ces_press_strip_DRFEQp",
     "badges",
+    "main",
     "mornings",
+    "ces_press_strip_DRFEQp",
     "qualify",
     "layers",
     "ces_testimonial_marquee_UzJ6Gf",
@@ -2107,18 +1871,13 @@
     "mechanism",
     "actives",
     "compare",
+    "howto",
     "ces_testimonial_marquee_EYLmzw",
     "ces_timeline_accordion_iRkPe3",
-    "preqa",
+    "safety",
+    "founder",
     "guarantee",
-    "nav",
-    "hero",
-    "recognition",
-    "howitworks",
-    "results",
-    "howto",
-    "timeline",
-    "finalcta",
+    "preqa",
     "sticky"
   ]
 }
