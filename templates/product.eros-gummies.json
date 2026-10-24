@@ -129,6 +129,7 @@
             "tier_count": 3,
             "default_tier": 3,
             "add_label": "Add To Cart",
+            "add_subline": "lock | Plain packaging. Discreet billing.",
             "after_add": "drawer",
             "open_cart_drawer": true,
             "tier_style": "compact",
@@ -246,8 +247,7 @@
             "tier_4_gift_title": "",
             "tier_4_gift_sub": "",
             "tier_4_gift_label": "",
-            "tier_4_foot": "",
-            "add_subline": "lock | Plain packaging. Discreet billing."
+            "tier_4_foot": ""
           }
         },
         "review-1": {
@@ -1476,9 +1476,9 @@
       "name": "CES Timeline",
       "settings": {
         "display": "open",
-        "image": "shopify://shop_images/sdfsadfsdfsd.webp",
+        "image": "shopify://shop_images/15_500fb482-749a-4df3-9c3f-40fed7116231.webp",
         "image_position": "start",
-        "image_ratio": "3 / 4",
+        "image_ratio": "auto",
         "heading": "What To Expect, Honestly",
         "subheading": "Supplements aren't instant. Here's a realistic picture of daily use.",
         "fill_speed": 900,
@@ -2076,6 +2076,7 @@
         "reveal_id": "main",
         "button_label": "GET MY CONFIDENCE BACK",
         "button_style": "gift",
+        "button_subline": "[lock] Plain packaging. Discreet billing.",
         "show_info": false,
         "show_image": true,
         "title": "",
@@ -2089,8 +2090,7 @@
         "count_step_3": 2,
         "hide_over_target": true,
         "hide_on_desktop": false,
-        "color_scheme": "scheme-eros-light",
-        "button_subline": "[lock] Plain packaging. Discreet billing."
+        "color_scheme": "scheme-eros-light"
       }
     }
   },
