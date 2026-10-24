@@ -318,6 +318,13 @@
         {%- endif -%}
       </div>
     </div>
+    {%- if section.settings.ces_disclaimer != blank -%}
+      <div class="footer__ces-disclaimer page-width">
+        <p style="font-size: {{ section.settings.ces_disclaimer_size }}px; line-height: 1.5; margin: 1.2rem auto 0; max-width: 90rem; text-align: center; opacity: 0.7;">
+          {{ section.settings.ces_disclaimer }}
+        </p>
+      </div>
+    {%- endif -%}
   </div>
 </footer>
 
@@ -491,6 +498,21 @@
       "default": true,
       "label": "t:sections.footer.settings.show_policy.label",
       "info": "t:sections.footer.settings.show_policy.info"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "ces_disclaimer",
+      "label": "Disclaimer"
+    },
+    {
+      "type": "range",
+      "id": "ces_disclaimer_size",
+      "min": 8,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "label": "Disclaimer text size",
+      "default": 10
     },
     {
       "type": "header",
