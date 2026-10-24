@@ -397,7 +397,6 @@
         },
         "faq-7": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
             "heading": "Can I take it with my medication?",
             "icon": "none",
@@ -407,7 +406,6 @@
         },
         "faq-8": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
             "heading": "When should I see a doctor?",
             "icon": "none",
