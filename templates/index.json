@@ -159,7 +159,7 @@
       "settings": {
         "image_position": "start",
         "heading": "The 2-Gummy Daily Routine",
-        "bullets": "<ul><li>Supports firmness & stamina*</li><li>Supports desire & arousal*</li><li>Supports a calmer stress response*</li><li>Formulated for a fresher taste*</li><li>Vegan, sugar-free, no pills</li></ul>",
+        "bullets": "<ul><li>Supports firmness & stamina</li><li>Supports desire & arousal</li><li>Supports a calmer stress response</li><li>Formulated for a fresher taste</li><li>Vegan, sugar-free, no pills</li></ul>",
         "cta_width": "auto",
         "cta_arrow": false,
         "button_label": "GET MY CONFIDENCE BACK",
@@ -422,7 +422,7 @@
         "heading": "FAQ",
         "subheading": "Everything you’re wondering — answered simply.",
         "exclusive": true,
-        "footer_text": "<p>Still have a question? Contact us and a real person will get back to you within one business day.</p><p><em>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</em></p>",
+        "footer_text": "<p>Still have a question? Contact us and a real person will get back to you within one business day.</p>",
         "color_scheme": "scheme-eros-light",
         "padding_top": 40,
         "padding_bottom": 40
