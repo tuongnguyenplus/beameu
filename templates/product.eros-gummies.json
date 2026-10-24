@@ -805,7 +805,6 @@
         "logo_WCzwQt",
         "logo_PQh9dq"
       ],
-      "disabled": true,
       "name": "CES Press strip",
       "settings": {
         "label": "AS SEEN ON",
@@ -1863,8 +1862,8 @@
     "countdown",
     "badges",
     "main",
-    "mornings",
     "ces_press_strip_DRFEQp",
+    "mornings",
     "qualify",
     "layers",
     "ces_testimonial_marquee_UzJ6Gf",
