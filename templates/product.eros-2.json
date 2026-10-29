@@ -9,26 +9,733 @@
  */
 {
   "sections": {
-    "countdown": {
-      "type": "ces-countdown-bar",
-      "disabled": true,
+    "mornings": {
+      "type": "ces-photo-wall",
+      "blocks": {
+        "photo_T9A3pn": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/dgfdjfhjfh.jpg",
+            "alt": ""
+          }
+        },
+        "photo_cNKeTJ": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/creativefdgdfgfd.png",
+            "alt": ""
+          }
+        },
+        "photo_XNpxML": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/creativsdfsdfe.jpg",
+            "alt": ""
+          }
+        },
+        "point-1": {
+          "type": "point",
+          "settings": {
+            "icon": "heart",
+            "title": "“Emotionally connected to my wife”",
+            "text": "Intimacy that feels close again, not like a test you might fail."
+          }
+        },
+        "point-2": {
+          "type": "point",
+          "settings": {
+            "icon": "brighten",
+            "title": "“Sexually confident”",
+            "text": "Walking in without the knot in your stomach."
+          }
+        },
+        "point-3": {
+          "type": "point",
+          "settings": {
+            "icon": "stopwatch",
+            "title": "No more “preparing to have sex”",
+            "text": "Two gummies a day. No timing, no mental math."
+          }
+        },
+        "point-4": {
+          "type": "point",
+          "settings": {
+            "icon": "check-circle",
+            "title": "“Comfortable with myself”",
+            "text": "Feeling like yourself again, at 50, 60 and beyond."
+          }
+        },
+        "point-5": {
+          "type": "point",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Not “just accept it”",
+            "text": "Doing something sensible about it, on your terms."
+          }
+        }
+      },
+      "block_order": [
+        "photo_T9A3pn",
+        "photo_cNKeTJ",
+        "photo_XNpxML",
+        "point-1",
+        "point-2",
+        "point-3",
+        "point-4",
+        "point-5"
+      ],
       "settings": {
-        "heading": "Limited Time Fall Sale",
-        "subheading": "Save up to 40% + Free Shipping",
-        "mode": "rolling",
-        "deadline": "",
-        "rolling_minutes": 60,
-        "show_days": false,
-        "days_label": "DAYS",
-        "hours_label": "HRS",
-        "minutes_label": "MINS",
-        "seconds_label": "SECS",
-        "expired_text": "",
+        "layout": "split",
+        "eyebrow": "FOR MEN OVER 50",
+        "heading": "“ I’m 56. I want her asking for more - not wondering if I’ve still got it.\"",
+        "heading_accent": "I want her asking for more",
+        "subheading": "",
+        "columns": 2,
+        "height": 520,
+        "duration": 45,
+        "pause_on_hover": true,
+        "fade_edges": true,
+        "image_ratio": "4/5",
         "cta_label": "",
         "cta_url": "#shopify-section-main",
+        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
+        "cta_arrow": true,
+        "cta_width": "full",
+        "point_separator": "dot",
+        "color_scheme": "scheme-eros-peach",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "ces_press_strip_pbVLiU": {
+      "type": "ces-press-strip",
+      "blocks": {
+        "logo_LK7gtr": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Men_s_Health.webp",
+            "alt": ""
+          }
+        },
+        "logo_wKxPRe": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/grindr-wordmark-1.webp",
+            "alt": ""
+          }
+        },
+        "logo_UyLqTR": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/WebMD_logo_f73ccf11-95ac-4aaf-b0fd-6c3fe9eea2bc.png",
+            "alt": ""
+          }
+        },
+        "logo_CiBzf8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/132-1326461_mens-journal-01-mens-journal-september-2018-cover.png",
+            "alt": ""
+          }
+        },
+        "logo_He3wie": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/gq-logo-png-transparent.webp",
+            "alt": ""
+          }
+        },
+        "logo_DUQFib": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthline_logo_svg_52b907f7-7803-4306-b2c8-29b71ee574ad.png",
+            "alt": ""
+          }
+        },
+        "logo_q7jR7i": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Taxi_Maxim_Logo.webp",
+            "alt": ""
+          }
+        },
+        "logo_m4pcn7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Logo_Askmen_COLOR.webp",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_LK7gtr",
+        "logo_wKxPRe",
+        "logo_UyLqTR",
+        "logo_CiBzf8",
+        "logo_He3wie",
+        "logo_DUQFib",
+        "logo_q7jR7i",
+        "logo_m4pcn7"
+      ],
+      "name": "CES Press strip",
+      "settings": {
+        "label": "AS SEEN ON",
+        "logo_height": 54,
+        "gap": 15,
+        "scroll_mode": "mobile",
+        "duration": 25,
+        "pause_on_hover": true,
+        "show_rule_top": false,
+        "show_rule_bottom": true,
+        "rule_color": "#d1d1d1",
+        "color_scheme": "scheme-eros-peach",
+        "padding_top": 24,
+        "padding_bottom": 12
+      }
+    },
+    "qualify": {
+      "type": "ces-experience-list",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "text": "“My libido has crashed a little in the last year and I'm starting to suffer with erection loss.” (age 58)"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "text": "“It was stressful for several months preparing to have sex.” (age 56)"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "text": "“Has affected my self esteem.” (age 62)"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "text": "“Over the last few years I'd been dealing with brain fog, lethargy, lower sexual desire and generally not feeling quite like myself.” (age 61)"
+          }
+        },
+        "item-5": {
+          "type": "item",
+          "settings": {
+            "text": "“I'm married, love my family but I feel deflated.” (age 51)"
+          }
+        },
+        "item-6": {
+          "type": "item",
+          "settings": {
+            "text": "“Maybe I see a urologist or just accept it.” (age 48)"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4",
+        "item-5",
+        "item-6"
+      ],
+      "settings": {
+        "heading": "After 50, It’s Never Just Blood Flow. It’s Five Things Slipping At Once.",
+        "subheading": "",
+        "tick_style": "outline",
+        "show_dividers": false,
+        "columns_desktop": "1",
+        "heading_accent": "Five Things Slipping At Once.",
+        "image_position": "right",
+        "image_alt": "",
+        "image_caption": "Every line above was written by a man over 50 on Reddit, word for word. If you've thought any of it, you're not alone. And you're not past it. Read them again: desire, energy, stress, confidence, performance. That isn’t one thing failing. It’s five pathways slipping together.",
         "color_scheme": "scheme-eros-light",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 40,
+        "padding_bottom": 24
+      }
+    },
+    "layers": {
+      "type": "ces-stat-proof",
+      "settings": {
+        "eyebrow": "",
+        "heading": "“I never thought I'd be posting about ED.” Neither Did Most Men.",
+        "subheading": "",
+        "body": "<p>That's how one 50-year-old started his post. Another, 58 and in good health, wrote that losing his drive had “affected my self esteem”.</p><p>It rarely starts dramatically. A night that doesn’t go to plan. Then you start “preparing” for intimacy instead of enjoying it. Then you start avoiding it. The desire is still there; the confidence is what goes.</p><p>Most men handle it quietly. They put it off, “just accept it”, or reach for whatever they saw advertised. Eros is for the man who would rather do something sensible about it: <strong>a daily routine he understands, with every ingredient and dose on the label.</strong></p>",
+        "image": "shopify://shop_images/sdfsadfsdfsd.webp",
+        "image_position": "beside_body",
+        "image_alt": "",
+        "image_caption": "",
+        "callout_label": "The quiet majority",
+        "callout_lead": "Australian men who reported at least one sexual difficulty in 2022",
+        "callout_figure": "64.7%",
+        "callout_text": "<p>Yet only 17.6% of them sought any help.</p>",
+        "callout_source": "Source: Help-Seeking for Sexual Difficulties Among Australian Men, PMC12457510.",
+        "callout_bg": "#feeee9",
+        "callout_border": "#f25627",
+        "button_label": "",
+        "button_link": "#shopify-section-main",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "ces_testimonial_marquee_UzJ6Gf": {
+      "type": "ces-testimonial-marquee",
+      "blocks": {
+        "voice-1": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>“I've tried cialis and it's ok but that gives headaches.”</p>",
+            "name": "Reddit user, 58",
+            "meta": "r/AskMenOver50",
+            "verified": false,
+            "rating": 0
+          }
+        },
+        "voice-2": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>“I got a little annoyed by needing to plan when taking them based on sexual activity.”</p>",
+            "name": "Reddit user",
+            "meta": "r/erectiledysfunction",
+            "verified": false,
+            "rating": 0
+          }
+        },
+        "voice-3": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>“I wasn't happy with the blue pill so I'm trying Cialis.”</p>",
+            "name": "Reddit user, 70s",
+            "meta": "r/erectiledysfunction",
+            "verified": false,
+            "rating": 0
+          }
+        },
+        "voice-4": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>“Now, it's not working as good anymore.”</p>",
+            "name": "Reddit user, 60",
+            "meta": "r/erectiledysfunction",
+            "verified": false,
+            "rating": 0
+          }
+        },
+        "voice-5": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>“It was the worst pain I can remember having.”</p>",
+            "name": "Reddit user, 60, on a daily prescription pill",
+            "meta": "r/erectiledysfunction",
+            "verified": false,
+            "rating": 0
+          }
+        },
+        "voice-6": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>“I stopped taking tadalafil and or sildenafal. switched to herbs n such.”</p>",
+            "name": "Reddit user",
+            "meta": "r/erectiledysfunction",
+            "verified": false,
+            "rating": 0
+          }
+        },
+        "voice-7": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>“I'm a little confused.”</p>",
+            "name": "Reddit user, 50",
+            "meta": "r/erectiledysfunction",
+            "verified": false,
+            "rating": 0
+          }
+        },
+        "voice-8": {
+          "type": "review_item",
+          "settings": {
+            "review": "<p>“Anything sold over counter is basically a scam and has no actual evidence it works.”</p>",
+            "name": "Reddit user",
+            "meta": "r/AskMen",
+            "verified": false,
+            "rating": 0
+          }
+        }
+      },
+      "block_order": [
+        "voice-1",
+        "voice-2",
+        "voice-3",
+        "voice-4",
+        "voice-5",
+        "voice-6",
+        "voice-7",
+        "voice-8"
+      ],
+      "name": "CES Testimonial marquee",
+      "settings": {
+        "heading": "Read What Men Over 50 Actually Say About Cialis, Gummies And Giving Up",
+        "subheading": "What men over 50 say about the options they've already tried.",
+        "avatar_shape": "tile",
+        "avatar_speed": 35,
+        "disclaimer": "<p>Public Reddit posts from 2025 and 2026, quoted word for word. These men are describing their own experiences with other treatments. They are not reviewing Eros.</p>",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "failures": {
+      "type": "ces-icon-feature-grid",
+      "blocks": {
+        "icon_item-1": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "lock",
+            "icon_color": "",
+            "heading": "Prescription Pills",
+            "text": "“that gives headaches” · Blood flow only, for a few hours"
+          }
+        },
+        "icon_item-2": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "stopwatch",
+            "icon_color": "",
+            "heading": "Pill-And-Wait",
+            "text": "“needing to plan” · Works on demand, then wears off"
+          }
+        },
+        "icon_item-3": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "eye",
+            "icon_color": "",
+            "heading": "Mystery-Blend Gummies",
+            "text": "“basically a scam” · No way to know which pathway, at what dose"
+          }
+        },
+        "icon_item-4": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "molecule",
+            "icon_color": "",
+            "heading": "Single Ingredients",
+            "text": "One pathway covered, four ignored"
+          }
+        },
+        "icon_item-5": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "fire",
+            "icon_color": "",
+            "heading": "Higher Doses",
+            "text": "“not working as good anymore” · More of one pathway is still one"
+          }
+        },
+        "icon_item-6": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "heart",
+            "icon_color": "",
+            "heading": "Giving Up",
+            "text": "“just accept it” · Zero pathways"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item-1",
+        "icon_item-2",
+        "icon_item-3",
+        "icon_item-4",
+        "icon_item-5",
+        "icon_item-6"
+      ],
+      "settings": {
+        "eyebrow": "That's Why So Many Men Give Up.",
+        "text_style": "pill",
+        "pill_color": "#f25627",
+        "heading": "Every Option On The Market Fixes One Pathway And Ignores The Other Four",
+        "highlight_words": "",
+        "subheading": "",
+        "icon_color": "#f25627",
+        "icon_frame": "disc",
+        "icon_size": 7,
+        "image_scale": 70,
+        "columns_mobile": 2,
+        "columns_desktop": 3,
+        "cta_label": "",
+        "cta_url": "",
+        "cta_footnote": "",
+        "cta_arrow": false,
+        "cta_width": "auto",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 32,
+        "padding_bottom": 40
+      }
+    },
+    "mechanism": {
+      "type": "ces-image-text-banner",
+      "settings": {
+        "image": "shopify://shop_images/kkkk.webp",
+        "layout": "split",
+        "image_shape": "auto",
+        "text_position": "center",
+        "overlay_opacity": 0,
+        "eyebrow": "How Eros Works",
+        "heading_accent": "The 5-Pathway Formula",
+        "heading": "One Pill Fixes One Pathway. The 5-Pathway Formula Supports All Five.",
+        "text": "<p>Men over 50 describe it the same way: “brain fog, lethargy, lower sexual desire”. That isn’t one problem. It’s five pathways slipping at once: <strong>hardness, stamina, arousal, volume and taste</strong>.</p><p><strong>Prescription pills work on one</strong>: blood flow, for a few hours. They’re a proven ED treatment and the right choice for many men. <strong>Single-ingredient supplements work on one too</strong>, just a different one.</p><p><strong>The 5-Pathway Formula supports all five, every day</strong>, so your baseline lifts instead of chasing one good night.</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
+        "cta_width": "full",
+        "cta_arrow": true,
+        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
+        "button_label": "",
+        "button_link": "#shopify-section-main",
+        "badge_speed": 40,
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "actives": {
+      "type": "ces-icon-feature-grid",
+      "blocks": {
+        "active-1": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "heart-plus",
+            "icon_color": "",
+            "heading": "L-Citrulline 1500 mg",
+            "text": "Hardness · Supports nitric oxide and healthy blood flow."
+          }
+        },
+        "active-2": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "lightning",
+            "icon_color": "",
+            "heading": "Shilajit (PrimaVie®) 200 mg",
+            "text": "Stamina · Supports energy and stamina."
+          }
+        },
+        "active-3": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "cell-defense",
+            "icon_color": "",
+            "heading": "Zinc 30 mg",
+            "text": "Stamina & Volume · Contributes to normal testosterone levels and fertility."
+          }
+        },
+        "active-4": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "vitality",
+            "icon_color": "",
+            "heading": "Tongkat Ali 200 mg",
+            "text": "Arousal · Supports libido and healthy testosterone."
+          }
+        },
+        "active-5": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "sparkle",
+            "icon_color": "",
+            "heading": "Maca Root 300 mg",
+            "text": "Arousal · Supports desire and drive."
+          }
+        },
+        "active-6": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "leaf",
+            "icon_color": "",
+            "heading": "Ashwagandha (KSM-66®) 300 mg",
+            "text": "Arousal · Supports a calmer response to stress."
+          }
+        },
+        "active-7": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "molecule",
+            "icon_color": "",
+            "heading": "Sunflower Lecithin 1000 mg",
+            "text": "Volume · Supports healthy reproductive function."
+          }
+        },
+        "active-8": {
+          "type": "icon_item",
+          "settings": {
+            "icon_text": "",
+            "icon": "plant",
+            "icon_color": "",
+            "heading": "Bromelain 250 mg",
+            "text": "Taste · Included with Pineapple and Chlorophyllin for a fresher natural taste."
+          }
+        }
+      },
+      "block_order": [
+        "active-1",
+        "active-2",
+        "active-3",
+        "active-4",
+        "active-5",
+        "active-6",
+        "active-7",
+        "active-8"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "text_style": "text",
+        "pill_color": "#f25627",
+        "heading": "Know Exactly What You're Taking",
+        "highlight_words": "",
+        "subheading": "Because “basically a scam” is what most men expect from this category. Every key active, the pathway it supports and its dose per 2-gummy serving. No proprietary blend, nothing hidden.",
+        "icon_color": "#f25627",
+        "icon_frame": "disc",
+        "icon_size": 6,
+        "image_scale": 60,
+        "columns_mobile": 2,
+        "columns_desktop": 4,
+        "cta_label": "",
+        "cta_url": "",
+        "cta_footnote": "",
+        "cta_arrow": false,
+        "cta_width": "auto",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "compare": {
+      "type": "ces-compare-matrix",
+      "blocks": {
+        "row-um": {
+          "type": "row",
+          "settings": {
+            "label": "Works on all 5 pathways",
+            "brand": "yes",
+            "brand_note": "",
+            "col_1": "no",
+            "col_1_note": "",
+            "col_2": "partial",
+            "col_2_note": "",
+            "col_3": "no",
+            "col_3_note": ""
+          }
+        },
+        "row-1": {
+          "type": "row",
+          "settings": {
+            "label": "No prescription or appointment",
+            "brand": "yes",
+            "brand_note": "",
+            "col_1": "no",
+            "col_1_note": "",
+            "col_2": "yes",
+            "col_2_note": "",
+            "col_3": "yes",
+            "col_3_note": ""
+          }
+        },
+        "row-2": {
+          "type": "row",
+          "settings": {
+            "label": "No timing around intimacy",
+            "brand": "yes",
+            "brand_note": "",
+            "col_1": "partial",
+            "col_1_note": "",
+            "col_2": "partial",
+            "col_2_note": "",
+            "col_3": "yes",
+            "col_3_note": ""
+          }
+        },
+        "row-3": {
+          "type": "row",
+          "settings": {
+            "label": "Every ingredient & dose on the label",
+            "brand": "yes",
+            "brand_note": "",
+            "col_1": "yes",
+            "col_1_note": "",
+            "col_2": "no",
+            "col_2_note": "",
+            "col_3": "yes",
+            "col_3_note": ""
+          }
+        },
+        "row-4": {
+          "type": "row",
+          "settings": {
+            "label": "Supports desire, stress & energy together",
+            "brand": "yes",
+            "brand_note": "",
+            "col_1": "no",
+            "col_1_note": "",
+            "col_2": "partial",
+            "col_2_note": "",
+            "col_3": "no",
+            "col_3_note": ""
+          }
+        },
+        "row-5": {
+          "type": "row",
+          "settings": {
+            "label": "Vegan & sugar-free",
+            "brand": "yes",
+            "brand_note": "",
+            "col_1": "no",
+            "col_1_note": "",
+            "col_2": "partial",
+            "col_2_note": "",
+            "col_3": "partial",
+            "col_3_note": ""
+          }
+        }
+      },
+      "block_order": [
+        "row-um",
+        "row-1",
+        "row-2",
+        "row-3",
+        "row-4",
+        "row-5"
+      ],
+      "settings": {
+        "eyebrow": "An Honest Comparison",
+        "heading": "LUMEO vs. Prescription Pills vs. Mystery-Blend Gummies, Side By Side",
+        "subheading": "",
+        "table_caption": "Eros compared with prescription ED pills, mystery-blend gummies and single-ingredient supplements",
+        "brand_label": "LUMEO",
+        "col_1_label": "Prescription ED Pills",
+        "col_2_label": "Mystery-Blend Gummies",
+        "col_3_label": "Single-Ingredient Supplements",
+        "yes_text": "Yes",
+        "partial_text": "Partly",
+        "no_text": "No",
+        "footnote": "<p>Prescription ED medication is a proven treatment for erectile dysfunction and the right choice for many men, so talk to your doctor about it. Eros is not a drug and not a substitute for medical care. It's a daily dietary supplement for men who want to support desire, energy and confidence as part of a healthy routine.</p>",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "badges": {
@@ -70,6 +777,28 @@
         "icon_style": "none",
         "font_size": 14,
         "padding": 10
+      }
+    },
+    "countdown": {
+      "type": "ces-countdown-bar",
+      "disabled": true,
+      "settings": {
+        "heading": "Limited Time Fall Sale",
+        "subheading": "Save up to 40% + Free Shipping",
+        "mode": "rolling",
+        "deadline": "",
+        "rolling_minutes": 60,
+        "show_days": false,
+        "days_label": "DAYS",
+        "hours_label": "HRS",
+        "minutes_label": "MINS",
+        "seconds_label": "SECS",
+        "expired_text": "",
+        "cta_label": "",
+        "cta_url": "#shopify-section-main",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "main": {
@@ -661,694 +1390,6 @@
         "atc_hover_text": "#ffffff"
       }
     },
-    "mornings": {
-      "type": "ces-photo-wall",
-      "blocks": {
-        "point-1": {
-          "type": "point",
-          "settings": {
-            "icon": "heart",
-            "title": "“Emotionally connected to my wife”",
-            "text": "Intimacy that feels close again, not like a test you might fail."
-          }
-        },
-        "point-2": {
-          "type": "point",
-          "settings": {
-            "icon": "brighten",
-            "title": "“Sexually confident”",
-            "text": "Walking in without the knot in your stomach."
-          }
-        },
-        "point-3": {
-          "type": "point",
-          "settings": {
-            "icon": "stopwatch",
-            "title": "No more “preparing to have sex”",
-            "text": "Two gummies a day. No timing, no mental math."
-          }
-        },
-        "point-4": {
-          "type": "point",
-          "settings": {
-            "icon": "check-circle",
-            "title": "“Comfortable with myself”",
-            "text": "Feeling like yourself again, at 50, 60 and beyond."
-          }
-        },
-        "point-5": {
-          "type": "point",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Not “just accept it”",
-            "text": "Doing something sensible about it, on your terms."
-          }
-        },
-        "photo_T9A3pn": {
-          "type": "photo",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/dgfdjfhjfh.jpg",
-            "alt": ""
-          }
-        },
-        "photo_cNKeTJ": {
-          "type": "photo",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/creativefdgdfgfd.png",
-            "alt": ""
-          }
-        },
-        "photo_XNpxML": {
-          "type": "photo",
-          "settings": {
-            "image": "shopify://shop_images/creativsdfsdfe.jpg",
-            "alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "photo_T9A3pn",
-        "photo_cNKeTJ",
-        "photo_XNpxML",
-        "point-1",
-        "point-2",
-        "point-3",
-        "point-4",
-        "point-5"
-      ],
-      "settings": {
-        "layout": "split",
-        "eyebrow": "FOR MEN OVER 50",
-        "heading": "“ I’m 56. I want her asking for more - not wondering if I’ve still got it.\"",
-        "heading_accent": "I want her asking for more",
-        "subheading": "",
-        "columns": 2,
-        "height": 520,
-        "duration": 45,
-        "pause_on_hover": true,
-        "fade_edges": true,
-        "image_ratio": "4/5",
-        "cta_label": "",
-        "cta_url": "#shopify-section-main",
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "cta_arrow": true,
-        "cta_width": "full",
-        "point_separator": "dot",
-        "color_scheme": "scheme-eros-peach",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "qualify": {
-      "type": "ces-experience-list",
-      "blocks": {
-        "item-1": {
-          "type": "item",
-          "settings": {
-            "text": "“My libido has crashed a little in the last year and I'm starting to suffer with erection loss.” (age 58)"
-          }
-        },
-        "item-2": {
-          "type": "item",
-          "settings": {
-            "text": "“It was stressful for several months preparing to have sex.” (age 56)"
-          }
-        },
-        "item-3": {
-          "type": "item",
-          "settings": {
-            "text": "“Has affected my self esteem.” (age 62)"
-          }
-        },
-        "item-4": {
-          "type": "item",
-          "settings": {
-            "text": "“Over the last few years I'd been dealing with brain fog, lethargy, lower sexual desire and generally not feeling quite like myself.” (age 61)"
-          }
-        },
-        "item-5": {
-          "type": "item",
-          "settings": {
-            "text": "“I'm married, love my family but I feel deflated.” (age 51)"
-          }
-        },
-        "item-6": {
-          "type": "item",
-          "settings": {
-            "text": "“Maybe I see a urologist or just accept it.” (age 48)"
-          }
-        }
-      },
-      "block_order": [
-        "item-1",
-        "item-2",
-        "item-3",
-        "item-4",
-        "item-5",
-        "item-6"
-      ],
-      "settings": {
-        "heading": "After 50, It’s Never Just Blood Flow. It’s Five Things Slipping At Once.",
-        "subheading": "",
-        "tick_style": "outline",
-        "show_dividers": false,
-        "columns_desktop": "1",
-        "heading_accent": "Five Things Slipping At Once.",
-        "image_position": "right",
-        "image_alt": "",
-        "image_caption": "Every line above was written by a man over 50 on Reddit, word for word. If you've thought any of it, you're not alone. And you're not past it. Read them again: desire, energy, stress, confidence, performance. That isn’t one thing failing. It’s five pathways slipping together.",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 24
-      }
-    },
-    "layers": {
-      "type": "ces-stat-proof",
-      "settings": {
-        "eyebrow": "",
-        "heading": "“I never thought I'd be posting about ED.” Neither Did Most Men.",
-        "subheading": "",
-        "body": "<p>That's how one 50-year-old started his post. Another, 58 and in good health, wrote that losing his drive had “affected my self esteem”.</p><p>It rarely starts dramatically. A night that doesn’t go to plan. Then you start “preparing” for intimacy instead of enjoying it. Then you start avoiding it. The desire is still there; the confidence is what goes.</p><p>Most men handle it quietly. They put it off, “just accept it”, or reach for whatever they saw advertised. Eros is for the man who would rather do something sensible about it: <strong>a daily routine he understands, with every ingredient and dose on the label.</strong></p>",
-        "image": "shopify://shop_images/sdfsadfsdfsd.webp",
-        "image_position": "beside_body",
-        "image_alt": "",
-        "image_caption": "",
-        "callout_label": "The quiet majority",
-        "callout_lead": "Australian men who reported at least one sexual difficulty in 2022",
-        "callout_figure": "64.7%",
-        "callout_text": "<p>Yet only 17.6% of them sought any help.</p>",
-        "callout_source": "Source: Help-Seeking for Sexual Difficulties Among Australian Men, PMC12457510.",
-        "callout_bg": "#feeee9",
-        "callout_border": "#f25627",
-        "button_label": "",
-        "button_link": "#shopify-section-main",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "ces_testimonial_marquee_UzJ6Gf": {
-      "type": "ces-testimonial-marquee",
-      "blocks": {
-        "voice-1": {
-          "type": "review_item",
-          "settings": {
-            "review": "<p>“I've tried cialis and it's ok but that gives headaches.”</p>",
-            "name": "Reddit user, 58",
-            "meta": "r/AskMenOver50",
-            "verified": false,
-            "rating": 0
-          }
-        },
-        "voice-2": {
-          "type": "review_item",
-          "settings": {
-            "review": "<p>“I got a little annoyed by needing to plan when taking them based on sexual activity.”</p>",
-            "name": "Reddit user",
-            "meta": "r/erectiledysfunction",
-            "verified": false,
-            "rating": 0
-          }
-        },
-        "voice-3": {
-          "type": "review_item",
-          "settings": {
-            "review": "<p>“I wasn't happy with the blue pill so I'm trying Cialis.”</p>",
-            "name": "Reddit user, 70s",
-            "meta": "r/erectiledysfunction",
-            "verified": false,
-            "rating": 0
-          }
-        },
-        "voice-4": {
-          "type": "review_item",
-          "settings": {
-            "review": "<p>“Now, it's not working as good anymore.”</p>",
-            "name": "Reddit user, 60",
-            "meta": "r/erectiledysfunction",
-            "verified": false,
-            "rating": 0
-          }
-        },
-        "voice-5": {
-          "type": "review_item",
-          "settings": {
-            "review": "<p>“It was the worst pain I can remember having.”</p>",
-            "name": "Reddit user, 60, on a daily prescription pill",
-            "meta": "r/erectiledysfunction",
-            "verified": false,
-            "rating": 0
-          }
-        },
-        "voice-6": {
-          "type": "review_item",
-          "settings": {
-            "review": "<p>“I stopped taking tadalafil and or sildenafal. switched to herbs n such.”</p>",
-            "name": "Reddit user",
-            "meta": "r/erectiledysfunction",
-            "verified": false,
-            "rating": 0
-          }
-        },
-        "voice-7": {
-          "type": "review_item",
-          "settings": {
-            "review": "<p>“I'm a little confused.”</p>",
-            "name": "Reddit user, 50",
-            "meta": "r/erectiledysfunction",
-            "verified": false,
-            "rating": 0
-          }
-        },
-        "voice-8": {
-          "type": "review_item",
-          "settings": {
-            "review": "<p>“Anything sold over counter is basically a scam and has no actual evidence it works.”</p>",
-            "name": "Reddit user",
-            "meta": "r/AskMen",
-            "verified": false,
-            "rating": 0
-          }
-        }
-      },
-      "block_order": [
-        "voice-1",
-        "voice-2",
-        "voice-3",
-        "voice-4",
-        "voice-5",
-        "voice-6",
-        "voice-7",
-        "voice-8"
-      ],
-      "name": "CES Testimonial marquee",
-      "settings": {
-        "heading": "Read What Men Over 50 Actually Say About Cialis, Gummies And Giving Up",
-        "subheading": "What men over 50 say about the options they've already tried.",
-        "avatar_shape": "tile",
-        "avatar_speed": 35,
-        "disclaimer": "<p>Public Reddit posts from 2025 and 2026, quoted word for word. These men are describing their own experiences with other treatments. They are not reviewing Eros.</p>",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "failures": {
-      "type": "ces-icon-feature-grid",
-      "blocks": {
-        "icon_item-1": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "lock",
-            "icon_color": "",
-            "heading": "Prescription Pills",
-            "text": "“that gives headaches” · Blood flow only, for a few hours"
-          }
-        },
-        "icon_item-2": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "stopwatch",
-            "icon_color": "",
-            "heading": "Pill-And-Wait",
-            "text": "“needing to plan” · Works on demand, then wears off"
-          }
-        },
-        "icon_item-3": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "eye",
-            "icon_color": "",
-            "heading": "Mystery-Blend Gummies",
-            "text": "“basically a scam” · No way to know which pathway, at what dose"
-          }
-        },
-        "icon_item-4": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "molecule",
-            "icon_color": "",
-            "heading": "Single Ingredients",
-            "text": "One pathway covered, four ignored"
-          }
-        },
-        "icon_item-5": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "fire",
-            "icon_color": "",
-            "heading": "Higher Doses",
-            "text": "“not working as good anymore” · More of one pathway is still one"
-          }
-        },
-        "icon_item-6": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "heart",
-            "icon_color": "",
-            "heading": "Giving Up",
-            "text": "“just accept it” · Zero pathways"
-          }
-        }
-      },
-      "block_order": [
-        "icon_item-1",
-        "icon_item-2",
-        "icon_item-3",
-        "icon_item-4",
-        "icon_item-5",
-        "icon_item-6"
-      ],
-      "settings": {
-        "eyebrow": "That's Why So Many Men Give Up.",
-        "text_style": "pill",
-        "pill_color": "#f25627",
-        "heading": "Every Option On The Market Fixes One Pathway And Ignores The Other Four",
-        "highlight_words": "",
-        "subheading": "",
-        "icon_color": "#f25627",
-        "icon_frame": "disc",
-        "icon_size": 7,
-        "image_scale": 70,
-        "columns_mobile": 2,
-        "columns_desktop": 3,
-        "cta_label": "",
-        "cta_url": "",
-        "cta_footnote": "",
-        "cta_arrow": false,
-        "cta_width": "auto",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 32,
-        "padding_bottom": 40
-      }
-    },
-    "mechanism": {
-      "type": "ces-image-text-banner",
-      "settings": {
-        "image": "shopify://shop_images/kkkk.webp",
-        "layout": "split",
-        "image_shape": "auto",
-        "text_position": "center",
-        "overlay_opacity": 0,
-        "eyebrow": "How Eros Works",
-        "heading_accent": "The 5-Pathway Formula",
-        "heading": "One Pill Fixes One Pathway. The 5-Pathway Formula Supports All Five.",
-        "text": "<p>Men over 50 describe it the same way: “brain fog, lethargy, lower sexual desire”. That isn’t one problem. It’s five pathways slipping at once: <strong>hardness, stamina, arousal, volume and taste</strong>.</p><p><strong>Prescription pills work on one</strong>: blood flow, for a few hours. They’re a proven ED treatment and the right choice for many men. <strong>Single-ingredient supplements work on one too</strong>, just a different one.</p><p><strong>The 5-Pathway Formula supports all five, every day</strong>, so your baseline lifts instead of chasing one good night.</p><p>Two gummies a day, any time. No “needing to plan” around the moment.</p>",
-        "cta_width": "full",
-        "cta_arrow": true,
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "button_label": "",
-        "button_link": "#shopify-section-main",
-        "badge_speed": 40,
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "actives": {
-      "type": "ces-icon-feature-grid",
-      "blocks": {
-        "active-1": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "heart-plus",
-            "icon_color": "",
-            "heading": "L-Citrulline 1500 mg",
-            "text": "Hardness · Supports nitric oxide and healthy blood flow."
-          }
-        },
-        "active-2": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "lightning",
-            "icon_color": "",
-            "heading": "Shilajit (PrimaVie®) 200 mg",
-            "text": "Stamina · Supports energy and stamina."
-          }
-        },
-        "active-3": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "cell-defense",
-            "icon_color": "",
-            "heading": "Zinc 30 mg",
-            "text": "Stamina & Volume · Contributes to normal testosterone levels and fertility."
-          }
-        },
-        "active-4": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "vitality",
-            "icon_color": "",
-            "heading": "Tongkat Ali 200 mg",
-            "text": "Arousal · Supports libido and healthy testosterone."
-          }
-        },
-        "active-5": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "sparkle",
-            "icon_color": "",
-            "heading": "Maca Root 300 mg",
-            "text": "Arousal · Supports desire and drive."
-          }
-        },
-        "active-6": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "leaf",
-            "icon_color": "",
-            "heading": "Ashwagandha (KSM-66®) 300 mg",
-            "text": "Arousal · Supports a calmer response to stress."
-          }
-        },
-        "active-7": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "molecule",
-            "icon_color": "",
-            "heading": "Sunflower Lecithin 1000 mg",
-            "text": "Volume · Supports healthy reproductive function."
-          }
-        },
-        "active-8": {
-          "type": "icon_item",
-          "settings": {
-            "icon_text": "",
-            "icon": "plant",
-            "icon_color": "",
-            "heading": "Bromelain 250 mg",
-            "text": "Taste · Included with Pineapple and Chlorophyllin for a fresher natural taste."
-          }
-        }
-      },
-      "block_order": [
-        "active-1",
-        "active-2",
-        "active-3",
-        "active-4",
-        "active-5",
-        "active-6",
-        "active-7",
-        "active-8"
-      ],
-      "settings": {
-        "eyebrow": "",
-        "text_style": "text",
-        "pill_color": "#f25627",
-        "heading": "Know Exactly What You're Taking",
-        "highlight_words": "",
-        "subheading": "Because “basically a scam” is what most men expect from this category. Every key active, the pathway it supports and its dose per 2-gummy serving. No proprietary blend, nothing hidden.",
-        "icon_color": "#f25627",
-        "icon_frame": "disc",
-        "icon_size": 6,
-        "image_scale": 60,
-        "columns_mobile": 2,
-        "columns_desktop": 4,
-        "cta_label": "",
-        "cta_url": "",
-        "cta_footnote": "",
-        "cta_arrow": false,
-        "cta_width": "auto",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "compare": {
-      "type": "ces-compare-matrix",
-      "blocks": {
-        "row-um": {
-          "type": "row",
-          "settings": {
-            "label": "Works on all 5 pathways",
-            "brand": "yes",
-            "brand_note": "",
-            "col_1": "no",
-            "col_1_note": "",
-            "col_2": "partial",
-            "col_2_note": "",
-            "col_3": "no",
-            "col_3_note": ""
-          }
-        },
-        "row-1": {
-          "type": "row",
-          "settings": {
-            "label": "No prescription or appointment",
-            "brand": "yes",
-            "brand_note": "",
-            "col_1": "no",
-            "col_1_note": "",
-            "col_2": "yes",
-            "col_2_note": "",
-            "col_3": "yes",
-            "col_3_note": ""
-          }
-        },
-        "row-2": {
-          "type": "row",
-          "settings": {
-            "label": "No timing around intimacy",
-            "brand": "yes",
-            "brand_note": "",
-            "col_1": "partial",
-            "col_1_note": "",
-            "col_2": "partial",
-            "col_2_note": "",
-            "col_3": "yes",
-            "col_3_note": ""
-          }
-        },
-        "row-3": {
-          "type": "row",
-          "settings": {
-            "label": "Every ingredient & dose on the label",
-            "brand": "yes",
-            "brand_note": "",
-            "col_1": "yes",
-            "col_1_note": "",
-            "col_2": "no",
-            "col_2_note": "",
-            "col_3": "yes",
-            "col_3_note": ""
-          }
-        },
-        "row-4": {
-          "type": "row",
-          "settings": {
-            "label": "Supports desire, stress & energy together",
-            "brand": "yes",
-            "brand_note": "",
-            "col_1": "no",
-            "col_1_note": "",
-            "col_2": "partial",
-            "col_2_note": "",
-            "col_3": "no",
-            "col_3_note": ""
-          }
-        },
-        "row-5": {
-          "type": "row",
-          "settings": {
-            "label": "Vegan & sugar-free",
-            "brand": "yes",
-            "brand_note": "",
-            "col_1": "no",
-            "col_1_note": "",
-            "col_2": "partial",
-            "col_2_note": "",
-            "col_3": "partial",
-            "col_3_note": ""
-          }
-        }
-      },
-      "block_order": [
-        "row-um",
-        "row-1",
-        "row-2",
-        "row-3",
-        "row-4",
-        "row-5"
-      ],
-      "settings": {
-        "eyebrow": "An Honest Comparison",
-        "heading": "Eros vs. Prescription Pills vs. Mystery-Blend Gummies, Side By Side",
-        "subheading": "",
-        "table_caption": "Eros compared with prescription ED pills, mystery-blend gummies and single-ingredient supplements",
-        "brand_label": "EROS",
-        "col_1_label": "Prescription ED Pills",
-        "col_2_label": "Mystery-Blend Gummies",
-        "col_3_label": "Single-Ingredient Supplements",
-        "yes_text": "Yes",
-        "partial_text": "Partly",
-        "no_text": "No",
-        "footnote": "<p>Prescription ED medication is a proven treatment for erectile dysfunction and the right choice for many men, so talk to your doctor about it. Eros is not a drug and not a substitute for medical care. It's a daily dietary supplement for men who want to support desire, energy and confidence as part of a healthy routine.</p>",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "howto": {
-      "type": "ces-usage-steps",
-      "blocks": {
-        "step-1": {
-          "type": "step",
-          "settings": {
-            "title": "Take 2 Gummies",
-            "text": "Once a day, morning or night, with or without food."
-          }
-        },
-        "step-2": {
-          "type": "step",
-          "settings": {
-            "title": "Stay Consistent",
-            "text": "Every day — not just before date night. Daily use is what makes it work."
-          }
-        },
-        "step-3": {
-          "type": "step",
-          "settings": {
-            "title": "Give It 60 To 90 Days",
-            "text": "Some men notice a difference in 2 to 4 weeks; give it the full 60 to 90 days."
-          }
-        }
-      },
-      "block_order": [
-        "step-1",
-        "step-2",
-        "step-3"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Two Gummies With Your Coffee. That Is The Entire Protocol.",
-        "subheading": "",
-        "note": "<p>Consistency matters more than timing. The ingredients in Eros work best when taken every day — so make it part of your morning or evening and don't skip days.</p><p>Each bag holds 60 gummies: a full month.</p>",
-        "cta_label": "GET MY CONFIDENCE BACK",
-        "cta_url": "#shopify-section-main",
-        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
-        "cta_arrow": true,
-        "cta_width": "full",
-        "color_scheme": "scheme-eros-light",
-        "padding_top": 32,
-        "padding_bottom": 40
-      }
-    },
     "ces_testimonial_marquee_EYLmzw": {
       "type": "ces-testimonial-marquee",
       "blocks": {
@@ -1770,6 +1811,51 @@
         "padding_bottom": 40
       }
     },
+    "howto": {
+      "type": "ces-usage-steps",
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "title": "Take 2 Gummies",
+            "text": "Once a day, morning or night, with or without food."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "title": "Stay Consistent",
+            "text": "Every day — not just before date night. Daily use is what makes it work."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "title": "Give It 60 To 90 Days",
+            "text": "Some men notice a difference in 2 to 4 weeks; give it the full 60 to 90 days."
+          }
+        }
+      },
+      "block_order": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Two Gummies With Your Coffee. That Is The Entire Protocol.",
+        "subheading": "",
+        "note": "<p>Consistency matters more than timing. The ingredients in Eros work best when taken every day — so make it part of your morning or evening and don't skip days.</p><p>Each bag holds 60 gummies: a full month.</p>",
+        "cta_label": "GET MY CONFIDENCE BACK",
+        "cta_url": "#shopify-section-main",
+        "cta_footnote": "shield | 90 Day Money Back Guarantee\ntruck | Free Shipping",
+        "cta_arrow": true,
+        "cta_width": "full",
+        "color_scheme": "scheme-eros-light",
+        "padding_top": 32,
+        "padding_bottom": 40
+      }
+    },
     "sticky": {
       "type": "ces-sticky-atc",
       "settings": {
@@ -1795,92 +1881,6 @@
         "hide_over_target": true,
         "hide_on_desktop": false,
         "color_scheme": "scheme-eros-light"
-      }
-    },
-    "ces_press_strip_pbVLiU": {
-      "type": "ces-press-strip",
-      "blocks": {
-        "logo_LK7gtr": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Men_s_Health.webp",
-            "alt": ""
-          }
-        },
-        "logo_wKxPRe": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/grindr-wordmark-1.webp",
-            "alt": ""
-          }
-        },
-        "logo_UyLqTR": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/WebMD_logo_f73ccf11-95ac-4aaf-b0fd-6c3fe9eea2bc.png",
-            "alt": ""
-          }
-        },
-        "logo_CiBzf8": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/132-1326461_mens-journal-01-mens-journal-september-2018-cover.png",
-            "alt": ""
-          }
-        },
-        "logo_He3wie": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/gq-logo-png-transparent.webp",
-            "alt": ""
-          }
-        },
-        "logo_DUQFib": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Healthline_logo_svg_52b907f7-7803-4306-b2c8-29b71ee574ad.png",
-            "alt": ""
-          }
-        },
-        "logo_q7jR7i": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Taxi_Maxim_Logo.webp",
-            "alt": ""
-          }
-        },
-        "logo_m4pcn7": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Logo_Askmen_COLOR.webp",
-            "alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_LK7gtr",
-        "logo_wKxPRe",
-        "logo_UyLqTR",
-        "logo_CiBzf8",
-        "logo_He3wie",
-        "logo_DUQFib",
-        "logo_q7jR7i",
-        "logo_m4pcn7"
-      ],
-      "name": "CES Press strip",
-      "settings": {
-        "label": "AS SEEN ON",
-        "logo_height": 54,
-        "gap": 15,
-        "scroll_mode": "mobile",
-        "duration": 25,
-        "pause_on_hover": true,
-        "show_rule_top": false,
-        "show_rule_bottom": true,
-        "rule_color": "#d1d1d1",
-        "color_scheme": "scheme-eros-peach",
-        "padding_top": 24,
-        "padding_bottom": 12
       }
     }
   },
